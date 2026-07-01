@@ -1,0 +1,34 @@
+{
+  "total_samples": 1806313,
+  "total_positives": 419150,
+  "top_100": {
+    "group_size": 100,
+    "positive_count": 27,
+    "negative_count": 73,
+    "precision": 0.27,
+    "recall": 6.442e-05,
+    "min_probability": 1.0,
+    "max_probability": 1.0,
+    "mean_probability": 1.0
+  },
+  "top_500": {
+    "group_size": 500,
+    "positive_count": 351,
+    "negative_count": 149,
+    "precision": 0.702,
+    "recall": 0.00083741,
+    "min_probability": 1.0,
+    "max_probability": 1.0,
+    "mean_probability": 1.0
+  },
+  "top_1000": {
+    "group_size": 1000,
+    "positive_count": 768,
+    "negative_count": 232,
+    "precision": 0.768,
+    "recall": 0.00183228,
+    "min_probability": 1.0,
+    "max_probability": 1.0,
+    "mean_probability": 1.0
+  }
+}

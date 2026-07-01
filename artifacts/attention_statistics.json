@@ -1,0 +1,152 @@
+{
+  "sample_sizes": {
+    "TP": 100,
+    "FP": 100,
+    "FN": 100
+  },
+  "summary_statistics": {
+    "TP": {
+      "entropy": {
+        "mean": 0.9962996960728642,
+        "median": 0.9957568018344962,
+        "std": 0.003043900985188184
+      },
+      "top_share": {
+        "mean": 0.03642965368926525,
+        "median": 0.03919770568609238,
+        "std": 0.010687841285018627
+      },
+      "top_1_pos": {
+        "mean": 15.88,
+        "median": 12.0,
+        "std": 15.78307954741406
+      },
+      "top_2_pos": {
+        "mean": 16.25,
+        "median": 14.0,
+        "std": 15.350162865585498
+      },
+      "top_3_pos": {
+        "mean": 16.93,
+        "median": 12.5,
+        "std": 15.893555297667039
+      }
+    },
+    "FP": {
+      "entropy": {
+        "mean": 0.9972601503276196,
+        "median": 0.9998817909922871,
+        "std": 0.0032626483103231864
+      },
+      "top_share": {
+        "mean": 0.03395995045080781,
+        "median": 0.024322747252881527,
+        "std": 0.012733187006482499
+      },
+      "top_1_pos": {
+        "mean": 10.32,
+        "median": 0.0,
+        "std": 14.529886441400702
+      },
+      "top_2_pos": {
+        "mean": 11.38,
+        "median": 1.0,
+        "std": 14.692705673224381
+      },
+      "top_3_pos": {
+        "mean": 11.15,
+        "median": 2.0,
+        "std": 13.954479567508065
+      }
+    },
+    "FN": {
+      "entropy": {
+        "mean": 0.9999988483963043,
+        "median": 0.999999954744203,
+        "std": 8.615890236599498e-06
+      },
+      "top_share": {
+        "mean": 0.022803481314331294,
+        "median": 0.022749044001102448,
+        "std": 0.0003725468570649227
+      },
+      "top_1_pos": {
+        "mean": 3.37,
+        "median": 2.0,
+        "std": 7.561289572553084
+      },
+      "top_2_pos": {
+        "mean": 3.15,
+        "median": 1.0,
+        "std": 6.287089946867311
+      },
+      "top_3_pos": {
+        "mean": 3.64,
+        "median": 2.0,
+        "std": 6.253830825981784
+      }
+    }
+  },
+  "significance_tests": {
+    "FP_vs_TP": {
+      "entropy": {
+        "mwu_pvalue": 0.027873898288028796,
+        "mwu_effect_size": -0.18009999999999993,
+        "ks_pvalue": 0.009878183186176536,
+        "ks_statistic": 0.23
+      },
+      "top_share": {
+        "mwu_pvalue": 0.08878892895909433,
+        "mwu_effect_size": 0.13939999999999997,
+        "ks_pvalue": 0.0061340334218580265,
+        "ks_statistic": 0.24
+      },
+      "top_1_pos": {
+        "mwu_pvalue": 0.004270736702943141,
+        "mwu_effect_size": 0.22150000000000003,
+        "ks_pvalue": 0.015577131622877688,
+        "ks_statistic": 0.22
+      }
+    },
+    "FP_vs_FN": {
+      "entropy": {
+        "mwu_pvalue": 2.016047267132583e-32,
+        "mwu_effect_size": 0.9688,
+        "ks_pvalue": 1.9509242595079607e-39,
+        "ks_statistic": 0.87
+      },
+      "top_share": {
+        "mwu_pvalue": 1.3220370220385912e-32,
+        "mwu_effect_size": -0.9734,
+        "ks_pvalue": 8.565354736103848e-42,
+        "ks_statistic": 0.89
+      },
+      "top_1_pos": {
+        "mwu_pvalue": 0.9814328738463898,
+        "mwu_effect_size": -0.0019000000000000128,
+        "ks_pvalue": 0.0002248739317492479,
+        "ks_statistic": 0.3
+      }
+    },
+    "FN_vs_TP": {
+      "entropy": {
+        "mwu_pvalue": 8.420223454086517e-34,
+        "mwu_effect_size": -0.9903,
+        "ks_pvalue": 5.600644140061753e-50,
+        "ks_statistic": 0.95
+      },
+      "top_share": {
+        "mwu_pvalue": 1.1088823641360017e-33,
+        "mwu_effect_size": 0.9902,
+        "ks_pvalue": 1.4287357500157535e-51,
+        "ks_statistic": 0.96
+      },
+      "top_1_pos": {
+        "mwu_pvalue": 3.501359108416742e-05,
+        "mwu_effect_size": 0.33020000000000005,
+        "ks_pvalue": 1.0024645454361508e-11,
+        "ks_statistic": 0.5
+      }
+    }
+  }
+}

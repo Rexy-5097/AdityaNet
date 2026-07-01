@@ -1,0 +1,96 @@
+{
+  "nodes": [
+    {
+      "id": "patchtst_best.pt",
+      "type": "model_weights",
+      "file_path": "artifacts/models/patchtst_best.pt"
+    },
+    {
+      "id": "calibrator.pkl",
+      "type": "calibration_model",
+      "file_path": "artifacts/calibrator.pkl"
+    },
+    {
+      "id": "operator_thresholds.json",
+      "type": "threshold_policy",
+      "file_path": "artifacts/operator_thresholds.json"
+    },
+    {
+      "id": "operator_thresholds_validation_only.json",
+      "type": "threshold_policy",
+      "file_path": "artifacts/operator_thresholds_validation_only.json"
+    },
+    {
+      "id": "operational_thresholds.json",
+      "type": "threshold_policy",
+      "file_path": "artifacts/operational_thresholds.json"
+    },
+    {
+      "id": "app/services/ml/model.py",
+      "type": "source_code",
+      "file_path": "app/services/ml/model.py"
+    },
+    {
+      "id": "app/services/ml/inference.py",
+      "type": "source_code",
+      "file_path": "app/services/ml/inference.py"
+    },
+    {
+      "id": "app/services/ml/explainability.py",
+      "type": "source_code",
+      "file_path": "app/services/ml/explainability.py"
+    },
+    {
+      "id": "app/services/operations/impact.py",
+      "type": "source_code",
+      "file_path": "app/services/operations/impact.py"
+    },
+    {
+      "id": "app/api/v1/endpoints/inference.py",
+      "type": "api_endpoint",
+      "file_path": "app/api/v1/endpoints/inference.py"
+    }
+  ],
+  "edges": [
+    {
+      "source": "app/api/v1/endpoints/inference.py",
+      "target": "app/services/ml/inference.py",
+      "relation": "instantiates and calls predict()"
+    },
+    {
+      "source": "app/services/ml/inference.py",
+      "target": "patchtst_best.pt",
+      "relation": "loads state_dict weights"
+    },
+    {
+      "source": "app/services/ml/inference.py",
+      "target": "calibrator.pkl",
+      "relation": "loads calibration wrapper"
+    },
+    {
+      "source": "app/services/ml/inference.py",
+      "target": "operator_thresholds.json",
+      "relation": "loads thresholds & uncertainty suppressions"
+    },
+    {
+      "source": "app/services/ml/inference.py",
+      "target": "app/services/ml/explainability.py",
+      "relation": "calls get_top_attention_patches()"
+    },
+    {
+      "source": "app/services/ml/inference.py",
+      "target": "app/services/operations/impact.py",
+      "relation": "calls get_mission_impact_assessment()"
+    },
+    {
+      "source": "app/services/ml/explainability.py",
+      "target": "app/services/ml/model.py",
+      "relation": "calls extract_attention_maps()"
+    },
+    {
+      "source": "app/services/ml/inference.py",
+      "target": "app/services/ml/model.py",
+      "relation": "calls predict_with_uncertainty()"
+    }
+  ]
+}

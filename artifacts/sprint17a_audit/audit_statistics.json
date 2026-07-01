@@ -1,0 +1,10 @@
+{
+  "audit_samples_count": 3213,
+  "multi_flag_samples_count": 2145,
+  "multi_flag_samples_percentage": 66.76003734827263,
+  "multi_category_match_count": 2144,
+  "multi_category_match_percentage": 66.72891378773733,
+  "baseline_unknowns_count": 165,
+  "unknown_consistency_check_failures": 0,
+  "completeness_invariants_status": "PASS"
+}

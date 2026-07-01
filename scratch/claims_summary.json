@@ -1,0 +1,245 @@
+{
+  "provenance_audit": {
+    "HEL1OS": {
+      "file_count": 960,
+      "total_bytes_downloaded": 147456000,
+      "date_range": "2023-10-29 to 2026-06-14",
+      "origin": "fallback_generation"
+    },
+    "SoLEXS": {
+      "file_count": 915,
+      "total_bytes_downloaded": 187392000,
+      "date_range": "2023-12-13 to 2026-06-14",
+      "origin": "fallback_generation"
+    },
+    "contains_real_observations": false,
+    "audit_conclusion": "The overlap_dataset.parquet consists entirely of mock-generated telemetry derived from synthetic fallback FITS templates. It does not contain real Aditya-L1 observations."
+  },
+  "train_test_boundary_audit": {
+    "splits": {
+      "train": {
+        "min_timestamp": "2010-01-02 00:30:00",
+        "max_timestamp": "2019-12-31 23:59:00"
+      },
+      "validation": {
+        "min_timestamp": "2020-01-01 00:00:00",
+        "max_timestamp": "2022-12-31 23:59:00"
+      },
+      "test": {
+        "min_timestamp": "2023-01-01 00:00:00",
+        "max_timestamp": "2026-06-14 23:51:00"
+      }
+    },
+    "boundary_gaps": {
+      "train_to_validation_gap_seconds": 60.0,
+      "validation_to_test_gap_seconds": 60.0,
+      "train_to_test_gap_seconds": 94694460.0
+    },
+    "isolation_checks": {
+      "train_val_isolated": true,
+      "val_test_isolated": true,
+      "all_isolated": true
+    },
+    "verdict": "PASS"
+  },
+  "corpus_completeness_audit": {
+    "section_1": {
+      "hel1os": {
+        "total_fits_files": 10,
+        "earliest_observation": "2026-06-10",
+        "latest_observation": "2026-06-14",
+        "unique_observation_days": 5,
+        "observation_dates": [
+          "2026-06-10",
+          "2026-06-11",
+          "2026-06-12",
+          "2026-06-13",
+          "2026-06-14"
+        ]
+      },
+      "solexs": {
+        "total_files": 10,
+        "earliest_observation": "2026-06-02",
+        "latest_observation": "2026-06-13",
+        "unique_observation_days": 10,
+        "observation_dates": [
+          "2026-06-02",
+          "2026-06-03",
+          "2026-06-05",
+          "2026-06-06",
+          "2026-06-07",
+          "2026-06-08",
+          "2026-06-10",
+          "2026-06-11",
+          "2026-06-12",
+          "2026-06-13"
+        ]
+      }
+    },
+    "section_2": {
+      "hel1os_parsed_files": 10,
+      "solexs_parsed_files": 10,
+      "total_failed_parses": 0,
+      "failed_files": []
+    },
+    "section_3": {
+      "n_hel1os_days": 5,
+      "n_solexs_days": 10,
+      "n_overlapping_days": 4,
+      "overlapping_days": [
+        "2026-06-10",
+        "2026-06-11",
+        "2026-06-12",
+        "2026-06-13"
+      ],
+      "overlap_start": "2026-06-10",
+      "overlap_end": "2026-06-13"
+    },
+    "section_4": {
+      "expected_window_start": "2023-12-13",
+      "expected_window_end": "2026-06-14",
+      "expected_overlap_days": 915,
+      "actual_overlap_days": 4,
+      "overlap_percentage": 0.437158
+    },
+    "section_5": {
+      "actual_overlap_start": "2026-06-10",
+      "actual_overlap_end": "2026-06-13",
+      "total_flare_events": 62,
+      "C_class": 55,
+      "M_class": 0,
+      "X_class": 0,
+      "B_class": 7,
+      "other_class": 0
+    },
+    "section_6": {
+      "total_aligned_minutes": 5760,
+      "total_aligned_hours": 96.0,
+      "total_aligned_days": 4.0
+    }
+  },
+  "overlap_corpus_statistics": {
+    "section_1": {
+      "overlap_start": "2026-06-10 00:00:00",
+      "overlap_end": "2026-06-13 23:59:00",
+      "total_minutes": 5760,
+      "total_hours": 96.0,
+      "total_days": 4.0
+    },
+    "section_2": {
+      "expected_timestamps": 5760,
+      "observed_timestamps": 5760,
+      "coverage_pct": 100.0,
+      "n_gaps": 0,
+      "longest_gap_minutes": 0,
+      "median_gap_minutes": 0
+    },
+    "section_6": {
+      "C_class_windows": 1333,
+      "M_class_windows": 0,
+      "X_class_windows": 0
+    }
+  },
+  "trust_gate_audit": {
+    "keys": [
+      "metadata",
+      "leakage_kill_test",
+      "temporal_stability_audit",
+      "feature_contribution_audit"
+    ],
+    "task_1_leakage_kill_test": {},
+    "task_3_feature_contribution_table": null
+  },
+  "trust_gate_validation": {
+    "total_discrepancies": 5,
+    "metric_discrepancies": [
+      {
+        "path": "feature_contribution_audit.Model G (History + all compressed features).auc",
+        "audit": 0.7099101390405456,
+        "recomputed": 0.709762320404773,
+        "difference": 0.00014781863577251197
+      },
+      {
+        "path": "feature_contribution_audit.Model G (History + all compressed features).pr_auc",
+        "audit": 0.8035512069616312,
+        "recomputed": 0.8035986029551838,
+        "difference": 4.7395993552634685e-05
+      },
+      {
+        "path": "feature_contribution_audit.Model G (History + all compressed features).brier",
+        "audit": 0.20008514316487644,
+        "recomputed": 0.20015511558321347,
+        "difference": 6.997241833703316e-05
+      },
+      {
+        "path": "feature_contribution_audit.Model G (History + all compressed features).tss_at_05",
+        "audit": 0.17023285918603837,
+        "recomputed": 0.16871540850318556,
+        "difference": 0.0015174506828528056
+      },
+      {
+        "path": "feature_contribution_audit.Model G (History + all compressed features).max_tss",
+        "audit": 0.3802357245307335,
+        "recomputed": 0.37999850822737063,
+        "difference": 0.00023721630336287491
+      }
+    ],
+    "missing_artifacts": [],
+    "failed_recomputations": []
+  },
+  "window_overlap_audit": {
+    "offsets": [
+      "total_positive_target_rows",
+      "overlap_audit"
+    ],
+    "sample_offset": null
+  },
+  "file_inventory": {
+    "HEL1OS": {
+      "total_fits_count": 140,
+      "pha_count": 40,
+      "event_count": 10,
+      "gti_count": 40,
+      "lightcurve_count": 40
+    },
+    "SoLEXS": {
+      "total_fits_count": 40,
+      "pha_count": 10,
+      "event_count": 0,
+      "gti_count": 20,
+      "lightcurve_count": 10
+    }
+  },
+  "archive_inventory": {
+    "HEL1OS": {
+      "file_name": "hel1os_2026Jun16T003312471.zip",
+      "file_size_bytes": 469180495,
+      "modification_date": "2026-06-16 06:05:24",
+      "total_file_count": 160,
+      "total_fits_file_count": 140,
+      "directory_structure_summary": [
+        "<year>",
+        "<year>/<month>",
+        "<year>/<month>/<day>",
+        "<year>/<month>/<day>/HLS_<date>_lev1",
+        "<year>/<month>/<day>/HLS_<date>_lev1/aux",
+        "<year>/<month>/<day>/HLS_<date>_lev1/aux/cztdis",
+        "<year>/<month>/<day>/HLS_<date>_lev1/cdte",
+        "<year>/<month>/<day>/HLS_<date>_lev1/czt",
+        "<year>/<month>/<day>/HLS_<date>_lev1/events"
+      ]
+    },
+    "SoLEXS": {
+      "file_name": "solexs_2026Jun16T003150046.zip",
+      "file_size_bytes": 49368812,
+      "modification_date": "2026-06-16 06:02:18",
+      "total_file_count": 40,
+      "total_fits_file_count": 40,
+      "directory_structure_summary": [
+        "AL1_SLX_L1_<date>_v1.0",
+        "AL1_SLX_L1_<date>_v1.0/SDD1",
+        "AL1_SLX_L1_<date>_v1.0/SDD2"
+      ]
+    }
+  }
+}

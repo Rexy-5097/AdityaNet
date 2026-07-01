@@ -1,0 +1,74 @@
+{
+  "verdict": "PASS",
+  "flares": [
+    {
+      "date": "2026-06-10",
+      "flare_interval": {
+        "start": "2026-06-10 23:35:00",
+        "peak": "2026-06-10 23:59:00",
+        "end": "2026-06-11 00:10:00"
+      },
+      "hxr_peak_time": "2026-06-10 23:48:10",
+      "goes_sxr_peak_time": "2026-06-11 00:02:00",
+      "solexs_sxr_peak_time": "2026-06-10 23:56:19",
+      "correlations": {
+        "hxr_vs_d_solexs_dt": 0.0385888874842203,
+        "hxr_vs_d_goes_dt": 0.08673204261951507,
+        "integrated_hxr_vs_solexs": 0.9714824245701306,
+        "integrated_hxr_vs_goes": 0.9758411334154512
+      },
+      "timing_lags_seconds": {
+        "hxr_vs_d_solexs_dt": 111.0,
+        "hxr_vs_d_goes_dt": 339.0
+      },
+      "signal_to_noise_ratio": 4.8017005727560464,
+      "passed": true
+    },
+    {
+      "date": "2026-06-11",
+      "flare_interval": {
+        "start": "2026-06-11 08:15:00",
+        "peak": "2026-06-11 08:28:00",
+        "end": "2026-06-11 08:45:00"
+      },
+      "hxr_peak_time": "2026-06-11 08:26:19",
+      "goes_sxr_peak_time": "2026-06-11 08:28:00",
+      "solexs_sxr_peak_time": "2026-06-11 08:28:09",
+      "correlations": {
+        "hxr_vs_d_solexs_dt": 0.4376297889353379,
+        "hxr_vs_d_goes_dt": 0.464361471750574,
+        "integrated_hxr_vs_solexs": 0.7994977488852096,
+        "integrated_hxr_vs_goes": 0.8708961127692194
+      },
+      "timing_lags_seconds": {
+        "hxr_vs_d_solexs_dt": -38.0,
+        "hxr_vs_d_goes_dt": -11.0
+      },
+      "signal_to_noise_ratio": 9.247859736395766,
+      "passed": true
+    },
+    {
+      "date": "2026-06-12",
+      "flare_interval": {
+        "start": "2026-06-12 02:05:00",
+        "peak": "2026-06-12 02:14:00",
+        "end": "2026-06-12 02:30:00"
+      },
+      "hxr_peak_time": "2026-06-12 02:10:31",
+      "goes_sxr_peak_time": "2026-06-12 02:14:00",
+      "solexs_sxr_peak_time": "2026-06-12 02:13:25",
+      "correlations": {
+        "hxr_vs_d_solexs_dt": 0.09787989514475923,
+        "hxr_vs_d_goes_dt": 0.09481532289139999,
+        "integrated_hxr_vs_solexs": 0.7975284614843208,
+        "integrated_hxr_vs_goes": 0.8817093588290844
+      },
+      "timing_lags_seconds": {
+        "hxr_vs_d_solexs_dt": -128.0,
+        "hxr_vs_d_goes_dt": -60.0
+      },
+      "signal_to_noise_ratio": 3.505373099268497,
+      "passed": true
+    }
+  ]
+}

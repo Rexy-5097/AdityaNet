@@ -1,0 +1,35 @@
+{
+  "baseline": {
+    "Precision": 0.39033256,
+    "Recall": 0.72265178,
+    "FAR": 0.60966744,
+    "FalseEpisodesPerMonth": 6.9245
+  },
+  "experiment_1_decay_suppression": {
+    "Precision": 0.38838518,
+    "Recall": 0.71148339,
+    "FAR": 0.61161482,
+    "FalseEpisodesPerMonth": 7.1625,
+    "Relative_FAR_Reduction": -0.003184,
+    "Relative_Precision_Gain": -0.00498903,
+    "Relative_Recall_Gain": -0.01545473
+  },
+  "experiment_2_quiet_promotion": {
+    "Precision": 0.39034952,
+    "Recall": 0.72279496,
+    "FAR": 0.60965048,
+    "FalseEpisodesPerMonth": 6.9483,
+    "Relative_FAR_Reduction": 2.782e-05,
+    "Relative_Precision_Gain": 4.345e-05,
+    "Relative_Recall_Gain": 0.00019813
+  },
+  "experiment_3_combined": {
+    "Precision": 0.38840263,
+    "Recall": 0.71162658,
+    "FAR": 0.61159737,
+    "FalseEpisodesPerMonth": 7.1863,
+    "Relative_FAR_Reduction": -0.00315556,
+    "Relative_Precision_Gain": -0.00494432,
+    "Relative_Recall_Gain": -0.01525659
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "section_1_dataset_size": {
+    "overlap_start": "2026-06-10 00:00:00",
+    "overlap_end": "2026-06-13 23:59:00",
+    "total_minutes": 5760,
+    "total_hours": 96.0,
+    "total_days": 4.0
+  },
+  "section_2_coverage": {
+    "expected_timestamps": 5760,
+    "observed_timestamps": 5760,
+    "coverage_pct": 100.0,
+    "n_gaps": 0,
+    "longest_gap_minutes": 0,
+    "median_gap_minutes": 0
+  },
+  "section_3_hel1os_statistics": {
+    "hel1os_hard_flux_low": {
+      "mean": 13.006940424793324,
+      "std": 3.3958750108911406,
+      "min": 4.966666666666667,
+      "max": 144.66666666666666,
+      "median": 12.75,
+      "p95": 16.85916666666667,
+      "p99": 19.426166666666692
+    },
+    "hel1os_hard_flux_high": {
+      "mean": 24.990792492448293,
+      "std": 4.898015822448348,
+      "min": 11.083333333333334,
+      "max": 219.1875,
+      "median": 24.775,
+      "p95": 29.866666666666667,
+      "p99": 33.191833333333335
+    }
+  },
+  "section_4_solexs_statistics": {
+    "solexs_soft_flux": {
+      "mean": 13.3817432958273,
+      "std": 29.31906408093847,
+      "min": 2.6,
+      "max": 412.95,
+      "median": 6.35,
+      "p95": 36.25,
+      "p99": 221.4900000000001
+    },
+    "solexs_gradient_5m": {
+      "mean": 3.642127885889468e-05,
+      "std": 2.78096168811165,
+      "min": -63.67999999999999,
+      "max": 80.24,
+      "median": -0.02666666666666657,
+      "p95": 0.6333333333333334,
+      "p99": 3.669433333333303
+    }
+  },
+  "section_5_joint_statistics": {
+    "soft_hard_ratio": {
+      "mean": 0.34416083978019535,
+      "std": 0.6853551370744095,
+      "min": 0.016109092733552252,
+      "max": 8.356490720440325,
+      "median": 0.17197692775963272,
+      "p95": 0.9508798319574706,
+      "p99": 4.6411288176444
+    }
+  },
+  "section_6_flare_counts": {
+    "C_class_windows": 1333,
+    "M_class_windows": 0,
+    "X_class_windows": 0
+  },
+  "section_7_correlation_matrix": {
+    "short_flux": {
+      "short_flux": 1.0,
+      "long_flux": 0.936736,
+      "hel1os_hard_flux_low": 0.226129,
+      "hel1os_hard_flux_high": 0.180339,
+      "solexs_soft_flux": 0.973101,
+      "solexs_gradient_5m": 0.353086
+    },
+    "long_flux": {
+      "short_flux": 0.936736,
+      "long_flux": 1.0,
+      "hel1os_hard_flux_low": 0.162275,
+      "hel1os_hard_flux_high": 0.128481,
+      "solexs_soft_flux": 0.983355,
+      "solexs_gradient_5m": 0.178254
+    },
+    "hel1os_hard_flux_low": {
+      "short_flux": 0.226129,
+      "long_flux": 0.162275,
+      "hel1os_hard_flux_low": 1.0,
+      "hel1os_hard_flux_high": 0.959963,
+      "solexs_soft_flux": 0.183584,
+      "solexs_gradient_5m": 0.18201
+    },
+    "hel1os_hard_flux_high": {
+      "short_flux": 0.180339,
+      "long_flux": 0.128481,
+      "hel1os_hard_flux_low": 0.959963,
+      "hel1os_hard_flux_high": 1.0,
+      "solexs_soft_flux": 0.146589,
+      "solexs_gradient_5m": 0.142782
+    },
+    "solexs_soft_flux": {
+      "short_flux": 0.973101,
+      "long_flux": 0.983355,
+      "hel1os_hard_flux_low": 0.183584,
+      "hel1os_hard_flux_high": 0.146589,
+      "solexs_soft_flux": 1.0,
+      "solexs_gradient_5m": 0.242888
+    },
+    "solexs_gradient_5m": {
+      "short_flux": 0.353086,
+      "long_flux": 0.178254,
+      "hel1os_hard_flux_low": 0.18201,
+      "hel1os_hard_flux_high": 0.142782,
+      "solexs_soft_flux": 0.242888,
+      "solexs_gradient_5m": 1.0
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-02-02T01:22:00.000000000",
+  "global_index": 70282,
+  "label": "TP",
+  "target": 1,
+  "calibrated_probability": 1.0,
+  "raw_probability": 0.69140625,
+  "agreement_cosine": 0.4789773027193734,
+  "ig_group_attribution": {
+    "Flux": -0.06159712577463239,
+    "Counts": 3.195392429828644,
+    "Rates": -0.011851278133690357,
+    "Temporal": -1.6020238399505615,
+    "Derived": -5.314898562864059e-07
+  },
+  "shap_group_attribution": {
+    "Flux": -0.10675283173720042,
+    "Counts": 0.05285770793755851,
+    "Rates": -0.0064687023560206095,
+    "Temporal": -1.5183814704418184,
+    "Derived": -3.6656856536865236e-07
+  }
+}

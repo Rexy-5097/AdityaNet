@@ -1,0 +1,139 @@
+{
+  "original_metrics": {
+    "tp": 389229,
+    "fp": 969386,
+    "fn": 29921,
+    "tn": 417777,
+    "pod": 0.928615054276512,
+    "pofd": 0.6988263095252685,
+    "tss": 0.22978874475124356,
+    "far": 0.7135104499803109,
+    "precision": 0.2864895500196892,
+    "recall": 0.928615054276512,
+    "f1": 0.43788577230398845,
+    "roc_auc": 0.7485138191198613,
+    "pr_auc": 0.49504222148278926,
+    "brier_score": 0.23647454380989075
+  },
+  "recomputed_metrics": {
+    "tp": 389229,
+    "fp": 969386,
+    "fn": 29921,
+    "tn": 417777,
+    "pod": 0.928615054276512,
+    "pofd": 0.6988263095252685,
+    "tss": 0.22978874475124356,
+    "far": 0.7135104499803109,
+    "precision": 0.2864895500196892,
+    "recall": 0.928615054276512,
+    "f1": 0.43788577230398845,
+    "roc_auc": 0.7485138191198613,
+    "pr_auc": 0.49504222148278926,
+    "brier_score": 0.23647454380989075
+  },
+  "fresh_inference_metrics": {
+    "tp": 389229,
+    "fp": 969386,
+    "fn": 29921,
+    "tn": 417777,
+    "pod": 0.928615054276512,
+    "pofd": 0.6988263095252685,
+    "tss": 0.22978874475124356,
+    "far": 0.7135104499803109,
+    "precision": 0.2864895500196892,
+    "recall": 0.928615054276512,
+    "f1": 0.43788577230398845,
+    "roc_auc": 0.7485138191198613,
+    "pr_auc": 0.49504222148278926,
+    "brier_score": 0.23647454380989075
+  },
+  "threshold_used": 0.33666666666666667,
+  "checkpoint_threshold": 0.33666666666666667,
+  "thresholds_match": true,
+  "dataset_consistency": {
+    "test_parquet_total": 1806313,
+    "test_parquet_pos": 419150,
+    "test_parquet_neg": 1387163,
+    "saved_labels_total": 1806313,
+    "saved_labels_pos": 419150,
+    "saved_labels_neg": 1387163,
+    "passed": true
+  },
+  "metric_differences": {
+    "brier_score": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "f1": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "far": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "fn": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "fp": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "pod": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "pofd": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "pr_auc": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "precision": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "recall": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "roc_auc": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "tn": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "tp": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    },
+    "tss": {
+      "orig_vs_recomp": 0.0,
+      "orig_vs_fresh": 0.0,
+      "max_diff": 0.0
+    }
+  },
+  "pass_or_fail": "PASS",
+  "best_test_threshold_sweep": {
+    "threshold": 0.39000000000000007,
+    "tss": 0.3825924729847082
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "goes_records": 17282,
+  "flare_records": 571,
+  "m_class_count": 29,
+  "x_class_count": 1,
+  "date_range": {
+    "start": "2015-03-01T00:00:00",
+    "end": "2026-06-14T15:14:00"
+  },
+  "missing_minutes": 5920753,
+  "gap_percentage": 99.7089609609913,
+  "quality_flag_distribution": {
+    "0": 17102,
+    "2": 153,
+    "1": 27
+  },
+  "class_distribution": {
+    "A": 0,
+    "B": 54,
+    "C": 487,
+    "M": 29,
+    "X": 1
+  }
+}

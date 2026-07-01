@@ -1,0 +1,97 @@
+{
+  "request_parameters": {
+    "flux_history": {
+      "type": "List[FluxRecord]",
+      "description": "Chronological 1-minute cadence flux records (must be 360-362 records)",
+      "mapped_backend_attributes": [
+        "df_input: pd.DataFrame (timestamp, short_flux, long_flux)",
+        "app/services/ml/features.py:compute_features(df)"
+      ],
+      "data_sources": [
+        "FastAPI post request body (TimescaleDB goesxrs table or real-time GOES satellite feeds)"
+      ]
+    }
+  },
+  "response_parameters": {
+    "alert_level": {
+      "type": "str (GREEN, YELLOW, RED)",
+      "mapped_backend_attributes": [
+        "curr_alert (returned from SuryaNetInferenceService.predict())"
+      ],
+      "computation_logic": "Raw alert determined by operator_thresholds.json, then tiered uncertainty suppression is applied, followed by RED confirmation (rolling average + slope), followed by Hard X-Ray Coincidence checks.",
+      "data_sources": [
+        "Calibrated model probabilities, uncertainty std dev, short_flux gradient/acceleration, and operator_thresholds.json"
+      ]
+    },
+    "probability": {
+      "type": "float",
+      "mapped_backend_attributes": [
+        "calibrated_probability (returned from SuryaNetInferenceService.predict())"
+      ],
+      "computation_logic": "CalibratorWrapper(method='isotonic', model) applied to mean model probability from MC Dropout samples.",
+      "data_sources": [
+        "Model predictions and artifacts/calibrator.pkl"
+      ]
+    },
+    "uncertainty": {
+      "type": "float",
+      "mapped_backend_attributes": [
+        "uncertainty_std (returned from SuryaNetInferenceService.predict())"
+      ],
+      "computation_logic": "Standard deviation of 50 Monte Carlo Dropout stochastic model runs.",
+      "data_sources": [
+        "Stochastic inference outputs from PatchTST model"
+      ]
+    },
+    "uncertainty_level": {
+      "type": "str (LOW, MEDIUM, HIGH)",
+      "mapped_backend_attributes": [
+        "unc_level in app/api/v1/endpoints/inference.py (line 179-183)"
+      ],
+      "computation_logic": "LOW if unc < 0.04, MEDIUM if unc <= 0.10, HIGH if unc > 0.10",
+      "data_sources": [
+        "computed uncertainty_std value"
+      ]
+    },
+    "confidence_level": {
+      "type": "str (HIGH, MEDIUM, LOW)",
+      "mapped_backend_attributes": [
+        "confidence_level (returned from SuryaNetInferenceService.predict())"
+      ],
+      "computation_logic": "HIGH if prob >= 0.88 and unc < 0.05; MEDIUM if prob >= 0.46 and unc < 0.10; LOW otherwise.",
+      "data_sources": [
+        "operator_thresholds.json confidence bounds and computed probability + uncertainty"
+      ]
+    },
+    "confirmation": {
+      "type": "str (CONFIRMED, UNCONFIRMED)",
+      "mapped_backend_attributes": [
+        "confirmation (returned from SuryaNetInferenceService.predict())"
+      ],
+      "computation_logic": "RED alert is confirmed if average of last 3 steps > 0.88 AND slope > 0.0, else UNCONFIRMED.",
+      "data_sources": [
+        "Rolling history of calibrated probabilities"
+      ]
+    },
+    "top_attention_patches": {
+      "type": "List[AttentionPatch]",
+      "mapped_backend_attributes": [
+        "top_attention_patches (returned from SuryaNetInferenceService.predict())"
+      ],
+      "computation_logic": "Mean CLS attention map across layers/heads, selecting top 3 patches. Timestamp mapped back to patch center. Physical context (flux value, gradient, rolling variance) computed at patch center timestamp.",
+      "data_sources": [
+        "Model attention weights and input long_flux history"
+      ]
+    },
+    "mission_impact": {
+      "type": "Optional[MissionImpact]",
+      "mapped_backend_attributes": [
+        "mission_impact (returned from SuryaNetInferenceService.predict())"
+      ],
+      "computation_logic": "Maps mapped alert level, probability, and uncertainty to specific spacecraft (Aditya-L1, INSAT-3DR, Cartosat-3) actions and recovery times using catalog logic.",
+      "data_sources": [
+        "app/services/operations/impact.py"
+      ]
+    }
+  }
+}

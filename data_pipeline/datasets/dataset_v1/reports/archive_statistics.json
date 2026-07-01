@@ -1,0 +1,12 @@
+{
+    "dataset_version": "dataset_v1",
+    "total_files": 436,
+    "verified_files": 10,
+    "failed_files": 1,
+    "corrupted_files": 425,
+    "duplicate_files": 0,
+    "coverage_start": "20240201",
+    "coverage_end": "20260615",
+    "missing_days": 430,
+    "total_data_volume_gb": 0.04625545348972082
+}

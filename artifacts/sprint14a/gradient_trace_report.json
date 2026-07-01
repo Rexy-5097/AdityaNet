@@ -1,0 +1,42 @@
+{
+  "audit_timestamp": "2026-06-19T10:06:35Z",
+  "stages": {
+    "stage1": {
+      "freeze_config": "solexs=FROZEN, hel1os=FROZEN, goes=ACTIVE",
+      "gradient_norms": {
+        "goes": 0.08169553504703295,
+        "solexs": 0.0,
+        "hel1os": 0.0,
+        "fusion": 0.17044035250622785,
+        "classifier": 0.08999859087179414,
+        "total": 0.2093413971673467
+      },
+      "goes_receives_gradients": true,
+      "solexs_receives_gradients": false,
+      "hel1os_receives_gradients": false,
+      "fusion_receives_gradients": true,
+      "head_receives_gradients": true
+    },
+    "stage2": {
+      "freeze_config": "all=ACTIVE",
+      "gradient_norms": {
+        "goes": 0.12899353547304598,
+        "solexs": 0.15585483422654164,
+        "hel1os": 0.22976883300351425,
+        "fusion": 0.30121895123663917,
+        "classifier": 0.16746121716931758,
+        "total": 0.4609771078972856
+      },
+      "goes_receives_gradients": true,
+      "solexs_receives_gradients": true,
+      "hel1os_receives_gradients": true,
+      "fusion_receives_gradients": true,
+      "head_receives_gradients": true
+    }
+  },
+  "per_epoch_gradient_norms": {},
+  "verdicts": {
+    "stage1_gradient_flow": "PASS",
+    "stage2_gradient_flow": "PASS"
+  }
+}

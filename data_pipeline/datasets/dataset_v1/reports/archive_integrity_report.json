@@ -1,0 +1,18 @@
+{
+    "report_type": "Scientific Archive Integrity Report",
+    "dataset_version": "dataset_v1",
+    "timestamp": "2026-06-18T07:14:53Z",
+    "duplicate_archives": 0,
+    "duplicate_observations": 0,
+    "overlapping_observations": 0,
+    "broken_observation_ranges": 430,
+    "timestamp_discontinuities": 0,
+    "invalid_fits": 1,
+    "unreadable_tables": 1,
+    "missing_headers": 0,
+    "quality_metrics": {
+        "monotonic_timestamps": true,
+        "duplicate_timestamps_detected": 0,
+        "nan_threshold_passed": true
+    }
+}

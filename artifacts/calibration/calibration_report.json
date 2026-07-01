@@ -1,0 +1,29 @@
+{
+  "raw_metrics": {
+    "brier": 0.23647450222602825,
+    "ece": 0.27219248784172617,
+    "roc_auc": 0.7485138191198613,
+    "pr_auc": 0.49504222148278926
+  },
+  "platt_metrics": {
+    "brier": 0.17087707233155602,
+    "ece": 0.12027284253876283,
+    "roc_auc": 0.7485138191938172,
+    "pr_auc": 0.49504222019454946
+  },
+  "isotonic_metrics": {
+    "brier": 0.15940616741357702,
+    "ece": 0.08761919752821726,
+    "roc_auc": 0.7482077950174735,
+    "pr_auc": 0.4747129609890704
+  },
+  "selected_method": "isotonic",
+  "brier_improvement_percent": 32.59054743195416,
+  "ece_improvement_percent": 67.80983993240626,
+  "roc_degradation_percent": 0.04088422879722097,
+  "operational_thresholds": {
+    "yellow_threshold": 0.09000000000000001,
+    "red_threshold": 0.19,
+    "uncertainty_threshold": 0.08
+  }
+}

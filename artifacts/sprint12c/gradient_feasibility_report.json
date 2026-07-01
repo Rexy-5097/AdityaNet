@@ -1,0 +1,64 @@
+{
+  "feasibility_status": "VERIFIED",
+  "stage_1_pretraining": {
+    "description": "GOES-only pretraining over historical period 2010-01-02 to 2023-12-12.",
+    "goes_encoder": {
+      "requires_grad": true,
+      "gradient_source": "Active GOES sequences",
+      "status": "Receives non-zero gradients"
+    },
+    "solexs_encoder": {
+      "requires_grad": false,
+      "gradient_source": "None (frozen)",
+      "status": "Zero gradients (parameters frozen)"
+    },
+    "hel1os_encoder": {
+      "requires_grad": false,
+      "gradient_source": "None (frozen)",
+      "status": "Zero gradients (parameters frozen)"
+    },
+    "fusion_layers": {
+      "requires_grad": true,
+      "status": "Receives non-zero gradients via GOES projection path"
+    }
+  },
+  "stage_2_fine_tuning": {
+    "description": "Multi-instrument fine-tuning over overlap period 2023-12-13 to 2026-06-14.",
+    "goes_encoder": {
+      "requires_grad": true,
+      "gradient_source": "Active GOES sequences (100.0% duty cycle in Train)",
+      "status": "Receives non-zero gradients"
+    },
+    "solexs_encoder": {
+      "requires_grad": true,
+      "gradient_source": "Active SoLEXS sequences (75.63% duty cycle in Train)",
+      "status": "Receives non-zero gradients on active samples"
+    },
+    "hel1os_encoder": {
+      "requires_grad": true,
+      "gradient_source": "Active HEL1OS sequences (99.98% duty cycle in Train)",
+      "status": "Receives non-zero gradients on active samples"
+    },
+    "missing_tokens": {
+      "solexs_missing_token": {
+        "requires_grad": true,
+        "gradient_source": "Gradients from samples where mask_solexs = 0.0 (24.37% of Train)",
+        "status": "Receives non-zero gradients"
+      },
+      "hel1os_missing_token": {
+        "requires_grad": true,
+        "gradient_source": "Gradients from samples where mask_hel1os = 0.0 (0.02% of Train)",
+        "status": "Receives non-zero gradients"
+      }
+    },
+    "fusion_layers": {
+      "requires_grad": true,
+      "status": "Receives non-zero gradients from all active branches"
+    }
+  },
+  "gradient_flow_mechanics": {
+    "masking_multiplication": "e_solexs = e_solexs_raw * mask_solexs + missing_token * (1.0 - mask_solexs)",
+    "active_sample_gradient": "d(Loss)/d(e_solexs_raw) = d(Loss)/d(e_solexs) * mask_solexs. When mask = 1.0, gradients propagate fully back through the encoder. When mask = 0.0, gradients propagate back only to the missing_token parameter, and encoder gradients are zeroed out.",
+    "feasibility_proof": "Since the Training split contains a high percentage of active samples for all three instruments (100.0% GOES, 75.63% SoLEXS, 99.98% HEL1OS), and also contains a non-zero portion of missing samples, every parameter in all three encoders, all projection layers, learnable missing tokens, fusion self-attention, and the classifier head will receive non-zero gradients over the course of Stage 2 training."
+  }
+}

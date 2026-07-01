@@ -1,0 +1,5 @@
+{
+  "yellow_threshold": 0.09000000000000001,
+  "red_threshold": 0.19,
+  "uncertainty_threshold": 0.08
+}

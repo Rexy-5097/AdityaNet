@@ -1,0 +1,90 @@
+{
+  "hard_soft_ratio": {
+    "Fold A": {
+      "degenerate": false,
+      "p_value": 1.0,
+      "significant": false
+    },
+    "Fold B": {
+      "degenerate": false,
+      "p_value": 0.186,
+      "significant": false
+    },
+    "Fold C": {
+      "degenerate": true,
+      "p_value": null,
+      "significant": false
+    },
+    "Fold D": {
+      "degenerate": false,
+      "p_value": 0.989,
+      "significant": false
+    }
+  },
+  "soft_band_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "p_value": 1.0,
+      "significant": false
+    },
+    "Fold B": {
+      "degenerate": false,
+      "p_value": 0.999,
+      "significant": false
+    },
+    "Fold C": {
+      "degenerate": true,
+      "p_value": null,
+      "significant": false
+    },
+    "Fold D": {
+      "degenerate": false,
+      "p_value": 0.0,
+      "significant": true
+    }
+  },
+  "pc1_projection": {
+    "Fold A": {
+      "degenerate": false,
+      "p_value": 1.0,
+      "significant": false
+    },
+    "Fold B": {
+      "degenerate": false,
+      "p_value": 1.0,
+      "significant": false
+    },
+    "Fold C": {
+      "degenerate": true,
+      "p_value": null,
+      "significant": false
+    },
+    "Fold D": {
+      "degenerate": false,
+      "p_value": 0.0,
+      "significant": true
+    }
+  },
+  "pc2_projection": {
+    "Fold A": {
+      "degenerate": false,
+      "p_value": 1.0,
+      "significant": false
+    },
+    "Fold B": {
+      "degenerate": false,
+      "p_value": 0.96,
+      "significant": false
+    },
+    "Fold C": {
+      "degenerate": true,
+      "p_value": null,
+      "significant": false
+    },
+    "Fold D": {
+      "degenerate": false,
+      "p_value": 0.966,
+      "significant": false
+    }
+  }
+}

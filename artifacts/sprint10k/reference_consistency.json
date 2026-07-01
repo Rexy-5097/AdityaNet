@@ -1,0 +1,244 @@
+[
+  {
+    "link": "frontend -> API",
+    "source": {
+      "name": "Frontend User Interface",
+      "path": "frontend/",
+      "exists": false,
+      "hash": "N/A",
+      "referenced_by": [],
+      "unreferenced": true,
+      "multiple_references": false
+    },
+    "target": {
+      "name": "FastAPI Inference Route",
+      "path": "app/api/v1/endpoints/inference.py",
+      "exists": true,
+      "hash": "e698198737ab8b1d5a3c3059a21eb3465545410189d5d6e838bc1c5954f4c3e5",
+      "referenced_by": [
+        "app/api/v1/api.py"
+      ],
+      "unreferenced": false,
+      "multiple_references": true
+    }
+  },
+  {
+    "link": "API -> prediction pipeline",
+    "source": {
+      "name": "FastAPI Inference Route",
+      "path": "app/api/v1/endpoints/inference.py",
+      "exists": true,
+      "hash": "e698198737ab8b1d5a3c3059a21eb3465545410189d5d6e838bc1c5954f4c3e5",
+      "referenced_by": [
+        "app/api/v1/api.py"
+      ],
+      "unreferenced": false,
+      "multiple_references": true
+    },
+    "target": {
+      "name": "Operational Inference Service",
+      "path": "app/services/ml/inference.py",
+      "exists": true,
+      "hash": "57e49d01a0d5b460ebc400be7f6f8de9e98ff7e396c463fb323b8fb0ce7bacd9",
+      "referenced_by": [
+        "app/api/v1/endpoints/inference.py"
+      ],
+      "unreferenced": false,
+      "multiple_references": false
+    }
+  },
+  {
+    "link": "prediction pipeline -> calibration",
+    "source": {
+      "name": "Operational Inference Service",
+      "path": "app/services/ml/inference.py",
+      "exists": true,
+      "hash": "57e49d01a0d5b460ebc400be7f6f8de9e98ff7e396c463fb323b8fb0ce7bacd9",
+      "referenced_by": [
+        "app/api/v1/endpoints/inference.py"
+      ],
+      "unreferenced": false,
+      "multiple_references": false
+    },
+    "target": {
+      "name": "Calibrator Model File",
+      "path": "artifacts/calibrator.pkl",
+      "exists": true,
+      "hash": "36fe68d47207b371b963744151666d533b3885885e46dfd12c99061b68d327ac",
+      "referenced_by": [
+        "app/services/ml/inference.py",
+        "scripts/refine_thresholds.py",
+        "scripts/backtest_operator_policy.py",
+        "scripts/generate_explainability_examples.py",
+        "scripts/run_calibration_verification.py"
+      ],
+      "unreferenced": false,
+      "multiple_references": true
+    }
+  },
+  {
+    "link": "calibration -> threshold",
+    "source": {
+      "name": "Calibrator Model File",
+      "path": "artifacts/calibrator.pkl",
+      "exists": true,
+      "hash": "36fe68d47207b371b963744151666d533b3885885e46dfd12c99061b68d327ac",
+      "referenced_by": [
+        "app/services/ml/inference.py",
+        "scripts/refine_thresholds.py",
+        "scripts/backtest_operator_policy.py",
+        "scripts/generate_explainability_examples.py",
+        "scripts/run_calibration_verification.py"
+      ],
+      "unreferenced": false,
+      "multiple_references": true
+    },
+    "target": {
+      "name": "Production Threshold Configuration",
+      "path": "artifacts/operator_thresholds.json",
+      "exists": true,
+      "hash": "033063ef0dfcae97966c3a37d0f5ef8ca05b0ced1df2e5f1c2a9788037f0ce10",
+      "referenced_by": [
+        "app/services/ml/inference.py"
+      ],
+      "unreferenced": false,
+      "multiple_references": false
+    }
+  },
+  {
+    "link": "threshold -> certificate",
+    "source": {
+      "name": "Validation Threshold Configuration",
+      "path": "artifacts/operator_thresholds_validation_only.json",
+      "exists": true,
+      "hash": "8e76ee49ef776755b0f717dc69deb3db91526f670e26889195a59d72a862922b",
+      "referenced_by": [
+        "artifacts/sprint10j/audit_runner.py",
+        "scripts/refine_thresholds.py",
+        "artifacts/operator_backtest.json",
+        "artifacts/explainability_examples.json"
+      ],
+      "unreferenced": false,
+      "multiple_references": true
+    },
+    "target": {
+      "name": "Prediction Certificate",
+      "path": "artifacts/sprint10j/prediction_certificate.json",
+      "exists": true,
+      "hash": "5eb4bc4d1c1e67e366e7c8cab05da22d653bacb70704de4a5e2ef9855a2351b7",
+      "referenced_by": [
+        "scratch/sprint10j/run_sprint10j.sh"
+      ],
+      "unreferenced": false,
+      "multiple_references": false
+    }
+  },
+  {
+    "link": "certificate -> artifacts",
+    "source": {
+      "name": "Prediction Certificate",
+      "path": "artifacts/sprint10j/prediction_certificate.json",
+      "exists": true,
+      "hash": "5eb4bc4d1c1e67e366e7c8cab05da22d653bacb70704de4a5e2ef9855a2351b7",
+      "referenced_by": [
+        "scratch/sprint10j/run_sprint10j.sh"
+      ],
+      "unreferenced": false,
+      "multiple_references": false
+    },
+    "target": {
+      "name": "Prediction Evidence Trace",
+      "path": "artifacts/sprint10j/prediction_evidence.json",
+      "exists": true,
+      "hash": "59c1c9ad2098cb68f2a2354b630f9d180982822f0cd2b8f2cd7cb33792581de2",
+      "referenced_by": [
+        "scratch/sprint10j/run_sprint10j.sh"
+      ],
+      "unreferenced": false,
+      "multiple_references": false
+    }
+  },
+  {
+    "link": "artifacts -> dataset",
+    "source": {
+      "name": "Prediction Evidence Trace",
+      "path": "artifacts/sprint10j/prediction_evidence.json",
+      "exists": true,
+      "hash": "59c1c9ad2098cb68f2a2354b630f9d180982822f0cd2b8f2cd7cb33792581de2",
+      "referenced_by": [
+        "scratch/sprint10j/run_sprint10j.sh"
+      ],
+      "unreferenced": false,
+      "multiple_references": false
+    },
+    "target": {
+      "name": "Research Test Dataset",
+      "path": "artifacts/research/test.parquet",
+      "exists": true,
+      "hash": "3f2b270f98a2480b37637f7e5461e5cc02ac8392d8af2ca9243cb3ad5edc5441",
+      "referenced_by": [
+        "artifacts/sprint10j/audit_runner.py",
+        "scratch/sprint10j/run_evidence_chain.py"
+      ],
+      "unreferenced": false,
+      "multiple_references": true
+    }
+  },
+  {
+    "link": "dataset -> model",
+    "source": {
+      "name": "Research Test Dataset",
+      "path": "artifacts/research/test.parquet",
+      "exists": true,
+      "hash": "3f2b270f98a2480b37637f7e5461e5cc02ac8392d8af2ca9243cb3ad5edc5441",
+      "referenced_by": [
+        "artifacts/sprint10j/audit_runner.py",
+        "scratch/sprint10j/run_evidence_chain.py"
+      ],
+      "unreferenced": false,
+      "multiple_references": true
+    },
+    "target": {
+      "name": "PatchTST Best Checkpoint",
+      "path": "artifacts/models/patchtst_best.pt",
+      "exists": true,
+      "hash": "010dc798b2a4625365d1551c2f7710ba3eb23d5eaada2145cb9bcf947ca21484",
+      "referenced_by": [
+        "app/services/ml/inference.py",
+        "artifacts/sprint10j/audit_runner.py",
+        "scratch/sprint10j/run_evidence_chain.py"
+      ],
+      "unreferenced": false,
+      "multiple_references": true
+    }
+  },
+  {
+    "link": "model -> feature schema",
+    "source": {
+      "name": "PatchTST Best Checkpoint",
+      "path": "artifacts/models/patchtst_best.pt",
+      "exists": true,
+      "hash": "010dc798b2a4625365d1551c2f7710ba3eb23d5eaada2145cb9bcf947ca21484",
+      "referenced_by": [
+        "app/services/ml/inference.py",
+        "artifacts/sprint10j/audit_runner.py",
+        "scratch/sprint10j/run_evidence_chain.py"
+      ],
+      "unreferenced": false,
+      "multiple_references": true
+    },
+    "target": {
+      "name": "Feature Columns Configuration",
+      "path": "artifacts/feature_columns.json",
+      "exists": true,
+      "hash": "e499492381c93a40c7a78fd00c3dfcda57bb2bec0b2d2059ffe7463b8c7dbae0",
+      "referenced_by": [
+        "app/services/ml/inference.py",
+        "artifacts/sprint10j/audit_runner.py",
+        "scratch/sprint10j/run_evidence_chain.py"
+      ],
+      "unreferenced": false,
+      "multiple_references": true
+    }
+  }
+]

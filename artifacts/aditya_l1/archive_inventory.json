@@ -1,0 +1,32 @@
+{
+  "HEL1OS": {
+    "file_name": "hel1os_2026Jun16T003312471.zip",
+    "file_size_bytes": 469180495,
+    "modification_date": "2026-06-16 06:05:24",
+    "total_file_count": 160,
+    "total_fits_file_count": 140,
+    "directory_structure_summary": [
+      "<year>",
+      "<year>/<month>",
+      "<year>/<month>/<day>",
+      "<year>/<month>/<day>/HLS_<date>_lev1",
+      "<year>/<month>/<day>/HLS_<date>_lev1/aux",
+      "<year>/<month>/<day>/HLS_<date>_lev1/aux/cztdis",
+      "<year>/<month>/<day>/HLS_<date>_lev1/cdte",
+      "<year>/<month>/<day>/HLS_<date>_lev1/czt",
+      "<year>/<month>/<day>/HLS_<date>_lev1/events"
+    ]
+  },
+  "SoLEXS": {
+    "file_name": "solexs_2026Jun16T003150046.zip",
+    "file_size_bytes": 49368812,
+    "modification_date": "2026-06-16 06:02:18",
+    "total_file_count": 40,
+    "total_fits_file_count": 40,
+    "directory_structure_summary": [
+      "AL1_SLX_L1_<date>_v1.0",
+      "AL1_SLX_L1_<date>_v1.0/SDD1",
+      "AL1_SLX_L1_<date>_v1.0/SDD2"
+    ]
+  }
+}

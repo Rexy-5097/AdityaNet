@@ -1,0 +1,19 @@
+{
+  "n_samples": 1806313,
+  "positive_rate": 0.23204727470874786,
+  "calibrator_method": "isotonic",
+  "probs_source_file": "artifacts/calibration/probs.npy",
+  "labels_source_file": "artifacts/calibration/labels.npy",
+  "raw_brier_score": 0.23647450222602825,
+  "calibrated_brier_score": 0.15940616741357702,
+  "raw_ece": 0.27219248784172617,
+  "calibrated_ece": 0.08761919752821726,
+  "raw_roc_auc": 0.7485138191198613,
+  "calibrated_roc_auc": 0.7482077950174735,
+  "raw_pr_auc": 0.49504222148278926,
+  "calibrated_pr_auc": 0.4747129609890704,
+  "brier_delta": -0.07706833481245123,
+  "ece_delta": -0.18457329031350891,
+  "roc_auc_delta": -0.00030602410238778077,
+  "pr_auc_delta": -0.02032926049371886
+}

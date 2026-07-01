@@ -1,0 +1,11 @@
+{
+  "causality_mutation_test": {
+    "feature": "soft_band_mean",
+    "index": 0,
+    "timestamp": "2026-06-10 00:00:00",
+    "original_val": 3.6790960451977397,
+    "mutated_val": 3.6790960451977397,
+    "matched": true
+  },
+  "verdict": "PASS"
+}

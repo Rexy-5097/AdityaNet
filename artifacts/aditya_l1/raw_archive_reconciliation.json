@@ -1,0 +1,871 @@
+{
+  "section_1_total_file_count": 200,
+  "section_2_counts_by_category": {
+    "hel1os_lightcurve": 40,
+    "hel1os_spectra": 40,
+    "hel1os_gti": 40,
+    "hel1os_event": 10,
+    "hel1os_housekeeping": 10,
+    "solexs_lightcurve": 10,
+    "solexs_spectra": 10,
+    "solexs_gti": 20,
+    "hel1os_other": 20
+  },
+  "section_3_observation_dates": {
+    "all_unique_dates": [
+      "2026-06-02",
+      "2026-06-03",
+      "2026-06-05",
+      "2026-06-06",
+      "2026-06-07",
+      "2026-06-08",
+      "2026-06-10",
+      "2026-06-11",
+      "2026-06-12",
+      "2026-06-13",
+      "2026-06-14"
+    ],
+    "earliest_date": "2026-06-02",
+    "latest_date": "2026-06-14",
+    "n_unique_dates": 11,
+    "hel1os_unique_dates": [
+      "2026-06-10",
+      "2026-06-11",
+      "2026-06-12",
+      "2026-06-13",
+      "2026-06-14"
+    ],
+    "solexs_unique_dates": [
+      "2026-06-02",
+      "2026-06-03",
+      "2026-06-05",
+      "2026-06-06",
+      "2026-06-07",
+      "2026-06-08",
+      "2026-06-10",
+      "2026-06-11",
+      "2026-06-12",
+      "2026-06-13"
+    ]
+  },
+  "section_4_date_range": {
+    "earliest_date": "2026-06-02",
+    "latest_date": "2026-06-14",
+    "n_unique_dates": 11
+  },
+  "section_5_per_date_file_counts": {
+    "2026-06-02": {
+      "hel1os_file_count": 0,
+      "solexs_file_count": 4
+    },
+    "2026-06-03": {
+      "hel1os_file_count": 0,
+      "solexs_file_count": 4
+    },
+    "2026-06-05": {
+      "hel1os_file_count": 0,
+      "solexs_file_count": 4
+    },
+    "2026-06-06": {
+      "hel1os_file_count": 0,
+      "solexs_file_count": 4
+    },
+    "2026-06-07": {
+      "hel1os_file_count": 0,
+      "solexs_file_count": 4
+    },
+    "2026-06-08": {
+      "hel1os_file_count": 0,
+      "solexs_file_count": 4
+    },
+    "2026-06-10": {
+      "hel1os_file_count": 32,
+      "solexs_file_count": 4
+    },
+    "2026-06-11": {
+      "hel1os_file_count": 32,
+      "solexs_file_count": 4
+    },
+    "2026-06-12": {
+      "hel1os_file_count": 32,
+      "solexs_file_count": 4
+    },
+    "2026-06-13": {
+      "hel1os_file_count": 32,
+      "solexs_file_count": 4
+    },
+    "2026-06-14": {
+      "hel1os_file_count": 32,
+      "solexs_file_count": 0
+    }
+  },
+  "section_6_exclusion_reasons": {
+    "files_used_by_parser": [
+      "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/czt/lightcurve_czt1.fits",
+      "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/czt/lightcurve_czt1.fits",
+      "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/czt/lightcurve_czt1.fits",
+      "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/czt/lightcurve_czt1.fits",
+      "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/czt/lightcurve_czt1.fits",
+      "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/czt/lightcurve_czt1.fits",
+      "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/czt/lightcurve_czt1.fits",
+      "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/czt/lightcurve_czt1.fits",
+      "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/czt/lightcurve_czt1.fits",
+      "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/czt/lightcurve_czt1.fits",
+      "solexs/AL1_SLX_L1_20260602_v1.0/SDD2/AL1_SOLEXS_20260602_SDD2_L1.lc.gz",
+      "solexs/AL1_SLX_L1_20260603_v1.0/SDD2/AL1_SOLEXS_20260603_SDD2_L1.lc.gz",
+      "solexs/AL1_SLX_L1_20260605_v1.0/SDD2/AL1_SOLEXS_20260605_SDD2_L1.lc.gz",
+      "solexs/AL1_SLX_L1_20260606_v1.0/SDD2/AL1_SOLEXS_20260606_SDD2_L1.lc.gz",
+      "solexs/AL1_SLX_L1_20260607_v1.0/SDD2/AL1_SOLEXS_20260607_SDD2_L1.lc.gz",
+      "solexs/AL1_SLX_L1_20260608_v1.0/SDD2/AL1_SOLEXS_20260608_SDD2_L1.lc.gz",
+      "solexs/AL1_SLX_L1_20260610_v1.0/SDD2/AL1_SOLEXS_20260610_SDD2_L1.lc.gz",
+      "solexs/AL1_SLX_L1_20260611_v1.0/SDD2/AL1_SOLEXS_20260611_SDD2_L1.lc.gz",
+      "solexs/AL1_SLX_L1_20260612_v1.0/SDD2/AL1_SOLEXS_20260612_SDD2_L1.lc.gz",
+      "solexs/AL1_SLX_L1_20260613_v1.0/SDD2/AL1_SOLEXS_20260613_SDD2_L1.lc.gz"
+    ],
+    "n_used_by_parser": 20,
+    "excluded": {
+      "unsupported_extension": {
+        "count": 20,
+        "files": [
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/aux/cztdis/czt1dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/aux/cztdis/czt2dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/aux/cztdis/czt1dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/aux/cztdis/czt2dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/aux/cztdis/czt1dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/aux/cztdis/czt2dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/aux/cztdis/czt1dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/aux/cztdis/czt2dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/aux/cztdis/czt1dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/aux/cztdis/czt2dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/aux/cztdis/czt1dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/aux/cztdis/czt2dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/aux/cztdis/czt1dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/aux/cztdis/czt2dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/aux/cztdis/czt1dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/aux/cztdis/czt2dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/aux/cztdis/czt1dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/aux/cztdis/czt2dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/aux/cztdis/czt1dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/aux/cztdis/czt2dispix.txt",
+            "reason": "unsupported_extension: extension '.txt' is not a FITS file; not opened by any pipeline script"
+          }
+        ]
+      },
+      "parser_filter": {
+        "count": 160,
+        "files": [
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/aux/gticdte1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/aux/gticdte2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/aux/gticzt1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/aux/gticzt2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/aux/hk.fits",
+            "reason": "parser_filter: housekeeping files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/cdte/lightcurve_cdte1.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/cdte/lightcurve_cdte2.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/czt/hel1os_czt_spectra_czt2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/czt/lightcurve_czt2.fits",
+            "reason": "parser_filter: only lightcurve_czt1.fits was loaded; lightcurve_czt2.fits was not selected by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/events/evt.fits",
+            "reason": "parser_filter: event files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/aux/gticdte1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/aux/gticdte2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/aux/gticzt1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/aux/gticzt2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/aux/hk.fits",
+            "reason": "parser_filter: housekeeping files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/cdte/lightcurve_cdte1.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/cdte/lightcurve_cdte2.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/czt/hel1os_czt_spectra_czt2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/czt/lightcurve_czt2.fits",
+            "reason": "parser_filter: only lightcurve_czt1.fits was loaded; lightcurve_czt2.fits was not selected by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/events/evt.fits",
+            "reason": "parser_filter: event files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/aux/gticdte1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/aux/gticdte2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/aux/gticzt1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/aux/gticzt2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/aux/hk.fits",
+            "reason": "parser_filter: housekeeping files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/cdte/lightcurve_cdte1.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/cdte/lightcurve_cdte2.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/czt/hel1os_czt_spectra_czt2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/czt/lightcurve_czt2.fits",
+            "reason": "parser_filter: only lightcurve_czt1.fits was loaded; lightcurve_czt2.fits was not selected by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_000006_43178sec_lev1_V111/events/evt.fits",
+            "reason": "parser_filter: event files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/aux/gticdte1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/aux/gticdte2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/aux/gticzt1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/aux/gticzt2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/aux/hk.fits",
+            "reason": "parser_filter: housekeeping files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/cdte/lightcurve_cdte1.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/cdte/lightcurve_cdte2.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/czt/hel1os_czt_spectra_czt2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/czt/lightcurve_czt2.fits",
+            "reason": "parser_filter: only lightcurve_czt1.fits was loaded; lightcurve_czt2.fits was not selected by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/events/evt.fits",
+            "reason": "parser_filter: event files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/aux/gticdte1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/aux/gticdte2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/aux/gticzt1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/aux/gticzt2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/aux/hk.fits",
+            "reason": "parser_filter: housekeeping files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/cdte/lightcurve_cdte1.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/cdte/lightcurve_cdte2.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/czt/hel1os_czt_spectra_czt2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/czt/lightcurve_czt2.fits",
+            "reason": "parser_filter: only lightcurve_czt1.fits was loaded; lightcurve_czt2.fits was not selected by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/events/evt.fits",
+            "reason": "parser_filter: event files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/aux/gticdte1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/aux/gticdte2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/aux/gticzt1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/aux/gticzt2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/aux/hk.fits",
+            "reason": "parser_filter: housekeeping files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/cdte/lightcurve_cdte1.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/cdte/lightcurve_cdte2.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/czt/hel1os_czt_spectra_czt2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/czt/lightcurve_czt2.fits",
+            "reason": "parser_filter: only lightcurve_czt1.fits was loaded; lightcurve_czt2.fits was not selected by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/events/evt.fits",
+            "reason": "parser_filter: event files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/aux/gticdte1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/aux/gticdte2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/aux/gticzt1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/aux/gticzt2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/aux/hk.fits",
+            "reason": "parser_filter: housekeeping files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/cdte/lightcurve_cdte1.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/cdte/lightcurve_cdte2.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/czt/hel1os_czt_spectra_czt2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/czt/lightcurve_czt2.fits",
+            "reason": "parser_filter: only lightcurve_czt1.fits was loaded; lightcurve_czt2.fits was not selected by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_000010_43182sec_lev1_V111/events/evt.fits",
+            "reason": "parser_filter: event files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/aux/gticdte1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/aux/gticdte2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/aux/gticzt1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/aux/gticzt2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/aux/hk.fits",
+            "reason": "parser_filter: housekeeping files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/cdte/lightcurve_cdte1.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/cdte/lightcurve_cdte2.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/czt/hel1os_czt_spectra_czt2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/czt/lightcurve_czt2.fits",
+            "reason": "parser_filter: only lightcurve_czt1.fits was loaded; lightcurve_czt2.fits was not selected by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/13/HLS_20260613_120007_43189sec_lev1_V111/events/evt.fits",
+            "reason": "parser_filter: event files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/aux/gticdte1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/aux/gticdte2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/aux/gticzt1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/aux/gticzt2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/aux/hk.fits",
+            "reason": "parser_filter: housekeeping files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/cdte/lightcurve_cdte1.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/cdte/lightcurve_cdte2.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/czt/hel1os_czt_spectra_czt2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/czt/lightcurve_czt2.fits",
+            "reason": "parser_filter: only lightcurve_czt1.fits was loaded; lightcurve_czt2.fits was not selected by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_000012_43175sec_lev1_V111/events/evt.fits",
+            "reason": "parser_filter: event files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/aux/gticdte1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/aux/gticdte2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/aux/gticzt1.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/aux/gticzt2.fits",
+            "reason": "parser_filter: GTI files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/aux/hk.fits",
+            "reason": "parser_filter: housekeeping files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/cdte/lightcurve_cdte1.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/cdte/lightcurve_cdte2.fits",
+            "reason": "parser_filter: CdTe lightcurve files were not loaded by the Sprint 10E-A script (CZT1 only)"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/czt/hel1os_czt_spectra_czt2.fits",
+            "reason": "parser_filter: spectra files were not loaded by the Sprint 10E-A script (lightcurves only)"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/czt/lightcurve_czt2.fits",
+            "reason": "parser_filter: only lightcurve_czt1.fits was loaded; lightcurve_czt2.fits was not selected by the Sprint 10E-A script"
+          },
+          {
+            "file": "hel1os/2026/06/14/HLS_20260614_120003_43193sec_lev1_V111/events/evt.fits",
+            "reason": "parser_filter: event files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260602_v1.0/SDD1/AL1_SOLEXS_20260602_SDD1_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260602_v1.0/SDD2/AL1_SOLEXS_20260602_SDD2_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260602_v1.0/SDD2/AL1_SOLEXS_20260602_SDD2_L1.pi.gz",
+            "reason": "parser_filter: SoLEXS spectra (.pi.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260603_v1.0/SDD1/AL1_SOLEXS_20260603_SDD1_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260603_v1.0/SDD2/AL1_SOLEXS_20260603_SDD2_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260603_v1.0/SDD2/AL1_SOLEXS_20260603_SDD2_L1.pi.gz",
+            "reason": "parser_filter: SoLEXS spectra (.pi.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260605_v1.0/SDD1/AL1_SOLEXS_20260605_SDD1_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260605_v1.0/SDD2/AL1_SOLEXS_20260605_SDD2_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260605_v1.0/SDD2/AL1_SOLEXS_20260605_SDD2_L1.pi.gz",
+            "reason": "parser_filter: SoLEXS spectra (.pi.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260606_v1.0/SDD1/AL1_SOLEXS_20260606_SDD1_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260606_v1.0/SDD2/AL1_SOLEXS_20260606_SDD2_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260606_v1.0/SDD2/AL1_SOLEXS_20260606_SDD2_L1.pi.gz",
+            "reason": "parser_filter: SoLEXS spectra (.pi.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260607_v1.0/SDD1/AL1_SOLEXS_20260607_SDD1_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260607_v1.0/SDD2/AL1_SOLEXS_20260607_SDD2_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260607_v1.0/SDD2/AL1_SOLEXS_20260607_SDD2_L1.pi.gz",
+            "reason": "parser_filter: SoLEXS spectra (.pi.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260608_v1.0/SDD1/AL1_SOLEXS_20260608_SDD1_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260608_v1.0/SDD2/AL1_SOLEXS_20260608_SDD2_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260608_v1.0/SDD2/AL1_SOLEXS_20260608_SDD2_L1.pi.gz",
+            "reason": "parser_filter: SoLEXS spectra (.pi.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260610_v1.0/SDD1/AL1_SOLEXS_20260610_SDD1_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260610_v1.0/SDD2/AL1_SOLEXS_20260610_SDD2_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260610_v1.0/SDD2/AL1_SOLEXS_20260610_SDD2_L1.pi.gz",
+            "reason": "parser_filter: SoLEXS spectra (.pi.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260611_v1.0/SDD1/AL1_SOLEXS_20260611_SDD1_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260611_v1.0/SDD2/AL1_SOLEXS_20260611_SDD2_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260611_v1.0/SDD2/AL1_SOLEXS_20260611_SDD2_L1.pi.gz",
+            "reason": "parser_filter: SoLEXS spectra (.pi.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260612_v1.0/SDD1/AL1_SOLEXS_20260612_SDD1_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260612_v1.0/SDD2/AL1_SOLEXS_20260612_SDD2_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260612_v1.0/SDD2/AL1_SOLEXS_20260612_SDD2_L1.pi.gz",
+            "reason": "parser_filter: SoLEXS spectra (.pi.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260613_v1.0/SDD1/AL1_SOLEXS_20260613_SDD1_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260613_v1.0/SDD2/AL1_SOLEXS_20260613_SDD2_L1.gti.gz",
+            "reason": "parser_filter: SoLEXS GTI (.gti.gz) files were not loaded by the Sprint 10E-A script"
+          },
+          {
+            "file": "solexs/AL1_SLX_L1_20260613_v1.0/SDD2/AL1_SOLEXS_20260613_SDD2_L1.pi.gz",
+            "reason": "parser_filter: SoLEXS spectra (.pi.gz) files were not loaded by the Sprint 10E-A script"
+          }
+        ]
+      },
+      "missing_timestamp": {
+        "count": 0,
+        "files": []
+      },
+      "parse_failure": {
+        "count": 0,
+        "files": []
+      },
+      "other": {
+        "count": 0,
+        "files": []
+      }
+    }
+  }
+}

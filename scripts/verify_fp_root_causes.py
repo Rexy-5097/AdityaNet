@@ -1,0 +1,189 @@
+"""
+scripts/verify_fp_root_causes.py
+
+Sprint 7 — Task A: FP Root Causes Verification
+
+Loads:
+    artifacts/backtest_window_predictions.csv
+    artifacts/research/test.parquet
+
+Computes for every nowcast window:
+    - minutes_since_last_flare
+    - long_flux
+    - short_flux
+    - flux_gradient_5m
+    - flux_gradient_30m
+    - flux_acceleration_5m
+    - flux_acceleration_30m
+    - peak_flux_last_24h
+    - peak_to_current_flux_ratio
+
+Groups:
+    FP vs TP
+    FP vs TN
+under the coincidence policy (where y_pred = coincidence_alert_level in ["YELLOW", "RED"]).
+
+Performs:
+    - Mann-Whitney U test (p-value)
+    - Kolmogorov-Smirnov test (p-value, KS statistic)
+    - Rank Biserial Correlation (effect size)
+
+Saves:
+    artifacts/fp_root_cause_verification.json
+"""
+
+import os
+import json
+import logging
+import numpy as np
+import pandas as pd
+from scipy.stats import mannwhitneyu, ks_2samp
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
+logger = logging.getLogger(__name__)
+
+PREDICTIONS_PATH = os.path.join("artifacts", "backtest_window_predictions.csv")
+TEST_PARQUET_PATH = os.path.join("artifacts", "research", "test.parquet")
+OUTPUT_PATH = os.path.join("artifacts", "fp_root_cause_verification.json")
+
+def get_summary_stats(series):
+    if len(series) == 0:
+        return {"count": 0, "mean": 0.0, "median": 0.0, "std": 0.0, "p25": 0.0, "p75": 0.0}
+    return {
+        "count": int(len(series)),
+        "mean": float(series.mean()),
+        "median": float(series.median()),
+        "std": float(series.std()) if len(series) > 1 else 0.0,
+        "p25": float(series.quantile(0.25)),
+        "p75": float(series.quantile(0.75))
+    }
+
+def compute_mwu_rank_biserial(g1, g2):
+    n1 = len(g1)
+    n2 = len(g2)
+    if n1 == 0 or n2 == 0:
+        return 1.0, 0.0
+    res = mannwhitneyu(g1, g2, alternative='two-sided')
+    # Rank-biserial correlation: r = 1 - 2*U / (n1*n2)
+    r = 1.0 - (2.0 * res.statistic) / (n1 * n2)
+    return float(res.pvalue), float(r)
+
+def compute_ks_test(g1, g2):
+    n1 = len(g1)
+    n2 = len(g2)
+    if n1 == 0 or n2 == 0:
+        return 1.0, 0.0
+    res = ks_2samp(g1, g2)
+    return float(res.pvalue), float(res.statistic)
+
+def main():
+    logger.info("Starting FP Root Cause Verification...")
+    for p in [PREDICTIONS_PATH, TEST_PARQUET_PATH]:
+        if not os.path.exists(p):
+            logger.error(f"Missing file: {p}")
+            return
+
+    # 1. Load predictions
+    preds_df = pd.read_csv(PREDICTIONS_PATH)
+    
+    # 2. Load test parquet
+    logger.info("Loading test parquet...")
+    # Load required columns to save memory
+    load_cols = ["timestamp", "long_flux", "short_flux", "minutes_since_last_flare", "flux_gradient_5m", "flux_acceleration_5m"]
+    test_df = pd.read_parquet(TEST_PARQUET_PATH, columns=load_cols)
+
+    # 3. Compute vectorized features
+    logger.info("Computing vectorized features on test set...")
+    test_df["flux_gradient_30m"] = test_df["long_flux"].diff(30) / 30.0
+    test_df["flux_acceleration_30m"] = test_df["flux_gradient_30m"].diff(30) / 30.0
+    test_df["peak_flux_last_24h"] = test_df["long_flux"].rolling(window=1440, min_periods=1).max()
+    test_df["peak_to_current_flux_ratio"] = test_df["peak_flux_last_24h"] / (test_df["long_flux"] + 1e-9)
+
+    # Fill NaNs created by diffing/rolling with 0.0
+    cols_to_fill = ["flux_gradient_30m", "flux_acceleration_30m", "peak_flux_last_24h", "peak_to_current_flux_ratio"]
+    test_df[cols_to_fill] = test_df[cols_to_fill].fillna(0.0)
+
+    # 4. Align features with nowcast timestamps (global_idx - 1)
+    logger.info("Aligning predictions with features...")
+    nowcast_indices = preds_df["global_idx"].values - 1
+    aligned_df = test_df.iloc[nowcast_indices].copy().reset_index(drop=True)
+    
+    aligned_df["true_label"] = preds_df["true_label"].values
+    aligned_df["coincidence_alert_level"] = preds_df["coincidence_alert_level"].values
+
+    # 5. Group data
+    y_pred = aligned_df["coincidence_alert_level"].isin(["YELLOW", "RED"])
+    y_true = aligned_df["true_label"]
+
+    tp_df = aligned_df[y_pred & (y_true == 1)]
+    fp_df = aligned_df[y_pred & (y_true == 0)]
+    tn_df = aligned_df[(~y_pred) & (y_true == 0)]
+
+    logger.info(f"Groups identified: TP={len(tp_df)}, FP={len(fp_df)}, TN={len(tn_df)}")
+
+    metrics_list = [
+        "minutes_since_last_flare",
+        "long_flux",
+        "short_flux",
+        "flux_gradient_5m",
+        "flux_gradient_30m",
+        "flux_acceleration_5m",
+        "flux_acceleration_30m",
+        "peak_flux_last_24h",
+        "peak_to_current_flux_ratio"
+    ]
+
+    feature_stats = {}
+    for col in metrics_list:
+        tp_series = tp_df[col]
+        fp_series = fp_df[col]
+        tn_series = tn_df[col]
+
+        summary = {
+            "TP": get_summary_stats(tp_series),
+            "FP": get_summary_stats(fp_series),
+            "TN": get_summary_stats(tn_series)
+        }
+
+        mwu_p_tp, mwu_r_tp = compute_mwu_rank_biserial(fp_series, tp_series)
+        ks_p_tp, ks_d_tp = compute_ks_test(fp_series, tp_series)
+
+        mwu_p_tn, mwu_r_tn = compute_mwu_rank_biserial(fp_series, tn_series)
+        ks_p_tn, ks_d_tn = compute_ks_test(fp_series, tn_series)
+
+        feature_stats[col] = {
+            "summary": summary,
+            "tests": {
+                "FP_vs_TP": {
+                    "mwu_pvalue": mwu_p_tp,
+                    "mwu_effect_size": mwu_r_tp,
+                    "ks_pvalue": ks_p_tp,
+                    "ks_statistic": ks_d_tp
+                },
+                "FP_vs_TN": {
+                    "mwu_pvalue": mwu_p_tn,
+                    "mwu_effect_size": mwu_r_tn,
+                    "ks_pvalue": ks_p_tn,
+                    "ks_statistic": ks_d_tn
+                }
+            }
+        }
+
+    report = {
+        "sample_sizes": {
+            "TP": len(tp_df),
+            "FP": len(fp_df),
+            "TN": len(tn_df)
+        },
+        "feature_statistics": feature_stats
+    }
+
+    with open(OUTPUT_PATH, "w") as fh:
+        json.dump(report, fh, indent=2)
+    logger.info(f"Saved FP root cause verification results → {OUTPUT_PATH}")
+
+if __name__ == "__main__":
+    main()

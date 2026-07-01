@@ -1,0 +1,17 @@
+{
+    "total_archive_size_bytes": 49666415,
+    "compressed_size_bytes": 49666415,
+    "uncompressed_size_bytes": 76455768,
+    "average_archive_size_bytes": 113913.79587155963,
+    "largest_archive": {
+        "filename": "AL1_SLX_L1_20260603_v1.0.zip",
+        "size_bytes": 6069751
+    },
+    "smallest_archive": {
+        "filename": "AL1_SLX_L1_20260615_v1.0.zip",
+        "size_bytes": 65
+    },
+    "disk_usage_by_instrument": {
+        "solexs": 49666415
+    }
+}

@@ -1,0 +1,143 @@
+{
+  "goes_records": 8631360,
+  "flare_records": 21945,
+  "m_class_count": 2054,
+  "x_class_count": 109,
+  "date_range": {
+    "start": "2010-01-02T00:00:00",
+    "end": "2026-06-14T23:59:00"
+  },
+  "missing_minutes": 20160,
+  "gap_percentage": 0.2330226364846871,
+  "solar_cycle_distribution": {
+    "SC24": {
+      "records": 5237280,
+      "M": 109,
+      "X": 4
+    },
+    "SC25": {
+      "records": 3394080,
+      "M": 1945,
+      "X": 105
+    }
+  },
+  "yearly_distribution": {
+    "2010": {
+      "goes_records": 515520,
+      "total_flares": 0,
+      "M_flares": 0,
+      "X_flares": 0
+    },
+    "2011": {
+      "goes_records": 524160,
+      "total_flares": 0,
+      "M_flares": 0,
+      "X_flares": 0
+    },
+    "2012": {
+      "goes_records": 524160,
+      "total_flares": 0,
+      "M_flares": 0,
+      "X_flares": 0
+    },
+    "2013": {
+      "goes_records": 522720,
+      "total_flares": 0,
+      "M_flares": 0,
+      "X_flares": 0
+    },
+    "2014": {
+      "goes_records": 522720,
+      "total_flares": 0,
+      "M_flares": 0,
+      "X_flares": 0
+    },
+    "2015": {
+      "goes_records": 524160,
+      "total_flares": 985,
+      "M_flares": 54,
+      "X_flares": 0
+    },
+    "2016": {
+      "goes_records": 527040,
+      "total_flares": 1260,
+      "M_flares": 16,
+      "X_flares": 0
+    },
+    "2017": {
+      "goes_records": 525600,
+      "total_flares": 1090,
+      "M_flares": 39,
+      "X_flares": 4
+    },
+    "2018": {
+      "goes_records": 525600,
+      "total_flares": 335,
+      "M_flares": 0,
+      "X_flares": 0
+    },
+    "2019": {
+      "goes_records": 525600,
+      "total_flares": 272,
+      "M_flares": 0,
+      "X_flares": 0
+    },
+    "2020": {
+      "goes_records": 527040,
+      "total_flares": 550,
+      "M_flares": 2,
+      "X_flares": 0
+    },
+    "2021": {
+      "goes_records": 525600,
+      "total_flares": 2065,
+      "M_flares": 27,
+      "X_flares": 2
+    },
+    "2022": {
+      "goes_records": 525600,
+      "total_flares": 3137,
+      "M_flares": 188,
+      "X_flares": 7
+    },
+    "2023": {
+      "goes_records": 525600,
+      "total_flares": 3218,
+      "M_flares": 353,
+      "X_flares": 13
+    },
+    "2024": {
+      "goes_records": 527040,
+      "total_flares": 3764,
+      "M_flares": 881,
+      "X_flares": 53
+    },
+    "2025": {
+      "goes_records": 525600,
+      "total_flares": 3294,
+      "M_flares": 341,
+      "X_flares": 18
+    },
+    "2026": {
+      "goes_records": 237600,
+      "total_flares": 1975,
+      "M_flares": 153,
+      "X_flares": 12
+    }
+  },
+  "temporal_leakage_checks": {
+    "passed": true,
+    "details": [
+      "Train < Validation condition met.",
+      "Validation < Test condition met.",
+      "No duplicate timestamps across splits."
+    ]
+  },
+  "criteria_check": {
+    "passed": true,
+    "goes_records_ok": true,
+    "m_flares_ok": true,
+    "x_flares_ok": true,
+    "gap_ok": true
+  }
+}

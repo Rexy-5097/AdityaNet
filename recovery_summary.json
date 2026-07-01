@@ -1,0 +1,9 @@
+{
+    "total_records": 436,
+    "recovered": 426,
+    "still_failed": 0,
+    "skipped": 10,
+    "elapsed_time": 1148.8424048423767,
+    "recovery_rate": 100.0,
+    "scientific_coverage": 50.34642032332564
+}

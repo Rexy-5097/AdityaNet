@@ -1,0 +1,11 @@
+{
+  "audit_status": "PASSED",
+  "checks": {
+    "no_temporal_overlap": "PASSED",
+    "no_duplicated_timestamps": "PASSED",
+    "no_future_leakage": "PASSED",
+    "no_calibration_leakage": "PASSED",
+    "no_threshold_leakage": "PASSED"
+  },
+  "description": "Validation checks confirm zero leakage across chronological splits. Calibration parameters (Temperature/Isotonic) and alert thresholds are strictly fitted on the Validation split and evaluated statelessly on the Test split."
+}

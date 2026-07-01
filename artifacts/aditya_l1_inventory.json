@@ -1,0 +1,36 @@
+{
+  "HEL1OS": {
+    "products": [
+      "Type-II PHA spectral files",
+      "Light curves",
+      "Event lists",
+      "Good Time Interval (GTI) files",
+      "Housekeeping parameters"
+    ],
+    "energy_range": "10-150 keV (CdTe: 10-40 keV, CZT: 20-150 keV)",
+    "cadence": "1-second light curves, 20-second spectra, 10-32 ms event lists",
+    "file_formats": [
+      "FITS"
+    ],
+    "date_range": "2023-10-29 to Present"
+  },
+  "SoLEXS": {
+    "products": [
+      "Soft X-ray light curves",
+      "Soft X-ray spectra",
+      "Good Time Interval (GTI) files",
+      "Housekeeping parameters"
+    ],
+    "energy_range": "1-30 keV (Soft X-rays)",
+    "cadence": "1-second light curves, 1-second spectra",
+    "file_formats": [
+      "FITS"
+    ],
+    "date_range": "2023-12-13 to Present"
+  },
+  "overlap_assessment": {
+    "goes_overlap_start": "2023-10-29",
+    "goes_overlap_end": "2026-06-14",
+    "estimated_overlap_days": 960
+  }
+}

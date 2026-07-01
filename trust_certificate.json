@@ -1,0 +1,14 @@
+{
+    "trust_certificate": {
+        "archives_downloaded": 426,
+        "archives_verified": 436,
+        "zip_failures": 0,
+        "fits_failures": 0,
+        "sha_verified": 436,
+        "dataset_completeness_pct": 50.34642032332564,
+        "coverage_pct": 50.34642032332564,
+        "pipeline_version": "1.2.0-SprintDA03",
+        "manifest_checksum": "fd3c9ccc9e89c899b255bda09c90f51f5f2ac39ceda3d682649da7c58c79011c",
+        "generated_timestamp": "2026-06-18T08:31:12.398605+00:00"
+    }
+}

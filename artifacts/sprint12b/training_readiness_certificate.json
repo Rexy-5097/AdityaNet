@@ -1,0 +1,13 @@
+{
+  "certificate_id": "READINESS_S12D_UPGRADED",
+  "timestamp": "2026-06-19T12:50:00Z",
+  "verdict": "READY_FOR_SCIENTIFIC_TRAINING",
+  "requirements_check": {
+    "optimizer_correctness": "PASSED",
+    "reproducibility": "PASSED",
+    "checkpoint_restoration": "PASSED",
+    "calibration_isolation": "PASSED",
+    "gradient_flow": "PASSED",
+    "nan_detection_and_clipping": "PASSED"
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "dataset_version": "dataset_v1",
+    "creation_timestamp": "2026-06-18T07:14:53Z",
+    "number_of_files": 436,
+    "verified_files": 10,
+    "failed_files": 1,
+    "corrupted_files": 425,
+    "sha256_manifest": "a2788b80e1d44b9214c8fb3e1e3d459dd06529d86e2945b86c939de3c76344b2",
+    "software_version": "1.0.0",
+    "python_version": "3.12.12",
+    "platform": "macOS-26.5.1-arm64-arm-64bit"
+}

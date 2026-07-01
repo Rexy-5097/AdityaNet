@@ -1,0 +1,121 @@
+# SuryaNet V3 Scientific Retraining Campaign Configuration
+# Sprint 21B corrected — separates HISTORICAL FACT from PROPOSED.
+
+# SECTION 1 — HISTORICAL REPOSITORY STATE
+# Every value here is observed directly from active repository source files.
+
+historical_repository_state:
+  active_training_script: "scratch/run_sprint14c_experiment.py"
+
+  stage1_optimizer:
+    type: AdamW
+    learning_rate: 1.0e-4
+    weight_decay: 1.0e-4
+    source: "run_sprint14c_experiment.py (L295)"
+
+  stage2_optimizer:
+    type: AdamW
+    learning_rate: 5.0e-5
+    weight_decay: 1.0e-4
+    source: "run_sprint14c_experiment.py (L345)"
+
+  scheduler:
+    status: NOT_ACTIVE
+    detail: >
+      No scheduler is instantiated or stepped in run_sprint14c_experiment.py.
+      Learning rate is constant within each stage.
+    legacy_note: >
+      CosineAnnealingLR exists inside app/services/ml/trainer_v3.py (L177)
+      Trainer class. That class is NOT invoked by run_sprint14c_experiment.py.
+
+  gradient_clipping:
+    max_norm: 1.0
+    source: "run_sprint14c_experiment.py (L116)"
+
+  mixed_precision:
+    dtype: bfloat16
+    mechanism: torch.amp.autocast
+    source: "run_sprint14c_experiment.py (L95, L104)"
+
+  grad_scaler:
+    enabled_on: [mps, cuda]
+    source: "run_sprint14c_experiment.py (L277)"
+
+  batch_size: 128
+  gradient_accumulation_steps: 2
+  effective_batch_size: 256
+  source_batch: "run_sprint14c_experiment.py (L216, L84)"
+
+  early_stopping:
+    patience: 10
+    min_delta: 1.0e-4
+    stage1_mode: min
+    stage2_mode: max
+    source: "run_sprint14c_experiment.py (L40, L296, L346)"
+
+  focal_loss:
+    gamma: 2.0
+    alpha: dynamic_pos_rate_clamped_0.25_to_0.75
+    source_gamma: "app/services/ml/trainer_v3.py (L45)"
+    source_alpha_clamp: "app/services/ml/trainer_v3.py (L48)"
+    note: "Sprint 21A incorrectly cited L46-47; correct line is L48."
+
+  dropout: 0.2
+  source_dropout: "app/services/ml/model_v3.py (L166)"
+
+  checkpoint_naming_current:
+    stage1_best: "model_seed_{seed}_stage1_best.pt"
+    stage2_best: "model_seed_{seed}_stage2_best.pt"
+    directory: "artifacts/sprint14c/checkpoints/"
+    format: plain_state_dict
+    source: "run_sprint14c_experiment.py (L233, L332, L348, L382)"
+
+  ablation_types_current:
+    A: "GOES only (SoLEXS and HEL1OS masked)"
+    B: "GOES + SoLEXS (HEL1OS masked)"
+    C: "GOES + HEL1OS (SoLEXS masked)"
+    D: "GOES + SoLEXS + HEL1OS (full multi-instrument)"
+    source: "run_sprint14c_experiment.py (L72-82, L215)"
+
+  existing_checkpoints:
+    - "artifacts/sprint14c/checkpoints/model_seed_42_stage1_best.pt"
+    - "artifacts/sprint14c/checkpoints/model_seed_42_stage2_best.pt"
+
+  seeds_executed_historically: [42]
+
+# SECTION 2 — PROPOSED CAMPAIGN CONFIGURATION (PROPOSED — NOT YET EXECUTED)
+proposed_campaign_configuration:
+  label: PROPOSED
+  note: >
+    All values here are proposed for the upcoming retraining campaign.
+    They do not describe current repository behaviour.
+
+  maximum_epochs: 10
+  seeds: [42, 123, 3407, 2026, 9999]
+  optimizer: AdamW
+
+  scheduler:
+    label: PROPOSED
+    type: CosineAnnealingLR
+    rationale: >
+      CosineAnnealingLR is already implemented in trainer_v3.py (L177).
+      The campaign proposes to activate it via a launcher using the Trainer class.
+      This differs from run_sprint14c_experiment.py which uses constant LR.
+
+  batch_size: 128
+  gradient_accumulation_steps: 2
+  effective_batch_size: 256
+  early_stopping_patience: 10
+  early_stopping_min_delta: 1.0e-4
+  checkpoint_selection_metric: val_tss
+  mixed_precision: bfloat16
+  device: mps
+
+  proposed_checkpoint_standard:
+    label: PLANNED_NOT_YET_ACTIVE
+    format: metadata_dict
+    keys: [epoch, val_tss, model_state_dict, optimizer_state_dict,
+           scheduler_state_dict, hyperparameters, sha256_dataset]
+    naming: "{experiment_id}_best.pt and {experiment_id}_last.pt"
+    directory: "artifacts/sprint21b/checkpoints/"
+    note: "These checkpoint files DO NOT YET EXIST. Created during campaign."

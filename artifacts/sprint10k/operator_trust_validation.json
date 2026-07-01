@@ -1,0 +1,269 @@
+{
+  "audit_metadata": {
+    "sprint": "10K-V",
+    "audit_name": "Independent Operator Trust Verification",
+    "timestamp_utc": "2026-06-19T10:27:53Z"
+  },
+  "verification_status": "FAIL",
+  "missing_referenced_components": [
+    "frontend/"
+  ],
+  "checks": {
+    "operator_facing_artifacts": [
+      {
+        "path": "artifacts/operator_thresholds.json",
+        "exists": true,
+        "sha256": "033063ef0dfcae97966c3a37d0f5ef8ca05b0ced1df2e5f1c2a9788037f0ce10",
+        "size_bytes": 696
+      },
+      {
+        "path": "artifacts/operator_thresholds_validation_only.json",
+        "exists": true,
+        "sha256": "8e76ee49ef776755b0f717dc69deb3db91526f670e26889195a59d72a862922b",
+        "size_bytes": 1114
+      },
+      {
+        "path": "artifacts/operational_thresholds.json",
+        "exists": true,
+        "sha256": "e7a52a617535e34b262a22ca3152f73c8aeda4e8851654de47cc6b622ac1d572",
+        "size_bytes": 103
+      },
+      {
+        "path": "artifacts/calibrator.pkl",
+        "exists": true,
+        "sha256": "36fe68d47207b371b963744151666d533b3885885e46dfd12c99061b68d327ac",
+        "size_bytes": 2091
+      },
+      {
+        "path": "artifacts/explainability_examples.json",
+        "exists": true,
+        "sha256": "5fedeb8cb9162f70386d25788f7b957ac679d628a8bf6193bbf72b6a91cfb24b",
+        "size_bytes": 7838
+      },
+      {
+        "path": "artifacts/attention_statistics.json",
+        "exists": true,
+        "sha256": "2e8795cbb4e6cb254c3dc1f96443b2957c787c1fc6b11459d4f6d8a6f55b463f",
+        "size_bytes": 3794
+      },
+      {
+        "path": "artifacts/operator_alert_statistics.csv",
+        "exists": true,
+        "sha256": "055f576164768e4241a425760c1c0e662370f487019bd4b1940e394e17d20680",
+        "size_bytes": 3266675
+      },
+      {
+        "path": "artifacts/backtest_window_predictions.csv",
+        "exists": true,
+        "sha256": "7b55b5a1a70474d31f8a24807300dbb57920879405127382b721846341ac6148",
+        "size_bytes": 3713184
+      },
+      {
+        "path": "artifacts/operator_backtest.json",
+        "exists": true,
+        "sha256": "dc21faa3c251f4b9ec5e8153a30e379bb2a5ffe9f48389ee324c3966d0376d4d",
+        "size_bytes": 908
+      },
+      {
+        "path": "artifacts/operator_readiness_report.json",
+        "exists": true,
+        "sha256": "b3697d0d8ce4a10fe90e2540c5ea2eb72492e033d4564676fc230f59537c35d9",
+        "size_bytes": 1095
+      },
+      {
+        "path": "artifacts/operator_trust_audit.json",
+        "exists": true,
+        "sha256": "fa7322eefc1cb8628682f9b72f2104f05710e12d8c76c71fa9c1a378e854fd9f",
+        "size_bytes": 12464
+      },
+      {
+        "path": "artifacts/operator_trust_projection.json",
+        "exists": true,
+        "sha256": "7abcb1eaf9cb33fcb4affdb91cf9bfbff27d556a126554b160450e14a823705a",
+        "size_bytes": 974
+      },
+      {
+        "path": "artifacts/aditya_l1_trust_gate_audit.md",
+        "exists": true,
+        "sha256": "2443d5e5513486938a0f959a25a0bb643ea5f19c761952cb05b5a5fba393a42f",
+        "size_bytes": 10086
+      },
+      {
+        "path": "artifacts/sprint10k/operator_trust_inventory.json",
+        "exists": true,
+        "sha256": "89206f8ef712cd6366de3a7437d2a65e83522a0b32918d8492f4afbf23a5bbb8",
+        "size_bytes": 6960
+      },
+      {
+        "path": "artifacts/sprint10k/operator_trust_inventory.md",
+        "exists": true,
+        "sha256": "0709a1b2a779d207858c6f3efa61acbd33d7de47c1acbd81800d39c8bb484536",
+        "size_bytes": 10876
+      },
+      {
+        "path": "artifacts/sprint10k/component_reference_graph.json",
+        "exists": true,
+        "sha256": "7f56a299eca56a2416ec3ab1e4f5a3fd6a22a6439918f7fcfcf611d22b54f20c",
+        "size_bytes": 2739
+      },
+      {
+        "path": "artifacts/sprint10k/frontend_backend_mapping.json",
+        "exists": true,
+        "sha256": "a2c104f011ccf6e36f7452c832b3ef65a888162ac9d2cd82187e858d4630c1aa",
+        "size_bytes": 4057
+      },
+      {
+        "path": "artifacts/sprint10k/operator_workflow_trace.json",
+        "exists": true,
+        "sha256": "71ef64163776ba74e023b9f97c58a260c379404cc5d19db0d9ad0cbb9c784851",
+        "size_bytes": 4159
+      }
+    ],
+    "threshold_files": [
+      {
+        "path": "artifacts/operator_thresholds.json",
+        "exists": true,
+        "sha256": "033063ef0dfcae97966c3a37d0f5ef8ca05b0ced1df2e5f1c2a9788037f0ce10",
+        "size_bytes": 696
+      },
+      {
+        "path": "artifacts/operator_thresholds_validation_only.json",
+        "exists": true,
+        "sha256": "8e76ee49ef776755b0f717dc69deb3db91526f670e26889195a59d72a862922b",
+        "size_bytes": 1114
+      },
+      {
+        "path": "artifacts/operational_thresholds.json",
+        "exists": true,
+        "sha256": "e7a52a617535e34b262a22ca3152f73c8aeda4e8851654de47cc6b622ac1d572",
+        "size_bytes": 103
+      }
+    ],
+    "calibration_artifacts": [
+      {
+        "path": "artifacts/calibrator.pkl",
+        "exists": true,
+        "sha256": "36fe68d47207b371b963744151666d533b3885885e46dfd12c99061b68d327ac",
+        "size_bytes": 2091
+      },
+      {
+        "path": "artifacts/calibration_sample.csv",
+        "exists": true,
+        "sha256": "c024ea9d96d0479f78fe399b022c9a542eba9a40765614d2f60cfa8ee32a379a",
+        "size_bytes": 9725236
+      },
+      {
+        "path": "artifacts/calibration_audit.json",
+        "exists": true,
+        "sha256": "7dc5d2120322d13481fbff6fe37a45c6cbfa5bcd958d1eab1642f985ad478ae7",
+        "size_bytes": 706
+      }
+    ],
+    "prediction_certificates": [
+      {
+        "path": "artifacts/sprint10j/prediction_certificate.json",
+        "exists": true,
+        "sha256": "5eb4bc4d1c1e67e366e7c8cab05da22d653bacb70704de4a5e2ef9855a2351b7",
+        "size_bytes": 1037
+      },
+      {
+        "path": "hel1os_trust_certificate.json",
+        "exists": true,
+        "sha256": "d0975befdb1a9c65342e9bbbfb0c4866311e435abc4ac6175bfc4320ea09d74f",
+        "size_bytes": 737
+      },
+      {
+        "path": "trust_certificate.json",
+        "exists": true,
+        "sha256": "ef64c2ab4ce5f85eb5d58bc49863859c9edc3933b6641684240ca9fa422baaf8",
+        "size_bytes": 499
+      },
+      {
+        "path": "data_pipeline/datasets/dataset_v2/inventory/trust_certificate.json",
+        "exists": true,
+        "sha256": "ef64c2ab4ce5f85eb5d58bc49863859c9edc3933b6641684240ca9fa422baaf8",
+        "size_bytes": 499
+      },
+      {
+        "path": "data_pipeline/datasets/dataset_v3/inventory/trust_certificate.json",
+        "exists": true,
+        "sha256": "d0975befdb1a9c65342e9bbbfb0c4866311e435abc4ac6175bfc4320ea09d74f",
+        "size_bytes": 737
+      }
+    ],
+    "execution_manifests": [
+      {
+        "path": "artifacts/sprint10j/execution_manifest.json",
+        "exists": true,
+        "sha256": "ea1410f31030fa29b7c00cc3f62a7db0f3a9e8d89b4d9c7937a89bfd6d419a92",
+        "size_bytes": 682
+      },
+      {
+        "path": "artifacts/aditya_l1/download_manifest.json",
+        "exists": true,
+        "sha256": "8cadcd95d2ca778b0626bfdd212f40735d62dad2348432a78617a6a51f8b5fc1",
+        "size_bytes": 515627
+      }
+    ],
+    "evidence_chain_artifacts": [
+      {
+        "path": "artifacts/sprint10j/prediction_evidence.json",
+        "exists": true,
+        "sha256": "59c1c9ad2098cb68f2a2354b630f9d180982822f0cd2b8f2cd7cb33792581de2",
+        "size_bytes": 8564
+      },
+      {
+        "path": "artifacts/sprint10j/repository_fingerprint.json",
+        "exists": true,
+        "sha256": "08df03013d474b58c98dd76da43d62080257dc8fe85956cd554d88fdd23ed3d4",
+        "size_bytes": 3144
+      },
+      {
+        "path": "artifacts/sprint10j/artifact_hashes.json",
+        "exists": true,
+        "sha256": "9f4af7b3a5fa403d51de4248c6fd74da15eba1035524e0053958e44f0643143e",
+        "size_bytes": 2430
+      }
+    ],
+    "frontend_components": [
+      {
+        "path": "frontend/",
+        "exists": false,
+        "sha256": "N/A",
+        "size_bytes": 0
+      }
+    ],
+    "backend_endpoints": [
+      {
+        "path": "app/api/v1/endpoints/inference.py",
+        "exists": true,
+        "sha256": "e698198737ab8b1d5a3c3059a21eb3465545410189d5d6e838bc1c5954f4c3e5",
+        "size_bytes": 9724
+      },
+      {
+        "path": "app/api/v1/endpoints/flares.py",
+        "exists": true,
+        "sha256": "e6dfcd64f78bca1a7bff8164172910e34859bb71ab7a6689e8b9fcd333206537",
+        "size_bytes": 768
+      },
+      {
+        "path": "app/api/v1/endpoints/solar.py",
+        "exists": true,
+        "sha256": "b9602ea17974986299e9256c98cacdc7c9922a5adb8d81e39fff7d26fcfcecac",
+        "size_bytes": 1459
+      },
+      {
+        "path": "app/api/v1/endpoints/system.py",
+        "exists": true,
+        "sha256": "01978972c7615ff5c2c9b361546ab47cf7e51d5302fa4fca03bd47704a73491d",
+        "size_bytes": 5885
+      },
+      {
+        "path": "app/api/v1/endpoints/health.py",
+        "exists": true,
+        "sha256": "568c83486ffe077cfe0841938639eb500f9d8f2193d06f74a887a60cf445d415",
+        "size_bytes": 1157
+      }
+    ]
+  }
+}

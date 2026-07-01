@@ -1,0 +1,15 @@
+base_url: https://pradan1.issdc.gov.in
+checksums_directory: data_pipeline/datasets/{version}/checksums
+cookie: primefaces.download=null;FGTServer=03DE191863F4388C06A7AAAF7E0136FBD15060DF21FA637D82A675307CD5BF28BF8658CAFD950178CB994D;JSESSIONID=9ad2c4000ee6df6bdbb5deb5b10a;JSESSIONID=96af623f920526f887fcd43f1c6d;OAuth_Token_Request_State=148df25a-2f06-4ac6-bcff-da8de6977b46;
+current_dataset_version: dataset_v2
+download_directory: data_pipeline/downloads
+generate_checksum: true
+inventory_output: data_pipeline/datasets/{version}/inventory
+manifest_database: data_pipeline/datasets/{version}/database/manifest.db
+metadata_directory: data_pipeline/datasets/{version}/metadata
+parallel_downloads: true
+reports_directory: data_pipeline/datasets/{version}/reports
+retry_count: 5
+timeout: 30
+verify_zip: true
+workers: 4

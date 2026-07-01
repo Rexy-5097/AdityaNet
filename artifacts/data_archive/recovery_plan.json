@@ -1,0 +1,31 @@
+{
+    "dataset_version": "dataset_v1",
+    "timestamp": "2026-06-18T07:30:47Z",
+    "total_failed_archives": 426,
+    "recoverable_archives": 425,
+    "permanent_failures": 1,
+    "projected_recovery_success_rate": 99.76525821596243,
+    "projected_scientific_coverage_percentage": 99.77064220183486,
+    "recovery_simulation_estimates": {
+        "authentication_refresh": 425,
+        "retry": 425,
+        "resume_download": 0,
+        "fresh_download": 425
+    },
+    "root_causes": [
+        {
+            "rank": 1,
+            "cause": "Authentication expired",
+            "count": 425,
+            "recoverability": "RECOVERABLE",
+            "confidence": "High"
+        },
+        {
+            "rank": 2,
+            "cause": "Invalid FITS file structure",
+            "count": 1,
+            "recoverability": "PERMANENT_FAILURE",
+            "confidence": "High"
+        }
+    ]
+}

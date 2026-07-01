@@ -1,0 +1,57 @@
+{
+  "train.parquet": {
+    "relative_path": "artifacts/research/train.parquet",
+    "version": "1.0.0",
+    "date_range": "2010-01-02 00:30:00 to 2019-12-31 23:59:00",
+    "number_of_rows": 5161312,
+    "number_of_windows": 5160952,
+    "number_of_positive_labels": 31993,
+    "number_of_negative_labels": 5128959,
+    "sha256": "e31493d60255e9cc27a944e30ea19c67cb580376dc638f545962687e9fb8f518",
+    "size_bytes": 422678025
+  },
+  "validation.parquet": {
+    "relative_path": "artifacts/research/validation.parquet",
+    "version": "1.0.0",
+    "date_range": "2020-01-01 00:00:00 to 2022-12-31 23:59:00",
+    "number_of_rows": 1568759,
+    "number_of_windows": 1568399,
+    "number_of_positive_labels": 63849,
+    "number_of_negative_labels": 1504550,
+    "sha256": "9c1b770f22684abc0a21fb5ba3233cf80a5768619fe868763c0af0b73acff8d4",
+    "size_bytes": 138691501
+  },
+  "test.parquet": {
+    "relative_path": "artifacts/research/test.parquet",
+    "version": "1.0.0",
+    "date_range": "2023-01-01 00:00:00 to 2026-06-14 23:51:00",
+    "number_of_rows": 1806673,
+    "number_of_windows": 1806313,
+    "number_of_positive_labels": 419150,
+    "number_of_negative_labels": 1387163,
+    "sha256": "3f2b270f98a2480b37637f7e5461e5cc02ac8392d8af2ca9243cb3ad5edc5441",
+    "size_bytes": 163280890
+  },
+  "goes_full.parquet": {
+    "relative_path": "artifacts/research/goes_full.parquet",
+    "version": "raw",
+    "date_range": "2010-01-02 00:00:00 to 2026-06-14 23:59:00",
+    "number_of_rows": 8631360,
+    "number_of_windows": 8631360,
+    "number_of_positive_labels": "N/A",
+    "number_of_negative_labels": "N/A",
+    "sha256": "65d85524c7ba955e835534ad120fadbff877b4fbbff50f824a79189f9c45b616",
+    "size_bytes": 155043819
+  },
+  "flares_full.parquet": {
+    "relative_path": "artifacts/research/flares_full.parquet",
+    "version": "raw",
+    "date_range": "N/A",
+    "number_of_rows": 21945,
+    "number_of_windows": 21945,
+    "number_of_positive_labels": "N/A",
+    "number_of_negative_labels": "N/A",
+    "sha256": "536842648c3891e59b7fb68e86b1dd720fe59c36749d5636c24b61e90bae499a",
+    "size_bytes": 936034
+  }
+}

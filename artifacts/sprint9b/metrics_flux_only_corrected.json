@@ -1,0 +1,22 @@
+{
+  "dataset_size": 30106,
+  "TP": 657,
+  "FP": 321,
+  "FN": 6327,
+  "TN": 22801,
+  "Precision": 0.671779,
+  "Recall": 0.094072,
+  "F1": 0.165034,
+  "TSS": 0.080189,
+  "FAR": 0.328221,
+  "ROC-AUC": 0.695453,
+  "PR-AUC": 0.413881,
+  "thresholds_used": {
+    "yellow_threshold": 0.14,
+    "red_threshold": 0.95,
+    "suppression_red_to_yellow": 0.1,
+    "suppression_yellow_to_green": 0.15,
+    "suppression_all_to_green": 0.2
+  },
+  "policy_source": "operator_thresholds_validation_only.json + tiered uncertainty suppression + RED rolling confirmation"
+}

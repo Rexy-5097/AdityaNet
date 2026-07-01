@@ -1,0 +1,38 @@
+{
+  "baseline_metrics": {
+    "TP": 5047,
+    "FP": 7883,
+    "FN": 1937,
+    "TN": 15239,
+    "Precision": 0.39033256,
+    "Recall": 0.72265178,
+    "F1": 0.50687958,
+    "TSS": 0.38172106,
+    "FAR": 0.60966744,
+    "LeadTime": 11.765,
+    "EventRecall": 0.69633508,
+    "FalseEpisodesPerMonth": 6.9245
+  },
+  "coincidence_metrics": {
+    "TP": 5047,
+    "FP": 7883,
+    "FN": 1937,
+    "TN": 15239,
+    "Precision": 0.39033256,
+    "Recall": 0.72265178,
+    "F1": 0.50687958,
+    "TSS": 0.38172106,
+    "FAR": 0.60966744,
+    "LeadTime": 11.765,
+    "EventRecall": 0.69633508,
+    "FalseEpisodesPerMonth": 6.9245
+  },
+  "delta_precision": 0.0,
+  "delta_recall": 0.0,
+  "delta_f1": 0.0,
+  "delta_tss": 0.0,
+  "delta_far": 0.0,
+  "delta_false_episodes_per_month": 0.0,
+  "coincidence_filter_accepted": false,
+  "rejection_reason": "FAR did not decrease (delta=+0.000000) AND Precision did not increase (delta=+0.000000)"
+}

@@ -1,0 +1,21 @@
+{
+    "trust_certificate": {
+        "dataset_version": "dataset_v3",
+        "instrument": "HEL1OS",
+        "pipeline_version": "1.5.0-SprintDA03C",
+        "total_urls_ingested": 0,
+        "archives_downloaded": 175,
+        "archives_verified": 391,
+        "archives_failed": 0,
+        "zip_failures": 0,
+        "fits_failures": 0,
+        "scientific_coverage_pct": 97.92746113989638,
+        "manifest_sha256": "67dbe2ba669cd4e19d8c27da56e681b4153c107a41c220313f824e885308d721",
+        "cookie_hash": "dfba0cdf8ce50c73b353bab67b9e44f3",
+        "session_refreshes": 0,
+        "network_interruptions": 4,
+        "dns_failures": 0,
+        "total_retries": 4,
+        "generated_at": "2026-06-18T15:48:12.030744+00:00"
+    }
+}

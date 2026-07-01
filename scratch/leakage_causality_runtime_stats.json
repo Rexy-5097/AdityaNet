@@ -1,0 +1,11 @@
+{
+  "files_created": [
+    "/Users/soumyadebtripathy/AdityaNet/artifacts/aditya_l1/leakage_causality_audit.json",
+    "/Users/soumyadebtripathy/AdityaNet/brain/aditya_l1_leakage_causality_audit.md"
+  ],
+  "audited_feature_count": 125,
+  "runtime_s": 0.062075138092041016,
+  "initial_mem_mb": 89.40625,
+  "peak_mem_mb": 132.71875,
+  "final_mem_mb": 132.71875
+}

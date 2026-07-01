@@ -1,0 +1,16 @@
+{
+  "short_flux": 0.0,
+  "long_flux": 0.0,
+  "variance_15m": 0.0,
+  "variance_60m": 0.0,
+  "peak_30m": 0.0,
+  "peak_60m": 0.0,
+  "flux_gradient_5m": 0.0,
+  "flux_gradient_15m": 0.0,
+  "flux_acceleration_5m": 0.0,
+  "flux_acceleration_15m": 0.0,
+  "mean_15m": -0.0002,
+  "mean_60m": -0.0002,
+  "log_long_flux": -0.0211,
+  "minutes_since_last_flare": -0.0222
+}

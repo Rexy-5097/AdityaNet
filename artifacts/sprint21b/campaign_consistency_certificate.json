@@ -1,0 +1,44 @@
+{
+  "sprint": "21B",
+  "certificate_title": "SuryaNet V3 Campaign Consistency Certificate",
+  "issued_date": "2026-06-27",
+  "historical_consistency": {
+    "status": "PASS",
+    "verified_facts": [
+      "AdamW optimizer, lr=1e-4 (stage1), lr=5e-5 (stage2) at L295 and L345",
+      "No scheduler instantiated or stepped in run_sprint14c_experiment.py",
+      "CosineAnnealingLR in trainer_v3.py L177 (not invoked by active script)",
+      "Gradient clipping max_norm=1.0 at L116",
+      "Mixed precision bfloat16 via autocast at L95 and L104",
+      "Checkpoints saved as plain state_dict only at L332 and L382",
+      "Naming: model_seed_{seed}_stage{N}_best.pt at L233 and L348",
+      "Two checkpoints exist: seed 42 stage1 and stage2",
+      "Ablation types A/B/C/D via --model-type at L215",
+      "FocalLoss gamma=2.0 at trainer_v3.py L45",
+      "Alpha clamp [0.25, 0.75] at trainer_v3.py L48 (not L46-47)",
+      "Dropout 0.2 at model_v3.py L166"
+    ]
+  },
+  "planning_consistency": {
+    "status": "PASS",
+    "verified_facts": [
+      "All proposed settings explicitly labelled PROPOSED",
+      "CosineAnnealingLR marked as proposed, not current behaviour",
+      "Planned checkpoint names explicitly marked as non-existent",
+      "All 8 experiment IDs verified unique",
+      "Ablation examples aligned with manifest (seed 42 only)",
+      "All 7 campaign documents describe identical 8-experiment protocol"
+    ]
+  },
+  "execution_ready": {
+    "status": "PASS",
+    "verified_facts": [
+      "All 8 experiments have a verified executable command",
+      "Campaign commands use --model-type D (full fusion confirmed)",
+      "Ablation commands use --skip-stage1 (Stage 1 ckpt exists for seed 42)",
+      "run_sprint14c_experiment.py supports --model-type A/B/C/D (L215)"
+    ]
+  },
+  "remaining_blockers": [],
+  "verdict": "CAMPAIGN IS INTERNALLY CONSISTENT AND EXECUTION-READY"
+}

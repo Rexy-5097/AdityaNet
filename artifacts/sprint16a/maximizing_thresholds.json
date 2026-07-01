@@ -1,0 +1,14 @@
+{
+  "maximizing_recall": {
+    "threshold": 0.01,
+    "value": 0.9999035710841825
+  },
+  "maximizing_precision": {
+    "threshold": 0.93,
+    "value": 0.9542693819221151
+  },
+  "maximizing_f1": {
+    "threshold": 0.24000000000000002,
+    "value": 0.42186664677433394
+  }
+}

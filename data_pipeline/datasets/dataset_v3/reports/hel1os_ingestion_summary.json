@@ -1,0 +1,21 @@
+{
+    "sprint": "DA-03C",
+    "dataset_version": "dataset_v3",
+    "instrument": "HEL1OS",
+    "pipeline_version": "1.5.0-SprintDA03C",
+    "total_urls": 0,
+    "downloaded": 175,
+    "skipped": 216,
+    "still_failed": 0,
+    "permanent_failures": 0,
+    "zip_failures": 0,
+    "fits_failures": 0,
+    "elapsed_seconds": 5371.320217847824,
+    "scientific_coverage_pct": 97.92746113989638,
+    "total_retries": 4,
+    "network_interruptions": 8,
+    "dns_failures": 0,
+    "auth_failures": 0,
+    "session_refreshes": 0,
+    "generated_at": "2026-06-18T15:48:12.033958+00:00"
+}

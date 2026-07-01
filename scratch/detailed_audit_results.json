@@ -1,0 +1,2009 @@
+{
+  "hel1os_czt1_lightcurve": {
+    "status": "success",
+    "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/czt/lightcurve_czt1.fits",
+    "hdus": [
+      {
+        "hdu_name": "CZT1_LC_BAND_20.00KEV_TO_40.00KEV",
+        "hdu_index": 1,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CZT1_LC_BAND_40.00KEV_TO_60.00KEV",
+        "hdu_index": 2,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CZT1_LC_BAND_60.00KEV_TO_80.00KEV",
+        "hdu_index": 3,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CZT1_LC_BAND_80.00KEV_TO_150.00KEV",
+        "hdu_index": 4,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CZT1_LC_BAND_18.00KEV_TO_160.00KEV",
+        "hdu_index": 5,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      }
+    ]
+  },
+  "hel1os_czt2_lightcurve": {
+    "status": "success",
+    "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/czt/lightcurve_czt2.fits",
+    "hdus": [
+      {
+        "hdu_name": "CZT2_LC_BAND_20.00KEV_TO_40.00KEV",
+        "hdu_index": 1,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CZT2_LC_BAND_40.00KEV_TO_60.00KEV",
+        "hdu_index": 2,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CZT2_LC_BAND_60.00KEV_TO_80.00KEV",
+        "hdu_index": 3,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CZT2_LC_BAND_80.00KEV_TO_150.00KEV",
+        "hdu_index": 4,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CZT2_LC_BAND_18.00KEV_TO_160.00KEV",
+        "hdu_index": 5,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      }
+    ]
+  },
+  "hel1os_cdte1_lightcurve": {
+    "status": "success",
+    "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/cdte/lightcurve_cdte1.fits",
+    "hdus": [
+      {
+        "hdu_name": "CDTE1_LC_BAND_5.00KEV_TO_20.00KEV",
+        "hdu_index": 1,
+        "n_rows": 43141,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CDTE1_LC_BAND_20.00KEV_TO_30.00KEV",
+        "hdu_index": 2,
+        "n_rows": 43095,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 719,
+          "n_file_min": 719
+        }
+      },
+      {
+        "hdu_name": "CDTE1_LC_BAND_30.00KEV_TO_40.00KEV",
+        "hdu_index": 3,
+        "n_rows": 42962,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 717,
+          "n_file_min": 717
+        }
+      },
+      {
+        "hdu_name": "CDTE1_LC_BAND_40.00KEV_TO_60.00KEV",
+        "hdu_index": 4,
+        "n_rows": 43158,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CDTE1_LC_BAND_1.80KEV_TO_90.00KEV",
+        "hdu_index": 5,
+        "n_rows": 43158,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      }
+    ]
+  },
+  "hel1os_cdte2_lightcurve": {
+    "status": "success",
+    "file": "hel1os/2026/06/10/HLS_20260610_000012_43174sec_lev1_V111/cdte/lightcurve_cdte2.fits",
+    "hdus": [
+      {
+        "hdu_name": "CDTE2_LC_BAND_5.00KEV_TO_20.00KEV",
+        "hdu_index": 1,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CDTE2_LC_BAND_20.00KEV_TO_30.00KEV",
+        "hdu_index": 2,
+        "n_rows": 43158,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CDTE2_LC_BAND_30.00KEV_TO_40.00KEV",
+        "hdu_index": 3,
+        "n_rows": 43165,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CDTE2_LC_BAND_40.00KEV_TO_60.00KEV",
+        "hdu_index": 4,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      },
+      {
+        "hdu_name": "CDTE2_LC_BAND_1.80KEV_TO_90.00KEV",
+        "hdu_index": 5,
+        "n_rows": 43166,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "numerical_columns": [
+          "MJD",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "varying_columns": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 720,
+          "n_file_min": 720
+        }
+      }
+    ]
+  },
+  "hel1os_czt_spectra": {
+    "status": "success",
+    "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+    "hdus": [
+      {
+        "hdu_name": "SPECTRUM",
+        "hdu_index": 1,
+        "n_rows": 2188,
+        "cadence_median_s": 20.0,
+        "columns": [
+          "SPEC_NUM",
+          "CHANNEL",
+          "COUNTS",
+          "STAT_ERR",
+          "ROWID",
+          "TSTART",
+          "TSTOP",
+          "EXPOSURE"
+        ],
+        "numerical_columns": [
+          "SPEC_NUM",
+          "CHANNEL",
+          "COUNTS",
+          "STAT_ERR",
+          "TSTART",
+          "TSTOP",
+          "EXPOSURE"
+        ],
+        "varying_columns": [
+          "SPEC_NUM",
+          "COUNTS",
+          "STAT_ERR",
+          "ROWID",
+          "TSTART",
+          "TSTOP",
+          "EXPOSURE"
+        ],
+        "constant_columns": [
+          "CHANNEL"
+        ],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 730,
+          "n_file_min": 730
+        }
+      }
+    ]
+  },
+  "hel1os_cdte_spectra": {
+    "status": "success",
+    "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+    "hdus": [
+      {
+        "hdu_name": "SPECTRUM",
+        "hdu_index": 1,
+        "n_rows": 2188,
+        "cadence_median_s": 20.0,
+        "columns": [
+          "SPEC_NUM",
+          "CHANNEL",
+          "COUNTS",
+          "STAT_ERR",
+          "ROWID",
+          "TSTART",
+          "TSTOP",
+          "EXPOSURE"
+        ],
+        "numerical_columns": [
+          "SPEC_NUM",
+          "CHANNEL",
+          "COUNTS",
+          "STAT_ERR",
+          "TSTART",
+          "TSTOP",
+          "EXPOSURE"
+        ],
+        "varying_columns": [
+          "SPEC_NUM",
+          "COUNTS",
+          "STAT_ERR",
+          "ROWID",
+          "TSTART",
+          "TSTOP",
+          "EXPOSURE"
+        ],
+        "constant_columns": [
+          "CHANNEL"
+        ],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 730,
+          "n_file_min": 730
+        }
+      }
+    ]
+  },
+  "hel1os_events": {
+    "status": "success",
+    "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/events/evt.fits",
+    "hdus": [
+      {
+        "hdu_name": "CDTE1-EVENTS",
+        "hdu_index": 1,
+        "n_rows": 11009,
+        "cadence_median_s": 0.0,
+        "columns": [
+          "mjd",
+          "hlsobt",
+          "currtemp",
+          "chn",
+          "ener",
+          "recnum",
+          "utc-isot"
+        ],
+        "numerical_columns": [
+          "mjd",
+          "hlsobt",
+          "currtemp",
+          "chn",
+          "ener",
+          "recnum"
+        ],
+        "varying_columns": [
+          "mjd",
+          "hlsobt",
+          "currtemp",
+          "chn",
+          "ener",
+          "recnum",
+          "utc-isot"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 731,
+          "n_file_min": 731
+        }
+      },
+      {
+        "hdu_name": "CDTE2-EVENTS",
+        "hdu_index": 2,
+        "n_rows": 20696,
+        "cadence_median_s": 0.0,
+        "columns": [
+          "mjd",
+          "hlsobt",
+          "currtemp",
+          "chn",
+          "ener",
+          "recnum",
+          "utc-isot"
+        ],
+        "numerical_columns": [
+          "mjd",
+          "hlsobt",
+          "currtemp",
+          "chn",
+          "ener",
+          "recnum"
+        ],
+        "varying_columns": [
+          "mjd",
+          "hlsobt",
+          "currtemp",
+          "chn",
+          "ener",
+          "recnum",
+          "utc-isot"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 731,
+          "n_file_min": 731
+        }
+      },
+      {
+        "hdu_name": "CZT1-EVENTS",
+        "hdu_index": 3,
+        "n_rows": 1332903,
+        "cadence_median_s": 0.0,
+        "columns": [
+          "mjd",
+          "hlsobt",
+          "currtemp",
+          "pix",
+          "chn",
+          "offsetchn",
+          "ener",
+          "recnum",
+          "utc-isot"
+        ],
+        "numerical_columns": [
+          "mjd",
+          "hlsobt",
+          "currtemp",
+          "pix",
+          "chn",
+          "offsetchn",
+          "ener",
+          "recnum"
+        ],
+        "varying_columns": [
+          "mjd",
+          "hlsobt",
+          "pix",
+          "chn",
+          "offsetchn",
+          "ener",
+          "recnum",
+          "utc-isot"
+        ],
+        "constant_columns": [
+          "currtemp"
+        ],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 731,
+          "n_file_min": 731
+        }
+      },
+      {
+        "hdu_name": "CZT2-EVENTS",
+        "hdu_index": 4,
+        "n_rows": 1221259,
+        "cadence_median_s": 0.0,
+        "columns": [
+          "mjd",
+          "hlsobt",
+          "currtemp",
+          "pix",
+          "chn",
+          "offsetchn",
+          "ener",
+          "recnum",
+          "utc-isot"
+        ],
+        "numerical_columns": [
+          "mjd",
+          "hlsobt",
+          "currtemp",
+          "pix",
+          "chn",
+          "offsetchn",
+          "ener",
+          "recnum"
+        ],
+        "varying_columns": [
+          "mjd",
+          "hlsobt",
+          "pix",
+          "chn",
+          "offsetchn",
+          "ener",
+          "recnum",
+          "utc-isot"
+        ],
+        "constant_columns": [
+          "currtemp"
+        ],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 731,
+          "n_file_min": 731
+        }
+      }
+    ]
+  },
+  "hel1os_gti_czt1": {
+    "status": "success",
+    "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/aux/gticzt1.fits",
+    "hdus": [
+      {
+        "hdu_name": "GTI_CZT1",
+        "hdu_index": 1,
+        "n_rows": 1,
+        "cadence_median_s": null,
+        "columns": [
+          "tstart",
+          "tstop"
+        ],
+        "numerical_columns": [
+          "tstart",
+          "tstop"
+        ],
+        "varying_columns": [],
+        "constant_columns": [
+          "tstart",
+          "tstop"
+        ],
+        "can_agg_1m": false,
+        "can_agg_5m": false,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 1,
+          "n_file_min": 1
+        }
+      }
+    ]
+  },
+  "hel1os_gti_czt2": {
+    "status": "success",
+    "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/aux/gticzt2.fits",
+    "hdus": [
+      {
+        "hdu_name": "GTI_CZT2",
+        "hdu_index": 1,
+        "n_rows": 1,
+        "cadence_median_s": null,
+        "columns": [
+          "tstart",
+          "tstop"
+        ],
+        "numerical_columns": [
+          "tstart",
+          "tstop"
+        ],
+        "varying_columns": [],
+        "constant_columns": [
+          "tstart",
+          "tstop"
+        ],
+        "can_agg_1m": false,
+        "can_agg_5m": false,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 1,
+          "n_file_min": 1
+        }
+      }
+    ]
+  },
+  "hel1os_gti_cdte1": {
+    "status": "success",
+    "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/aux/gticdte1.fits",
+    "hdus": [
+      {
+        "hdu_name": "GTI_CDTE1",
+        "hdu_index": 1,
+        "n_rows": 1,
+        "cadence_median_s": null,
+        "columns": [
+          "tstart",
+          "tstop"
+        ],
+        "numerical_columns": [
+          "tstart",
+          "tstop"
+        ],
+        "varying_columns": [],
+        "constant_columns": [
+          "tstart",
+          "tstop"
+        ],
+        "can_agg_1m": false,
+        "can_agg_5m": false,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 1,
+          "n_file_min": 1
+        }
+      }
+    ]
+  },
+  "hel1os_gti_cdte2": {
+    "status": "success",
+    "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/aux/gticdte2.fits",
+    "hdus": [
+      {
+        "hdu_name": "GTI_CDTE2",
+        "hdu_index": 1,
+        "n_rows": 1,
+        "cadence_median_s": null,
+        "columns": [
+          "tstart",
+          "tstop"
+        ],
+        "numerical_columns": [
+          "tstart",
+          "tstop"
+        ],
+        "varying_columns": [],
+        "constant_columns": [
+          "tstart",
+          "tstop"
+        ],
+        "can_agg_1m": false,
+        "can_agg_5m": false,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 1,
+          "n_file_min": 1
+        }
+      }
+    ]
+  },
+  "hel1os_housekeeping": {
+    "status": "success",
+    "file": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/aux/hk.fits",
+    "hdus": [
+      {
+        "hdu_name": "HLSHK",
+        "hdu_index": 1,
+        "n_rows": 5556,
+        "cadence_median_s": 7.906936,
+        "columns": [
+          "l0recnum",
+          "l0grtyr",
+          "l0grtmon",
+          "l0grtdy",
+          "l0grthr",
+          "l0grtmin",
+          "l0grtsc",
+          "l0grtmsc",
+          "l0utcyr",
+          "l0utcmon",
+          "l0utcdy",
+          "l0utchr",
+          "l0utcmin",
+          "l0utcsc",
+          "l0utcmsc",
+          "l0framecnt",
+          "l0dhobt",
+          "mjd",
+          "czt1temp",
+          "czt2temp",
+          "czt1bunpxst",
+          "czt2bunpxst",
+          "pagestim",
+          "cdte1ctr",
+          "pagenum",
+          "czt1ctr",
+          "czt1enth",
+          "czt2ctr",
+          "czt2enth",
+          "cdte2ctr",
+          "czt1pktm",
+          "czt2pktm",
+          "fehkstat",
+          "czt1hotpix",
+          "czt1hotpixcnt",
+          "czt1hotpixlgcstat",
+          "czt1hotpixthr",
+          "czt2hotpix",
+          "czt2hotpixcnt",
+          "czt2hotpixlgcstat",
+          "czt2hotpixthr",
+          "cdte1enerthr",
+          "cdte2enerthr",
+          "czthvmon",
+          "cdtehvmon",
+          "cdte1temp",
+          "cdte2temp",
+          "cdte1pilectr",
+          "cdte2pilectr",
+          "czt1satctr1",
+          "czt2satctr1",
+          "czt1bunpxctr",
+          "czt2bunpxctr",
+          "sunradeg",
+          "sundecdeg",
+          "suninfov",
+          "sun2yawdeg",
+          "sun2rolldeg",
+          "sun2pitchdeg",
+          "yawradeg",
+          "yawdecdeg",
+          "lastevtmjd"
+        ],
+        "numerical_columns": [
+          "l0recnum",
+          "l0grtyr",
+          "l0grtmon",
+          "l0grtdy",
+          "l0grthr",
+          "l0grtmin",
+          "l0grtsc",
+          "l0grtmsc",
+          "l0utcyr",
+          "l0utcmon",
+          "l0utcdy",
+          "l0utchr",
+          "l0utcmin",
+          "l0utcsc",
+          "l0utcmsc",
+          "l0framecnt",
+          "l0dhobt",
+          "mjd",
+          "czt1temp",
+          "czt2temp",
+          "czt1bunpxst",
+          "czt2bunpxst",
+          "pagestim",
+          "cdte1ctr",
+          "pagenum",
+          "czt1ctr",
+          "czt1enth",
+          "czt2ctr",
+          "czt2enth",
+          "cdte2ctr",
+          "czt1pktm",
+          "czt2pktm",
+          "fehkstat",
+          "czt1hotpix",
+          "czt1hotpixcnt",
+          "czt1hotpixlgcstat",
+          "czt1hotpixthr",
+          "czt2hotpix",
+          "czt2hotpixcnt",
+          "czt2hotpixlgcstat",
+          "czt2hotpixthr",
+          "cdte1enerthr",
+          "cdte2enerthr",
+          "czthvmon",
+          "cdtehvmon",
+          "cdte1temp",
+          "cdte2temp",
+          "cdte1pilectr",
+          "cdte2pilectr",
+          "czt1satctr1",
+          "czt2satctr1",
+          "czt1bunpxctr",
+          "czt2bunpxctr",
+          "sunradeg",
+          "sundecdeg",
+          "suninfov",
+          "sun2yawdeg",
+          "sun2rolldeg",
+          "sun2pitchdeg",
+          "yawradeg",
+          "yawdecdeg",
+          "lastevtmjd"
+        ],
+        "varying_columns": [
+          "l0recnum",
+          "l0grtmin",
+          "l0grtsc",
+          "l0grtmsc",
+          "l0utcdy",
+          "l0utchr",
+          "l0utcmin",
+          "l0utcsc",
+          "l0utcmsc",
+          "l0framecnt",
+          "l0dhobt",
+          "mjd",
+          "pagestim",
+          "cdte1ctr",
+          "pagenum",
+          "czt1ctr",
+          "czt2ctr",
+          "cdte2ctr",
+          "czt1pktm",
+          "czt2pktm",
+          "czthvmon",
+          "cdtehvmon",
+          "cdte1temp",
+          "cdte2temp",
+          "cdte1pilectr",
+          "cdte2pilectr",
+          "czt1satctr1",
+          "czt2satctr1",
+          "czt1bunpxctr",
+          "czt2bunpxctr",
+          "sunradeg",
+          "sundecdeg",
+          "sun2yawdeg",
+          "sun2rolldeg",
+          "sun2pitchdeg",
+          "yawradeg",
+          "yawdecdeg",
+          "lastevtmjd"
+        ],
+        "constant_columns": [
+          "l0grtyr",
+          "l0grtmon",
+          "l0grtdy",
+          "l0grthr",
+          "l0utcyr",
+          "l0utcmon",
+          "czt1temp",
+          "czt2temp",
+          "czt1bunpxst",
+          "czt2bunpxst",
+          "czt1enth",
+          "czt2enth",
+          "fehkstat",
+          "czt1hotpix",
+          "czt1hotpixcnt",
+          "czt1hotpixlgcstat",
+          "czt1hotpixthr",
+          "czt2hotpix",
+          "czt2hotpixcnt",
+          "czt2hotpixlgcstat",
+          "czt2hotpixthr",
+          "cdte1enerthr",
+          "cdte2enerthr",
+          "suninfov"
+        ],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 731,
+          "n_file_min": 731
+        }
+      }
+    ]
+  },
+  "solexs_sdd2_lightcurve": {
+    "status": "success",
+    "file": "solexs/AL1_SLX_L1_20260610_v1.0/SDD2/AL1_SOLEXS_20260610_SDD2_L1.lc.gz",
+    "hdus": [
+      {
+        "hdu_name": "RATE",
+        "hdu_index": 1,
+        "n_rows": 86400,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "TIME",
+          "COUNTS"
+        ],
+        "numerical_columns": [
+          "TIME",
+          "COUNTS"
+        ],
+        "varying_columns": [
+          "TIME",
+          "COUNTS"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 1440,
+          "n_file_min": 1440
+        }
+      }
+    ]
+  },
+  "solexs_sdd2_spectra": {
+    "status": "success",
+    "file": "solexs/AL1_SLX_L1_20260610_v1.0/SDD2/AL1_SOLEXS_20260610_SDD2_L1.pi.gz",
+    "hdus": [
+      {
+        "hdu_name": "SPECTRUM",
+        "hdu_index": 1,
+        "n_rows": 86400,
+        "cadence_median_s": 1.0,
+        "columns": [
+          "TSTART",
+          "TELAPSE",
+          "SPEC_NUM",
+          "CHANNEL",
+          "COUNTS",
+          "EXPOSURE"
+        ],
+        "numerical_columns": [
+          "TSTART",
+          "TELAPSE",
+          "SPEC_NUM",
+          "CHANNEL",
+          "COUNTS",
+          "EXPOSURE"
+        ],
+        "varying_columns": [
+          "TSTART",
+          "SPEC_NUM",
+          "COUNTS"
+        ],
+        "constant_columns": [
+          "TELAPSE",
+          "CHANNEL",
+          "EXPOSURE"
+        ],
+        "can_agg_1m": true,
+        "can_agg_5m": true,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 1440,
+          "n_file_min": 1440
+        }
+      }
+    ]
+  },
+  "solexs_sdd1_gti": {
+    "status": "success",
+    "file": "solexs/AL1_SLX_L1_20260610_v1.0/SDD1/AL1_SOLEXS_20260610_SDD1_L1.gti.gz",
+    "hdus": [
+      {
+        "hdu_name": "GTI",
+        "hdu_index": 1,
+        "n_rows": 0,
+        "cadence_median_s": null,
+        "columns": [
+          "START",
+          "STOP"
+        ],
+        "numerical_columns": [
+          "START",
+          "STOP"
+        ],
+        "varying_columns": [],
+        "constant_columns": [
+          "START",
+          "STOP"
+        ],
+        "can_agg_1m": false,
+        "can_agg_5m": false,
+        "can_join_goes": false,
+        "goes_overlap_info": {
+          "n_overlap": 0,
+          "n_file_min": 0
+        }
+      }
+    ]
+  },
+  "solexs_sdd2_gti": {
+    "status": "success",
+    "file": "solexs/AL1_SLX_L1_20260610_v1.0/SDD2/AL1_SOLEXS_20260610_SDD2_L1.gti.gz",
+    "hdus": [
+      {
+        "hdu_name": "GTI",
+        "hdu_index": 1,
+        "n_rows": 4,
+        "cadence_median_s": 18640.0,
+        "columns": [
+          "START",
+          "STOP"
+        ],
+        "numerical_columns": [
+          "START",
+          "STOP"
+        ],
+        "varying_columns": [
+          "START",
+          "STOP"
+        ],
+        "constant_columns": [],
+        "can_agg_1m": false,
+        "can_agg_5m": false,
+        "can_join_goes": true,
+        "goes_overlap_info": {
+          "n_overlap": 3,
+          "n_file_min": 3
+        }
+      }
+    ]
+  },
+  "special_events_analysis": {
+    "CDTE1-EVENTS": {
+      "detector_id": "CDTE1",
+      "energy_col": "ener",
+      "n_rows": 11009,
+      "unique_pixels_count": 0,
+      "pixel_ids_sample": [],
+      "pixel_ids_full": [],
+      "photon_counts_per_minute_stats": {
+        "mean": 15.060191518467851,
+        "std": 13.401459313973698,
+        "min": 1,
+        "max": 145,
+        "total": 11009
+      },
+      "photon_counts_per_energy_band": {
+        "5-20": 4267,
+        "20-30": 564,
+        "30-40": 610,
+        "40-60": 2729,
+        "1.8-90": 10958
+      }
+    },
+    "CDTE2-EVENTS": {
+      "detector_id": "CDTE2",
+      "energy_col": "ener",
+      "n_rows": 20696,
+      "unique_pixels_count": 0,
+      "pixel_ids_sample": [],
+      "pixel_ids_full": [],
+      "photon_counts_per_minute_stats": {
+        "mean": 28.31190150478796,
+        "std": 17.152773906301466,
+        "min": 4,
+        "max": 181,
+        "total": 20696
+      },
+      "photon_counts_per_energy_band": {
+        "5-20": 9205,
+        "20-30": 1258,
+        "30-40": 1015,
+        "40-60": 5978,
+        "1.8-90": 20601
+      }
+    },
+    "CZT1-EVENTS": {
+      "detector_id": "CZT1",
+      "energy_col": "ener",
+      "n_rows": 1332903,
+      "unique_pixels_count": 209,
+      "pixel_ids_sample": [
+        1,
+        3,
+        4,
+        10,
+        11,
+        12,
+        14,
+        18,
+        19,
+        20
+      ],
+      "pixel_ids_full": [
+        1,
+        3,
+        4,
+        10,
+        11,
+        12,
+        14,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        239,
+        246,
+        247,
+        251,
+        252,
+        253,
+        254
+      ],
+      "photon_counts_per_minute_stats": {
+        "mean": 1823.3967168262654,
+        "std": 248.91402749764106,
+        "min": 346,
+        "max": 2624,
+        "total": 1332903
+      },
+      "photon_counts_per_energy_band": {
+        "20-40": 557860,
+        "40-60": 77518,
+        "60-80": 66296,
+        "80-150": 197191,
+        "18-160": 1072961
+      }
+    },
+    "CZT2-EVENTS": {
+      "detector_id": "CZT2",
+      "energy_col": "ener",
+      "n_rows": 1221259,
+      "unique_pixels_count": 237,
+      "pixel_ids_sample": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "pixel_ids_full": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        242,
+        243,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253
+      ],
+      "photon_counts_per_minute_stats": {
+        "mean": 1670.6689466484268,
+        "std": 240.36300710602976,
+        "min": 195,
+        "max": 2274,
+        "total": 1221259
+      },
+      "photon_counts_per_energy_band": {
+        "20-40": 520292,
+        "40-60": 116985,
+        "60-80": 78260,
+        "80-150": 237169,
+        "18-160": 1022306
+      }
+    }
+  },
+  "special_spectra_analysis": {
+    "hel1os_czt_spectra": {
+      "n_channels": 341,
+      "counts_stats_per_bin": {
+        "mean": 1.4420124164330097,
+        "std": 4.168457381007488,
+        "min": 0.0,
+        "max": 79.0,
+        "sum": 1075897.0
+      },
+      "has_ebounds": false,
+      "energy_bins_count": null,
+      "energy_bins_sample": null
+    },
+    "hel1os_cdte_spectra": {
+      "n_channels": 511,
+      "counts_stats_per_bin": {
+        "mean": 0.009821406211429,
+        "std": 0.10410369719705702,
+        "min": 0.0,
+        "max": 5.0,
+        "sum": 10981.0
+      },
+      "has_ebounds": false,
+      "energy_bins_count": null,
+      "energy_bins_sample": null
+    },
+    "solexs_sdd2_spectra": {
+      "n_channels": 340,
+      "counts_stats_per_bin": {
+        "mean": 0.2934987118140001,
+        "std": 1.2971828512719186,
+        "min": 0.0,
+        "max": 34.0,
+        "sum": 8621419.0
+      },
+      "has_ebounds": false,
+      "energy_bins_count": null,
+      "energy_bins_sample": null
+    }
+  }
+}

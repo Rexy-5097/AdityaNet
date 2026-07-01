@@ -1,0 +1,116 @@
+# ==================================================
+# AdityaNet — .gitignore
+# ==================================================
+
+# ----- Python cache -----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ----- Virtual environments -----
+venv/
+.venv/
+env/
+ENV/
+
+# ----- Environment / secrets -----
+.env
+.env.*
+!.env.example
+
+# ----- Large datasets -----
+*.parquet
+*.csv
+*.h5
+*.hdf5
+*.npz
+*.npy
+*.fits
+*.fits.gz
+*.nc
+*.pi
+*.pkl
+*.pickle
+
+# ----- Raw archives (instrument downloads, backups) -----
+# NOTE: found via direct audit — 2,127 .zip files (20.9GB) of raw Aditya-L1
+# instrument downloads under data_pipeline/downloads/ and .gz files of
+# compressed telemetry under data/ were NOT covered by extension rules
+# above and were being staged into .git. This section closes that gap.
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.7z
+*.rar
+*.bz2
+
+# ----- Model checkpoints / weights -----
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.h5weights
+
+# ----- TensorBoard / experiment tracking -----
+runs/
+tensorboard/
+mlruns/
+wandb/
+
+# ----- Logs -----
+*.log
+logs/
+
+# ----- macOS -----
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+
+# ----- IDE / editor -----
+.vscode/
+.idea/
+*.swp
+*.swo
+.ipynb_checkpoints/
+
+# ----- Build outputs -----
+dist/
+build/
+*.egg-info/
+site/
+
+# ----- Temporary / cache directories -----
+tmp/
+temp/
+cache/
+.cache/
+*.tmp
+
+# ----- Node (in case any tooling adds it) -----
+node_modules/
+
+# ----- Project-specific: external/local-only references -----
+# 'brain' is a symlink to a local Gemini CLI data store outside this
+# repository (~/.gemini/antigravity-cli/brain/...). It is not required
+# for build/train/eval/dev and is not portable across machines.
+/brain
+
+# Claude Code's own local session/tool config — not project source.
+.claude/
+
+# Databases / local state
+*.sqlite3
+*.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS-generated archives created accidentally
+*.zip.part

@@ -1,0 +1,1622 @@
+{
+  "solexs_sdd2_spec_counts_ch13": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.14511090244087002,
+        -0.11697642762506505
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.012486149912346929,
+        0.0020966313301871283
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.001749384209625375,
+        0.00925193577130461
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch14": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.4540934961336208,
+        -0.39443570135398853
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09521362547051951,
+        -0.05345857717745875
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        -0.003921113720858034,
+        -0.0011606498400984723
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch15": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.4564562724420312,
+        -0.3951393927093219
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09643845641742,
+        -0.05265272485148825
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.003921314209091563,
+        0.0069608830565080345
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch16": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.4509299037629605,
+        -0.3948068337474657
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09403522886206095,
+        -0.0474797170638373
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.01243017545178732,
+        0.019850082781713584
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch17": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.4491784607989954,
+        -0.3870202842291355
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.08943401678115832,
+        -0.046167101073248895
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.04087074006980547,
+        0.05770517930522052
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch18": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.45027071611430947,
+        -0.38949137252539484
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.08583345588235294,
+        -0.04119084599494751
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.008781647682880983,
+        0.01534402124205423
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch19": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.44402275007208547,
+        -0.380975452017491
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.0859862560449027,
+        -0.039030326948938425
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.010595830413740268,
+        0.017234488710341424
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch20": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.438527513839532,
+        -0.3724966938515523
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.08583128577822284,
+        -0.042320047779819646
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.004113528552822373,
+        0.007937859350246403
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch21": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.43249381684654487,
+        -0.36566573320321566
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09059018680271176,
+        -0.04590708655820301
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        -0.001452216374495771,
+        -0.00047770427199614617
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch22": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.42488177778185354,
+        -0.360015719146741
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.08270967377327193,
+        -0.03848926549494802
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.014573601244890684,
+        0.023294239878688335
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch23": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.398786068219911,
+        -0.3327982708018145
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09229706078524086,
+        -0.04514293708399147
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.01640746769746178,
+        0.025368782130141054
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch24": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.3396250037347718,
+        -0.272984233340806
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09830249502649993,
+        -0.045459402403729574
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.08033510636495744,
+        0.10809787359391698
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch25": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.331007501586539,
+        -0.2569279750242954
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.12461189366830909,
+        -0.0680392104565599
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.003516927878184757,
+        0.006230504086781837
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch26": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.3807665231410779,
+        -0.31358564428503843
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09447485336889447,
+        -0.04529128533250722
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.0012224119896451565,
+        0.002406738992182039
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch27": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.4075371045391647,
+        -0.3443994704317095
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09064114479741431,
+        -0.045679978006984014
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.011533761022377458,
+        0.01857489477362766
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch28": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.37602595107688863,
+        -0.30716905699920566
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09653955111232834,
+        -0.04923794165554629
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.01595963015258413,
+        0.02495884108303276
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch29": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.20911486579025354,
+        -0.12829251949317733
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.16227839392808757,
+        -0.09233158816951452
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.014339035439213573,
+        0.023471426237737916
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch30": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.11906166990427579,
+        -0.03331041435571562
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.23321056137168386,
+        -0.1623173141942119
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.0043226957930246335,
+        0.0077657833841572425
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch31": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.10188009479769286,
+        -0.02894944903233312
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.23532012923105522,
+        -0.1754635027501361
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.06966129802896245,
+        0.09315336888661518
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch32": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.15374022787349,
+        -0.07550743772832601
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.2416976311843972,
+        -0.1796201585642317
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.03691539900697746,
+        0.053463857858703216
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch33": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.15465422245714558,
+        -0.08118233106497715
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.13271978733180526,
+        -0.055371581779572736
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.08683907332806705,
+        0.11476675611700693
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch34": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.11136413567544114,
+        -0.03433396668383914
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.0740124744845796,
+        0.00628919244223774
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.07034294825393579,
+        0.09660666661986987
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch35": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.06322398810350548,
+        0.019995308299089187
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        0.0221293487271854,
+        0.09576961413740713
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.006806065937245552,
+        0.024067686098509324
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch36": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.018168014388163917,
+        0.05244945441589342
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        0.04567054193031993,
+        0.09496820426038369
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.004889526962551364,
+        0.017825470106169247
+      ]
+    }
+  },
+  "solexs_sdd2_spec_counts_ch37": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.028217263845624924,
+        0.02028147495226996
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        0.04540413133045022,
+        0.08136892477555506
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.015751658198829736,
+        0.025496256195429674
+      ]
+    }
+  },
+  "band_A_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.4571683760704507,
+        -0.3965491171270725
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09091371815083821,
+        -0.04728335997822902
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.014118385868842145,
+        0.022246723214604597
+      ]
+    }
+  },
+  "band_A_median": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.45421749943369505,
+        -0.39592527515001374
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.0926771366321189,
+        -0.04848108942866348
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.008671088611949268,
+        0.014000419209647503
+      ]
+    }
+  },
+  "band_A_trimmed_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.4583268928994821,
+        -0.39566085817725216
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09070109067100378,
+        -0.04436051683078645
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.0138376723857428,
+        0.022290138875785053
+      ]
+    }
+  },
+  "band_A_sum": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.45740403033201865,
+        -0.39818165297892305
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09009959388530976,
+        -0.048171256867570546
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.014077226653126305,
+        0.021874774712594195
+      ]
+    }
+  },
+  "band_A_zscore_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.45870633593867777,
+        -0.4001621208871965
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09264124066297456,
+        -0.04977990273865189
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        -0.0034454239276315254,
+        -0.0012904905515111662
+      ]
+    }
+  },
+  "band_B_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.44178816788496345,
+        -0.37915539557635713
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.08930052376146312,
+        -0.04119110465764194
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.012023267110183814,
+        0.020328449612280756
+      ]
+    }
+  },
+  "band_B_median": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.44297879146182506,
+        -0.3804988857010353
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.08932937286833341,
+        -0.043864583744024487
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.0032737352280564945,
+        0.0062712886393224655
+      ]
+    }
+  },
+  "band_B_trimmed_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.44326066905344186,
+        -0.3783644103765537
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.08846077455746673,
+        -0.04431836558940621
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.012384480397958954,
+        0.020318582883671138
+      ]
+    }
+  },
+  "band_B_sum": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.4425100210261106,
+        -0.3777938306298665
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.0875458109415872,
+        -0.043369950318315344
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.012676235609184542,
+        0.020382142848943845
+      ]
+    }
+  },
+  "band_B_zscore_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.4410997613845502,
+        -0.3733297450995483
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.08737845282350874,
+        -0.04410825500453147
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.017076324386592245,
+        0.026148685531159108
+      ]
+    }
+  },
+  "band_C_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.3689737019384983,
+        -0.2927022438277762
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.12048808224759287,
+        -0.06785343155121319
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.007807002591675967,
+        0.013361421339363962
+      ]
+    }
+  },
+  "band_C_median": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.37041623558567627,
+        -0.3002499480248126
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.10434976636648942,
+        -0.055980774564800544
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.009088466592192857,
+        0.015217984240381085
+      ]
+    }
+  },
+  "band_C_trimmed_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.36691084613290836,
+        -0.28980586019865534
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.11900541713288856,
+        -0.06627294890422948
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.007984537150224088,
+        0.013568978929464941
+      ]
+    }
+  },
+  "band_C_sum": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.3645650538476941,
+        -0.2881842181946553
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.12002390695699969,
+        -0.06546657733303839
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.007759920747806388,
+        0.013331615276670669
+      ]
+    }
+  },
+  "band_C_zscore_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.34150206013483897,
+        -0.25605306983768256
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.13975071099491693,
+        -0.08336400403646248
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.008158784032631069,
+        0.013632464663800576
+      ]
+    }
+  },
+  "band_D_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.0992711460873312,
+        -0.027623464897750354
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.18082783186699578,
+        -0.11207059082842054
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.05307753365240079,
+        0.0739772953750353
+      ]
+    }
+  },
+  "band_D_median": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.10636113430963368,
+        -0.03397440402924264
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.1828809419844184,
+        -0.10792727282311636
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.08884984484421173,
+        0.11959671353120421
+      ]
+    }
+  },
+  "band_D_trimmed_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.10286460483974603,
+        -0.028126064180423044
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.17686845911050872,
+        -0.11263809897466864
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.05315274189945223,
+        0.07450685881990625
+      ]
+    }
+  },
+  "band_D_sum": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.10255514925005378,
+        -0.029136778869454143
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.1835345383019308,
+        -0.11354877835854296
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.058454754647261,
+        0.08074348140605501
+      ]
+    }
+  },
+  "band_D_zscore_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.13498112300844886,
+        -0.05448755815104484
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.13699334368724164,
+        -0.06057499465946255
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.05225276673786462,
+        0.07223213526108906
+      ]
+    }
+  },
+  "soft_band_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.4514883030726258,
+        -0.38846456078540514
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.0881473765876875,
+        -0.04329907288665763
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.011845423745320514,
+        0.01968224219678477
+      ]
+    }
+  },
+  "hard_band_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.14364765424622564,
+        -0.06803615113436833
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.19858054678710135,
+        -0.12969658111579516
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.03730684372790843,
+        0.05268834842033461
+      ]
+    }
+  },
+  "hard_soft_ratio": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.2595330093091525,
+        -0.17246050420168074
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.04809952349499973,
+        0.03140986006625021
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.0015554795403009733,
+        0.0031567826677283747
+      ]
+    }
+  },
+  "pc1_projection": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.37630362300697656,
+        -0.30494523019722775
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.09711578944469801,
+        -0.048612914701740846
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.011734358572610938,
+        0.019257097692828067
+      ]
+    }
+  },
+  "pc2_projection": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.33973657496980736,
+        -0.28091276806579335
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.06651084951549593,
+        -0.026595863738943765
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        -0.002864000194569904,
+        0.00040250088855701353
+      ]
+    }
+  },
+  "robust_soft_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.4492274900270824,
+        -0.3838538346948097
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.08584819013811897,
+        -0.04353976693101331
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.010983993854816743,
+        0.018097311174638166
+      ]
+    }
+  },
+  "robust_hard_mean": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.1463727342519579,
+        -0.06532270798644102
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.19998403643197996,
+        -0.12797657932048517
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.03667404766774621,
+        0.052451089633762396
+      ]
+    }
+  },
+  "winsorized_ratio": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.28339767180629327,
+        -0.1978741377452885
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.05461578463327389,
+        0.024831072002397443
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.001291274397536154,
+        0.002913771158082494
+      ]
+    }
+  },
+  "median_ratio": {
+    "Fold A": {
+      "degenerate": false,
+      "ci_95": [
+        -0.18172487644039015,
+        -0.0981251499228288
+      ]
+    },
+    "Fold B": {
+      "degenerate": false,
+      "ci_95": [
+        -0.03986252096059689,
+        0.03164060428453514
+      ]
+    },
+    "Fold C": {
+      "degenerate": true,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Fold D": {
+      "degenerate": false,
+      "ci_95": [
+        0.0003909403558596529,
+        0.0013181138807444993
+      ]
+    }
+  }
+}

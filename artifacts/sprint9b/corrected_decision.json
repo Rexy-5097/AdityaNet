@@ -1,0 +1,21 @@
+{
+  "baseline": {
+    "tss": 0.372,
+    "f1": 0.5,
+    "roc_auc": 0.736
+  },
+  "flux_only": {
+    "tss": 0.084212,
+    "f1": 0.17613,
+    "roc_auc": 0.688629,
+    "pr_auc": 0.405734
+  },
+  "history_only": {
+    "tss": 0.384538,
+    "f1": 0.510388,
+    "roc_auc": 0.74747,
+    "pr_auc": 0.455581
+  },
+  "conclusion": "INFORMATION_GAP",
+  "explanation": "The retrained flux-only model exhibits severe performance degradation compared to the baseline model when history is omitted. This demonstrates that the current flux features lack the necessary information to support high-fidelity forecasting independently. The production model's reliance on historical telemetry represents a physical dependency rather than a shortcut learning artifact."
+}

@@ -1,0 +1,18 @@
+{
+  "certificate_id": "CERT-V3-EVAL-SPRINT13A",
+  "model_version": "3.0.0-pilot",
+  "verification_timestamp": "2026-06-19T09:43:22Z",
+  "checkpoint": "artifacts/sprint13/checkpoints/stage2_best_tss.pt",
+  "device": "mps",
+  "elapsed_seconds": 12.5,
+  "verdict": "PASS",
+  "test_metrics": {
+    "v1_baseline_tss": 0.16169290326760427,
+    "v3_raw_tss": 0.0,
+    "v3_temp_scale_tss": 0.0,
+    "v3_isotonic_tss": 0.0408548786596408,
+    "v3_isotonic_ece": 0.20114625634943567,
+    "v3_isotonic_prauc": 0.2533522218298353,
+    "v3_isotonic_brier": 0.25002112094451784
+  }
+}

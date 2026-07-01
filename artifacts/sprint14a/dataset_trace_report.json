@@ -1,0 +1,152 @@
+{
+  "audit_timestamp": "2026-06-19T10:11:40Z",
+  "audit_method": "source-code trace + sha256 + parquet profiling",
+  "source_files_traced": {
+    "pilot_train_v3.py": {
+      "dataset_load_lines": {
+        "352": "train_df = pd.read_parquet('artifacts/research_v3/train_v3.parquet')",
+        "353": "val_df   = pd.read_parquet('artifacts/research_v3/validation_v3.parquet')",
+        "354": "test_full_df = pd.read_parquet('artifacts/research_v3/test_v3.parquet')"
+      },
+      "stage2_time_filter_lines": {
+        "358": "stage2_train = test_full_df[timestamp >= '2023-12-13' & <= '2025-06-14']",
+        "359": "stage2_val   = test_full_df[timestamp >= '2025-06-15' & <= '2025-12-14']",
+        "360": "stage2_test  = test_full_df[timestamp >= '2025-12-15' & <= '2026-06-14']"
+      }
+    },
+    "eval_only_v3.py": {
+      "dataset_load_lines": {
+        "370": "test_full_df = pd.read_parquet('artifacts/research_v3/test_v3.parquet')",
+        "376": "stage2_val   = test_full_df time-filtered to 2025-06-15 \u2192 2025-12-14",
+        "381": "stage2_test  = test_full_df time-filtered to 2025-12-15 \u2192 2026-06-14"
+      }
+    }
+  },
+  "parquet_profiles": {
+    "train_v3.parquet": {
+      "absolute_path": "/Users/soumyadebtripathy/AdityaNet/artifacts/research_v3/train_v3.parquet",
+      "sha256": "08ff98f399f81f93e01ee67e5d4ca8f9e2f8d81fee74072cf07cdd338dc5f0cf",
+      "size_bytes": 422722811,
+      "row_count": 5161312,
+      "first_timestamp": "2010-01-02 00:30:00",
+      "last_timestamp": "2019-12-31 23:59:00",
+      "goes_duty_cycle_pct": 100.0,
+      "solexs_duty_cycle_pct": 0.0,
+      "hel1os_duty_cycle_pct": 0.0,
+      "positive_label_ratio": 0.0062,
+      "role": "Stage 1 pretraining source \u2014 GOES-only historical (2010-2019)",
+      "instruments_active": [
+        "GOES"
+      ],
+      "pilot_block_sampling": "5 \u00d7 10,000-row chronological blocks"
+    },
+    "validation_v3.parquet": {
+      "absolute_path": "/Users/soumyadebtripathy/AdityaNet/artifacts/research_v3/validation_v3.parquet",
+      "sha256": "7c519088c85d1d7c0319bf8ca695f4b1fc5f4a28e08ce3717df6264f53b8a767",
+      "size_bytes": 138715203,
+      "row_count": 1568759,
+      "first_timestamp": "2020-01-01 00:00:00",
+      "last_timestamp": "2022-12-31 23:59:00",
+      "goes_duty_cycle_pct": 100.0,
+      "solexs_duty_cycle_pct": 0.0,
+      "hel1os_duty_cycle_pct": 0.0,
+      "positive_label_ratio": 0.0407,
+      "role": "Stage 1 validation source \u2014 GOES-only historical (2020-2022)",
+      "instruments_active": [
+        "GOES"
+      ],
+      "pilot_block_sampling": "5 \u00d7 2,000-row chronological blocks"
+    },
+    "test_v3.parquet": {
+      "absolute_path": "/Users/soumyadebtripathy/AdityaNet/artifacts/research_v3/test_v3.parquet",
+      "sha256": "2aaf8d57c52e67c0f47223175950583ce002df5c8e6e05594601b2cca78e0e6d",
+      "size_bytes": 254261903,
+      "row_count": 1806673,
+      "first_timestamp": "2023-01-01 00:00:00",
+      "last_timestamp": "2026-06-14 23:51:00",
+      "goes_duty_cycle_pct": 100.0,
+      "solexs_duty_cycle_pct": 54.85,
+      "hel1os_duty_cycle_pct": 76.08,
+      "positive_label_ratio": 0.232,
+      "role": "Stage 2 multi-instrument source \u2014 time-filtered to overlap windows",
+      "instruments_active": [
+        "GOES",
+        "SoLEXS",
+        "HEL1OS"
+      ],
+      "pilot_block_sampling": "time-filtered to [2023-12-13 \u2192 2025-06-14 | 2025-06-15 \u2192 2025-12-14 | 2025-12-15 \u2192 2026-06-14], then 5 \u00d7 2000/10000-row blocks"
+    }
+  },
+  "stage2_time_filtered_slices": {
+    "stage2_train": {
+      "source_file": "artifacts/research_v3/test_v3.parquet",
+      "time_filter": "2023-12-13 00:00:00 \u2192 2025-06-14 23:59:00",
+      "rows_confirmed": 786298,
+      "positive_ratio": 0.3135,
+      "solexs_duty_pct": 75.63,
+      "hel1os_duty_pct": 99.98,
+      "sprint12c_match": true
+    },
+    "stage2_validation": {
+      "source_file": "artifacts/research_v3/test_v3.parquet",
+      "time_filter": "2025-06-15 00:00:00 \u2192 2025-12-14 23:59:00",
+      "rows_confirmed": 262480,
+      "positive_ratio": 0.1665,
+      "solexs_duty_pct": 75.6,
+      "hel1os_duty_pct": 99.98,
+      "sprint12c_match": true
+    },
+    "stage2_test": {
+      "source_file": "artifacts/research_v3/test_v3.parquet",
+      "time_filter": "2025-12-15 00:00:00 \u2192 2026-06-14 23:59:00",
+      "rows_confirmed": 261455,
+      "positive_ratio": 0.119,
+      "solexs_duty_pct": 75.68,
+      "hel1os_duty_pct": 99.97,
+      "sprint12c_match": true
+    }
+  },
+  "stage_dataset_map": {
+    "stage1_train": {
+      "source": "train_v3.parquet",
+      "sha": "08ff98f399f81f93..."
+    },
+    "stage1_validation": {
+      "source": "validation_v3.parquet",
+      "sha": "7c519088c85d1d7c..."
+    },
+    "stage2_train": {
+      "source": "test_v3.parquet (time-filtered 2023-12-13\u21922025-06-14)",
+      "sha": "2aaf8d57c52e67c0..."
+    },
+    "stage2_validation": {
+      "source": "test_v3.parquet (time-filtered 2025-06-15\u21922025-12-14)",
+      "sha": "2aaf8d57c52e67c0..."
+    },
+    "stage2_test": {
+      "source": "test_v3.parquet (time-filtered 2025-12-15\u21922026-06-14)",
+      "sha": "2aaf8d57c52e67c0..."
+    },
+    "calibration": {
+      "source": "test_v3.parquet (val slice) \u2014 test slice NEVER USED for calibration fitting"
+    },
+    "threshold_sweep": {
+      "source": "test_v3.parquet (test slice) \u2014 applied AFTER calibration locked"
+    }
+  },
+  "telemetry_batch_verification": {
+    "stage2_blocks": 25,
+    "stage2_train_solexs_duty": 75.63,
+    "stage2_train_hel1os_duty": 99.98,
+    "stage2_val_solexs_duty": 75.6,
+    "stage2_val_hel1os_duty": 99.98,
+    "all_s2_blocks_have_solexs": true,
+    "all_s2_blocks_have_hel1os": true
+  },
+  "forensic_finding": {
+    "train_v3_instruments": "GOES only (SoLEXS=0%, HEL1OS=0%) \u2014 confirms Stage 1 is GOES-only",
+    "validation_v3_instruments": "GOES only (SoLEXS=0%, HEL1OS=0%) \u2014 confirms Stage 1 val is GOES-only",
+    "test_v3_instruments": "Multi-instrument (SoLEXS=54.85%, HEL1OS=76.08%) \u2014 confirms Stage 2 overlap",
+    "conclusion": "Dataset structure scientifically correct. Stage 1 uses GOES-only data; Stage 2 uses multi-instrument overlap data."
+  }
+}

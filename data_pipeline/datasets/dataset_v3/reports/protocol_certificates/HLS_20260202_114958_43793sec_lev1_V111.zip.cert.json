@@ -1,0 +1,18 @@
+{
+  "manifest_id": 274,
+  "filename": "HLS_20260202_114958_43793sec_lev1_V111.zip",
+  "source_url": "https://pradan1.issdc.gov.in/al1/protected/downloadData/hel1os/level1/2026/02/02/N00_0000/HLS_20260202_114958_43793sec_lev1_V111.zip?hel1os",
+  "payload": "hel1os",
+  "download_start": "2026-06-18T14:31:36.020430+00:00",
+  "download_finish": "2026-06-18T14:31:48.475403+00:00",
+  "cookie_hash": "dfba0cdf8ce50c73b353bab67b9e44f3",
+  "http_status": 200,
+  "content_type": "application/zip",
+  "content_length": 7355259,
+  "sha256": "5c9e3973b133820a5e63f824e8432cef87da5addd39dc722200fd3164d6524b2",
+  "zip_crc": "595CE1C7",
+  "fits_validated": true,
+  "final_path": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260202_114958_43793sec_lev1_V111.zip",
+  "pipeline_version": "1.5.0-SprintDA03C",
+  "generated_at": "2026-06-18T14:31:48.475413+00:00"
+}

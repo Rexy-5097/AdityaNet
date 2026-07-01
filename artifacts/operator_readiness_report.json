@@ -1,0 +1,41 @@
+{
+  "sprint": "5.5",
+  "description": "SuryaNet operator trust optimization: Sprint 5.5. Evaluates calibrated PatchTST predictions using data-driven thresholds, tiered uncertainty suppression, and episode-level false alarm analysis.",
+  "operator_trust_score": 0.52416,
+  "operator_readiness_score": 1.0,
+  "criteria_passed": "3/5",
+  "performance": {
+    "precision_pct": 91.12,
+    "recall_pct": 3.97,
+    "far_pct": 8.88,
+    "tss": 0.0385,
+    "f1": 0.076,
+    "roc_auc": 0.7451,
+    "brier_score": 0.160862,
+    "avg_lead_time_h": 10.16
+  },
+  "episode_metrics": {
+    "n_episodes": 77,
+    "true_episodes": 70,
+    "false_episodes": 7,
+    "false_episode_rate": 0.090909,
+    "total_alert_windows": 304,
+    "duplicate_alert_windows": 222,
+    "duplicate_alert_rate": 0.730263,
+    "episodes_per_month": 1.8323,
+    "false_episodes_per_month": 0.1666
+  },
+  "thresholds": {
+    "yellow": 0.46,
+    "red": 0.88
+  },
+  "confidence_distribution": {
+    "HIGH": 136,
+    "MEDIUM": 168,
+    "LOW": 29802
+  },
+  "confirmation_distribution": {
+    "CONFIRMED": 29983,
+    "UNCONFIRMED": 123
+  }
+}

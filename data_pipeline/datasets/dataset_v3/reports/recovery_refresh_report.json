@@ -1,0 +1,54 @@
+{
+    "sprint": "DA-03D",
+    "generated_at": "2026-06-18T15:50:24.107219+00:00",
+    "dataset_version": "dataset_v3",
+    "instrument": "HEL1OS",
+    "pipeline_version": "1.5.0-SprintDA03C",
+    "session_refresh": {
+        "old_cookie_md5": "de48ade8f746e4b5429dcf9c3ae9e416",
+        "new_cookie_md5": "dfba0cdf8ce50c73b353bab67b9e44f3",
+        "protocol_changes": "Cookie values rotated (new PRADAN session). Structure unchanged.",
+        "url_structure": "UNCHANGED",
+        "keep_alive_endpoint": "UNCHANGED",
+        "duplicate_jsessionid": "2 (preserved \u2014 verbatim injection)"
+    },
+    "manifest": {
+        "total_urls": 391,
+        "verified": 391,
+        "failed": 0,
+        "queued": 0
+    },
+    "validation": {
+        "zip_passed": 391,
+        "zip_failed": 0,
+        "zip_missing": 0,
+        "html_sneak": 0,
+        "sha256_duplicate_groups": 0,
+        "fits_metadata_rows": 391,
+        "unique_observation_dates": 189,
+        "date_range_start": "20251207",
+        "date_range_end": "20260617",
+        "disk_zip_count": 391,
+        "manifest_verified_count": 391,
+        "in_db_not_on_disk": 0
+    },
+    "session_stats": {
+        "da03c_session_archives": 216,
+        "da03d_session_archives": 175,
+        "newly_downloaded_da03d": 175,
+        "skipped_already_verified": 216,
+        "transport_retries_da03d": 4,
+        "network_interruptions_da03d": 8,
+        "auth_failures_da03d": 0,
+        "dns_failures_da03d": 0,
+        "elapsed_seconds_da03d": 5371.3,
+        "da03c_transport_hardening": "Active \u2014 ChunkedEncodingError recovered at byte 1568210944 (Retry 4/8, Range resume)"
+    },
+    "downloader_final_log": {
+        "sprint_complete": true,
+        "integrity_assertions": "ALL PASSED",
+        "result": "PASS",
+        "scientific_coverage_pct": 97.93
+    },
+    "assertions": "ALL PASSED"
+}

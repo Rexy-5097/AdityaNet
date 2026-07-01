@@ -1,0 +1,4306 @@
+{
+  "sample_size": 50,
+  "all_matched": true,
+  "verifications": [
+    {
+      "index": 2476,
+      "timestamp": "2026-06-11 17:16:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.22150872409690128,
+            "original_val_at_T_plus_S": 0.22150872409690128,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.3112565780490057,
+            "original_val_at_T_plus_S": 0.3112565780490057,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.27421758561943493,
+            "original_val_at_T_plus_S": 0.27421758561943493,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 5.71,
+            "original_val_at_T_plus_S": 5.71,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 5.771111111111111,
+            "original_val_at_T_plus_S": 5.771111111111111,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 3.7277777777777774,
+            "original_val_at_T_plus_S": 3.7277777777777774,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 3.4595770127494747,
+            "original_val_at_T_plus_S": 3.4595770127494747,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 4.033539975247591,
+            "original_val_at_T_plus_S": 4.033539975247591,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.6642658631337968,
+            "original_val_at_T_plus_S": 0.6642658631337968,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -1.6628998485310862,
+            "original_val_at_T_plus_S": -1.6628998485310862,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.16650163256123132,
+            "original_val_at_T_plus_S": -0.16650163256123132,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.7416950473632403,
+            "original_val_at_T_plus_S": -0.7416950473632403,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 1047,
+      "timestamp": "2026-06-10 17:27:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.21690107408547663,
+            "original_val_at_T_plus_S": 0.21690107408547663,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.24468444137015993,
+            "original_val_at_T_plus_S": 0.24468444137015993,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.30714151113347626,
+            "original_val_at_T_plus_S": 0.30714151113347626,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.2411111111111115,
+            "original_val_at_T_plus_S": 6.2411111111111115,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.2922222222222226,
+            "original_val_at_T_plus_S": 3.2922222222222226,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 3.931111111111112,
+            "original_val_at_T_plus_S": 3.931111111111112,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 4.152273126704861,
+            "original_val_at_T_plus_S": 4.152273126704861,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.3082002809125132,
+            "original_val_at_T_plus_S": -0.3082002809125132,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.108162958093475,
+            "original_val_at_T_plus_S": 1.108162958093475,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -1.8342412766348581,
+            "original_val_at_T_plus_S": -1.8342412766348581,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.9946644291949884,
+            "original_val_at_T_plus_S": -0.9946644291949884,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.2998184956513856,
+            "original_val_at_T_plus_S": -0.2998184956513856,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 3164,
+      "timestamp": "2026-06-12 04:44:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.27495358936047115,
+            "original_val_at_T_plus_S": 0.27495358936047115,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.4150590540836141,
+            "original_val_at_T_plus_S": 0.4150590540836141,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.5651438168766696,
+            "original_val_at_T_plus_S": 1.5651438168766696,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 3.031202560585277,
+            "original_val_at_T_plus_S": 3.031202560585277,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.9812711476909007,
+            "original_val_at_T_plus_S": 0.9812711476909007,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.21888888888888886,
+            "original_val_at_T_plus_S": 0.21888888888888886,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.6721720966186722,
+            "original_val_at_T_plus_S": -0.6721720966186722,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -3.7945014338208143,
+            "original_val_at_T_plus_S": -3.7945014338208143,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.916950344830748,
+            "original_val_at_T_plus_S": -4.916950344830748,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.33669990812717854,
+            "original_val_at_T_plus_S": -0.33669990812717854,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.17921073202081314,
+            "original_val_at_T_plus_S": 0.17921073202081314,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.3417294427091738,
+            "original_val_at_T_plus_S": 0.3417294427091738,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2372,
+      "timestamp": "2026-06-11 15:32:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.24077500253622716,
+            "original_val_at_T_plus_S": 0.24077500253622716,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.21470230080242925,
+            "original_val_at_T_plus_S": 0.21470230080242925,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2862620652668975,
+            "original_val_at_T_plus_S": 0.2862620652668975,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 7.206666666666666,
+            "original_val_at_T_plus_S": 7.206666666666666,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 5.778888888888889,
+            "original_val_at_T_plus_S": 5.778888888888889,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 5.602222222222223,
+            "original_val_at_T_plus_S": 5.602222222222223,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.204566435483953,
+            "original_val_at_T_plus_S": 6.204566435483953,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.247077532430655,
+            "original_val_at_T_plus_S": 3.247077532430655,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 3.9814613398130243,
+            "original_val_at_T_plus_S": 3.9814613398130243,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -1.802613030184873,
+            "original_val_at_T_plus_S": -1.802613030184873,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -1.6232283192258425,
+            "original_val_at_T_plus_S": -1.6232283192258425,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.8191240085004496,
+            "original_val_at_T_plus_S": -0.8191240085004496,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2107,
+      "timestamp": "2026-06-11 11:07:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.21193818693153585,
+            "original_val_at_T_plus_S": 0.21193818693153585,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2080309627139765,
+            "original_val_at_T_plus_S": 0.2080309627139765,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.24194937141075348,
+            "original_val_at_T_plus_S": 0.24194937141075348,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.8066666666666675,
+            "original_val_at_T_plus_S": 6.8066666666666675,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 6.124444444444446,
+            "original_val_at_T_plus_S": 6.124444444444446,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 6.452222222222222,
+            "original_val_at_T_plus_S": 6.452222222222222,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 4.976261235309243,
+            "original_val_at_T_plus_S": 4.976261235309243,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.7559358054038112,
+            "original_val_at_T_plus_S": 3.7559358054038112,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.861453136549067,
+            "original_val_at_T_plus_S": 4.861453136549067,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -1.9710467692483598,
+            "original_val_at_T_plus_S": -1.9710467692483598,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -1.7250155530733817,
+            "original_val_at_T_plus_S": -1.7250155530733817,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -1.4764942648231383,
+            "original_val_at_T_plus_S": -1.4764942648231383,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 1503,
+      "timestamp": "2026-06-11 01:03:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.4213081975928288,
+            "original_val_at_T_plus_S": 0.4213081975928288,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2653658536119357,
+            "original_val_at_T_plus_S": 0.2653658536119357,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.26847732765746596,
+            "original_val_at_T_plus_S": 0.26847732765746596,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.483333333333333,
+            "original_val_at_T_plus_S": 6.483333333333333,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 5.694444444444444,
+            "original_val_at_T_plus_S": 5.694444444444444,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.745555555555556,
+            "original_val_at_T_plus_S": 4.745555555555556,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.604454828507341,
+            "original_val_at_T_plus_S": 6.604454828507341,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.662456597911501,
+            "original_val_at_T_plus_S": 3.662456597911501,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.109913021618607,
+            "original_val_at_T_plus_S": 2.109913021618607,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.9824109831394348,
+            "original_val_at_T_plus_S": 1.9824109831394348,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.8352912514131354,
+            "original_val_at_T_plus_S": -0.8352912514131354,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.8070874003108076,
+            "original_val_at_T_plus_S": -0.8070874003108076,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 4519,
+      "timestamp": "2026-06-13 03:19:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.5367965308090177,
+            "original_val_at_T_plus_S": 1.5367965308090177,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.6330645102025885,
+            "original_val_at_T_plus_S": 1.6330645102025885,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.574754896750198,
+            "original_val_at_T_plus_S": 1.574754896750198,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.25666666666666665,
+            "original_val_at_T_plus_S": 0.25666666666666665,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2755555555555555,
+            "original_val_at_T_plus_S": 0.2755555555555555,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.3022222222222223,
+            "original_val_at_T_plus_S": 0.3022222222222223,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -4.783678208636316,
+            "original_val_at_T_plus_S": -4.783678208636316,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.685327565750919,
+            "original_val_at_T_plus_S": -4.685327565750919,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.591744656431323,
+            "original_val_at_T_plus_S": -4.591744656431323,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.40423005842384113,
+            "original_val_at_T_plus_S": 0.40423005842384113,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.6677160013513134,
+            "original_val_at_T_plus_S": 0.6677160013513134,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.6899575067798233,
+            "original_val_at_T_plus_S": 0.6899575067798233,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 1345,
+      "timestamp": "2026-06-10 22:25:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.2954131953655449,
+            "original_val_at_T_plus_S": 0.2954131953655449,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.5360783727958918,
+            "original_val_at_T_plus_S": 0.5360783727958918,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2821473157917771,
+            "original_val_at_T_plus_S": 0.2821473157917771,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 3.8677777777777775,
+            "original_val_at_T_plus_S": 3.8677777777777775,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 7.447777777777778,
+            "original_val_at_T_plus_S": 7.447777777777778,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.45,
+            "original_val_at_T_plus_S": 4.45,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.8053556347878225,
+            "original_val_at_T_plus_S": 0.8053556347878225,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 10.115177906042511,
+            "original_val_at_T_plus_S": 10.115177906042511,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.828320601967241,
+            "original_val_at_T_plus_S": 1.828320601967241,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.28025843103775466,
+            "original_val_at_T_plus_S": -0.28025843103775466,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 4.64456761876981,
+            "original_val_at_T_plus_S": 4.64456761876981,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.3591181121649317,
+            "original_val_at_T_plus_S": -0.3591181121649317,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 1220,
+      "timestamp": "2026-06-10 20:20:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.23203351588500473,
+            "original_val_at_T_plus_S": 0.23203351588500473,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.26455808446996676,
+            "original_val_at_T_plus_S": 0.26455808446996676,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.4020968780480488,
+            "original_val_at_T_plus_S": 0.4020968780480488,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 3.447777777777778,
+            "original_val_at_T_plus_S": 3.447777777777778,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.758888888888889,
+            "original_val_at_T_plus_S": 3.758888888888889,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 6.323333333333334,
+            "original_val_at_T_plus_S": 6.323333333333334,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.28156049531465954,
+            "original_val_at_T_plus_S": -0.28156049531465954,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.47676591798835866,
+            "original_val_at_T_plus_S": 0.47676591798835866,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 6.116792541276533,
+            "original_val_at_T_plus_S": 6.116792541276533,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.9186788892241,
+            "original_val_at_T_plus_S": -0.9186788892241,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.7348018168528054,
+            "original_val_at_T_plus_S": -0.7348018168528054,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.4016364702367243,
+            "original_val_at_T_plus_S": 1.4016364702367243,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 1822,
+      "timestamp": "2026-06-11 06:22:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.31410555808437773,
+            "original_val_at_T_plus_S": 0.31410555808437773,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.22232089990525364,
+            "original_val_at_T_plus_S": 0.22232089990525364,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2141387693673602,
+            "original_val_at_T_plus_S": 0.2141387693673602,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 4.757777777777776,
+            "original_val_at_T_plus_S": 4.757777777777776,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 6.2555555555555555,
+            "original_val_at_T_plus_S": 6.2555555555555555,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 5.941111111111111,
+            "original_val_at_T_plus_S": 5.941111111111111,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 2.4707800163272795,
+            "original_val_at_T_plus_S": 2.4707800163272795,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 4.134922956360957,
+            "original_val_at_T_plus_S": 4.134922956360957,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 3.8270840370295605,
+            "original_val_at_T_plus_S": 3.8270840370295605,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.06921246544075543,
+            "original_val_at_T_plus_S": -0.06921246544075543,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -1.5737717402379376,
+            "original_val_at_T_plus_S": -1.5737717402379376,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -1.8891096104268916,
+            "original_val_at_T_plus_S": -1.8891096104268916,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2862,
+      "timestamp": "2026-06-11 23:42:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.26769748598687465,
+            "original_val_at_T_plus_S": 0.26769748598687465,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.37377154819777764,
+            "original_val_at_T_plus_S": 0.37377154819777764,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.27420609103678684,
+            "original_val_at_T_plus_S": 0.27420609103678684,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 3.5211111111111104,
+            "original_val_at_T_plus_S": 3.5211111111111104,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 6.8966666666666665,
+            "original_val_at_T_plus_S": 6.8966666666666665,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 3.0653680841335165,
+            "original_val_at_T_plus_S": 3.0653680841335165,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.3644308532468554,
+            "original_val_at_T_plus_S": 0.3644308532468554,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 7.300099055629707,
+            "original_val_at_T_plus_S": 7.300099055629707,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.6201332743319697,
+            "original_val_at_T_plus_S": -0.6201332743319697,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.8771110475904021,
+            "original_val_at_T_plus_S": -0.8771110475904021,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.8174959852184084,
+            "original_val_at_T_plus_S": 0.8174959852184084,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.34529841879631173,
+            "original_val_at_T_plus_S": -0.34529841879631173,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2535,
+      "timestamp": "2026-06-11 18:15:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.25363393644963794,
+            "original_val_at_T_plus_S": 0.25363393644963794,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.26280094941424526,
+            "original_val_at_T_plus_S": 0.26280094941424526,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2561002417607188,
+            "original_val_at_T_plus_S": 0.2561002417607188,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 3.7455555555555557,
+            "original_val_at_T_plus_S": 3.7455555555555557,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 4.36888888888889,
+            "original_val_at_T_plus_S": 4.36888888888889,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 5.054444444444444,
+            "original_val_at_T_plus_S": 5.054444444444444,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.28470208160838667,
+            "original_val_at_T_plus_S": 0.28470208160838667,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.3977549064014314,
+            "original_val_at_T_plus_S": 1.3977549064014314,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.651450767714545,
+            "original_val_at_T_plus_S": 2.651450767714545,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.7887348825043512,
+            "original_val_at_T_plus_S": -0.7887348825043512,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.6187487359560276,
+            "original_val_at_T_plus_S": -0.6187487359560276,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -1.0633452966333141,
+            "original_val_at_T_plus_S": -1.0633452966333141,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 33,
+      "timestamp": "2026-06-10 00:33:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.2990924091742945,
+            "original_val_at_T_plus_S": 0.2990924091742945,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2023498694041475,
+            "original_val_at_T_plus_S": 0.2023498694041475,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.233527340617193,
+            "original_val_at_T_plus_S": 0.233527340617193,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 4.488888888888889,
+            "original_val_at_T_plus_S": 4.488888888888889,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 4.255555555555556,
+            "original_val_at_T_plus_S": 4.255555555555556,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 5.1544444444444455,
+            "original_val_at_T_plus_S": 5.1544444444444455,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.984695886660222,
+            "original_val_at_T_plus_S": 1.984695886660222,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.0930408497740476,
+            "original_val_at_T_plus_S": 1.0930408497740476,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.7173149152510456,
+            "original_val_at_T_plus_S": 2.7173149152510456,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.31455929411724165,
+            "original_val_at_T_plus_S": -0.31455929411724165,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -1.8061518281312652,
+            "original_val_at_T_plus_S": -1.8061518281312652,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -1.4766222579882862,
+            "original_val_at_T_plus_S": -1.4766222579882862,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 3501,
+      "timestamp": "2026-06-12 10:21:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.4689265491908456,
+            "original_val_at_T_plus_S": 1.4689265491908456,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.6746411411139857,
+            "original_val_at_T_plus_S": 1.6746411411139857,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.219251331557951,
+            "original_val_at_T_plus_S": 2.219251331557951,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.3277777777777777,
+            "original_val_at_T_plus_S": 0.3277777777777777,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.23222222222222222,
+            "original_val_at_T_plus_S": 0.23222222222222222,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.41555555555555557,
+            "original_val_at_T_plus_S": 0.41555555555555557,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -4.565999262251539,
+            "original_val_at_T_plus_S": -4.565999262251539,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.810822750390328,
+            "original_val_at_T_plus_S": -4.810822750390328,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -3.684837778912964,
+            "original_val_at_T_plus_S": -3.684837778912964,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.7402245053433654,
+            "original_val_at_T_plus_S": 0.7402245053433654,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.48446517355091423,
+            "original_val_at_T_plus_S": 0.48446517355091423,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.7247188949960373,
+            "original_val_at_T_plus_S": 1.7247188949960373,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2680,
+      "timestamp": "2026-06-11 20:40:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.35082527777028805,
+            "original_val_at_T_plus_S": 0.35082527777028805,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2386029037826959,
+            "original_val_at_T_plus_S": 0.2386029037826959,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.38086873197975374,
+            "original_val_at_T_plus_S": 0.38086873197975374,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 5.6322222222222225,
+            "original_val_at_T_plus_S": 5.6322222222222225,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.647777777777778,
+            "original_val_at_T_plus_S": 3.647777777777778,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 6.957777777777778,
+            "original_val_at_T_plus_S": 6.957777777777778,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 4.282215339128222,
+            "original_val_at_T_plus_S": 4.282215339128222,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.06755462585245056,
+            "original_val_at_T_plus_S": 0.06755462585245056,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 7.063920865296856,
+            "original_val_at_T_plus_S": 7.063920865296856,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.5035817347829198,
+            "original_val_at_T_plus_S": 0.5035817347829198,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.7865772089973466,
+            "original_val_at_T_plus_S": -0.7865772089973466,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.331462025111551,
+            "original_val_at_T_plus_S": 1.331462025111551,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2882,
+      "timestamp": "2026-06-12 00:02:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.23377257192472564,
+            "original_val_at_T_plus_S": 0.23377257192472564,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.27015724318448625,
+            "original_val_at_T_plus_S": 0.27015724318448625,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.28252495193955285,
+            "original_val_at_T_plus_S": 0.28252495193955285,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 3.7944444444444443,
+            "original_val_at_T_plus_S": 3.7944444444444443,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 6.6422222222222205,
+            "original_val_at_T_plus_S": 6.6422222222222205,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.7237128486511204,
+            "original_val_at_T_plus_S": 2.7237128486511204,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.5280285534204934,
+            "original_val_at_T_plus_S": 0.5280285534204934,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 5.2823083313844945,
+            "original_val_at_T_plus_S": 5.2823083313844945,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -1.1405214971989934,
+            "original_val_at_T_plus_S": -1.1405214971989934,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -1.3076075603302042,
+            "original_val_at_T_plus_S": -1.3076075603302042,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.6734290079575583,
+            "original_val_at_T_plus_S": -0.6734290079575583,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.25931331210497965,
+            "original_val_at_T_plus_S": -0.25931331210497965,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 776,
+      "timestamp": "2026-06-10 12:56:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.21836972825528714,
+            "original_val_at_T_plus_S": 0.21836972825528714,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.24293457217112252,
+            "original_val_at_T_plus_S": 0.24293457217112252,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.22901476905792295,
+            "original_val_at_T_plus_S": 0.22901476905792295,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.665555555555555,
+            "original_val_at_T_plus_S": 6.665555555555555,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 7.653333333333333,
+            "original_val_at_T_plus_S": 7.653333333333333,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 3.9622222222222225,
+            "original_val_at_T_plus_S": 3.9622222222222225,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 5.146922697421239,
+            "original_val_at_T_plus_S": 5.146922697421239,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 6.835319963741476,
+            "original_val_at_T_plus_S": 6.835319963741476,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.8169989475421232,
+            "original_val_at_T_plus_S": 0.8169989475421232,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -2.426181622478967,
+            "original_val_at_T_plus_S": -2.426181622478967,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -1.7941402975536134,
+            "original_val_at_T_plus_S": -1.7941402975536134,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -1.5250043247995322,
+            "original_val_at_T_plus_S": -1.5250043247995322,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 1513,
+      "timestamp": "2026-06-11 01:13:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.3879384827459573,
+            "original_val_at_T_plus_S": 0.3879384827459573,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2504262574114699,
+            "original_val_at_T_plus_S": 0.2504262574114699,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.28917988745229706,
+            "original_val_at_T_plus_S": 0.28917988745229706,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.430000000000001,
+            "original_val_at_T_plus_S": 6.430000000000001,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 5.213333333333333,
+            "original_val_at_T_plus_S": 5.213333333333333,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.412222222222222,
+            "original_val_at_T_plus_S": 4.412222222222222,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.277725280851355,
+            "original_val_at_T_plus_S": 6.277725280851355,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.012067607847923,
+            "original_val_at_T_plus_S": 3.012067607847923,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.8034942538992476,
+            "original_val_at_T_plus_S": 1.8034942538992476,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.4147526978932243,
+            "original_val_at_T_plus_S": 1.4147526978932243,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -1.0548433039984983,
+            "original_val_at_T_plus_S": -1.0548433039984983,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.5162288083739904,
+            "original_val_at_T_plus_S": -0.5162288083739904,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2822,
+      "timestamp": "2026-06-11 23:02:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.2851560114325015,
+            "original_val_at_T_plus_S": 0.2851560114325015,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2609316632932854,
+            "original_val_at_T_plus_S": 0.2609316632932854,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.26211746407331254,
+            "original_val_at_T_plus_S": 0.26211746407331254,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.065555555555557,
+            "original_val_at_T_plus_S": 6.065555555555557,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.371111111111112,
+            "original_val_at_T_plus_S": 3.371111111111112,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 3.7486785550983077,
+            "original_val_at_T_plus_S": 3.7486785550983077,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 4.5965908386221015,
+            "original_val_at_T_plus_S": 4.5965908386221015,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.14955160577507887,
+            "original_val_at_T_plus_S": -0.14955160577507887,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.42064317140207724,
+            "original_val_at_T_plus_S": 0.42064317140207724,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.6267776988072005,
+            "original_val_at_T_plus_S": -0.6267776988072005,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.7970640825995172,
+            "original_val_at_T_plus_S": -0.7970640825995172,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.5172686321789756,
+            "original_val_at_T_plus_S": -0.5172686321789756,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2465,
+      "timestamp": "2026-06-11 17:05:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.2108177171657292,
+            "original_val_at_T_plus_S": 0.2108177171657292,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.23295717015581172,
+            "original_val_at_T_plus_S": 0.23295717015581172,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2422188754472899,
+            "original_val_at_T_plus_S": 0.2422188754472899,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 5.217777777777778,
+            "original_val_at_T_plus_S": 5.217777777777778,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 5.612222222222223,
+            "original_val_at_T_plus_S": 5.612222222222223,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.426666666666666,
+            "original_val_at_T_plus_S": 4.426666666666666,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 2.6643749804491343,
+            "original_val_at_T_plus_S": 2.6643749804491343,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.2846054985002677,
+            "original_val_at_T_plus_S": 3.2846054985002677,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.4178486830203214,
+            "original_val_at_T_plus_S": 1.4178486830203214,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -1.9651263973126916,
+            "original_val_at_T_plus_S": -1.9651263973126916,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -1.3341469301020688,
+            "original_val_at_T_plus_S": -1.3341469301020688,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.9918104983928828,
+            "original_val_at_T_plus_S": -0.9918104983928828,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2742,
+      "timestamp": "2026-06-11 21:42:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.30033058772841975,
+            "original_val_at_T_plus_S": 0.30033058772841975,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.26769748598687465,
+            "original_val_at_T_plus_S": 0.26769748598687465,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2393118718577634,
+            "original_val_at_T_plus_S": 0.2393118718577634,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.609999999999999,
+            "original_val_at_T_plus_S": 6.609999999999999,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.5211111111111104,
+            "original_val_at_T_plus_S": 3.5211111111111104,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.348888888888889,
+            "original_val_at_T_plus_S": 4.348888888888889,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 5.770551374160088,
+            "original_val_at_T_plus_S": 5.770551374160088,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.3644308532468554,
+            "original_val_at_T_plus_S": 0.3644308532468554,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.301818151922485,
+            "original_val_at_T_plus_S": 1.301818151922485,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.5370623565741124,
+            "original_val_at_T_plus_S": -0.5370623565741124,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.8771110475904021,
+            "original_val_at_T_plus_S": -0.8771110475904021,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.9354226065295692,
+            "original_val_at_T_plus_S": -0.9354226065295692,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2063,
+      "timestamp": "2026-06-11 10:23:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.20670572913638743,
+            "original_val_at_T_plus_S": 0.20670572913638743,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.23165231648042495,
+            "original_val_at_T_plus_S": 0.23165231648042495,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.21907057220420892,
+            "original_val_at_T_plus_S": 0.21907057220420892,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.826666666666668,
+            "original_val_at_T_plus_S": 6.826666666666668,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 5.420000000000001,
+            "original_val_at_T_plus_S": 5.420000000000001,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 5.993333333333334,
+            "original_val_at_T_plus_S": 5.993333333333334,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 4.935106921167456,
+            "original_val_at_T_plus_S": 4.935106921167456,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.2286128238993457,
+            "original_val_at_T_plus_S": 3.2286128238993457,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 3.765205376313186,
+            "original_val_at_T_plus_S": 3.765205376313186,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -2.3348215007808144,
+            "original_val_at_T_plus_S": -2.3348215007808144,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -1.7528267489071812,
+            "original_val_at_T_plus_S": -1.7528267489071812,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -1.4581537155272641,
+            "original_val_at_T_plus_S": -1.4581537155272641,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 3137,
+      "timestamp": "2026-06-12 04:17:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.26609635724085756,
+            "original_val_at_T_plus_S": 0.26609635724085756,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.3488168141381503,
+            "original_val_at_T_plus_S": 0.3488168141381503,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.5049226384482541,
+            "original_val_at_T_plus_S": 1.5049226384482541,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 3.492437128486512,
+            "original_val_at_T_plus_S": 3.492437128486512,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.4425057155921353,
+            "original_val_at_T_plus_S": 1.4425057155921353,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.26333333333333336,
+            "original_val_at_T_plus_S": 0.26333333333333336,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.030352004251809818,
+            "original_val_at_T_plus_S": 0.030352004251809818,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -3.091977332950332,
+            "original_val_at_T_plus_S": -3.091977332950332,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.778245796805425,
+            "original_val_at_T_plus_S": -4.778245796805425,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.45277980216047664,
+            "original_val_at_T_plus_S": -0.45277980216047664,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.06313083798751513,
+            "original_val_at_T_plus_S": 0.06313083798751513,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.5696205108644191,
+            "original_val_at_T_plus_S": 0.5696205108644191,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2802,
+      "timestamp": "2026-06-11 22:42:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.2604611442543652,
+            "original_val_at_T_plus_S": 0.2604611442543652,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.21876953294127352,
+            "original_val_at_T_plus_S": 0.21876953294127352,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2575877492413356,
+            "original_val_at_T_plus_S": 0.2575877492413356,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 3.9033333333333338,
+            "original_val_at_T_plus_S": 3.9033333333333338,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 4.147777777777779,
+            "original_val_at_T_plus_S": 4.147777777777779,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.090333790580704,
+            "original_val_at_T_plus_S": 4.090333790580704,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.9995002208533084,
+            "original_val_at_T_plus_S": 0.9995002208533084,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.8953397726479824,
+            "original_val_at_T_plus_S": 0.8953397726479824,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.9410313942691009,
+            "original_val_at_T_plus_S": 0.9410313942691009,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -1.1568351563635537,
+            "original_val_at_T_plus_S": -1.1568351563635537,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -1.4498199123967224,
+            "original_val_at_T_plus_S": -1.4498199123967224,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.6032537388703074,
+            "original_val_at_T_plus_S": -0.6032537388703074,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 3815,
+      "timestamp": "2026-06-12 15:35:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 2.15860898572668,
+            "original_val_at_T_plus_S": 2.15860898572668,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.6501650116001696,
+            "original_val_at_T_plus_S": 1.6501650116001696,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.2832139966868112,
+            "original_val_at_T_plus_S": 2.2832139966868112,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.43666666666666665,
+            "original_val_at_T_plus_S": 0.43666666666666665,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.3366666666666667,
+            "original_val_at_T_plus_S": 0.3366666666666667,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.46555555555555556,
+            "original_val_at_T_plus_S": 0.46555555555555556,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -3.747747376188475,
+            "original_val_at_T_plus_S": -3.747747376188475,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.384774257977865,
+            "original_val_at_T_plus_S": -4.384774257977865,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -3.4930350157022727,
+            "original_val_at_T_plus_S": -3.4930350157022727,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.9005044511892264,
+            "original_val_at_T_plus_S": 1.9005044511892264,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.820242321303791,
+            "original_val_at_T_plus_S": 0.820242321303791,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.050986323910328,
+            "original_val_at_T_plus_S": 2.050986323910328,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 1539,
+      "timestamp": "2026-06-11 01:39:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.32931580223465107,
+            "original_val_at_T_plus_S": 0.32931580223465107,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.28488690609930384,
+            "original_val_at_T_plus_S": 0.28488690609930384,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2918314941503266,
+            "original_val_at_T_plus_S": 0.2918314941503266,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.084444444444444,
+            "original_val_at_T_plus_S": 6.084444444444444,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 4.732222222222222,
+            "original_val_at_T_plus_S": 4.732222222222222,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 5.336666666666665,
+            "original_val_at_T_plus_S": 5.336666666666665,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 5.145360624353267,
+            "original_val_at_T_plus_S": 5.145360624353267,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 2.2607425573473634,
+            "original_val_at_T_plus_S": 2.2607425573473634,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 3.2199891815819357,
+            "original_val_at_T_plus_S": 3.2199891815819357,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.2178424080971719,
+            "original_val_at_T_plus_S": 0.2178424080971719,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.5176752252609759,
+            "original_val_at_T_plus_S": -0.5176752252609759,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.30201791449268195,
+            "original_val_at_T_plus_S": -0.30201791449268195,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 84,
+      "timestamp": "2026-06-10 01:24:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.28664769725219214,
+            "original_val_at_T_plus_S": 0.28664769725219214,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2950157603628307,
+            "original_val_at_T_plus_S": 0.2950157603628307,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2447072940206815,
+            "original_val_at_T_plus_S": 0.2447072940206815,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 3.514444444444444,
+            "original_val_at_T_plus_S": 3.514444444444444,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.76,
+            "original_val_at_T_plus_S": 3.76,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.321111111111112,
+            "original_val_at_T_plus_S": 4.321111111111112,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.40716996447071485,
+            "original_val_at_T_plus_S": 0.40716996447071485,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.7073572806607789,
+            "original_val_at_T_plus_S": 0.7073572806607789,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.1774453434207868,
+            "original_val_at_T_plus_S": 1.1774453434207868,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.7324119731710411,
+            "original_val_at_T_plus_S": -0.7324119731710411,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.3388072841544715,
+            "original_val_at_T_plus_S": -0.3388072841544715,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.9543809481882992,
+            "original_val_at_T_plus_S": -0.9543809481882992,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 5002,
+      "timestamp": "2026-06-13 11:22:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.6161616112641566,
+            "original_val_at_T_plus_S": 1.6161616112641566,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 2.1640488605210013,
+            "original_val_at_T_plus_S": 2.1640488605210013,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.807407400177778,
+            "original_val_at_T_plus_S": 1.807407400177778,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.33,
+            "original_val_at_T_plus_S": 0.33,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.42444444444444446,
+            "original_val_at_T_plus_S": 0.42444444444444446,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.24999999999999994,
+            "original_val_at_T_plus_S": 0.24999999999999994,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -4.502394911096789,
+            "original_val_at_T_plus_S": -4.502394911096789,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -3.7673357750052645,
+            "original_val_at_T_plus_S": -3.7673357750052645,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.665049028257889,
+            "original_val_at_T_plus_S": -4.665049028257889,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.7768109641673426,
+            "original_val_at_T_plus_S": 0.7768109641673426,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.6774254419826076,
+            "original_val_at_T_plus_S": 1.6774254419826076,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.6233758855183218,
+            "original_val_at_T_plus_S": 0.6233758855183218,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 3262,
+      "timestamp": "2026-06-12 06:22:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.3576867610135376,
+            "original_val_at_T_plus_S": 0.3576867610135376,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.659863939480772,
+            "original_val_at_T_plus_S": 1.659863939480772,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.9976359274307123,
+            "original_val_at_T_plus_S": 1.9976359274307123,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.3570919067215363,
+            "original_val_at_T_plus_S": 1.3570919067215363,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2722222222222222,
+            "original_val_at_T_plus_S": 0.2722222222222222,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.31333333333333335,
+            "original_val_at_T_plus_S": 0.31333333333333335,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -3.2220743886670884,
+            "original_val_at_T_plus_S": -3.2220743886670884,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.673694714239644,
+            "original_val_at_T_plus_S": -4.673694714239644,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.344280379976468,
+            "original_val_at_T_plus_S": -4.344280379976468,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.08462711466034803,
+            "original_val_at_T_plus_S": 0.08462711466034803,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.7858918539276848,
+            "original_val_at_T_plus_S": 0.7858918539276848,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.0356882820837885,
+            "original_val_at_T_plus_S": 1.0356882820837885,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 5019,
+      "timestamp": "2026-06-13 11:39:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.627756155129777,
+            "original_val_at_T_plus_S": 1.627756155129777,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.6956882217426548,
+            "original_val_at_T_plus_S": 1.6956882217426548,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.6186556867347452,
+            "original_val_at_T_plus_S": 1.6186556867347452,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.2855555555555556,
+            "original_val_at_T_plus_S": 0.2855555555555556,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.44666666666666666,
+            "original_val_at_T_plus_S": 0.44666666666666666,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2700000000000001,
+            "original_val_at_T_plus_S": 0.2700000000000001,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -4.6097077865881735,
+            "original_val_at_T_plus_S": -4.6097077865881735,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.021645539422123,
+            "original_val_at_T_plus_S": -4.021645539422123,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.6872829757516,
+            "original_val_at_T_plus_S": -4.6872829757516,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.6095258980283313,
+            "original_val_at_T_plus_S": 0.6095258980283313,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.3238695122508917,
+            "original_val_at_T_plus_S": 1.3238695122508917,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.5288687888430764,
+            "original_val_at_T_plus_S": 0.5288687888430764,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 4486,
+      "timestamp": "2026-06-13 02:46:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.8771929735641733,
+            "original_val_at_T_plus_S": 1.8771929735641733,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.7321688432651294,
+            "original_val_at_T_plus_S": 1.7321688432651294,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.7041800593769705,
+            "original_val_at_T_plus_S": 1.7041800593769705,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.21111111111111114,
+            "original_val_at_T_plus_S": 0.21111111111111114,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2544444444444445,
+            "original_val_at_T_plus_S": 0.2544444444444445,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.34555555555555556,
+            "original_val_at_T_plus_S": 0.34555555555555556,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -4.859662204017508,
+            "original_val_at_T_plus_S": -4.859662204017508,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.650729313581518,
+            "original_val_at_T_plus_S": -4.650729313581518,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.364091837957302,
+            "original_val_at_T_plus_S": -4.364091837957302,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.5429738109125921,
+            "original_val_at_T_plus_S": 0.5429738109125921,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.6381020337733779,
+            "original_val_at_T_plus_S": 0.6381020337733779,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.903805792562079,
+            "original_val_at_T_plus_S": 0.903805792562079,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 3250,
+      "timestamp": "2026-06-12 06:10:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.33802849861859435,
+            "original_val_at_T_plus_S": 0.33802849861859435,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.5978593206204585,
+            "original_val_at_T_plus_S": 1.5978593206204585,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.4046579275217226,
+            "original_val_at_T_plus_S": 1.4046579275217226,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.562085048010974,
+            "original_val_at_T_plus_S": 1.562085048010974,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.24222222222222223,
+            "original_val_at_T_plus_S": 0.24222222222222223,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2544444444444445,
+            "original_val_at_T_plus_S": 0.2544444444444445,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -2.909841454946874,
+            "original_val_at_T_plus_S": -2.909841454946874,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.7749941463296555,
+            "original_val_at_T_plus_S": -4.7749941463296555,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.810449159662607,
+            "original_val_at_T_plus_S": -4.810449159662607,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.03303605064554884,
+            "original_val_at_T_plus_S": 0.03303605064554884,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.6748355467976077,
+            "original_val_at_T_plus_S": 0.6748355467976077,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.4126414331766807,
+            "original_val_at_T_plus_S": 0.4126414331766807,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2245,
+      "timestamp": "2026-06-11 13:25:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.2315000668657132,
+            "original_val_at_T_plus_S": 0.2315000668657132,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.20380202086257546,
+            "original_val_at_T_plus_S": 0.20380202086257546,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.22806507838313234,
+            "original_val_at_T_plus_S": 0.22806507838313234,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 5.535555555555556,
+            "original_val_at_T_plus_S": 5.535555555555556,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 6.487777777777778,
+            "original_val_at_T_plus_S": 6.487777777777778,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 3.824444444444444,
+            "original_val_at_T_plus_S": 3.824444444444444,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 3.052035746076595,
+            "original_val_at_T_plus_S": 3.052035746076595,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 4.383782392549287,
+            "original_val_at_T_plus_S": 4.383782392549287,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.46972071533476717,
+            "original_val_at_T_plus_S": 0.46972071533476717,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -1.2399571979741904,
+            "original_val_at_T_plus_S": -1.2399571979741904,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -2.179837030726352,
+            "original_val_at_T_plus_S": -2.179837030726352,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -1.3404483536327385,
+            "original_val_at_T_plus_S": -1.3404483536327385,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 4713,
+      "timestamp": "2026-06-13 06:33:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.5827338078256816,
+            "original_val_at_T_plus_S": 1.5827338078256816,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.3822751273384353,
+            "original_val_at_T_plus_S": 1.3822751273384353,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.7391304291115308,
+            "original_val_at_T_plus_S": 1.7391304291115308,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.30888888888888894,
+            "original_val_at_T_plus_S": 0.30888888888888894,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.28,
+            "original_val_at_T_plus_S": 0.28,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.3066666666666667,
+            "original_val_at_T_plus_S": 0.3066666666666667,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -4.542872179443019,
+            "original_val_at_T_plus_S": -4.542872179443019,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.761811219627169,
+            "original_val_at_T_plus_S": -4.761811219627169,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.471430619703237,
+            "original_val_at_T_plus_S": -4.471430619703237,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.7103068480605153,
+            "original_val_at_T_plus_S": 0.7103068480605153,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.4828058008786292,
+            "original_val_at_T_plus_S": 0.4828058008786292,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.7588846379462051,
+            "original_val_at_T_plus_S": 0.7588846379462051,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 1907,
+      "timestamp": "2026-06-11 07:47:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.28595124760045665,
+            "original_val_at_T_plus_S": 0.28595124760045665,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.22510747062810565,
+            "original_val_at_T_plus_S": 0.22510747062810565,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.211775657391064,
+            "original_val_at_T_plus_S": 0.211775657391064,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 5.135555555555556,
+            "original_val_at_T_plus_S": 5.135555555555556,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 6.375555555555554,
+            "original_val_at_T_plus_S": 6.375555555555554,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.774444444444445,
+            "original_val_at_T_plus_S": 4.774444444444445,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 3.2532639833497896,
+            "original_val_at_T_plus_S": 3.2532639833497896,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 4.4464370240882936,
+            "original_val_at_T_plus_S": 4.4464370240882936,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.9255276142163382,
+            "original_val_at_T_plus_S": 1.9255276142163382,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -1.0202585512287512,
+            "original_val_at_T_plus_S": -1.0202585512287512,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -1.7643684435129037,
+            "original_val_at_T_plus_S": -1.7643684435129037,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -1.8240994110442568,
+            "original_val_at_T_plus_S": -1.8240994110442568,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 3243,
+      "timestamp": "2026-06-12 06:03:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.32877444829725294,
+            "original_val_at_T_plus_S": 0.32877444829725294,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.6136363570351238,
+            "original_val_at_T_plus_S": 1.6136363570351238,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.4624182942017494,
+            "original_val_at_T_plus_S": 1.4624182942017494,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.6816643804298124,
+            "original_val_at_T_plus_S": 1.6816643804298124,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.24444444444444446,
+            "original_val_at_T_plus_S": 0.24444444444444446,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.22666666666666666,
+            "original_val_at_T_plus_S": 0.22666666666666666,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -2.7277055769434146,
+            "original_val_at_T_plus_S": -2.7277055769434146,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.728129217863264,
+            "original_val_at_T_plus_S": -4.728129217863264,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.89737358452473,
+            "original_val_at_T_plus_S": -4.89737358452473,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.0029412633035828984,
+            "original_val_at_T_plus_S": 0.0029412633035828984,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.7257107255348972,
+            "original_val_at_T_plus_S": 0.7257107255348972,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.3445967158705951,
+            "original_val_at_T_plus_S": 0.3445967158705951,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 5031,
+      "timestamp": "2026-06-13 11:51:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 2.0943245358475813,
+            "original_val_at_T_plus_S": 2.0943245358475813,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.763341063603232,
+            "original_val_at_T_plus_S": 1.763341063603232,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.5597484223756968,
+            "original_val_at_T_plus_S": 1.5597484223756968,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.46333333333333326,
+            "original_val_at_T_plus_S": 0.46333333333333326,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.47888888888888886,
+            "original_val_at_T_plus_S": 0.47888888888888886,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.29444444444444445,
+            "original_val_at_T_plus_S": 0.29444444444444445,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -3.555364334799933,
+            "original_val_at_T_plus_S": -3.555364334799933,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -3.8088837391594486,
+            "original_val_at_T_plus_S": -3.8088837391594486,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.630523575230189,
+            "original_val_at_T_plus_S": -4.630523575230189,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.910883911565987,
+            "original_val_at_T_plus_S": 1.910883911565987,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.443980406535823,
+            "original_val_at_T_plus_S": 1.443980406535823,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.5792928082597716,
+            "original_val_at_T_plus_S": 0.5792928082597716,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 5369,
+      "timestamp": "2026-06-13 17:29:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.2860892342881352,
+            "original_val_at_T_plus_S": 1.2860892342881352,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.4225941369023654,
+            "original_val_at_T_plus_S": 1.4225941369023654,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.258790431225409,
+            "original_val_at_T_plus_S": 1.258790431225409,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.2822222222222222,
+            "original_val_at_T_plus_S": 0.2822222222222222,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.26555555555555554,
+            "original_val_at_T_plus_S": 0.26555555555555554,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2633333333333333,
+            "original_val_at_T_plus_S": 0.2633333333333333,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -4.8055583582696,
+            "original_val_at_T_plus_S": -4.8055583582696,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.766171653417139,
+            "original_val_at_T_plus_S": -4.766171653417139,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.846809905980271,
+            "original_val_at_T_plus_S": -4.846809905980271,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.4176097778392264,
+            "original_val_at_T_plus_S": 0.4176097778392264,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.4795335305584562,
+            "original_val_at_T_plus_S": 0.4795335305584562,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.37819820468819865,
+            "original_val_at_T_plus_S": 0.37819820468819865,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 1730,
+      "timestamp": "2026-06-11 04:50:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.24905629405281046,
+            "original_val_at_T_plus_S": 0.24905629405281046,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.29687499994781485,
+            "original_val_at_T_plus_S": 0.29687499994781485,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.21390374328229886,
+            "original_val_at_T_plus_S": 0.21390374328229886,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 4.513333333333334,
+            "original_val_at_T_plus_S": 4.513333333333334,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 5.688888888888891,
+            "original_val_at_T_plus_S": 5.688888888888891,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 6.441111111111112,
+            "original_val_at_T_plus_S": 6.441111111111112,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.791508855342654,
+            "original_val_at_T_plus_S": 1.791508855342654,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 4.0621931233735005,
+            "original_val_at_T_plus_S": 4.0621931233735005,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.388957236563234,
+            "original_val_at_T_plus_S": 4.388957236563234,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -1.0041731013809292,
+            "original_val_at_T_plus_S": -1.0041731013809292,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.4148180241124557,
+            "original_val_at_T_plus_S": -0.4148180241124557,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -1.8628531895446678,
+            "original_val_at_T_plus_S": -1.8628531895446678,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 8,
+      "timestamp": "2026-06-10 00:08:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.32324621725146585,
+            "original_val_at_T_plus_S": 0.32324621725146585,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.27359999992120326,
+            "original_val_at_T_plus_S": 0.27359999992120326,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.23733938014808648,
+            "original_val_at_T_plus_S": 0.23733938014808648,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 4.038888888888889,
+            "original_val_at_T_plus_S": 4.038888888888889,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.472222222222222,
+            "original_val_at_T_plus_S": 3.472222222222222,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.8999999999999995,
+            "original_val_at_T_plus_S": 4.8999999999999995,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.4700693516027379,
+            "original_val_at_T_plus_S": 1.4700693516027379,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.12305994724839833,
+            "original_val_at_T_plus_S": 0.12305994724839833,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.327857645806873,
+            "original_val_at_T_plus_S": 2.327857645806873,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.17820154172407845,
+            "original_val_at_T_plus_S": -0.17820154172407845,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.5177621473175132,
+            "original_val_at_T_plus_S": -0.5177621473175132,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -1.29172238371493,
+            "original_val_at_T_plus_S": -1.29172238371493,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 1544,
+      "timestamp": "2026-06-11 01:44:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.3483365948505865,
+            "original_val_at_T_plus_S": 0.3483365948505865,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2767883644443953,
+            "original_val_at_T_plus_S": 0.2767883644443953,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2922188242752979,
+            "original_val_at_T_plus_S": 0.2922188242752979,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 5.677777777777778,
+            "original_val_at_T_plus_S": 5.677777777777778,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 4.9911111111111115,
+            "original_val_at_T_plus_S": 4.9911111111111115,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 5.450000000000001,
+            "original_val_at_T_plus_S": 5.450000000000001,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 4.856407694519931,
+            "original_val_at_T_plus_S": 4.856407694519931,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 2.7219814338777626,
+            "original_val_at_T_plus_S": 2.7219814338777626,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 3.6640873358400077,
+            "original_val_at_T_plus_S": 3.6640873358400077,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.3640407191287274,
+            "original_val_at_T_plus_S": 0.3640407191287274,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.8170805165724233,
+            "original_val_at_T_plus_S": -0.8170805165724233,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.49286554269296634,
+            "original_val_at_T_plus_S": -0.49286554269296634,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 5318,
+      "timestamp": "2026-06-13 16:38:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.4693877497042898,
+            "original_val_at_T_plus_S": 1.4693877497042898,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.2403100723273845,
+            "original_val_at_T_plus_S": 1.2403100723273845,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.5615615552309061,
+            "original_val_at_T_plus_S": 1.5615615552309061,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.2722222222222222,
+            "original_val_at_T_plus_S": 0.2722222222222222,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.23888888888888887,
+            "original_val_at_T_plus_S": 0.23888888888888887,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.2466666666666667,
+            "original_val_at_T_plus_S": 0.2466666666666667,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -4.729801856395323,
+            "original_val_at_T_plus_S": -4.729801856395323,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.968204941545161,
+            "original_val_at_T_plus_S": -4.968204941545161,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.772083583965107,
+            "original_val_at_T_plus_S": -4.772083583965107,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.44569721694533104,
+            "original_val_at_T_plus_S": 0.44569721694533104,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.23215442268066933,
+            "original_val_at_T_plus_S": 0.23215442268066933,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.48488590668528214,
+            "original_val_at_T_plus_S": 0.48488590668528214,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 4844,
+      "timestamp": "2026-06-13 08:44:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.6330645102025878,
+            "original_val_at_T_plus_S": 1.6330645102025878,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.613663127965971,
+            "original_val_at_T_plus_S": 1.613663127965971,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.9476190426108841,
+            "original_val_at_T_plus_S": 1.9476190426108841,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.2755555555555556,
+            "original_val_at_T_plus_S": 0.2755555555555556,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.31444444444444447,
+            "original_val_at_T_plus_S": 0.31444444444444447,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.3888888888888889,
+            "original_val_at_T_plus_S": 0.3888888888888889,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -4.656823217508753,
+            "original_val_at_T_plus_S": -4.656823217508753,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.490685260124937,
+            "original_val_at_T_plus_S": -4.490685260124937,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.064741482300206,
+            "original_val_at_T_plus_S": -4.064741482300206,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.6323471892731295,
+            "original_val_at_T_plus_S": 0.6323471892731295,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.7429238425507322,
+            "original_val_at_T_plus_S": 0.7429238425507322,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.2775247398377452,
+            "original_val_at_T_plus_S": 1.2775247398377452,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 996,
+      "timestamp": "2026-06-10 16:36:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.22320510178957326,
+            "original_val_at_T_plus_S": 0.22320510178957326,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.22727272722577022,
+            "original_val_at_T_plus_S": 0.22727272722577022,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.25547445247845824,
+            "original_val_at_T_plus_S": 0.25547445247845824,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 5.40111111111111,
+            "original_val_at_T_plus_S": 5.40111111111111,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 4.839999999999999,
+            "original_val_at_T_plus_S": 4.839999999999999,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 3.3488888888888884,
+            "original_val_at_T_plus_S": 3.3488888888888884,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 2.9390407761468533,
+            "original_val_at_T_plus_S": 2.9390407761468533,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 2.0371789455562435,
+            "original_val_at_T_plus_S": 2.0371789455562435,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.22055933499628566,
+            "original_val_at_T_plus_S": -0.22055933499628566,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -1.6114492378594207,
+            "original_val_at_T_plus_S": -1.6114492378594207,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -1.3490365062859795,
+            "original_val_at_T_plus_S": -1.3490365062859795,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.8875299106253436,
+            "original_val_at_T_plus_S": -0.8875299106253436,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 1393,
+      "timestamp": "2026-06-10 23:13:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.7460222751784304,
+            "original_val_at_T_plus_S": 0.7460222751784304,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.3879384827459573,
+            "original_val_at_T_plus_S": 0.3879384827459573,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.24845582617316742,
+            "original_val_at_T_plus_S": 0.24845582617316742,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 9.31111111111111,
+            "original_val_at_T_plus_S": 9.31111111111111,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 6.430000000000001,
+            "original_val_at_T_plus_S": 6.430000000000001,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 5.336666666666667,
+            "original_val_at_T_plus_S": 5.336666666666667,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 17.13246046263213,
+            "original_val_at_T_plus_S": 17.13246046263213,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 6.277725280851355,
+            "original_val_at_T_plus_S": 6.277725280851355,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.8420082183447164,
+            "original_val_at_T_plus_S": 2.8420082183447164,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 11.533959616621445,
+            "original_val_at_T_plus_S": 11.533959616621445,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.4147526978932243,
+            "original_val_at_T_plus_S": 1.4147526978932243,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.8884881601374076,
+            "original_val_at_T_plus_S": -0.8884881601374076,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 3493,
+      "timestamp": "2026-06-12 10:13:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.371527771348741,
+            "original_val_at_T_plus_S": 1.371527771348741,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.4639639580289752,
+            "original_val_at_T_plus_S": 1.4639639580289752,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.9201877885591483,
+            "original_val_at_T_plus_S": 1.9201877885591483,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.21333333333333337,
+            "original_val_at_T_plus_S": 0.21333333333333337,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.24666666666666667,
+            "original_val_at_T_plus_S": 0.24666666666666667,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.3944444444444445,
+            "original_val_at_T_plus_S": 0.3944444444444445,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -5.002234925130181,
+            "original_val_at_T_plus_S": -5.002234925130181,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.8525900203918075,
+            "original_val_at_T_plus_S": -4.8525900203918075,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -4.015324260793302,
+            "original_val_at_T_plus_S": -4.015324260793302,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.3116943278813302,
+            "original_val_at_T_plus_S": 0.3116943278813302,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.3980737865782119,
+            "original_val_at_T_plus_S": 0.3980737865782119,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 1.287540397752357,
+            "original_val_at_T_plus_S": 1.287540397752357,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 381,
+      "timestamp": "2026-06-10 06:21:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.254251279454641,
+            "original_val_at_T_plus_S": 0.254251279454641,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2036384076575285,
+            "original_val_at_T_plus_S": 0.2036384076575285,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.18460177966625627,
+            "original_val_at_T_plus_S": 0.18460177966625627,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 4.486666666666667,
+            "original_val_at_T_plus_S": 4.486666666666667,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 7.247777777777778,
+            "original_val_at_T_plus_S": 7.247777777777778,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 6.7011111111111115,
+            "original_val_at_T_plus_S": 6.7011111111111115,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.6825848524452904,
+            "original_val_at_T_plus_S": 1.6825848524452904,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 5.507681610233992,
+            "original_val_at_T_plus_S": 5.507681610233992,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.551748500231543,
+            "original_val_at_T_plus_S": 4.551748500231543,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -0.9631899896726741,
+            "original_val_at_T_plus_S": -0.9631899896726741,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -2.1792243375499907,
+            "original_val_at_T_plus_S": -2.1792243375499907,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -2.5767687440237474,
+            "original_val_at_T_plus_S": -2.5767687440237474,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 4785,
+      "timestamp": "2026-06-13 07:45:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.6666666614583328,
+            "original_val_at_T_plus_S": 1.6666666614583328,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.3877821995391608,
+            "original_val_at_T_plus_S": 1.3877821995391608,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.0187018671889474,
+            "original_val_at_T_plus_S": 2.0187018671889474,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.32000000000000006,
+            "original_val_at_T_plus_S": 0.32000000000000006,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.27888888888888885,
+            "original_val_at_T_plus_S": 0.27888888888888885,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.6733333333333332,
+            "original_val_at_T_plus_S": 0.6733333333333332,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -4.445956698054797,
+            "original_val_at_T_plus_S": -4.445956698054797,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -4.772159047329963,
+            "original_val_at_T_plus_S": -4.772159047329963,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -2.7229532794946496,
+            "original_val_at_T_plus_S": -2.7229532794946496,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.7975600060540503,
+            "original_val_at_T_plus_S": 0.7975600060540503,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.43043201772374196,
+            "original_val_at_T_plus_S": 0.43043201772374196,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.701156107071564,
+            "original_val_at_T_plus_S": 2.701156107071564,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 3710,
+      "timestamp": "2026-06-12 13:50:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 1.6771159827291395,
+            "original_val_at_T_plus_S": 1.6771159827291395,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 2.1959145720250977,
+            "original_val_at_T_plus_S": 2.1959145720250977,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.081993566119302,
+            "original_val_at_T_plus_S": 2.081993566119302,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.3544444444444445,
+            "original_val_at_T_plus_S": 0.3544444444444445,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.3988888888888889,
+            "original_val_at_T_plus_S": 0.3988888888888889,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.6911111111111111,
+            "original_val_at_T_plus_S": 0.6911111111111111,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -4.329880454856044,
+            "original_val_at_T_plus_S": -4.329880454856044,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -3.8575761075574326,
+            "original_val_at_T_plus_S": -3.8575761075574326,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -2.5932078492577104,
+            "original_val_at_T_plus_S": -2.5932078492577104,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.9771728211324233,
+            "original_val_at_T_plus_S": 0.9771728211324233,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 1.587731316571556,
+            "original_val_at_T_plus_S": 1.587731316571556,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 2.9335866594616102,
+            "original_val_at_T_plus_S": 2.9335866594616102,
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "index": 2436,
+      "timestamp": "2026-06-11 16:36:00",
+      "shifts": {
+        "hard_soft_ratio": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 0.19804889512607354,
+            "original_val_at_T_plus_S": 0.19804889512607354,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.2328675980772985,
+            "original_val_at_T_plus_S": 0.2328675980772985,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 0.29969533042285784,
+            "original_val_at_T_plus_S": 0.29969533042285784,
+            "matched": true
+          }
+        ],
+        "soft_band_mean": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 6.302222222222222,
+            "original_val_at_T_plus_S": 6.302222222222222,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 3.896666666666667,
+            "original_val_at_T_plus_S": 3.896666666666667,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 5.956666666666667,
+            "original_val_at_T_plus_S": 5.956666666666667,
+            "matched": true
+          }
+        ],
+        "pc1_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": 4.210533773278192,
+            "original_val_at_T_plus_S": 4.210533773278192,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": 0.5420988658018302,
+            "original_val_at_T_plus_S": 0.5420988658018302,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": 4.764730606330015,
+            "original_val_at_T_plus_S": 4.764730606330015,
+            "matched": true
+          }
+        ],
+        "pc2_projection": [
+          {
+            "shift_minutes": 60,
+            "shifted_val_at_T": -2.381439277751066,
+            "original_val_at_T_plus_S": -2.381439277751066,
+            "matched": true
+          },
+          {
+            "shift_minutes": 180,
+            "shifted_val_at_T": -0.911020916358837,
+            "original_val_at_T_plus_S": -0.911020916358837,
+            "matched": true
+          },
+          {
+            "shift_minutes": 360,
+            "shifted_val_at_T": -0.3889147603562163,
+            "original_val_at_T_plus_S": -0.3889147603562163,
+            "matched": true
+          }
+        ]
+      }
+    }
+  ]
+}

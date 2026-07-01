@@ -1,0 +1,12 @@
+{
+  "files_created": [
+    "/Users/soumyadebtripathy/AdityaNet/artifacts/aditya_l1/lead_lag_relationship_audit.json",
+    "/Users/soumyadebtripathy/AdityaNet/brain/aditya_l1_lead_lag_relationships.md"
+  ],
+  "row_count_processed": 5760,
+  "feature_count_processed": 2148,
+  "runtime_s": 120.51273202896118,
+  "initial_mem_mb": 166.859375,
+  "peak_mem_mb": 413.203125,
+  "final_mem_mb": 413.203125
+}

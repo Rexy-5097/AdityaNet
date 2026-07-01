@@ -1,0 +1,30 @@
+{
+  "verdict": "NOT READY",
+  "timestamp": "2026-06-19T15:30:00Z",
+  "blockers": [
+    {
+      "id": "B1",
+      "severity": "Critical",
+      "description": "Split-Overlap Temporal Mismatch",
+      "evidence": "train_v3.parquet (2010-2019) and validation_v3.parquet (2020-2022) contain exactly 0.0% active SoLEXS and HEL1OS telemetry rows (mask_solexs and mask_hel1os = 0.0 everywhere). Aditya-L1 data only starts from 2023-12-13.",
+      "consequence": "SoLEXS and HEL1OS encoders receive identically zero gradients during training and validation. Encoders remain at random random weights, degrading multi-instrument performance on the test set.",
+      "remediation": "Redefine training/validation/testing split boundaries entirely within the 2.5-year overlap period (December 2023 to June 2026) to ensure active telemetry rows are present in all sets."
+    },
+    {
+      "id": "B2",
+      "severity": "Major",
+      "description": "V3 Multi-Instrument Performance Degradation",
+      "evidence": "V1 baseline TSS is 0.1617 on the test set, while the pilot V3 Isotonic model TSS is 0.0409 (a 74.7% performance drop). Raw V3 and Temperature Scaled V3 have a TSS of 0.0000 at the default 0.35 threshold.",
+      "consequence": "The V3 model cannot be deployed in its current state as it represents a massive degradation in predictive capability compared to the frozen V1 baseline.",
+      "remediation": "Resolve Blocker 1 (re-split dataset) and perform full retraining of V3 to allow the encoders to learn meaningful spectral features."
+    },
+    {
+      "id": "B3",
+      "severity": "Minor",
+      "description": "Pilot Checkpoint Seeding/Reproducibility Gap",
+      "evidence": "The checkpoint weights in artifacts/sprint13/checkpoints/ were trained without seed enforcement in pilot scripts, meaning they cannot be exactly reproduced from scratch.",
+      "consequence": "Increases difficulty of publication verification and strict audit trail compliance.",
+      "remediation": "Execute full retraining using the upgraded TrainerV3 (Sprint 12D) which enforces seed initialization and deterministic data loading."
+    }
+  ]
+}

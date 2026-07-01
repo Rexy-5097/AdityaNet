@@ -1,0 +1,42 @@
+{
+  "audit_timestamp": "2026-06-19T12:30:00Z",
+  "optimizer": {
+    "class": "torch.optim.AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "parameter_filtering": "VERIFIED (Uses filter(lambda p: p.requires_grad, self.model.parameters()) to avoid creating optimizer states for frozen weights)",
+    "gradient_update_bug": "CRITICAL_WARNING (Dynamically freezing/unfreezing encoders after initializing TrainerV3 will not update the optimizer's parameter list. If encoders are unfrozen, they will not receive updates. If frozen, optimizer will still attempt to update them. Re-instantiation of the optimizer is required whenever require_grad state changes.)"
+  },
+  "scheduler": {
+    "class": "torch.optim.lr_scheduler.CosineAnnealingLR",
+    "T_max": 10,
+    "step_cadence": "Once per epoch (correct for single stage training, but stage boundaries require resetting state)"
+  },
+  "early_stopping": {
+    "metric": "Validation True Skill Statistic (TSS)",
+    "patience": 3,
+    "save_best": "VERIFIED (Saves new best checkpoint to patchtst_{stage}_best.pt)"
+  },
+  "gradient_clipping": {
+    "max_norm": 1.0,
+    "integration": "VERIFIED (Correctly integrates with Mixed Precision by calling scaler.unscale_ before clipping)"
+  },
+  "checkpoint_reproducibility": {
+    "saved_components": [
+      "epoch",
+      "model_state_dict",
+      "optimizer_state_dict",
+      "scheduler_state_dict",
+      "best_val_tss"
+    ],
+    "loading_logic": "VERIFIED (Correctly resumes from saved state and increments epoch counter by 1)",
+    "reproducibility_gap": "WARNING (trainer_v3.py does not enforce random seed seeding. Global seeds must be set externally in the execution script to guarantee reproducible training runs)"
+  },
+  "mixed_precision": {
+    "classes": [
+      "torch.amp.autocast",
+      "torch.amp.GradScaler"
+    ],
+    "device_routing": "VERIFIED (Automatically scales based on device.type, successfully validated on CPU and MPS device runs on macOS)"
+  }
+}

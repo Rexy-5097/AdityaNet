@@ -1,0 +1,62 @@
+{
+  "splits": {
+    "train": {
+      "min_timestamp": "2010-01-02 00:30:00",
+      "max_timestamp": "2019-12-31 23:59:00",
+      "total_rows": 5161312,
+      "solexs_active_count": 0,
+      "solexs_active_ratio": 0.0,
+      "solexs_active_min": null,
+      "solexs_active_max": null,
+      "hel1os_active_count": 0,
+      "hel1os_active_ratio": 0.0,
+      "hel1os_active_min": null,
+      "hel1os_active_max": null,
+      "null_count": 0,
+      "positive_labels": 31993,
+      "negative_labels": 5129319,
+      "positive_ratio": 0.006198617715805594
+    },
+    "validation": {
+      "min_timestamp": "2020-01-01 00:00:00",
+      "max_timestamp": "2022-12-31 23:59:00",
+      "total_rows": 1568759,
+      "solexs_active_count": 0,
+      "solexs_active_ratio": 0.0,
+      "solexs_active_min": null,
+      "solexs_active_max": null,
+      "hel1os_active_count": 0,
+      "hel1os_active_ratio": 0.0,
+      "hel1os_active_min": null,
+      "hel1os_active_max": null,
+      "null_count": 0,
+      "positive_labels": 63849,
+      "negative_labels": 1504910,
+      "positive_ratio": 0.04070032426905599
+    },
+    "test": {
+      "min_timestamp": "2023-01-01 00:00:00",
+      "max_timestamp": "2026-06-14 23:51:00",
+      "total_rows": 1806673,
+      "solexs_active_count": 990975,
+      "solexs_active_ratio": 0.5485082247866658,
+      "solexs_active_min": "2023-12-13 00:02:00",
+      "solexs_active_max": "2026-06-14 23:51:00",
+      "hel1os_active_count": 1374451,
+      "hel1os_active_ratio": 0.7607635692790007,
+      "hel1os_active_min": "2023-10-29 00:00:00",
+      "hel1os_active_max": "2026-06-14 23:51:00",
+      "null_count": 0,
+      "positive_labels": 419150,
+      "negative_labels": 1387523,
+      "positive_ratio": 0.23200103173070058
+    }
+  },
+  "leakage": {
+    "train_val_overlap": 0,
+    "val_test_overlap": 0,
+    "train_test_overlap": 0,
+    "train_before_val": true,
+    "val_before_test": true
+  }
+}

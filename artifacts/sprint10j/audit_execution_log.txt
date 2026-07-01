@@ -1,0 +1,570 @@
+
+======================================================================
+  STEP 0 — Repository Fingerprint
+======================================================================
+
+  [model]
+    relative_path: artifacts/models/patchtst_best.pt
+    sha256: 010dc798b2a4625365d1551c2f7710ba3eb23d5eaada2145cb9bcf947ca21484
+    file_size_bytes: 9957975
+    modified_timestamp_utc: 2026-06-15T07:40:42Z
+
+  [calibrator]
+    relative_path: artifacts/calibrator.pkl
+    sha256: 36fe68d47207b371b963744151666d533b3885885e46dfd12c99061b68d327ac
+    file_size_bytes: 2091
+    modified_timestamp_utc: 2026-06-15T13:55:16Z
+
+  [threshold_policy]
+    relative_path: artifacts/operator_thresholds_validation_only.json
+    sha256: 8e76ee49ef776755b0f717dc69deb3db91526f670e26889195a59d72a862922b
+    file_size_bytes: 1114
+    modified_timestamp_utc: 2026-06-15T15:01:36Z
+
+  [feature_schema]
+    relative_path: artifacts/feature_columns.json
+    sha256: e499492381c93a40c7a78fd00c3dfcda57bb2bec0b2d2059ffe7463b8c7dbae0
+    file_size_bytes: 272
+    modified_timestamp_utc: 2026-06-15T06:09:42Z
+
+  [training_history]
+    relative_path: artifacts/training_history.json
+    sha256: c3b2bb38274057b402971ff44e3fbd290f28617fc8575906496125e326abce63
+    file_size_bytes: 1059
+    modified_timestamp_utc: 2026-06-15T07:40:42Z
+
+  [test_parquet]
+    relative_path: artifacts/research/test.parquet
+    sha256: 3f2b270f98a2480b37637f7e5461e5cc02ac8392d8af2ca9243cb3ad5edc5441
+    file_size_bytes: 163280890
+    modified_timestamp_utc: 2026-06-15T06:09:46Z
+
+  [backtest_csv]
+    relative_path: artifacts/backtest_window_predictions.csv
+    sha256: 7b55b5a1a70474d31f8a24807300dbb57920879405127382b721846341ac6148
+    file_size_bytes: 3713184
+    modified_timestamp_utc: 2026-06-15T16:29:18Z
+
+  [explainability]
+    relative_path: artifacts/explainability_examples.json
+    sha256: 5fedeb8cb9162f70386d25788f7b957ac679d628a8bf6193bbf72b6a91cfb24b
+    file_size_bytes: 7838
+    modified_timestamp_utc: 2026-06-15T14:49:24Z
+
+  [error_clusters]
+    relative_path: artifacts/error_clusters.json
+    sha256: 64426f11b3505da436fc6b16d3d0f8e4595ae4f45ec04ba4bab80540ebea1cae
+    file_size_bytes: 1982
+    modified_timestamp_utc: 2026-06-15T16:30:25Z
+
+  REPOSITORY FINGERPRINT SUMMARY:
+    model_sha256             : 010dc798b2a4625365d1551c2f7710ba3eb23d5eaada2145cb9bcf947ca21484
+    calibrator_sha256        : 36fe68d47207b371b963744151666d533b3885885e46dfd12c99061b68d327ac
+    threshold_policy_sha256  : 8e76ee49ef776755b0f717dc69deb3db91526f670e26889195a59d72a862922b
+    feature_schema_sha256    : e499492381c93a40c7a78fd00c3dfcda57bb2bec0b2d2059ffe7463b8c7dbae0
+    feature_count            : 14
+    feature_columns          : ['short_flux', 'long_flux', 'log_long_flux', 'mean_15m', 'variance_15m', 'mean_60m', 'variance_60m', 'peak_30m', 'peak_60m', 'flux_gradient_5m', 'flux_gradient_15m', 'flux_acceleration_5m', 'flux_acceleration_15m', 'minutes_since_last_flare']
+    training_epochs          : 3
+    pipeline_version         : 1.5.0-SprintDA03C (from hel1os_trust_certificate.json)
+    dataset_version          : dataset_v3 (HEL1OS), dataset_v2 (SoLEXS)
+    model_version            : patchtst_best.pt @ 010dc798b2a46253...
+
+======================================================================
+  STEP 1 — Prediction Selection
+======================================================================
+
+  Columns    : ['timestamp', 'true_label', 'true_class', 'raw_prob', 'cal_prob', 'unc_std', 'baseline_alert_level', 'coincidence_alert_level', 'global_idx', 'timestamp_dt']
+  Row count  : 30106
+  Dtypes:
+
+    timestamp: object
+    true_label: int64
+    true_class: int64
+    raw_prob: float64
+    cal_prob: float64
+    unc_std: float64
+    baseline_alert_level: object
+    coincidence_alert_level: object
+    global_idx: int64
+    timestamp_dt: object
+
+  First 3 rows:
+             timestamp  true_label  true_class  raw_prob  cal_prob   unc_std baseline_alert_level coincidence_alert_level  global_idx         timestamp_dt
+0  2023-01-01 06:01:00           0           0  0.353846  0.062743  0.048446                GREEN                   GREEN         362  2023-01-01 06:01:00
+1  2023-01-01 07:01:00           0           0  0.368682  0.082898  0.060069                GREEN                   GREEN         422  2023-01-01 07:01:00
+2  2023-01-01 08:01:00           0           0  0.368934  0.082898  0.047128                GREEN                   GREEN         482  2023-01-01 08:01:00
+
+  Detected columns:
+    timestamp       : timestamp_dt
+    label_col       : true_label
+    alert_col       : coincidence_alert_level
+    raw_prob_col    : raw_prob
+    calibrated_col  : cal_prob
+
+  Criterion A candidates (confirmed flare AND alert YELLOW|RED): 5047
+  Criterion B candidates (confirmed flares, any alert): 6984
+  Criterion C: highest calibrated prob overall = 1.000000000000000
+
+  SELECTED PREDICTION:
+    Selection criterion : A (confirmed flare AND coincidence_alert_level in YELLOW|RED)
+    CSV row index       : 986
+    Timestamp           : 2023-02-11 13:30:00
+    Alert               : YELLOW
+    Raw probability     : 0.9946829080581664
+    Calibrated prob     : 1.0
+    Ground truth label  : 1
+
+  Full selected row:
+    timestamp: 2023-02-11 13:30:00
+    true_label: 1
+    true_class: 2
+    raw_prob: 0.9946829080581664
+    cal_prob: 1.0
+    unc_std: 0.0017189326463267
+    baseline_alert_level: YELLOW
+    coincidence_alert_level: YELLOW
+    global_idx: 59522
+    timestamp_dt: 2023-02-11 13:30:00
+
+======================================================================
+  STEP 2 — Raw Scientific Evidence
+======================================================================
+
+  test.parquet shape    : (1806673, 20)
+  test.parquet columns  : ['timestamp', 'short_flux', 'long_flux', 'satellite', 'quality_flag', 'source', 'target_6hr_binary', 'target_6hr_class', 'log_long_flux', 'mean_15m', 'variance_15m', 'mean_60m', 'variance_60m', 'peak_30m', 'peak_60m', 'flux_gradient_5m', 'flux_gradient_15m', 'flux_acceleration_5m', 'flux_acceleration_15m', 'minutes_since_last_flare']
+  test.parquet time range: 2023-01-01 00:00:00 → 2026-06-14 23:51:00
+
+  Window start       : 2023-02-11 07:31:00
+  Window end         : 2023-02-11 13:30:00
+  Window length      : 360
+  Window NaN count   : 0
+
+  Per-feature statistics:
+    Feature                                               Last                   Mean                    Min                    Max                    Std
+    ----------------------------------- ---------------------- ---------------------- ---------------------- ---------------------- ----------------------
+    short_flux                           1.191028360381097e-07  4.505598711703998e-07  4.915599660648695e-08  4.048322352900868e-06  5.837530678062887e-07
+    long_flux                            4.640151473722653e-06  6.859010326504884e-06  2.505894144633203e-06  2.295808008057065e-05  4.248546774499198e-06
+    log_long_flux                       -1.228054806007309e+01 -1.207012733688913e+01 -1.289646596359932e+01 -1.068179705349282e+01  5.996230588397292e-01
+    mean_15m                             4.949894992023473e-06  6.830433920067999e-06  2.546885737804890e-06  1.769024729583180e-05  3.909773559806554e-06
+    variance_15m                         6.691062310879333e-14  3.123052805633132e-12  5.259922712098633e-16  3.171533716816429e-11  6.206012698446195e-12
+    mean_60m                             8.830223744856388e-06  6.653867846824612e-06  3.028073607917274e-06  1.164656564469624e-05  2.856563276740123e-06
+    variance_60m                         1.350356053494072e-11  1.000702496187780e-11  4.148574109521206e-14  4.244527480280335e-11  1.325740354979282e-11
+    peak_30m                             7.523536169173894e-06  1.070284126032877e-05  2.929838728960021e-06  2.295808008057065e-05  5.987568126172446e-06
+    peak_60m                             1.516621705377474e-05  1.308452904519678e-05  3.574536776795867e-06  2.295808008057065e-05  5.873471894323865e-06
+    flux_gradient_5m                    -2.824926923494786e-08  4.034486159475313e-09 -1.550344495626632e-06  2.217288783867843e-06  4.740661232141149e-07
+    flux_gradient_15m                   -5.936902501465132e-08  4.248688667387426e-09 -1.097555862846396e-06  1.272209480400003e-06  3.004333262798880e-07
+    flux_acceleration_5m                 7.487251423299312e-09 -5.268551224920531e-12 -6.227292760740965e-07  3.996865052613430e-07  1.222558348086813e-07
+    flux_acceleration_15m                5.911434628716152e-09 -1.136699868058915e-10 -1.549375156173483e-07  8.197696337851489e-08  3.169165333235955e-08
+    minutes_since_last_flare             6.200000000000000e+01  9.001111111111111e+01  0.000000000000000e+00  5.640000000000000e+02  1.409435964108889e+02
+
+======================================================================
+  STEP 3 — Model Input Reconstruction
+======================================================================
+
+  Preprocessing source   : app/services/ml/dataset.py
+  Preprocessing function : FlareDataset.__getitem__ (line ~98)
+  SEQ_LEN (from model.py): 360
+  N_FEATURES (model.py)  : 14
+
+  Tensor shape           : [1, 360, 14]
+  Tensor dtype           : torch.float32
+  Tensor minimum         : -1.289646625518799e+01
+  Tensor maximum         : 5.640000000000000e+02
+  Tensor mean            : 5.567216396331787e+00
+  Tensor NaN count       : 0
+  Features used          : ['short_flux', 'long_flux', 'log_long_flux', 'mean_15m', 'variance_15m', 'mean_60m', 'variance_60m', 'peak_30m', 'peak_60m', 'flux_gradient_5m', 'flux_gradient_15m', 'flux_acceleration_5m', 'flux_acceleration_15m', 'minutes_since_last_flare']
+  Features padded        : 360 rows → padded to 360
+
+======================================================================
+  STEP 4 — Model Inference
+======================================================================
+  Checkpoint keys        : ['epoch', 'val_tss', 'best_threshold', 'model', 'optimizer', 'scheduler']
+  Checkpoint epoch       : 3
+  Checkpoint val_tss     : 0.5935756533411636
+
+  Single-pass inference:
+    Source file          : app/services/ml/model.py
+    Source function      : PatchTST.forward
+    Raw logit            : 5.832479953765869e+00
+    Single-pass prob     : 9.970778226852417e-01
+
+  MC Dropout inference (50 samples):
+    Source file          : app/services/ml/inference.py
+    Source function      : SuryaNetInferenceService.predict_nowcast
+    MC mean              : 9.947558176517487e-01
+    MC std               : 1.853942295332798e-03
+    MC minimum           : 9.876832365989685e-01
+    MC maximum           : 9.971725344657898e-01
+
+  All 50 MC probabilities:
+    [01] 9.952308535575867e-01
+    [02] 9.951312541961670e-01
+    [03] 9.957662820816040e-01
+    [04] 9.969684481620789e-01
+    [05] 9.933589100837708e-01
+    [06] 9.955850839614868e-01
+    [07] 9.931741356849670e-01
+    [08] 9.876832365989685e-01
+    [09] 9.922703504562378e-01
+    [10] 9.968507885932922e-01
+    [11] 9.950203895568848e-01
+    [12] 9.925256967544556e-01
+    [13] 9.953265190124512e-01
+    [14] 9.906682372093201e-01
+    [15] 9.949276447296143e-01
+    [16] 9.927155375480652e-01
+    [17] 9.934632778167725e-01
+    [18] 9.959419369697571e-01
+    [19] 9.963349103927612e-01
+    [20] 9.927884936332703e-01
+    [21] 9.961237311363220e-01
+    [22] 9.943308830261230e-01
+    [23] 9.966800212860107e-01
+    [24] 9.938779473304749e-01
+    [25] 9.958178400993347e-01
+    [26] 9.959210157394409e-01
+    [27] 9.930937290191650e-01
+    [28] 9.918881058692932e-01
+    [29] 9.965481162071228e-01
+    [30] 9.962142109870911e-01
+    [31] 9.949052333831787e-01
+    [32] 9.956257343292236e-01
+    [33] 9.949873685836792e-01
+    [34] 9.917362332344055e-01
+    [35] 9.971725344657898e-01
+    [36] 9.943538904190063e-01
+    [37] 9.962555170059204e-01
+    [38] 9.955176711082458e-01
+    [39] 9.958047270774841e-01
+    [40] 9.957218170166016e-01
+    [41] 9.964014291763306e-01
+    [42] 9.954368472099304e-01
+    [43] 9.947260022163391e-01
+    [44] 9.941593408584595e-01
+    [45] 9.930217862129211e-01
+    [46] 9.951310157775879e-01
+    [47] 9.945711493492126e-01
+    [48] 9.967857599258423e-01
+    [49] 9.969114661216736e-01
+    [50] 9.963377714157104e-01
+
+======================================================================
+  STEP 5 — Calibration
+======================================================================
+  Calibrator class       : CalibratorWrapper
+  Calibrator module      : app.services.ml.inference
+  Source file            : app/services/ml/inference.py
+  Source class           : CalibratorWrapper
+  Interface              : __call__(p: float | np.ndarray) -> float | np.ndarray
+    method               : isotonic
+    inner model class    : IsotonicRegression
+    inner model module   : sklearn.isotonic
+    X_thresholds_ count  : 198
+    X_thresholds_ first5 : [0.32165154814720154, 0.32170942425727844, 0.33093690872192383, 0.3309379518032074, 0.33222469687461853]
+    X_thresholds_ last5  : [0.9910672307014465, 0.9910721182823181, 0.9915745854377747, 0.9915779829025269, 0.9978212118148804]
+    y_thresholds_ count  : 198
+    y_thresholds_ first5 : [0.0, 0.010742353275418282, 0.010742353275418282, 0.011396280489861965, 0.011396280489861965]
+    y_thresholds_ last5  : [0.9268292784690857, 0.9487179517745972, 0.9487179517745972, 1.0, 1.0]
+
+  Calibrated probability (single-pass) : 1.000000000000000e+00
+  Calibrated MC mean                   : 9.905233979225159e-01
+  Calibrated MC std                    : 5.389988422393799e-02
+
+  All 50 calibrated MC probabilities:
+    [01] 1.000000000000000e+00
+    [02] 1.000000000000000e+00
+    [03] 1.000000000000000e+00
+    [04] 1.000000000000000e+00
+    [05] 1.000000000000000e+00
+    [06] 1.000000000000000e+00
+    [07] 1.000000000000000e+00
+    [08] 6.261682510375977e-01
+    [09] 1.000000000000000e+00
+    [10] 1.000000000000000e+00
+    [11] 1.000000000000000e+00
+    [12] 1.000000000000000e+00
+    [13] 1.000000000000000e+00
+    [14] 8.999999761581421e-01
+    [15] 1.000000000000000e+00
+    [16] 1.000000000000000e+00
+    [17] 1.000000000000000e+00
+    [18] 1.000000000000000e+00
+    [19] 1.000000000000000e+00
+    [20] 1.000000000000000e+00
+    [21] 1.000000000000000e+00
+    [22] 1.000000000000000e+00
+    [23] 1.000000000000000e+00
+    [24] 1.000000000000000e+00
+    [25] 1.000000000000000e+00
+    [26] 1.000000000000000e+00
+    [27] 1.000000000000000e+00
+    [28] 1.000000000000000e+00
+    [29] 1.000000000000000e+00
+    [30] 1.000000000000000e+00
+    [31] 1.000000000000000e+00
+    [32] 1.000000000000000e+00
+    [33] 1.000000000000000e+00
+    [34] 1.000000000000000e+00
+    [35] 1.000000000000000e+00
+    [36] 1.000000000000000e+00
+    [37] 1.000000000000000e+00
+    [38] 1.000000000000000e+00
+    [39] 1.000000000000000e+00
+    [40] 1.000000000000000e+00
+    [41] 1.000000000000000e+00
+    [42] 1.000000000000000e+00
+    [43] 1.000000000000000e+00
+    [44] 1.000000000000000e+00
+    [45] 1.000000000000000e+00
+    [46] 1.000000000000000e+00
+    [47] 1.000000000000000e+00
+    [48] 1.000000000000000e+00
+    [49] 1.000000000000000e+00
+    [50] 1.000000000000000e+00
+
+======================================================================
+  STEP 6 — Operational Decision Policy
+======================================================================
+
+  Complete threshold policy file contents:
+{
+    "data_used_for_selection": "validation",
+    "test_data_used": false,
+    "files_explicitly_excluded": [
+        "artifacts/research/test.parquet",
+        "artifacts/calibration/probs.npy",
+        "artifacts/calibration/labels.npy"
+    ],
+    "validation_parquet": "artifacts/research/validation.parquet",
+    "n_validation_windows": 1568399,
+    "val_positive_rate": 0.04070967,
+    "calibrator_method": "isotonic",
+    "yellow_threshold": 0.14,
+    "red_threshold": 0.95,
+    "yellow_selection_metrics": {
+        "precision": 0.24576749,
+        "recall": 0.52588138,
+        "f1": 0.33498279,
+        "tss": 0.45739312,
+        "far": 0.75423251,
+        "trust_score": 0.32606189,
+        "tp": 33577,
+        "fp": 103044,
+        "fn": 30272,
+        "tn": 1401506
+    },
+    "red_selection_metrics": {
+        "precision": 1.0,
+        "recall": 0.01182477,
+        "f1": 0.02337317,
+        "tss": 0.01182477,
+        "far": 0.0,
+        "trust_score": 0.55705341,
+        "tp": 755,
+        "fp": 0,
+        "fn": 63094,
+        "tn": 1504550
+    },
+    "red_constraint_relaxation": "relaxed_to: precision>=0.40, no recall/tss constraint",
+    "trust_score_formula": "0.55*precision + 0.25*tss + 0.15*f1 + 0.05*recall"
+}
+
+  DECISION RULE REPLAY:
+    Source file     : app/services/ml/inference.py
+    Source function : SuryaNetInferenceService.predict_nowcast
+
+  Rule 1: p >= yellow_threshold
+    Input  calibrated_prob = 1.000000000000000e+00
+    Input  yellow_threshold = 0.14
+    Triggered: True
+    Alert → YELLOW
+
+  Rule 2: p >= red_threshold
+    Input  calibrated_prob = 1.000000000000000e+00
+    Input  red_threshold = 0.95
+    Triggered: True
+    Alert → RED
+
+  Rule (uncertainty_suppress_red_to_yellow)
+    Key value in policy file : NOT PRESENT IN FILE
+    Applied                  : False (key absent)
+
+  Rule (uncertainty_suppress_yellow_to_green)
+    Key value in policy file : NOT PRESENT IN FILE
+    Applied                  : False (key absent)
+
+  Rule (uncertainty_suppress_all_to_green)
+    Key value in policy file : NOT PRESENT IN FILE
+    Applied                  : False (key absent)
+
+  FINAL ALERT (reconstructed) : RED
+  ALERT in production CSV     : YELLOW
+  Match                       : False
+
+======================================================================
+  STEP 7 — Explainability
+======================================================================
+
+  File path       : artifacts/explainability_examples.json
+  Top-level keys  : ['n_examples', 'n_examples_label_1', 'n_examples_label_0', 'thresholds_source', 'yellow_threshold_used', 'red_threshold_used', 'calibrator_method', 'examples']
+  Total examples  : 20
+  First example keys: ['window_end_timestamp', 'global_row_index', 'true_label', 'raw_probability', 'calibrated_probability', 'alert_level', 'top_attention_patch']
+
+  WARNING: No timestamp-matched example found. Using index 0.
+
+  Nearest example timestamp : NOT FOUND
+  Delta from prediction ts  : nan seconds
+
+  Full nearest example:
+{
+    "window_end_timestamp": "2023-01-01 06:00:00",
+    "global_row_index": 360,
+    "true_label": 0,
+    "raw_probability": 0.3541241,
+    "calibrated_probability": 0.06274292,
+    "alert_level": "GREEN",
+    "top_attention_patch": {
+        "patch_index": 1,
+        "timestamp": "2023-01-01 00:16:00",
+        "attention_share": 0.02275664
+    }
+}
+
+  SHAP values (0 entries):
+
+======================================================================
+  STEP 8 — Attention Evidence
+======================================================================
+  Source file              : app/services/ml/model.py
+  Source function          : extract_attention_maps (line 372)
+  Source function 2        : PatchTST.forward_with_attention (line 299)
+  Number of encoder layers : 4
+
+  Layer 0 attention tensor shape: [1, 8, 45, 45]
+  CLS attention entropy    : 3.739628553390503e+00
+  Top patch index          : 4
+  Top patch timestamp      : 2023-02-11 08:02:00
+  Top patch attention value: 2.569301985204220e-02
+
+  Top 5 attended patches:
+    [1] patch=  4  attn=2.569301985204220e-02  steps=[32,48]  timestamp~=2023-02-11 08:02:00
+    [2] patch= 35  attn=2.552488818764687e-02  steps=[280,296]  timestamp~=2023-02-11 12:10:00
+    [3] patch= 30  attn=2.534096315503120e-02  steps=[240,256]  timestamp~=2023-02-11 11:30:00
+    [4] patch= 24  attn=2.524704486131668e-02  steps=[192,208]  timestamp~=2023-02-11 10:42:00
+    [5] patch= 29  attn=2.500094473361969e-02  steps=[232,248]  timestamp~=2023-02-11 11:22:00
+
+  Layer 1 attention tensor shape: [1, 8, 45, 45]
+  CLS attention entropy    : 3.720399141311646e+00
+  Top patch index          : 36
+  Top patch timestamp      : 2023-02-11 12:18:00
+  Top patch attention value: 3.014939464628696e-02
+
+  Top 5 attended patches:
+    [1] patch= 36  attn=3.014939464628696e-02  steps=[288,304]  timestamp~=2023-02-11 12:18:00
+    [2] patch= 37  attn=2.993067726492882e-02  steps=[296,312]  timestamp~=2023-02-11 12:26:00
+    [3] patch= 24  attn=2.989360690116882e-02  steps=[192,208]  timestamp~=2023-02-11 10:42:00
+    [4] patch= 35  attn=2.954921685159206e-02  steps=[280,296]  timestamp~=2023-02-11 12:10:00
+    [5] patch= 30  attn=2.905178815126419e-02  steps=[240,256]  timestamp~=2023-02-11 11:30:00
+
+  Layer 2 attention tensor shape: [1, 8, 45, 45]
+  CLS attention entropy    : 3.734354496002197e+00
+  Top patch index          : 37
+  Top patch timestamp      : 2023-02-11 12:26:00
+  Top patch attention value: 2.991233952343464e-02
+
+  Top 5 attended patches:
+    [1] patch= 37  attn=2.991233952343464e-02  steps=[296,312]  timestamp~=2023-02-11 12:26:00
+    [2] patch= 36  attn=2.954819239675999e-02  steps=[288,304]  timestamp~=2023-02-11 12:18:00
+    [3] patch= 24  attn=2.940926700830460e-02  steps=[192,208]  timestamp~=2023-02-11 10:42:00
+    [4] patch= 30  attn=2.817555889487267e-02  steps=[240,256]  timestamp~=2023-02-11 11:30:00
+    [5] patch= 35  attn=2.795449830591679e-02  steps=[280,296]  timestamp~=2023-02-11 12:10:00
+
+  Layer 3 attention tensor shape: [1, 8, 45, 45]
+  CLS attention entropy    : 3.689865112304688e+00
+  Top patch index          : 36
+  Top patch timestamp      : 2023-02-11 12:18:00
+  Top patch attention value: 3.632470592856407e-02
+
+  Top 5 attended patches:
+    [1] patch= 36  attn=3.632470592856407e-02  steps=[288,304]  timestamp~=2023-02-11 12:18:00
+    [2] patch= 37  attn=3.477053716778755e-02  steps=[296,312]  timestamp~=2023-02-11 12:26:00
+    [3] patch= 35  attn=3.439574688673019e-02  steps=[280,296]  timestamp~=2023-02-11 12:10:00
+    [4] patch= 24  attn=3.383675217628479e-02  steps=[192,208]  timestamp~=2023-02-11 10:42:00
+    [5] patch= 30  attn=3.275754302740097e-02  steps=[240,256]  timestamp~=2023-02-11 11:30:00
+
+======================================================================
+  STEP 9 — Historical Analogues
+======================================================================
+  Search space (training rows) : 5161312
+  Query vector (mean features) : shape=(14,)
+  Query vector values:
+    short_flux                         : 4.505598667492450e-07
+    long_flux                          : 6.859010227344697e-06
+    log_long_flux                      : -1.207012748718262e+01
+    mean_15m                           : 6.830433903814992e-06
+    variance_15m                       : 3.123052814621441e-12
+    mean_60m                           : 6.653867785644252e-06
+    variance_60m                       : 1.000702472275794e-11
+    peak_30m                           : 1.070284088200424e-05
+    peak_60m                           : 1.308452920056880e-05
+    flux_gradient_5m                   : 4.034486078552391e-09
+    flux_gradient_15m                  : 4.248688512120680e-09
+    flux_acceleration_5m               : -5.268551220294349e-12
+    flux_acceleration_15m              : -1.136699900872173e-10
+    minutes_since_last_flare           : 9.001110839843750e+01
+  Candidate windows (stride 360): 14335
+
+  Top 5 historical analogues:
+
+  [1] distance=2.764991044998169e+00
+       window_end_ts   : 2017-09-06 14:59:00
+       ground_truth    : 1
+       calibrated_prob : 3.270060420036316e-01
+       alert           : YELLOW
+
+  [2] distance=5.740463256835938e+00
+       window_end_ts   : 2017-09-08 08:59:00
+       ground_truth    : 0
+       calibrated_prob : 4.587939679622650e-01
+       alert           : YELLOW
+
+  [3] distance=6.464826583862305e+00
+       window_end_ts   : 2015-09-29 14:07:00
+       ground_truth    : 1
+       calibrated_prob : 5.000000000000000e-01
+       alert           : YELLOW
+
+  [4] distance=1.041576480865479e+01
+       window_end_ts   : 2016-07-23 07:45:00
+       ground_truth    : 0
+       calibrated_prob : 6.261682510375977e-01
+       alert           : YELLOW
+
+  [5] distance=1.447960281372070e+01
+       window_end_ts   : 2017-09-06 20:59:00
+       ground_truth    : 1
+       calibrated_prob : 4.587939679622650e-01
+       alert           : YELLOW
+
+======================================================================
+  STEP 10 — Operational Evidence Certificate
+======================================================================
+  Written: artifacts/sprint10j/prediction_evidence.json
+  Written: artifacts/sprint10j/repository_fingerprint.json
+  Written: artifacts/sprint10j/artifact_hashes.json
+  Written: artifacts/sprint10j/execution_manifest.json
+  Written: artifacts/sprint10j/prediction_certificate.json
+
+  Output artifact hashes:
+    prediction_evidence.json: sha256=ec44cf29cbcf8d8660992befc33cd0685f325ffde36cefbefac9d3653396c53d  size=8563 bytes
+    prediction_certificate.json: sha256=8cff79fd1498aaf433f6905c6f5c78f620b07430cfe95e05b9d4641b36dedc44  size=1002 bytes
+    repository_fingerprint.json: sha256=3a3a16e855851e82df9eb48504d029fbc65a1711ed08bdfefabe0ff3f9045a65  size=3144 bytes
+    artifact_hashes.json: sha256=9f4af7b3a5fa403d51de4248c6fd74da15eba1035524e0053958e44f0643143e  size=2430 bytes
+    execution_manifest.json: sha256=10043e2db7ef9b8e99a75ed9e70d94d918b347447adaf907047f909ed585ae71  size=681 bytes
+
+  Audit duration: 1.64 seconds
+  Audit timestamp: 2026-06-19T03:01:03Z
+
+======================================================================
+  SPRINT 10J COMPLETE — Evidence chain intact — No broken stages
+======================================================================

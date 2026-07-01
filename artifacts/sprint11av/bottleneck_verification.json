@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Single-scale Patching and Fixed Resolution",
+    "category": "architecture_limitations",
+    "evidence_verified": "Verified hardcoded PATCH_LEN=16, STRIDE=8, and EMBED_DIM=128 in app/services/ml/model.py (lines 33-46). Parameter count is 822,401.",
+    "status": "Supported"
+  },
+  {
+    "name": "Under-converged Training",
+    "category": "optimization_limitations",
+    "evidence_verified": "Verified artifacts/training_history.json contains exactly 3 epochs with descending train and validation loss curves showing no plateau.",
+    "status": "Supported"
+  },
+  {
+    "name": "Omission of Multi-Instrument Inputs",
+    "category": "feature_limitations",
+    "evidence_verified": "Verified artifacts/feature_columns.json defines 14 GOES-only columns. Processed SoLEXS (915 files) and HEL1OS (960 files) Parquet data exist in data/aditya_l1/processed/ but are not imported by app/services/ml/features.py.",
+    "status": "Supported"
+  },
+  {
+    "name": "Split Class Imbalance Shift",
+    "category": "data_limitations",
+    "evidence_verified": "Verified dataset_fingerprint.json positive rates: train 0.62% (31,993/5,160,952), validation 4.07% (63,849/1,568,399), and test 23.20% (419,150/1,806,313) correspond exactly to raw parquet rows and labels.",
+    "status": "Supported"
+  },
+  {
+    "name": "Non-Parametric Step Mapping",
+    "category": "calibration_limitations",
+    "evidence_verified": "Verified Isotonic Regression calibrator outputs piece-wise constant step mapping in artifacts/calibrator.pkl and app/services/ml/inference.py.",
+    "status": "Supported"
+  },
+  {
+    "name": "Slow Monte Carlo Dropout Inference",
+    "category": "uncertainty_limitations",
+    "evidence_verified": "Verified app/services/ml/model.py and inference.py enforce 50 stochastics runs (n_dropout_samples=50) for uncertainty standard deviation calculation at each prediction step.",
+    "status": "Supported"
+  }
+]

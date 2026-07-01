@@ -1,0 +1,44 @@
+{
+  "goes": [
+    "short_flux",
+    "long_flux",
+    "log_long_flux",
+    "mean_15m",
+    "variance_15m",
+    "mean_60m",
+    "variance_60m",
+    "peak_30m",
+    "peak_60m",
+    "flux_gradient_5m",
+    "flux_gradient_15m",
+    "flux_acceleration_5m",
+    "flux_acceleration_15m",
+    "minutes_since_last_flare"
+  ],
+  "solexs": [
+    "solexs_rate_ch1",
+    "solexs_rate_ch2",
+    "solexs_rate_ch3",
+    "solexs_rate_ch4",
+    "solexs_rate_ch5",
+    "solexs_rate_ch6",
+    "solexs_rate_ch7",
+    "solexs_rate_ch8",
+    "solexs_rate_ch9",
+    "solexs_counts_ch1",
+    "solexs_counts_ch2",
+    "solexs_counts_ch3",
+    "solexs_counts_ch4",
+    "solexs_counts_ch5",
+    "solexs_counts_ch6",
+    "solexs_counts_ch7",
+    "solexs_counts_ch8",
+    "solexs_counts_ch9"
+  ],
+  "hel1os": [
+    "hel1os_rate_band0",
+    "hel1os_rate_band1",
+    "hel1os_counts_band0",
+    "hel1os_counts_band1"
+  ]
+}

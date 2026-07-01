@@ -1,0 +1,28 @@
+{
+  "yellow_threshold": 0.46,
+  "red_threshold": 0.88,
+  "uncertainty_suppress_red_to_yellow": 0.1,
+  "uncertainty_suppress_yellow_to_green": 0.15,
+  "uncertainty_suppress_all_to_green": 0.2,
+  "confidence_high_prob_min": 0.88,
+  "confidence_high_unc_max": 0.05,
+  "confidence_medium_prob_min": 0.46,
+  "confidence_medium_unc_max": 0.1,
+  "yellow_selection": {
+    "precision": 0.425314,
+    "recall": 0.613888,
+    "tss": 0.363247,
+    "far": 0.574686,
+    "f1": 0.502491,
+    "trust_score": 0.430802
+  },
+  "red_selection": {
+    "precision": 0.517326,
+    "recall": 0.353255,
+    "tss": 0.253664,
+    "far": 0.482674,
+    "f1": 0.41983,
+    "trust_score": 0.428583
+  },
+  "roc_auc": 0.748514
+}

@@ -1,0 +1,111 @@
+{
+  "audit_timestamp_utc": "2026-06-19T10:38:17Z",
+  "pipeline_version": "1.5.0-SprintDA03C",
+  "fingerprints": {
+    "model_weights": {
+      "relative_path": "artifacts/models/patchtst_best.pt",
+      "sha256": "010dc798b2a4625365d1551c2f7710ba3eb23d5eaada2145cb9bcf947ca21484",
+      "file_size_bytes": 9957975
+    },
+    "calibrator_pkl": {
+      "relative_path": "artifacts/calibrator.pkl",
+      "sha256": "36fe68d47207b371b963744151666d533b3885885e46dfd12c99061b68d327ac",
+      "file_size_bytes": 2091
+    },
+    "operator_thresholds_json": {
+      "relative_path": "artifacts/operator_thresholds.json",
+      "sha256": "033063ef0dfcae97966c3a37d0f5ef8ca05b0ced1df2e5f1c2a9788037f0ce10",
+      "file_size_bytes": 696
+    },
+    "operator_thresholds_val_only_json": {
+      "relative_path": "artifacts/operator_thresholds_validation_only.json",
+      "sha256": "8e76ee49ef776755b0f717dc69deb3db91526f670e26889195a59d72a862922b",
+      "file_size_bytes": 1114
+    },
+    "operational_thresholds_json": {
+      "relative_path": "artifacts/operational_thresholds.json",
+      "sha256": "e7a52a617535e34b262a22ca3152f73c8aeda4e8851654de47cc6b622ac1d572",
+      "file_size_bytes": 103
+    },
+    "feature_columns_json": {
+      "relative_path": "artifacts/feature_columns.json",
+      "sha256": "e499492381c93a40c7a78fd00c3dfcda57bb2bec0b2d2059ffe7463b8c7dbae0",
+      "file_size_bytes": 272
+    },
+    "training_history_json": {
+      "relative_path": "artifacts/training_history.json",
+      "sha256": "c3b2bb38274057b402971ff44e3fbd290f28617fc8575906496125e326abce63",
+      "file_size_bytes": 1059
+    },
+    "explainability_examples_json": {
+      "relative_path": "artifacts/explainability_examples.json",
+      "sha256": "5fedeb8cb9162f70386d25788f7b957ac679d628a8bf6193bbf72b6a91cfb24b",
+      "file_size_bytes": 7838
+    },
+    "attention_statistics_json": {
+      "relative_path": "artifacts/attention_statistics.json",
+      "sha256": "2e8795cbb4e6cb254c3dc1f96443b2957c787c1fc6b11459d4f6d8a6f55b463f",
+      "file_size_bytes": 3794
+    },
+    "prediction_certificate_json": {
+      "relative_path": "artifacts/sprint10j/prediction_certificate.json",
+      "sha256": "5eb4bc4d1c1e67e366e7c8cab05da22d653bacb70704de4a5e2ef9855a2351b7",
+      "file_size_bytes": 1037
+    },
+    "execution_manifest_json": {
+      "relative_path": "artifacts/sprint10j/execution_manifest.json",
+      "sha256": "ea1410f31030fa29b7c00cc3f62a7db0f3a9e8d89b4d9c7937a89bfd6d419a92",
+      "file_size_bytes": 682
+    },
+    "repository_fingerprint_json": {
+      "relative_path": "artifacts/sprint10j/repository_fingerprint.json",
+      "sha256": "08df03013d474b58c98dd76da43d62080257dc8fe85956cd554d88fdd23ed3d4",
+      "file_size_bytes": 3144
+    },
+    "artifact_hashes_json": {
+      "relative_path": "artifacts/sprint10j/artifact_hashes.json",
+      "sha256": "9f4af7b3a5fa403d51de4248c6fd74da15eba1035524e0053958e44f0643143e",
+      "file_size_bytes": 2430
+    },
+    "operator_workflow_trace_json": {
+      "relative_path": "artifacts/sprint10k/operator_workflow_trace.json",
+      "sha256": "71ef64163776ba74e023b9f97c58a260c379404cc5d19db0d9ad0cbb9c784851",
+      "file_size_bytes": 4159
+    },
+    "component_reference_graph_json": {
+      "relative_path": "artifacts/sprint10k/component_reference_graph.json",
+      "sha256": "7f56a299eca56a2416ec3ab1e4f5a3fd6a22a6439918f7fcfcf611d22b54f20c",
+      "file_size_bytes": 2739
+    },
+    "app_services_ml_inference_py": {
+      "relative_path": "app/services/ml/inference.py",
+      "sha256": "57e49d01a0d5b460ebc400be7f6f8de9e98ff7e396c463fb323b8fb0ce7bacd9",
+      "file_size_bytes": 17500
+    },
+    "app_services_ml_model_py": {
+      "relative_path": "app/services/ml/model.py",
+      "sha256": "6a3f8b64f90280366108c4a9cf81a6c8174d52bb2dadf886d1559f21befde202",
+      "file_size_bytes": 15983
+    },
+    "app_services_ml_dataset_py": {
+      "relative_path": "app/services/ml/dataset.py",
+      "sha256": "14d16013d432f2443fda0a5f3f5ebdd53d4c65cb198047460d6519b2514ba30a",
+      "file_size_bytes": 7386
+    },
+    "app_services_ml_explainability_py": {
+      "relative_path": "app/services/ml/explainability.py",
+      "sha256": "df60f7c33f88f9624b0000571dcf568030be81a8c395c61052abb59453518cda",
+      "file_size_bytes": 6045
+    },
+    "app_services_operations_impact_py": {
+      "relative_path": "app/services/operations/impact.py",
+      "sha256": "587d5b1b6475234e945d1badd1af7a7aa793be1b3f5812e5634a327ac1078f12",
+      "file_size_bytes": 9035
+    },
+    "app_api_v1_endpoints_inference_py": {
+      "relative_path": "app/api/v1/endpoints/inference.py",
+      "sha256": "e698198737ab8b1d5a3c3059a21eb3465545410189d5d6e838bc1c5954f4c3e5",
+      "file_size_bytes": 9724
+    }
+  }
+}

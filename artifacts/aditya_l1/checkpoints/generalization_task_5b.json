@@ -1,0 +1,22 @@
+{
+  "hard_soft_ratio": {
+    "best_fold_delta_auc": 0.0019579123572666113,
+    "worst_fold_delta_auc": -0.2166827731092437,
+    "spread": 0.2186406854665103
+  },
+  "soft_band_mean": {
+    "best_fold_delta_auc": 0.013210036809606335,
+    "worst_fold_delta_auc": -0.4210861344537815,
+    "spread": 0.4342961712633878
+  },
+  "pc1_projection": {
+    "best_fold_delta_auc": 0.012906848636507207,
+    "worst_fold_delta_auc": -0.3421953781512605,
+    "spread": 0.3551022267877677
+  },
+  "pc2_projection": {
+    "best_fold_delta_auc": -0.0009501319509091777,
+    "worst_fold_delta_auc": -0.3085504201680672,
+    "spread": 0.307600288217158
+  }
+}

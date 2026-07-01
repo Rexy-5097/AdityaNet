@@ -1,0 +1,312 @@
+{
+  "sampled_files": [
+    {
+      "file_name": "hel1os/2026/06/10/HLS_20260610_121027_42571sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+      "payload": "HEL1OS",
+      "file_size_bytes": 14595840,
+      "checksum_sha256": "6f21e49f4c0c8f131a7bd18a6b5ed3779ebe4990ee74ad516fe8a42b289da1e1",
+      "hdu_count": 2,
+      "headers": {
+        "TELESCOP": "Aditya-L1",
+        "INSTRUME": "HEL1OS",
+        "DATE-OBS": "2026-06-10T12:10:27.747",
+        "DATE-END": "2026-06-10T23:59:58.992",
+        "OBJECT": "MISSING",
+        "ORIGIN": "HEL1OS-POC"
+      },
+      "table_names": [
+        "SPECTRUM"
+      ],
+      "column_names": {
+        "SPECTRUM": [
+          "SPEC_NUM",
+          "CHANNEL",
+          "COUNTS",
+          "STAT_ERR",
+          "ROWID",
+          "TSTART",
+          "TSTOP",
+          "EXPOSURE"
+        ]
+      },
+      "row_count": 2127
+    },
+    {
+      "file_name": "hel1os/2026/06/11/HLS_20260611_114949_43807sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+      "payload": "HEL1OS",
+      "file_size_bytes": 22455360,
+      "checksum_sha256": "8a075c4621344ba16805920a4504626855fbf7944ee2071740382cd9e19e4b05",
+      "hdu_count": 2,
+      "headers": {
+        "TELESCOP": "Aditya-L1",
+        "INSTRUME": "HEL1OS",
+        "DATE-OBS": "2026-06-11T11:49:49.938",
+        "DATE-END": "2026-06-11T23:59:56.970",
+        "OBJECT": "MISSING",
+        "ORIGIN": "HEL1OS-POC"
+      },
+      "table_names": [
+        "SPECTRUM"
+      ],
+      "column_names": {
+        "SPECTRUM": [
+          "SPEC_NUM",
+          "CHANNEL",
+          "COUNTS",
+          "STAT_ERR",
+          "ROWID",
+          "TSTART",
+          "TSTOP",
+          "EXPOSURE"
+        ]
+      },
+      "row_count": 2188
+    },
+    {
+      "file_name": "hel1os/2026/06/12/HLS_20260612_120003_43192sec_lev1_V111/czt/hel1os_czt_spectra_czt1.fits",
+      "payload": "HEL1OS",
+      "file_size_bytes": 14808960,
+      "checksum_sha256": "74de0a054efe2b1fd49f0fb23303320fcc7f49d560ea60aceb0d1e4b4da8abeb",
+      "hdu_count": 2,
+      "headers": {
+        "TELESCOP": "Aditya-L1",
+        "INSTRUME": "HEL1OS",
+        "DATE-OBS": "2026-06-12T12:00:03.271",
+        "DATE-END": "2026-06-12T23:59:56.021",
+        "OBJECT": "MISSING",
+        "ORIGIN": "HEL1OS-POC"
+      },
+      "table_names": [
+        "SPECTRUM"
+      ],
+      "column_names": {
+        "SPECTRUM": [
+          "SPEC_NUM",
+          "CHANNEL",
+          "COUNTS",
+          "STAT_ERR",
+          "ROWID",
+          "TSTART",
+          "TSTOP",
+          "EXPOSURE"
+        ]
+      },
+      "row_count": 2158
+    },
+    {
+      "file_name": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/cdte/hel1os_cdte_spectra_cdte1.fits",
+      "payload": "HEL1OS",
+      "file_size_bytes": 22135680,
+      "checksum_sha256": "40aaaa27732f65b3c6caf207e28843add129ad2aa16bf55c191601ddc70f4c63",
+      "hdu_count": 2,
+      "headers": {
+        "TELESCOP": "Aditya-L1",
+        "INSTRUME": "HEL1OS",
+        "DATE-OBS": "2026-06-12T00:00:11.244",
+        "DATE-END": "2026-06-12T11:59:48.972",
+        "OBJECT": "MISSING",
+        "ORIGIN": "HEL1OS-POC"
+      },
+      "table_names": [
+        "SPECTRUM"
+      ],
+      "column_names": {
+        "SPECTRUM": [
+          "SPEC_NUM",
+          "CHANNEL",
+          "COUNTS",
+          "STAT_ERR",
+          "ROWID",
+          "TSTART",
+          "TSTOP",
+          "EXPOSURE"
+        ]
+      },
+      "row_count": 2157
+    },
+    {
+      "file_name": "hel1os/2026/06/12/HLS_20260612_000011_43177sec_lev1_V111/czt/lightcurve_czt1.fits",
+      "payload": "HEL1OS",
+      "file_size_bytes": 11681280,
+      "checksum_sha256": "6c895597f3e51372ff1abe43fdfbf8a34d39e81845114f3fac609d7161a6ca75",
+      "hdu_count": 6,
+      "headers": {
+        "TELESCOP": "Aditya-L1",
+        "INSTRUME": "HEL1OS",
+        "DATE-OBS": "2026-06-12T00:00:11.244",
+        "DATE-END": "2026-06-12T11:59:48.972",
+        "OBJECT": "MISSING",
+        "ORIGIN": "HEL1OS-POC"
+      },
+      "table_names": [
+        "CZT1_LC_BAND_20.00KEV_TO_40.00KEV",
+        "CZT1_LC_BAND_40.00KEV_TO_60.00KEV",
+        "CZT1_LC_BAND_60.00KEV_TO_80.00KEV",
+        "CZT1_LC_BAND_80.00KEV_TO_150.00KEV",
+        "CZT1_LC_BAND_18.00KEV_TO_160.00KEV"
+      ],
+      "column_names": {
+        "CZT1_LC_BAND_20.00KEV_TO_40.00KEV": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "CZT1_LC_BAND_40.00KEV_TO_60.00KEV": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "CZT1_LC_BAND_60.00KEV_TO_80.00KEV": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "CZT1_LC_BAND_80.00KEV_TO_150.00KEV": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ],
+        "CZT1_LC_BAND_18.00KEV_TO_160.00KEV": [
+          "MJD",
+          "ISOT",
+          "CTR",
+          "STAT_ERR"
+        ]
+      },
+      "row_count": 43168
+    },
+    {
+      "file_name": "solexs/AL1_SLX_L1_20260607_v1.0/SDD2/AL1_SOLEXS_20260607_SDD2_L1.lc.gz",
+      "payload": "SoLEXS",
+      "file_size_bytes": 260574,
+      "checksum_sha256": "719f52183bdcf7b08af95e4284acb8e1b1bc25b8c30288e4e5675f6da97d0323",
+      "hdu_count": 2,
+      "headers": {
+        "TELESCOP": "AL1",
+        "INSTRUME": "SoLEXS",
+        "DATE-OBS": "20260607",
+        "DATE-END": "2026-06-07 23:59:59",
+        "OBJECT": "MISSING",
+        "ORIGIN": "SoLEXSPOC"
+      },
+      "table_names": [
+        "RATE"
+      ],
+      "column_names": {
+        "RATE": [
+          "TIME",
+          "COUNTS"
+        ]
+      },
+      "row_count": 86400
+    },
+    {
+      "file_name": "solexs/AL1_SLX_L1_20260606_v1.0/SDD2/AL1_SOLEXS_20260606_SDD2_L1.lc.gz",
+      "payload": "SoLEXS",
+      "file_size_bytes": 269763,
+      "checksum_sha256": "cc4875bee14a22bab9815cbca405dc93ef4f5c5a4029a2794d351f6f70b04353",
+      "hdu_count": 2,
+      "headers": {
+        "TELESCOP": "AL1",
+        "INSTRUME": "SoLEXS",
+        "DATE-OBS": "20260606",
+        "DATE-END": "2026-06-06 23:59:59",
+        "OBJECT": "MISSING",
+        "ORIGIN": "SoLEXSPOC"
+      },
+      "table_names": [
+        "RATE"
+      ],
+      "column_names": {
+        "RATE": [
+          "TIME",
+          "COUNTS"
+        ]
+      },
+      "row_count": 86400
+    },
+    {
+      "file_name": "solexs/AL1_SLX_L1_20260602_v1.0/SDD2/AL1_SOLEXS_20260602_SDD2_L1.lc.gz",
+      "payload": "SoLEXS",
+      "file_size_bytes": 273069,
+      "checksum_sha256": "54fb8ef8dde2933c75e97d16bd9514f71e95bc91e4951830c574960e73ffe889",
+      "hdu_count": 2,
+      "headers": {
+        "TELESCOP": "AL1",
+        "INSTRUME": "SoLEXS",
+        "DATE-OBS": "20260602",
+        "DATE-END": "2026-06-02 23:59:59",
+        "OBJECT": "MISSING",
+        "ORIGIN": "SoLEXSPOC"
+      },
+      "table_names": [
+        "RATE"
+      ],
+      "column_names": {
+        "RATE": [
+          "TIME",
+          "COUNTS"
+        ]
+      },
+      "row_count": 86400
+    },
+    {
+      "file_name": "solexs/AL1_SLX_L1_20260606_v1.0/SDD2/AL1_SOLEXS_20260606_SDD2_L1.gti.gz",
+      "payload": "SoLEXS",
+      "file_size_bytes": 1057,
+      "checksum_sha256": "0ac6ea5a0532acc4e7f69fc9de8c41196482112edbe2282361cfedb70c8d38c4",
+      "hdu_count": 2,
+      "headers": {
+        "TELESCOP": "AL1",
+        "INSTRUME": "SoLEXS",
+        "DATE-OBS": "20260606",
+        "DATE-END": "MISSING",
+        "OBJECT": "MISSING",
+        "ORIGIN": "SoLEXSPOC"
+      },
+      "table_names": [
+        "GTI"
+      ],
+      "column_names": {
+        "GTI": [
+          "START",
+          "STOP"
+        ]
+      },
+      "row_count": 5
+    },
+    {
+      "file_name": "solexs/AL1_SLX_L1_20260603_v1.0/SDD2/AL1_SOLEXS_20260603_SDD2_L1.pi.gz",
+      "payload": "SoLEXS",
+      "file_size_bytes": 8482179,
+      "checksum_sha256": "6033db16d3206b4be5a178c75be05dd55504335d1a29b2096e0a3a97aa66d8e9",
+      "hdu_count": 2,
+      "headers": {
+        "TELESCOP": "AL1",
+        "INSTRUME": "SoLEXS",
+        "DATE-OBS": "20260603",
+        "DATE-END": "MISSING",
+        "OBJECT": "MISSING",
+        "ORIGIN": "SoLEXSPOC"
+      },
+      "table_names": [
+        "SPECTRUM"
+      ],
+      "column_names": {
+        "SPECTRUM": [
+          "TSTART",
+          "TELAPSE",
+          "SPEC_NUM",
+          "CHANNEL",
+          "COUNTS",
+          "EXPOSURE"
+        ]
+      },
+      "row_count": 86400
+    }
+  ]
+}

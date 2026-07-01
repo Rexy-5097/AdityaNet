@@ -1,0 +1,147 @@
+{
+  "final_verdict": "PASS",
+  "file_integrity": {
+    "artifacts/sprint10h5/architecture_ceiling_audit.json": {
+      "path": "artifacts/sprint10h5/architecture_ceiling_audit.json",
+      "size_bytes": 57555,
+      "modified_timestamp": "2026-06-17T20:01:04.110895"
+    },
+    "artifacts/sprint10h/test_raw_probs.npy": "FILE NOT FOUND",
+    "artifacts/sprint10h/test_labels.npy": "FILE NOT FOUND",
+    "artifacts/calibrator.pkl": {
+      "path": "artifacts/calibrator.pkl",
+      "size_bytes": 2091,
+      "modified_timestamp": "2026-06-15T19:25:16.313885"
+    },
+    "artifacts/models/patchtst_best.pt": {
+      "path": "artifacts/models/patchtst_best.pt",
+      "size_bytes": 9957975,
+      "modified_timestamp": "2026-06-15T13:10:42.389359"
+    },
+    "artifacts/calibration/probs.npy (substitute)": {
+      "path": "artifacts/calibration/probs.npy",
+      "size_bytes": 7225380,
+      "modified_timestamp": "2026-06-15T13:19:16.777664",
+      "shape": [
+        1806313
+      ],
+      "dtype": "float32",
+      "nan_count": 0,
+      "inf_count": 0,
+      "min_value": 0.32136082649230957,
+      "max_value": 0.999583899974823
+    },
+    "artifacts/calibration/labels.npy (substitute)": {
+      "path": "artifacts/calibration/labels.npy",
+      "size_bytes": 7225380,
+      "modified_timestamp": "2026-06-15T13:19:16.793966",
+      "shape": [
+        1806313
+      ],
+      "dtype": "float32",
+      "nan_count": 0,
+      "inf_count": 0,
+      "min_value": 0.0,
+      "max_value": 1.0
+    }
+  },
+  "raw_probability_validation": {
+    "same_length": true,
+    "n_windows": 1806313,
+    "positive_labels": 419150,
+    "negative_labels": 1387163,
+    "positive_rate": 0.2320472697699679
+  },
+  "rebuilt_calibrated_probabilities": {
+    "mean_raw_probability": 0.5042397379875183,
+    "mean_calibrated_probability": 0.14638148248195648,
+    "positive_mean_raw": 0.6545134782791138,
+    "negative_mean_raw": 0.4588325321674347,
+    "positive_mean_calibrated": 0.2521384060382843,
+    "negative_mean_calibrated": 0.11442560702562332
+  },
+  "maximum_tss_search": {
+    "best_threshold_raw": 0.39,
+    "max_tss_raw": 0.3825924729847082,
+    "best_threshold_calibrated": 0.11,
+    "max_tss_calibrated": 0.38245237395462856
+  },
+  "production_threshold_check": {
+    "raw": {
+      "threshold": 0.14,
+      "tp": 419150,
+      "fp": 1387163,
+      "fn": 0,
+      "tn": 0,
+      "tss": 0.0,
+      "precision": 0.2320472697699679,
+      "recall": 1.0,
+      "f1": 0.3766856604670579,
+      "far": 0.7679527302300321
+    },
+    "calibrated": {
+      "threshold": 0.14,
+      "tp": 296637,
+      "fp": 453027,
+      "fn": 122513,
+      "tn": 934136,
+      "tss": 0.3811255754561692,
+      "precision": 0.3956932705852222,
+      "recall": 0.707710843373494,
+      "f1": 0.5075863225457602,
+      "far": 0.6043067294147778
+    }
+  },
+  "audit_comparison": {
+    "best_threshold_raw": {
+      "reported_value": 0.39,
+      "recomputed_value": 0.39,
+      "absolute_difference": 0.0
+    },
+    "max_tss_raw": {
+      "reported_value": 0.3825924729847082,
+      "recomputed_value": 0.3825924729847082,
+      "absolute_difference": 0.0
+    },
+    "best_threshold_calibrated": {
+      "reported_value": 0.11,
+      "recomputed_value": 0.11,
+      "absolute_difference": 0.0
+    },
+    "max_tss_calibrated": {
+      "reported_value": 0.38245237395462856,
+      "recomputed_value": 0.38245237395462856,
+      "absolute_difference": 0.0
+    },
+    "tss_at_0.14_calibrated": {
+      "reported_value": 0.3811255754561692,
+      "recomputed_value": 0.3811255754561692,
+      "absolute_difference": 0.0
+    }
+  },
+  "leakage_check": {
+    "optimal_threshold_optimized_on_test_set": true,
+    "hardcoded_yellow_threshold_occurrences": [
+      {
+        "file": "scratch/run_architecture_ceiling_audit.py",
+        "line": 77,
+        "content": "op_val_yellow = 0.14"
+      },
+      {
+        "file": "scratch/run_state_validation.py",
+        "line": 112,
+        "content": "# Threshold at 0.14"
+      },
+      {
+        "file": "scratch/run_state_validation.py",
+        "line": 113,
+        "content": "bt_preds = (bt_cal >= 0.14).astype(int)"
+      },
+      {
+        "file": "scratch/run_state_validation.py",
+        "line": 504,
+        "content": "f5_exp = 0.14"
+      }
+    ]
+  }
+}

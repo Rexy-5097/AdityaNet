@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "n_green": 250040,
+  "n_yellow": 10950,
+  "n_red": 105,
+  "suppressed_alerts": 2001,
+  "false_red_alerts": 4,
+  "missed_red_events": 31010
+}

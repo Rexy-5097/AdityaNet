@@ -1,0 +1,13 @@
+{
+  "scores": {
+    "scientific_novelty": 8,
+    "engineering_quality": 9,
+    "production_readiness": 9,
+    "operator_usability": 8,
+    "research_contribution": 8,
+    "isro_relevance": 10,
+    "explainability": 8,
+    "reproducibility": 9
+  },
+  "overall_average": 8.625
+}

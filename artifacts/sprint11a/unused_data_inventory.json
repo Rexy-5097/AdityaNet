@@ -1,0 +1,50 @@
+{
+  "unused_scientific_signals": [
+    {
+      "signal_source": "SoLEXS Instrument Telemetry",
+      "location": "data/aditya_l1/processed/solexs/",
+      "availability": "Processed Parquet files on disk (5-second cadence)",
+      "temporal_coverage": "2023-12-13 to 2026-06-14",
+      "current_usage_status": "UNUSED",
+      "whether_discarded": true,
+      "whether_reaches_model": false,
+      "channels_fields": [
+        "rate",
+        "counts",
+        "channel"
+      ]
+    },
+    {
+      "signal_source": "HEL1OS Instrument Telemetry",
+      "location": "data/aditya_l1/processed/hel1os/",
+      "availability": "Processed Parquet files on disk (5-second cadence)",
+      "temporal_coverage": "2023-10-29 to 2026-06-14",
+      "current_usage_status": "UNUSED",
+      "whether_discarded": true,
+      "whether_reaches_model": false,
+      "energy_bands_fields": [
+        "rate",
+        "counts",
+        "energy_band"
+      ]
+    },
+    {
+      "signal_source": "GOES Telemetry Metadata",
+      "location": "artifacts/research/goes_full.parquet (columns: satellite, quality_flag, processing_version)",
+      "availability": "Parquet columns and goesxrs database columns",
+      "temporal_coverage": "2010-01-02 to 2026-06-14",
+      "current_usage_status": "UNUSED",
+      "whether_discarded": true,
+      "whether_reaches_model": false
+    },
+    {
+      "signal_source": "Flare Catalogue Attributes",
+      "location": "artifacts/research/flares_full.parquet (columns: peak_time, end_time, region_number, location, importance)",
+      "availability": "Parquet columns and flareevent database columns",
+      "temporal_coverage": "2010 to 2026",
+      "current_usage_status": "MOSTLY UNUSED (Only start_time used to calculate minutes_since_last_flare)",
+      "whether_discarded": true,
+      "whether_reaches_model": false
+    }
+  ]
+}

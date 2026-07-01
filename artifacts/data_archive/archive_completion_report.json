@@ -1,0 +1,2222 @@
+{
+    "report_type": "Archive Completion Report",
+    "dataset_version": "dataset_v1",
+    "timestamp": "2026-06-18T07:14:53Z",
+    "total_urls": 436,
+    "downloaded_files": 436,
+    "verified_files": 10,
+    "failed_files": 1,
+    "corrupted_files": 425,
+    "missing_observation_days": 430,
+    "coverage_by_month": {
+        "202402": 29,
+        "202403": 28,
+        "202404": 30,
+        "202405": 31,
+        "202410": 2,
+        "202412": 1,
+        "202501": 1,
+        "202502": 1,
+        "202506": 11,
+        "202507": 15,
+        "202508": 25,
+        "202509": 22,
+        "202510": 27,
+        "202511": 28,
+        "202512": 29,
+        "202601": 31,
+        "202602": 25,
+        "202603": 31,
+        "202604": 26,
+        "202605": 30,
+        "202606": 13
+    },
+    "coverage_by_payload": {
+        "solex": {
+            "total": 436,
+            "verified": 10
+        }
+    },
+    "timeline": [
+        {
+            "date": "20240201",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240202",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240203",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240204",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240205",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240206",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240207",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240208",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240209",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240210",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240211",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240212",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240213",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240214",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240215",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240216",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240217",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240218",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240219",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240220",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240221",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240222",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240223",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240224",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240225",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240226",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240227",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240228",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240229",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240301",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240302",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240303",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240304",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240305",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240306",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240307",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240308",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240309",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240310",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240311",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240312",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240313",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240314",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240315",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240316",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240317",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240318",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240319",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240320",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240321",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240322",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240323",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240324",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240325",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240326",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240329",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240331",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240401",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240402",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240403",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240404",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240405",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240406",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240407",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240408",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240409",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240410",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240411",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240412",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240413",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240414",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240415",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240416",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240417",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240418",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240419",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240420",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240421",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240422",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240423",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240424",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240425",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240426",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240427",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240428",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240429",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240430",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240501",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240502",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240503",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240504",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240505",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240506",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240507",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240508",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240509",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240510",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240511",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240512",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240513",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240514",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240515",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240516",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240517",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240518",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240519",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240520",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240521",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240522",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240523",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240524",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240525",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240526",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240527",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240528",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240529",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240530",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20240531",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20241001",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20241025",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20241212",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250119",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250202",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250618",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250619",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250620",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250621",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250623",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250625",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250626",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250627",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250628",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250629",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250630",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250701",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250704",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250707",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250708",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250709",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250710",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250714",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250715",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250716",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250718",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250719",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250728",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250729",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250730",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250731",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250801",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250802",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250803",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250804",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250806",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250807",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250808",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250809",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250810",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250811",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250812",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250813",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250816",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250817",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250818",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250819",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250820",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250821",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250822",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250824",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250825",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250827",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250828",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250829",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250830",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250901",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250902",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250903",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250904",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250905",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250906",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250907",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250908",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250909",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250910",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250911",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250912",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250913",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250915",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250916",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250917",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250918",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250919",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250920",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250923",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250925",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20250930",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251001",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251002",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251003",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251004",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251005",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251006",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251007",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251008",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251009",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251010",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251011",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251012",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251013",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251014",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251015",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251017",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251018",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251019",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251020",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251021",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251022",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251023",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251025",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251026",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251027",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251028",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251031",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251101",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251102",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251103",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251104",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251105",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251106",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251107",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251108",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251109",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251110",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251112",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251113",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251114",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251115",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251116",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251118",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251119",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251120",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251121",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251122",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251123",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251124",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251125",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251126",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251127",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251128",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251129",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251130",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251201",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251202",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251203",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251204",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251205",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251206",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251207",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251208",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251209",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251210",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251211",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251212",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251213",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251214",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251215",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251216",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251217",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251218",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251219",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251220",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251221",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251222",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251223",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251224",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251225",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251226",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251227",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251229",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20251230",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260101",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260102",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260103",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260104",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260105",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260106",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260107",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260108",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260109",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260110",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260111",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260112",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260113",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260114",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260115",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260116",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260117",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260118",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260119",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260120",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260121",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260122",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260123",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260124",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260125",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260126",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260127",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260128",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260129",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260130",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260131",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260201",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260202",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260203",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260204",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260205",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260206",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260207",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260208",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260209",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260210",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260211",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260212",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260214",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260215",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260216",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260218",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260219",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260221",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260222",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260223",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260224",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260225",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260226",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260227",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260228",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260301",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260302",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260303",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260304",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260305",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260306",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260307",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260308",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260309",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260310",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260311",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260312",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260313",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260314",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260315",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260316",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260317",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260318",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260319",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260320",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260321",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260322",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260323",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260324",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260325",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260326",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260327",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260328",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260329",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260330",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260331",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260401",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260402",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260403",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260404",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260405",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260406",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260407",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260408",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260409",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260410",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260411",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260412",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260413",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260414",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260415",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260418",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260419",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260420",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260421",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260422",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260424",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260425",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260426",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260427",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260428",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260430",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260501",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260502",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260503",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260504",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260505",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260506",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260507",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260508",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260509",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260510",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260511",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260512",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260513",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260514",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260515",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260516",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260517",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260518",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260519",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260520",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260521",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260523",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260524",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260525",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260526",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260527",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260528",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260529",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260530",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260531",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260601",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260602",
+            "available": true,
+            "status": "Verified"
+        },
+        {
+            "date": "20260603",
+            "available": true,
+            "status": "Verified"
+        },
+        {
+            "date": "20260605",
+            "available": true,
+            "status": "Verified"
+        },
+        {
+            "date": "20260606",
+            "available": true,
+            "status": "Verified"
+        },
+        {
+            "date": "20260607",
+            "available": true,
+            "status": "Verified"
+        },
+        {
+            "date": "20260608",
+            "available": true,
+            "status": "Verified"
+        },
+        {
+            "date": "20260610",
+            "available": true,
+            "status": "Verified"
+        },
+        {
+            "date": "20260611",
+            "available": true,
+            "status": "Verified"
+        },
+        {
+            "date": "20260612",
+            "available": true,
+            "status": "Verified"
+        },
+        {
+            "date": "20260613",
+            "available": true,
+            "status": "Verified"
+        },
+        {
+            "date": "20260614",
+            "available": true,
+            "status": "Failed"
+        },
+        {
+            "date": "20260615",
+            "available": true,
+            "status": "Failed"
+        }
+    ]
+}

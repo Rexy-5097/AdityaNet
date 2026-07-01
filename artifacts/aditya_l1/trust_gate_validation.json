@@ -1,0 +1,37 @@
+{
+  "total_discrepancies": 5,
+  "metric_discrepancies": [
+    {
+      "path": "feature_contribution_audit.Model G (History + all compressed features).auc",
+      "audit": 0.7099101390405456,
+      "recomputed": 0.709762320404773,
+      "difference": 0.00014781863577251197
+    },
+    {
+      "path": "feature_contribution_audit.Model G (History + all compressed features).pr_auc",
+      "audit": 0.8035512069616312,
+      "recomputed": 0.8035986029551838,
+      "difference": 4.7395993552634685e-05
+    },
+    {
+      "path": "feature_contribution_audit.Model G (History + all compressed features).brier",
+      "audit": 0.20008514316487644,
+      "recomputed": 0.20015511558321347,
+      "difference": 6.997241833703316e-05
+    },
+    {
+      "path": "feature_contribution_audit.Model G (History + all compressed features).tss_at_05",
+      "audit": 0.17023285918603837,
+      "recomputed": 0.16871540850318556,
+      "difference": 0.0015174506828528056
+    },
+    {
+      "path": "feature_contribution_audit.Model G (History + all compressed features).max_tss",
+      "audit": 0.3802357245307335,
+      "recomputed": 0.37999850822737063,
+      "difference": 0.00023721630336287491
+    }
+  ],
+  "missing_artifacts": [],
+  "failed_recomputations": []
+}

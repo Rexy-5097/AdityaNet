@@ -1,0 +1,58 @@
+{
+  "2023": {
+    "TP": 1088,
+    "FP": 2415,
+    "FN": 605,
+    "TN": 4616,
+    "Precision": 0.31059092,
+    "Recall": 0.64264619,
+    "F1": 0.41878368,
+    "TSS": 0.29916731,
+    "FAR": 0.68940908,
+    "LeadTime": 11.6459,
+    "EventRecall": 0.66972477,
+    "FalseEpisodesPerMonth": 7.4032
+  },
+  "2024": {
+    "TP": 2658,
+    "FP": 2723,
+    "FN": 607,
+    "TN": 2719,
+    "Precision": 0.49396023,
+    "Recall": 0.81408882,
+    "F1": 0.6148508,
+    "TSS": 0.31372131,
+    "FAR": 0.50603977,
+    "LeadTime": 11.8172,
+    "EventRecall": 0.79354839,
+    "FalseEpisodesPerMonth": 6.3942
+  },
+  "2025": {
+    "TP": 1008,
+    "FP": 2094,
+    "FN": 547,
+    "TN": 5076,
+    "Precision": 0.32495164,
+    "Recall": 0.64823151,
+    "F1": 0.43289671,
+    "TSS": 0.3561813,
+    "FAR": 0.67504836,
+    "LeadTime": 11.6883,
+    "EventRecall": 0.63101604,
+    "FalseEpisodesPerMonth": 6.9046
+  },
+  "2026": {
+    "TP": 293,
+    "FP": 651,
+    "FN": 178,
+    "TN": 2828,
+    "Precision": 0.31038136,
+    "Recall": 0.62208068,
+    "F1": 0.41413428,
+    "TSS": 0.43495794,
+    "FAR": 0.68961864,
+    "LeadTime": 11.9674,
+    "EventRecall": 0.46,
+    "FalseEpisodesPerMonth": 7.274
+  }
+}

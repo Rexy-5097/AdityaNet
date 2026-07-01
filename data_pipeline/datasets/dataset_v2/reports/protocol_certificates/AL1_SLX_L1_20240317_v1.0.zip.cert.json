@@ -1,0 +1,19 @@
+{
+  "manifest_id": 111,
+  "filename": "AL1_SLX_L1_20240317_v1.0.zip",
+  "source_url": "/al1/protected/downloadData/solexs/level1/2024/03/N00_0000/AL1_SLX_L1_20240317_v1.0.zip?solexs",
+  "payload": "solex",
+  "download_start": "2026-06-18T08:18:55.075994+00:00",
+  "download_finish": "2026-06-18T08:19:01.642823+00:00",
+  "cookie_hash": "2d7a08a5d15683b7ab2d759f6cbc76c0",
+  "http_status": 200,
+  "redirect_chain": [],
+  "content_type": "application/zip",
+  "content_length": 7253263,
+  "sha256": "1a9ccec8dbdc1aa82673e57b8253ef5e9c493fecde7f4442f93ef8748dc6f1ed",
+  "zip_crc": "DBDD3E0A",
+  "fits_validated": true,
+  "final_path": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240317_v1.0.zip",
+  "pipeline_version": "1.3.0-SprintDA03B",
+  "generated_at": "2026-06-18T08:19:01.642844+00:00"
+}

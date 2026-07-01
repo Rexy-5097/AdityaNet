@@ -1,0 +1,12 @@
+{
+  "validation_verdict": "PASS",
+  "verification_errors": [],
+  "scheduler_active_in_experiment": false,
+  "scheduler_class": "None",
+  "recomputed_parameters_v1": 822401,
+  "recomputed_parameters_v3": 4353217,
+  "executable_training_scripts_count": 24,
+  "runtime_parameters_count": 6,
+  "historical_parameters_count": 5,
+  "parity_dimensions_checked": 9
+}

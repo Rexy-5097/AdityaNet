@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "baseline_optimal_threshold": 0.31686868686868686,
+  "n_samples": 20000,
+  "input_noise_flips": 302,
+  "input_noise_flip_rate": 0.0151,
+  "threshold_plus_5_flips": 354,
+  "threshold_plus_5_flip_rate": 0.0177,
+  "threshold_minus_5_flips": 84,
+  "threshold_minus_5_flip_rate": 0.0042,
+  "calibration_method_flips": 16705,
+  "calibration_method_flip_rate": 0.83525,
+  "overall_decision_stability_score": 0.71065
+}

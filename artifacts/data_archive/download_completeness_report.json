@@ -1,0 +1,3490 @@
+[
+    {
+        "filename": "AL1_SLX_L1_20260615_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260614_v1.0.zip",
+        "expected_size": 204974,
+        "downloaded_size": 204974,
+        "completion_percentage": 100.0,
+        "missing_bytes": 0,
+        "category": "Complete"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260613_v1.0.zip",
+        "expected_size": 3249582,
+        "downloaded_size": 3249582,
+        "completion_percentage": 100.0,
+        "missing_bytes": 0,
+        "category": "Complete"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260612_v1.0.zip",
+        "expected_size": 3216657,
+        "downloaded_size": 3216657,
+        "completion_percentage": 100.0,
+        "missing_bytes": 0,
+        "category": "Complete"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260611_v1.0.zip",
+        "expected_size": 5229164,
+        "downloaded_size": 5229164,
+        "completion_percentage": 100.0,
+        "missing_bytes": 0,
+        "category": "Complete"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260610_v1.0.zip",
+        "expected_size": 4669904,
+        "downloaded_size": 4669904,
+        "completion_percentage": 100.0,
+        "missing_bytes": 0,
+        "category": "Complete"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260608_v1.0.zip",
+        "expected_size": 5105217,
+        "downloaded_size": 5105217,
+        "completion_percentage": 100.0,
+        "missing_bytes": 0,
+        "category": "Complete"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260607_v1.0.zip",
+        "expected_size": 5152123,
+        "downloaded_size": 5152123,
+        "completion_percentage": 100.0,
+        "missing_bytes": 0,
+        "category": "Complete"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260606_v1.0.zip",
+        "expected_size": 5812327,
+        "downloaded_size": 5812327,
+        "completion_percentage": 100.0,
+        "missing_bytes": 0,
+        "category": "Complete"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260605_v1.0.zip",
+        "expected_size": 5286535,
+        "downloaded_size": 5286535,
+        "completion_percentage": 100.0,
+        "missing_bytes": 0,
+        "category": "Complete"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260603_v1.0.zip",
+        "expected_size": 6069751,
+        "downloaded_size": 6069751,
+        "completion_percentage": 100.0,
+        "missing_bytes": 0,
+        "category": "Complete"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260602_v1.0.zip",
+        "expected_size": 5642556,
+        "downloaded_size": 5642556,
+        "completion_percentage": 100.0,
+        "missing_bytes": 0,
+        "category": "Complete"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260601_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260531_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260530_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260529_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260528_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260527_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260526_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260525_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260524_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260523_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260521_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260520_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260519_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260518_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260517_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260516_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260515_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260514_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260513_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260512_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260511_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260510_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260509_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260508_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260507_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260506_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240531_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240530_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240529_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240528_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240527_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240526_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240525_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240524_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240523_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240522_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240521_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240520_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240519_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240518_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240517_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240516_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240515_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240514_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240513_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240512_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240511_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240510_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240509_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240508_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240507_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240506_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240505_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240504_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240503_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240502_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240501_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240430_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240429_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240428_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240427_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240426_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240425_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240424_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240423_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240422_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240421_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240420_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240419_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240418_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240417_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240416_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240415_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240414_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240413_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240412_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240411_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240410_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240409_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240408_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240407_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240406_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240405_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240404_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240403_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240402_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240401_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240331_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240329_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240326_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240325_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240324_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240323_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240322_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240321_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240320_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240319_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240318_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240317_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240316_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240315_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240314_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240313_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240312_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240311_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240310_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240309_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240308_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240307_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240306_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240305_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240304_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240303_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240302_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240301_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240229_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240228_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240227_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240226_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240225_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240224_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240223_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240222_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240221_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240220_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240219_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240218_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240217_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240216_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240215_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240214_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240213_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240212_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240211_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240210_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240209_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240208_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240207_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240206_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240205_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240204_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240203_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240202_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20240201_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260505_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260504_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260503_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260502_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260501_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260430_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260428_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260427_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260426_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260425_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260424_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260422_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260421_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260420_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260419_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260418_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260415_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260414_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260413_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260412_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260411_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260410_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260409_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260408_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260407_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260406_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260405_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260404_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260403_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260402_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260401_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260331_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260330_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260329_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260328_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260327_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260326_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260325_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260324_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260323_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260322_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260321_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260320_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260319_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260318_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260317_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260316_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260315_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260314_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260313_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260312_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260311_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260310_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260309_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260308_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260307_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260306_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260305_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260304_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260303_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260302_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260301_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260228_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260227_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260226_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260225_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260224_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260223_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260222_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260221_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260219_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260218_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260216_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260215_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260214_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260212_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260211_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260210_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260209_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260208_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260207_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260206_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260205_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260203_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260204_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260202_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260201_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260131_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260130_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260129_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260128_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260127_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260126_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260125_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260124_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260123_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260122_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260121_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260120_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260119_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260118_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250202_v1.1.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250119_v1.1.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20241212_v1.1.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20241025_v1.1.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20241001_v1.1.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260117_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260116_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260115_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260114_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260113_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260112_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260111_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260110_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260109_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260108_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260107_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260106_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260105_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260104_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260103_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260102_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20260101_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251230_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251229_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251227_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251226_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251225_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251224_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251223_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251222_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251221_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251220_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251219_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251218_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251217_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251216_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251215_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251214_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251213_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251212_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251211_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251210_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251209_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251208_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251207_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251206_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251205_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251204_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251203_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251202_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251201_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251130_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251129_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251128_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251127_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251126_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251125_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251124_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251123_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251122_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251121_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251120_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251119_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251118_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251116_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251115_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251114_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251113_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251112_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251110_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251109_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251108_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251107_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251106_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251105_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251104_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251103_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251102_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251101_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251031_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251028_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251027_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251026_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251025_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251023_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251022_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251021_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251020_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251019_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251018_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251017_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251015_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251014_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251013_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251012_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251011_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251010_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251009_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251008_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251007_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251006_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251005_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251004_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251003_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251002_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20251001_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250930_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250925_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250923_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250920_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250919_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250918_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250917_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250916_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250915_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250913_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250912_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250911_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250910_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250909_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250908_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250907_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250906_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250905_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250904_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250903_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250902_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250901_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250830_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250829_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250828_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250827_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250825_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250824_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250822_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250821_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250820_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250819_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250818_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250817_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250816_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250813_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250812_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250811_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250810_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250809_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250808_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250807_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250806_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250804_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250803_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250802_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250801_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250731_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250730_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250729_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250728_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250719_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250718_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250715_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250714_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250710_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250716_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250709_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250708_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250707_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250704_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250701_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250630_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250629_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250628_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250627_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250626_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250625_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250623_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250621_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250620_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250619_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    },
+    {
+        "filename": "AL1_SLX_L1_20250618_v1.0.zip",
+        "expected_size": null,
+        "downloaded_size": 65,
+        "completion_percentage": null,
+        "missing_bytes": null,
+        "category": "Unknown"
+    }
+]

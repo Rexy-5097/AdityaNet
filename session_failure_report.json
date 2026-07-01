@@ -1,0 +1,7 @@
+{
+    "authentication_expiry": 425,
+    "cookie_expiry": 425,
+    "redirect_loops": 0,
+    "forbidden_responses": 0,
+    "login_redirects": 425
+}

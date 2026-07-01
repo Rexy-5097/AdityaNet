@@ -1,0 +1,26 @@
+{
+  "raw_precision": 0.28649,
+  "calibrated_precision": 0.4213547646383467,
+  "raw_f1": 0.437886,
+  "calibrated_f1": 0.5051617343427391,
+  "raw_far": 0.71351,
+  "calibrated_far": 0.5786452353616532,
+  "recommended_threshold": 0.2,
+  "red_threshold": 0.3,
+  "operator_trust_score": 0.4213547646383467,
+  "true_skill_score": 0.36901512402017567,
+  "probability_of_detection": 0.6305841924398625,
+  "average_warning_lead_time_hours": 11.594821673525377,
+  "confusion_matrix": {
+    "tp": 4404,
+    "fp": 6048,
+    "fn": 2580,
+    "tn": 17074
+  },
+  "criteria_checks": {
+    "precision_ok": true,
+    "f1_ok": true,
+    "far_ok": true,
+    "tss_ok": true
+  }
+}
