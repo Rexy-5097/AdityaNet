@@ -1,6 +1,6 @@
 # AdityaNet — Git Setup Certificate
 
-Date: 2026-07-01
+Date: 2026-07-01 (updated same day — identity configured and initial commit created)
 Scope: `/Volumes/T7 Shield/Projects/AI/AdityaNet` only. `/Users/soumyadebtripathy/AdityaNet` was never accessed or modified during this task.
 
 ## RESULT: PASS
@@ -44,14 +44,29 @@ A mid-task correction occurred and is fully disclosed: the first `git add -A` pr
 ```
 gh repo create AdityaNet --private
 ```
-(Not executed. Run this manually, then `git remote add origin <url>` and `git push -u origin main` after your first commit.)
+(Not executed. Run this manually, then `git remote add origin <url>` and `git push -u origin main`.)
 
-**Caveat — NOT VERIFIED / action needed before first commit:** no global `git config user.name`/`user.email` is set on this machine. This was not configured automatically (not something to guess). Set it before committing:
+**Git identity configured and initial commit created.** Set locally (`git config --local`, scoped only to this repository — not global, so no other project on this machine was affected):
 ```
-git config user.name "Your Name"
-git config user.email "your@email.com"
+user.name  = Rexy-5097
+user.email = soumy.tripathy2024@lpu.in
 ```
-(or `--global` for machine-wide.) This does not block repository *readiness* — it blocks the *first commit*, which was outside this task's scope (initialization and staging verification only, no commit was requested or made).
+
+Initial commit verified directly:
+```
+commit b90ae1d755770f1677acc2ed866756bacd4979d2 (HEAD -> main)
+Author: Rexy-5097 <soumy.tripathy2024@lpu.in>
+chore: initial commit — Git repository setup for AdityaNet (SuryaNet)
+2542 files changed, 8407655 insertions(+)
+```
+- `git status` → `On branch main, nothing to commit, working tree clean`
+- `git rev-parse HEAD` → `b90ae1d755770f1677acc2ed866756bacd4979d2`
+- `git rev-parse --is-inside-work-tree` → `true`
+- `git rev-list --count HEAD` → `1`
+- `git ls-files | wc -l` → `2542`
+- `.git` size after commit: `740M`
+
+The repository is now fully committed and ready for `git remote add origin <url>` + `git push -u origin main` whenever you choose to run `gh repo create`.
 
 ## 8. Repository Ready for Collaboration
 
@@ -75,7 +90,7 @@ git config user.email "your@email.com"
 
 | File | Purpose |
 |---|---|
-| `.git/` | Initialized Git repository (no commits made) |
+| `.git/` | Initialized Git repository — 1 commit (`b90ae1d`), 2,542 files tracked |
 | `.gitignore` | Production-quality ignore rules (see §2–3 for the mid-task correction) |
 | `PROJECT_STRUCTURE.md` | Repository layout and pipeline documentation |
 | `CONTRIBUTING.md` | Branch strategy, commit format, coding standards, experiment/dataset workflow |
@@ -88,8 +103,8 @@ git config user.email "your@email.com"
 
 - No project files deleted. No datasets moved. No checkpoints moved. No source code modified. No training logic touched.
 - No history was rewritten — none existed before this task (the mid-task `.git` deletion removed an empty, zero-commit repository, not history).
-- No conclusion in this document or `REPOSITORY_HEALTH.md` is guessed — every claim was verified directly against the repository (`git status`, `git diff --cached`, `find`, `diff`, `stat`, `git rev-parse`) at the time of writing.
-- Where something could not be verified (git user identity), it is explicitly marked "NOT VERIFIED" rather than assumed.
+- No conclusion in this document or `REPOSITORY_HEALTH.md` is guessed — every claim was verified directly against the repository (`git status`, `git diff --cached`, `find`, `diff`, `stat`, `git rev-parse`, `git log`) at the time of writing.
+- Git identity was set only after being explicitly provided by the user (username `Rexy-5097`, email `soumy.tripathy2024@lpu.in`) — never guessed. Applied with `--local`, scoped to this one repository.
 
 ---
 
