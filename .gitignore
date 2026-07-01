@@ -114,3 +114,13 @@ node_modules/
 
 # OS-generated archives created accidentally
 *.zip.part
+
+# ----- Reproducible research-audit output -----
+# artifacts/aditya_l1/ contains 95 generated audit/validation JSON reports
+# (verified via direct usage audit: all are written by scratch/*.py or
+# scripts/aditya_l1/*.py, derived from master_feature_table.parquet, and
+# referenced by NOTHING in app/, data_pipeline/, or the training entry
+# points scripts/train_patchtst.py / train_baseline.py). Fully reproducible
+# by re-running the corresponding script. Kept on disk, removed from Git
+# via `git rm --cached` — see REPOSITORY_HEALTH.md / PRE_GITHUB_CHECKLIST.md.
+artifacts/aditya_l1/
