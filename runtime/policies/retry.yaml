@@ -1,0 +1,32 @@
+# AgentOS Retry & Escalation Policy
+
+retry_bounds:
+  QG-001:
+    max_retries: 3
+    escalation_path: chief-architect
+  QG-002:
+    max_retries: 2
+    escalation_path: chief-architect
+  QG-003:
+    max_retries: 3
+    escalation_path: chief-architect
+  QG-004:
+    max_retries: 2
+    escalation_path: chief-architect
+  QG-005:
+    max_retries: 2
+    escalation_path: chief-architect
+  QG-006:
+    max_retries: 2
+    escalation_path: chief-architect
+  QG-007:
+    max_retries: 3
+    escalation_path: chief-architect
+  QG-008:
+    max_retries: 2
+    escalation_path: chief-architect
+
+loop_protection:
+  max_execution_cycles: 5
+  time_out_seconds: 600
+  escalation_target: chief-architect

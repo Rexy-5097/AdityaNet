@@ -1,0 +1,12 @@
+# AgentOS Reflection Policy
+
+root_causes:
+  importerror: import-error
+  syntaxerror: syntax-error
+  assertionerror: assertion-failure
+  security: security-leak
+  auth: security-leak
+  cve: security-leak
+  lint: syntax-error
+  type: syntax-error
+  keyerror: assertion-failure

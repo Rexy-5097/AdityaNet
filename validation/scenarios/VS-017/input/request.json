@@ -1,0 +1,7 @@
+{
+  "request_id": "VS-017",
+  "task": "Test case for Execute multiple Loop iterations",
+  "changed_files": ["src/helpers.py"],
+  "priority": "medium",
+  "profile": "ai_project"
+}

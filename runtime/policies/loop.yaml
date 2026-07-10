@@ -1,0 +1,23 @@
+# AgentOS Loop Mode Configuration
+
+loop_modes:
+  Fast:
+    description: "Fast iteration loops"
+    max_loops: 2
+    target_score: 80
+  Balanced:
+    description: "Balanced speed and code quality checks"
+    max_loops: 3
+    target_score: 85
+  Exhaustive:
+    description: "Deep loops checking exhaustive paths"
+    max_loops: 5
+    target_score: 95
+  Research:
+    description: "Scientific computing exploration loops"
+    max_loops: 8
+    target_score: 90
+  Production:
+    description: "Strict quality validation gate locks"
+    max_loops: 10
+    target_score: 100

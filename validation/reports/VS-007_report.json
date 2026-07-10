@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-007",
+  "objective": "Test case for Refactor duplicated code",
+  "agents_invoked": [
+    "ai-reviewer"
+  ],
+  "expected_agents": [
+    "ai-reviewer"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-016",
+  "objective": "Test case for Resolve conflicting reviewer recommendations",
+  "agents_invoked": [
+    "chief-architect"
+  ],
+  "expected_agents": [
+    "chief-architect"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

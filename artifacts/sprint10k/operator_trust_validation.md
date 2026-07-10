@@ -1,3 +1,8 @@
+<!-- VERSION STATUS: HISTORICAL -->
+<!-- REASON: Historical sprint record that documents/inventories the leaked thresholds (yellow=0.46/red=0.88) or artifacts/operator_thresholds.json as the then-production configuration; that policy was proven test-derived and quarantined. -->
+<!-- SUPERSEDED BY: Sprint 23 (artifacts/policies/operator_policy_v2.json); proof: artifacts/sprint22_5/FINAL_VERDICT.md; clean baseline: artifacts/sprint23_5/VERSION3_SCIENTIFIC_BASELINE.md -->
+<!-- DATE: 2026-07-03 -->
+
 # Sprint 10K-V — Independent Operator Trust Verification Report
 
 **Audit Sprint:** 10K-V  

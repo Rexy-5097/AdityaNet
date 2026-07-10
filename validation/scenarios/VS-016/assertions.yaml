@@ -1,0 +1,3 @@
+expected_agents:
+- chief-architect
+expected_result: PASS

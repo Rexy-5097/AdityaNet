@@ -1,0 +1,37 @@
+name: ml
+description: "Machine learning and MLOps project profile"
+standards_enabled:
+  - code_quality
+  - testing
+  - documentation
+  - ai_ml
+  - data_engineering
+  - research
+  - security
+agents_enabled:
+  - orchestrator
+  - chief-architect
+  - planner
+  - ai-reviewer
+  - science-reviewer
+  - security-reviewer
+  - docs-reviewer
+  - qa-reviewer
+quality_gates_enabled:
+  - QG-001
+  - QG-002
+  - QG-003
+  - QG-004
+  - QG-005
+  - QG-008
+metrics_enabled:
+  - quality
+  - performance
+  - benchmarks
+context_files:
+  - vision
+  - state
+  - architecture
+  - tech_stack
+  - workflow
+  - decisions

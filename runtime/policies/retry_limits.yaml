@@ -1,0 +1,8 @@
+# AgentOS Retry Limits
+
+limits:
+  ai_project: 5
+  backend: 4
+  research: 8
+  isro: 10
+  hackathon: 2

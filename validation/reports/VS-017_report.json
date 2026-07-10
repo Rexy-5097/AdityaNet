@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-017",
+  "objective": "Test case for Execute multiple Loop iterations",
+  "agents_invoked": [
+    "ai-reviewer"
+  ],
+  "expected_agents": [
+    "ai-reviewer"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

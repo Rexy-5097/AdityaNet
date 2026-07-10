@@ -1,0 +1,18 @@
+{
+  "request_id": "VS-021",
+  "task": "Simulate fresh onboarding and initialize project parameters",
+  "changed_files": [
+    "TEAM_QUICKSTART.md"
+  ],
+  "priority": "medium",
+  "profile": "ai_project",
+  "mock_responses": {
+    "docs-reviewer": {
+      "checklist_results": {
+        "cl-001": "PASS"
+      },
+      "feedback": "Bootstrap parameters successfully configured.",
+      "quality_score": 100
+    }
+  }
+}

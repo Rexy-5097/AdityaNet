@@ -1,0 +1,5 @@
+expected_agents:
+  - "docs-reviewer"
+min_quality_score: 95
+max_iterations: 2
+expected_result: "PASS"

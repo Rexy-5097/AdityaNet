@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-008",
+  "objective": "Test case for Optimize a slow database query",
+  "agents_invoked": [
+    "ai-reviewer"
+  ],
+  "expected_agents": [
+    "ai-reviewer"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

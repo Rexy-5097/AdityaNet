@@ -1,4 +1,62 @@
+<!-- VERSION STATUS: CURRENT -->
+<!-- REASON: Restructured in Sprint 23.5 into Current/Historical/Archived sections; Part II below predates the Sprint 22.5 leakage proof and retains void leaked-policy metrics for traceability. -->
+<!-- SUPERSEDED BY: Part I of this document; artifacts/sprint23_5/VERSION3_SCIENTIFIC_BASELINE.md -->
+<!-- DATE: 2026-07-03 -->
+
 # Project Status
+
+> **Reconciled 2026-07-03 (Sprint 23.5).** This document has three explicitly labelled parts:
+> **Part I — Current verified state** (post-Sprint 23, clean-policy metrics — the only citable section) ·
+> **Part II — Historical state** (the original 2026-07-01 audit, label HISTORICAL: it predates the Sprint 22.5 leakage proof and presents the leaked thresholds 0.46/0.88 and their derived metrics as production-legitimate) ·
+> **Part III — Archived state** (quarantined artifacts). Nothing was deleted.
+
+---
+
+# PART I — CURRENT VERIFIED STATE (post-Sprint 23, 2026-07-03)
+
+**Authoritative performance record:** `artifacts/sprint23_5/VERSION3_SCIENTIFIC_BASELINE.md` · **Freeze certificate:** `artifacts/sprint23_5/VERSION3_FINAL_CERTIFICATE.md`
+
+## The leakage correction (what changed since Part II was written)
+
+Sprint 22.5 proved (`artifacts/sprint22_5/FINAL_VERDICT.md` — LEAKAGE PROVEN, four conditions confirmed) that the production operator thresholds Part II describes as authoritative (yellow=0.46, red=0.88, `artifacts/operator_thresholds.json`) were selected on **test-set** predictions. Sprint 23 replaced the decision layer: a versioned, provenance-gated policy system (`app/services/ml/policy.py`), the leaked artifacts quarantined to `artifacts/archive/`, and the validation-derived Sprint 5.6 thresholds promoted and deployed.
+
+## Current production configuration
+
+| Component | Value |
+|-----------|-------|
+| Model | V1 PatchTST, `artifacts/models/patchtst_best.pt` (epoch 3, 822,401 trainable params) — unchanged |
+| Calibrator | `artifacts/calibrator.pkl` (isotonic, validation-fit) — unchanged, verified clean |
+| **Operator policy** | **`artifacts/policies/operator_policy_v2.json`** — policy_id `operator_policy_v2.0.0`, **yellow=0.14, red=0.95**, validation-derived, 13 provenance fields, self-hash sealed, 9 startup checks |
+| Quarantine | `artifacts/archive/` — leaked policy + sweep, `QUARANTINE_REASON: LEAKED_TEST_DERIVED`, structurally unloadable |
+| Tests | `tests/` — 15 regression + 1 integration, all green (`artifacts/sprint23/Validation_Report.md`) |
+
+## Current verified performance (clean-policy numbers only)
+
+| Metric | Value | Source |
+|--------|-------|--------|
+| ROC-AUC / PR-AUC (test, threshold-free) | 0.7485 / 0.4950 | `artifacts/calibration/calibration_report.json` |
+| ECE post-calibration | 0.0876 | same |
+| TSS @ val-tuned 0.3367 (full test) | 0.2298 | `artifacts/evaluation_audit_report.json` (triple-verified) |
+| Operator TSS @ deployed 0.14/0.95 (honest backtest) | 0.3817 [0.3689, 0.3933] | `artifacts/operator_backtest.json`, `artifacts/bootstrap_metrics.json` |
+| Operator recall / event recall | 0.7227 / 0.6963 | same |
+| False episodes per month | 6.92 | same |
+| RED alerts in backtest | **0** (RED tier dormant at 0.95) `[V4]` | same |
+| V3 research model TSS (S2 test, isotonic) | 0.3840 (not deployed) | `artifacts/sprint14c/test_results_model_D_seed_42.json` |
+
+**Void numbers — never citable as current:** trust score 0.524, precision 91.12%, recall 3.97%, thresholds 0.46/0.88 (all appear in Part II below and in annotated historical artifacts; blast radius: `artifacts/sprint22_5/05_impact_analysis.md`).
+
+## Open items carried to V4
+
+All open questions and gaps are tagged and catalogued in `artifacts/sprint23_5/VERSION3_OPEN_RESEARCH.md` — headline items: `[V4]` functioning RED tier via cost-loss episode-level policy; `[V4]` settle Aditya-L1 incremental value (SCI-001); `[V4]` solar-cycle threshold portability (SCI-003); `[V4]` frontend, auth, real-time ingestion, Dockerfile, CI/CD, git; `[V4]` test coverage beyond the policy layer; `[V4]` fix `model_v3.py` feature-count defaults.
+
+---
+
+# PART II — HISTORICAL STATE (original audit of 2026-07-01, label: HISTORICAL)
+
+<!-- VERSION STATUS: HISTORICAL -->
+<!-- REASON: Written before the Sprint 22.5 leakage proof; presents thresholds 0.46/0.88 and operator readiness metrics (trust 0.524, precision 91.12%, recall 3.97%) as production-legitimate, and evaluates "Verified Performance" partly at leaked operating points. -->
+<!-- SUPERSEDED BY: Part I above; artifacts/sprint22_5/ (proof); artifacts/sprint23/ (correction); artifacts/sprint23_5/VERSION3_SCIENTIFIC_BASELINE.md (clean baseline) -->
+<!-- DATE: 2026-07-03 -->
 
 **Generated:** 2026-07-01  
 **Auditor:** Read-only repository reconstruction  
@@ -809,3 +867,19 @@ If Aditya-L1 instruments do improve performance on flare events, the V3 model sh
 | Bootstrap CI | `artifacts/bootstrap_metrics.json` |
 | Operator readiness | `artifacts/operator_readiness_report.json` |
 | V3 training log | `artifacts/sprint14c/experiment.log` |
+
+---
+
+# PART III — ARCHIVED STATE (quarantined artifacts, label: ARCHIVED)
+
+The following artifacts were removed from active paths in Sprint 23 and preserved in `artifacts/archive/` as the evidentiary record of the proven leakage incident. They are structurally unloadable by the production policy system (any document carrying `QUARANTINE_REASON` is rejected before all other checks) and must never be used for evaluation, deployment, or citation.
+
+| Archived artifact | What it was | Marking |
+|-------------------|-------------|---------|
+| `artifacts/archive/operator_thresholds.json` | The Sprint 5.5 production thresholds (yellow=0.46, red=0.88), proven test-set derived — formerly loaded by `app/services/ml/inference.py` and referenced throughout Part II as "PRODUCTION THRESHOLDS" | `QUARANTINE_REASON: LEAKED_TEST_DERIVED`; pre-injection SHA256 033063ef… recorded inside for evidence continuity |
+| `artifacts/archive/operator_threshold_sweep.csv` | The full test-split threshold sweep from the same generation run (mtime identical to the second) | Bytes preserved unmodified (SHA256 4e79cdaa…); reason carried in sidecar `operator_threshold_sweep.QUARANTINE.json` |
+| `artifacts/archive/README.md` | Incident documentation: what leaked, how it was proven, why these files are kept | — |
+
+Note the distinction: `artifacts/operational_thresholds.json` (yellow=0.09/red=0.19, note the different filename) is **not** archived — it was validation-derived (clean) but superseded; it remains in place as a dead artifact.
+
+*Part III added 2026-07-03 (Sprint 23.5). Full quarantine rationale: `artifacts/archive/README.md`; proof: `artifacts/sprint22_5/FINAL_VERDICT.md`.*

@@ -1,0 +1,7 @@
+{
+  "QUARANTINE_REASON": "LEAKED_TEST_DERIVED",
+  "applies_to": "operator_threshold_sweep.csv",
+  "sha256": "4e79cdaad8012623d17c77b61803dc16bf4deab55ba2b55ac03fbb666559d23e",
+  "note": "CSV bytes preserved unmodified as leakage evidence; reason carried in this sidecar.",
+  "quarantined_on": "2026-07-03T13:23:37.002779+00:00"
+}

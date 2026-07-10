@@ -1,0 +1,22 @@
+# AgentOS Loop Termination Rules
+
+loop_modes:
+  Fast:
+    max_loops: 2
+    target_score: 80
+  Balanced:
+    max_loops: 3
+    target_score: 85
+  Exhaustive:
+    max_loops: 5
+    target_score: 95
+  Research:
+    max_loops: 8
+    target_score: 90
+  Production:
+    max_loops: 10
+    target_score: 100
+
+loop_limits:
+  timeout_seconds: 300
+  negligible_delta_limit: 0

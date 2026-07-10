@@ -1,0 +1,7 @@
+{
+  "request_id": "VS-012",
+  "task": "Test case for Produce release notes",
+  "changed_files": ["CHANGELOG.md"],
+  "priority": "medium",
+  "profile": "ai_project"
+}

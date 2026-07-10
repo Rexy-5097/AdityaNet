@@ -1,0 +1,45 @@
+name: flagship
+description: "Production flagship project — all standards, all agents, all gates active"
+standards_enabled:
+  - code_quality
+  - testing
+  - documentation
+  - security
+  - ai_ml
+  - research
+  - api_design
+  - data_engineering
+  - ui_ux
+agents_enabled:
+  - orchestrator
+  - chief-architect
+  - planner
+  - ai-reviewer
+  - science-reviewer
+  - security-reviewer
+  - performance-reviewer
+  - ui-reviewer
+  - qa-reviewer
+  - docs-reviewer
+  - release-reviewer
+quality_gates_enabled:
+  - QG-001
+  - QG-002
+  - QG-003
+  - QG-004
+  - QG-005
+  - QG-006
+  - QG-007
+  - QG-008
+metrics_enabled:
+  - quality
+  - performance
+  - benchmarks
+context_files:
+  - vision
+  - state
+  - architecture
+  - tech_stack
+  - workflow
+  - decisions
+  - memory

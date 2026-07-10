@@ -1,0 +1,7 @@
+{
+  "request_id": "VS-003",
+  "task": "Test case for Bootstrap an ISRO research project",
+  "changed_files": ["PROJECT_CONFIG.yaml"],
+  "priority": "medium",
+  "profile": "ai_project"
+}

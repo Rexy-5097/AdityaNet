@@ -1,0 +1,3 @@
+expected_agents:
+- ai-reviewer
+expected_result: PASS

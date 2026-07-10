@@ -1,0 +1,7 @@
+{
+  "request_id": "VS-006",
+  "task": "Test case for Fix intentionally failing unit tests",
+  "changed_files": ["tests/test_model.py"],
+  "priority": "medium",
+  "profile": "ai_project"
+}

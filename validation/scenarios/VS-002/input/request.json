@@ -1,0 +1,7 @@
+{
+  "request_id": "VS-002",
+  "task": "Test case for Bootstrap a backend service",
+  "changed_files": ["PROJECT_CONFIG.yaml"],
+  "priority": "medium",
+  "profile": "ai_project"
+}

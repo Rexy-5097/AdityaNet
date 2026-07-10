@@ -1,0 +1,6 @@
+# AgentOS Quality Thresholds per Quality Level
+
+minimum_score: 70
+recommended_score: 85
+flagship_score: 95
+production_score: 100

@@ -1,0 +1,20 @@
+profile: backend
+description: "API services, database systems, and cloud infrastructure backend codebases."
+standards_enabled:
+  - standards/code_quality.md
+  - standards/api_design.md
+  - standards/security.md
+  - standards/testing.md
+agents_enabled:
+  - agents/performance-reviewer.md
+  - agents/security-reviewer.md
+  - agents/orchestrator.md
+quality_gates_enabled:
+  - QG-001
+  - QG-002
+  - QG-003
+  - QG-005
+  - QG-006
+metrics_enabled:
+  - metrics/performance.md
+  - metrics/quality.md

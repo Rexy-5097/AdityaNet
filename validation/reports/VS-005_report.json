@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-005",
+  "objective": "Test case for Add a REST API endpoint",
+  "agents_invoked": [
+    "performance-reviewer"
+  ],
+  "expected_agents": [
+    "performance-reviewer"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

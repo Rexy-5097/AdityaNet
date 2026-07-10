@@ -1,0 +1,27 @@
+# AgentOS Context Budgets and Load Policies
+
+mandatory_context:
+  - BOOTSTRAP.md
+  - ENGINEERING_PRINCIPLES.md
+  - PROJECT_CONFIG.yaml
+  - context/vision.md
+  - context/state.md
+
+conditional_context:
+  agents:
+    prefix: agents/
+    max_tokens: 2000
+  standards:
+    prefix: standards/
+    max_tokens: 3000
+  metrics:
+    prefix: metrics/
+    max_tokens: 1500
+  checklists:
+    prefix: checklists/
+    max_tokens: 2500
+
+token_limits:
+  max_context_window: 4000
+  max_output_tokens: 1500
+  warning_threshold: 3500

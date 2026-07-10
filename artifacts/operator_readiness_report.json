@@ -1,4 +1,8 @@
 {
+  "_VERSION_STATUS": "INVALIDATED",
+  "_REASON": "Metrics computed at thresholds yellow=0.46/red=0.88, which Sprint 22.5 proved were selected on test-set predictions; all values here are optimistically biased and void as Version 3 performance.",
+  "_SUPERSEDED_BY": "Sprint 23 (artifacts/policies/operator_policy_v2.json); proof: artifacts/sprint22_5/FINAL_VERDICT.md; clean baseline: artifacts/sprint23_5/VERSION3_SCIENTIFIC_BASELINE.md",
+  "_DATE": "2026-07-03",
   "sprint": "5.5",
   "description": "SuryaNet operator trust optimization: Sprint 5.5. Evaluates calibrated PatchTST predictions using data-driven thresholds, tiered uncertainty suppression, and episode-level false alarm analysis.",
   "operator_trust_score": 0.52416,

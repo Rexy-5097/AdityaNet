@@ -1,0 +1,32 @@
+# AgentOS Routing Policy
+
+domain_routing:
+  science: science-reviewer
+  ai: ai-reviewer
+  security: security-reviewer
+  performance: performance-reviewer
+  ui: ui-reviewer
+  docs: docs-reviewer
+  release: release-reviewer
+  architecture: chief-architect
+
+file_extension_routing:
+  .py: ai-reviewer
+  .ipynb: ai-reviewer
+  .js: ui-reviewer
+  .ts: ui-reviewer
+  .css: ui-reviewer
+  .html: ui-reviewer
+  .md: docs-reviewer
+  .yaml: docs-reviewer
+  .yml: docs-reviewer
+
+file_override_routing:
+  # Specific file mapping overrides
+  preprocessing.py: science-reviewer
+  train.py: science-reviewer
+  api.py: performance-reviewer
+  auth.py: security-reviewer
+  login.py: security-reviewer
+  index.css: ui-reviewer
+  config.yml: chief-architect

@@ -1,0 +1,17 @@
+profile: ai_project
+description: "AI-native systems, autonomous agents, and model runtime integrations."
+standards_enabled:
+  - standards/code_quality.md
+  - standards/ai_ml.md
+  - standards/testing.md
+agents_enabled:
+  - agents/ai-reviewer.md
+  - agents/orchestrator.md
+quality_gates_enabled:
+  - QG-001
+  - QG-002
+  - QG-003
+  - QG-004
+metrics_enabled:
+  - metrics/benchmarks.md
+  - metrics/quality.md

@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-002",
+  "objective": "Test case for Bootstrap a backend service",
+  "agents_invoked": [
+    "docs-reviewer"
+  ],
+  "expected_agents": [
+    "docs-reviewer"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

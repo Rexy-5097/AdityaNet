@@ -1,0 +1,3 @@
+expected_agents:
+- ui-reviewer
+expected_result: PASS

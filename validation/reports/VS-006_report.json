@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-006",
+  "objective": "Test case for Fix intentionally failing unit tests",
+  "agents_invoked": [
+    "ai-reviewer"
+  ],
+  "expected_agents": [
+    "ai-reviewer"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

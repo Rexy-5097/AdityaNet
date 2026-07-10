@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-009",
+  "objective": "Test case for Improve frontend accessibility",
+  "agents_invoked": [
+    "ui-reviewer"
+  ],
+  "expected_agents": [
+    "ui-reviewer"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

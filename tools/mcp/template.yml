@@ -1,0 +1,38 @@
+# MCP Integration Template
+# Copy this file, rename it to {server-name}.yml, and fill in all fields.
+
+mcp_server:
+  # Required fields
+  name: ""                    # e.g., "github", "postgres", "trigger-dev"
+  description: ""             # What this server provides
+  version: ""                 # Server version
+
+  # Connection configuration
+  connection:
+    type: ""                  # stdio | http | websocket
+    command: ""               # For stdio: the command to run
+    url: ""                   # For http/ws: the server URL
+    env:                      # Environment variables required (never put values here)
+      - name: ""              # Variable name
+        description: ""       # What it's for
+        required: true
+
+  # Tools exposed by this server
+  tools:
+    - name: ""                # Tool name
+      description: ""         # What the tool does
+      inputs: []              # List of input parameters
+      outputs: []             # List of output types
+      when_to_use: ""         # Guidance for agents
+      when_not_to_use: ""     # Explicit anti-patterns
+
+  # Agent integration notes
+  agent_guidance:
+    preferred_agents: []      # Which agents use this tool most
+    rate_limits: ""           # Any rate limiting to be aware of
+    error_handling: ""        # How errors should be handled
+
+  # Maintenance
+  added_date: ""              # YYYY-MM-DD
+  maintained_by: ""           # Who owns this integration
+  documentation_url: ""       # Link to official docs

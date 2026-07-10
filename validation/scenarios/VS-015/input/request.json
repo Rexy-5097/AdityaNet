@@ -1,0 +1,7 @@
+{
+  "request_id": "VS-015",
+  "task": "Test case for Handle a simulated deployment failure",
+  "changed_files": ["src/config.yml"],
+  "priority": "medium",
+  "profile": "ai_project"
+}

@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-003",
+  "objective": "Test case for Bootstrap an ISRO research project",
+  "agents_invoked": [
+    "docs-reviewer"
+  ],
+  "expected_agents": [
+    "docs-reviewer"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

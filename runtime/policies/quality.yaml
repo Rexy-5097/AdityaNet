@@ -1,0 +1,29 @@
+# AgentOS Quality Gate Rules mapping
+
+category_gates:
+  feature:
+    - QG-001  # Feature Completion
+    - QG-002  # Pull Request Review
+  pr:
+    - QG-002  # Pull Request Review
+    - QG-003  # QA Verification
+  hotfix:
+    - QG-007  # Bug Fix
+    - QG-002  # Pull Request Review
+  release:
+    - QG-008  # Release Readiness
+    - QG-006  # Deployment
+  security:
+    - QG-005  # Security Review
+  research:
+    - QG-004  # Research Validation
+
+gate_severities:
+  QG-001: Mandatory
+  QG-002: Mandatory
+  QG-003: Mandatory
+  QG-004: Recommended
+  QG-005: Mandatory
+  QG-006: Mandatory
+  QG-007: Mandatory
+  QG-008: Mandatory

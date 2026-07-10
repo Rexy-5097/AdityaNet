@@ -1,0 +1,7 @@
+{
+  "request_id": "VS-014",
+  "task": "Test case for Execute a complete QA gate",
+  "changed_files": ["checklists/qa.md"],
+  "priority": "medium",
+  "profile": "ai_project"
+}

@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-020",
+  "objective": "Test case for Complete a release pipeline",
+  "agents_invoked": [
+    "science-reviewer"
+  ],
+  "expected_agents": [
+    "science-reviewer"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

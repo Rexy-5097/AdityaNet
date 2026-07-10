@@ -24,5 +24,16 @@
     "f1": 0.41983,
     "trust_score": 0.428583
   },
-  "roc_auc": 0.748514
+  "roc_auc": 0.748514,
+  "QUARANTINE_REASON": "LEAKED_TEST_DERIVED",
+  "quarantine_details": {
+    "quarantined_on": "2026-07-03T13:23:37.002779+00:00",
+    "original_sha256_before_field_injection": "033063ef0dfcae97966c3a37d0f5ef8ca05b0ced1df2e5f1c2a9788037f0ce10",
+    "evidence": [
+      "artifacts/sprint22_5/FINAL_VERDICT.md (LEAKAGE PROVEN)",
+      "artifacts/sprint22_5/04_leakage_proof.md (conditions A-D all CONFIRMED)",
+      "scripts/optimize_operational_policy.py:6 (generator docstring: swept saved TEST-set probabilities)"
+    ],
+    "successor_policy": "artifacts/policies/operator_policy_v2.json"
+  }
 }

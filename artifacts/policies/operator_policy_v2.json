@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "policy_id": "operator_policy_v2.0.0",
+  "creation_timestamp": "2026-07-03T13:22:26.290183+00:00",
+  "generator_script": "scripts/sprint23/promote_sprint56_policy.py",
+  "generator_commit": "sha256:46209ddd619917c20d70229fe0443f94f6b392cac75021af701cc7c85a938085",
+  "dataset_used": "validation",
+  "dataset_fingerprint": {
+    "path": "artifacts/research/validation.parquet",
+    "sha256": "9c1b770f22684abc0a21fb5ba3233cf80a5768619fe868763c0af0b73acff8d4",
+    "parquet_rows": 1568759,
+    "n_windows": 1568399,
+    "n_positive_windows": 63849
+  },
+  "calibration_source": "artifacts/calibrator.pkl (isotonic; fit on validation predictions, scripts/calibrate_model.py lines 191-202; selection on validation Brier, lines 222-262)",
+  "threshold_generation_method": "Validation-only trust-score sweep 0.05-0.95 step 0.01 on calibrated validation probabilities; trust_score = 0.55*precision + 0.25*tss + 0.15*f1 + 0.05*recall; red constraint relaxation: relaxed_to: precision>=0.40, no recall/tss constraint (Sprint 5.6 Task E, scripts/refine_thresholds.py). Promoted per artifacts/sprint22_5/06_fix_specification.md Variant A.",
+  "validation_split_identifier": "research_v1_validation_2020-01-01_2022-12-31",
+  "approval_status": "approved",
+  "scientific_version": "V1-2026.06",
+  "operator_version": "2.0.0",
+  "thresholds": {
+    "yellow_threshold": 0.14,
+    "red_threshold": 0.95,
+    "uncertainty_suppress_red_to_yellow": 0.1,
+    "uncertainty_suppress_yellow_to_green": 0.15,
+    "uncertainty_suppress_all_to_green": 0.2,
+    "confidence_high_prob_min": 0.95,
+    "confidence_high_unc_max": 0.05,
+    "confidence_medium_prob_min": 0.14,
+    "confidence_medium_unc_max": 0.1,
+    "tier_provenance": "hardcoded_design_constants_sprint_5.5_not_data_derived"
+  },
+  "lineage": {
+    "source_artifact": "artifacts/operator_thresholds_validation_only.json",
+    "source_generator": "scripts/refine_thresholds.py (Sprint 5.6 Task E)",
+    "calibrator_method": "isotonic",
+    "yellow_selection_metrics_validation": {
+      "precision": 0.24576749,
+      "recall": 0.52588138,
+      "f1": 0.33498279,
+      "tss": 0.45739312,
+      "far": 0.75423251,
+      "trust_score": 0.32606189,
+      "tp": 33577,
+      "fp": 103044,
+      "fn": 30272,
+      "tn": 1401506
+    },
+    "red_selection_metrics_validation": {
+      "precision": 1.0,
+      "recall": 0.01182477,
+      "f1": 0.02337317,
+      "tss": 0.01182477,
+      "far": 0.0,
+      "trust_score": 0.55705341,
+      "tp": 755,
+      "fp": 0,
+      "fn": 63094,
+      "tn": 1504550
+    },
+    "honest_backtest": {
+      "artifact": "artifacts/operator_backtest.json",
+      "TSS": 0.38172106,
+      "Precision": 0.39033256,
+      "Recall": 0.72265178,
+      "EventRecall": 0.69633508,
+      "FalseEpisodesPerMonth": 6.9245,
+      "n_windows_evaluated": 30106,
+      "hourly_stride_minutes": 60
+    },
+    "known_limitations": "red_threshold=0.95 produced 0 RED alerts in the honest backtest (alert_distribution RED: 0) \u2014 the RED tier is effectively disabled at this operating point. Accepted as stopgap per 06_fix_specification.md Variant A; the Sprint 22 cost-loss policy (Variant B) is the planned successor."
+  },
+  "sha256": "f6b739c98e45e157df2a70ceb482d0c80dbefcfddab882506e4d3bad0d14348f"
+}

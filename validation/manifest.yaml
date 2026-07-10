@@ -1,0 +1,68 @@
+# AgentOS Synthetic Validation Suite Manifest
+# Lists active validation cases and their target system coverage mappings
+
+scenarios:
+  - id: VS-001
+    name: "Bootstrap a new AI project"
+    coverage: ["Bootstrap", "Context Layer"]
+  - id: VS-002
+    name: "Bootstrap a backend service"
+    coverage: ["Bootstrap", "Context Layer"]
+  - id: VS-003
+    name: "Bootstrap an ISRO research project"
+    coverage: ["Bootstrap", "Context Layer"]
+  - id: VS-004
+    name: "Implement JWT authentication"
+    coverage: ["Agent Routing", "Harness Runtime"]
+  - id: VS-005
+    name: "Add a REST API endpoint"
+    coverage: ["Agent Routing", "Harness Runtime"]
+  - id: VS-006
+    name: "Fix intentionally failing unit tests"
+    coverage: ["Loop Runtime", "Quality Gates"]
+  - id: VS-007
+    name: "Refactor duplicated code"
+    coverage: ["Loop Runtime", "Standards"]
+  - id: VS-008
+    name: "Optimize a slow database query"
+    coverage: ["Loop Runtime", "Metrics"]
+  - id: VS-009
+    name: "Improve frontend accessibility"
+    coverage: ["Agent Routing", "Quality Gates"]
+  - id: VS-010
+    name: "Run scientific data validation"
+    coverage: ["Agent Routing", "Standards"]
+  - id: VS-011
+    name: "Review an ML training pipeline"
+    coverage: ["Agent Routing", "Metrics"]
+  - id: VS-012
+    name: "Produce release notes"
+    coverage: ["Templates", "Artifact System", "Documentation"]
+  - id: VS-013
+    name: "Run a security audit"
+    coverage: ["Agent Routing", "Quality Gates"]
+  - id: VS-014
+    name: "Execute a complete QA gate"
+    coverage: ["Quality Gates", "Validation Engine"]
+  - id: VS-015
+    name: "Handle a simulated deployment failure"
+    coverage: ["Loop Runtime", "Runtime Kernel"]
+  - id: VS-016
+    name: "Resolve conflicting reviewer recommendations"
+    coverage: ["Loop Runtime", "Runtime Kernel"]
+  - id: VS-017
+    name: "Execute multiple Loop iterations"
+    coverage: ["Loop Runtime"]
+  - id: VS-018
+    name: "Generate required project artifacts"
+    coverage: ["Templates", "Artifact System"]
+  - id: VS-019
+    name: "Recover from an interrupted bootstrap"
+    coverage: ["Bootstrap", "Runtime Kernel"]
+  - id: VS-020
+    name: "Complete a release pipeline"
+    coverage: ["Templates", "Artifact System"]
+  - id: VS-021
+    name: "Zero-Knowledge onboarding"
+    coverage: ["Bootstrap", "Documentation", "Quality Gates"]
+

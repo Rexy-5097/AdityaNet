@@ -1,0 +1,7 @@
+{
+  "request_id": "VS-013",
+  "task": "Test case for Run a security audit",
+  "changed_files": ["src/auth.py"],
+  "priority": "medium",
+  "profile": "ai_project"
+}

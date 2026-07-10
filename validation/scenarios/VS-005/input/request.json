@@ -1,0 +1,7 @@
+{
+  "request_id": "VS-005",
+  "task": "Test case for Add a REST API endpoint",
+  "changed_files": ["src/api.py"],
+  "priority": "medium",
+  "profile": "ai_project"
+}

@@ -1,0 +1,3 @@
+expected_agents:
+- security-reviewer
+expected_result: PASS

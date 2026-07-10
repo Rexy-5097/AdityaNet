@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-019",
+  "objective": "Test case for Recover from an interrupted bootstrap",
+  "agents_invoked": [
+    "docs-reviewer"
+  ],
+  "expected_agents": [
+    "docs-reviewer"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

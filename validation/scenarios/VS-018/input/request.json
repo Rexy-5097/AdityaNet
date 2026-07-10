@@ -1,0 +1,7 @@
+{
+  "request_id": "VS-018",
+  "task": "Test case for Generate required project artifacts",
+  "changed_files": ["templates/release_notes.md"],
+  "priority": "medium",
+  "profile": "ai_project"
+}

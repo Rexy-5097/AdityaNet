@@ -2,10 +2,15 @@
 app/services/ml/inference.py
 
 SuryaNet Sprint 5.5 — Upgraded Operational Inference Service
+(Sprint 23: decision layer migrated to the versioned operator policy system.)
 
 Changes vs Sprint 5:
-  - Loads thresholds from artifacts/operator_thresholds.json (Sprint 5.5 format)
-    with tiered uncertainty suppression keys.
+  - Sprint 23: loads the leakage-gated, provenance-checked operator policy from
+    artifacts/policies/operator_policy_v2.json via app/services/ml/policy.py.
+    The former artifacts/operator_thresholds.json was proven test-set derived
+    (artifacts/sprint22_5/04_leakage_proof.md) and is quarantined under
+    artifacts/archive/. Startup aborts if the policy fails any provenance,
+    integrity, or leakage check.
   - RED alert confirmation uses rolling-mean + positive linear slope instead of
     strict monotonic comparison. Per user specification:
         mean(last 3 probs) > red_threshold  AND  linregress slope > 0
@@ -31,6 +36,11 @@ from scipy.stats import linregress
 
 from app.services.ml.model import PatchTST, predict_with_uncertainty
 from app.services.ml.features import compute_features
+from app.services.ml.policy import (
+    ACTIVE_POLICY_PATH,
+    load_policy,
+    validate_policy_at_startup,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -83,7 +93,7 @@ class SuryaNetInferenceService:
         self,
         model_path:        str = os.path.join("artifacts", "models", "patchtst_best.pt"),
         calibrator_path:   str = os.path.join("artifacts", "calibrator.pkl"),
-        thresholds_path:   str = os.path.join("artifacts", "operator_thresholds.json"),
+        thresholds_path:   str = ACTIVE_POLICY_PATH,
         feature_cols_path: str = os.path.join("artifacts", "feature_columns.json"),
         n_dropout_samples: int = 50,
     ):
@@ -118,28 +128,37 @@ class SuryaNetInferenceService:
             self.calibrator = pickle.load(f)
         logger.info(f"Loaded calibrator ({self.calibrator.method}) from {calibrator_path}")
 
-        # 4. Load Sprint 5.5 thresholds (extended format)
-        if not os.path.exists(thresholds_path):
-            raise FileNotFoundError(f"Thresholds JSON not found: {thresholds_path}")
-        with open(thresholds_path, "r") as f:
-            td = json.load(f)
+        # 4. Load the versioned operator policy (Sprint 23).
+        # load_policy enforces schema completeness, self-hash integrity, and the
+        # leakage guard; validate_policy_at_startup additionally verifies the
+        # dataset fingerprint, split identity, generator version, and
+        # scientific/operator versions. Any failure raises — the service never
+        # starts in a degraded state (see artifacts/sprint22_5/04_leakage_proof.md
+        # for why this layer exists).
+        self.policy = load_policy(thresholds_path)
+        self.policy_startup_report = validate_policy_at_startup(self.policy)
+        self.policy_metadata = self.policy.metadata
 
+        td = self.policy.thresholds
         self.yellow_threshold = td["yellow_threshold"]
         self.red_threshold    = td["red_threshold"]
 
         # Tiered uncertainty suppression thresholds
-        self.unc_red_to_yellow     = td.get("uncertainty_suppress_red_to_yellow",   0.10)
-        self.unc_yellow_to_green   = td.get("uncertainty_suppress_yellow_to_green", 0.15)
-        self.unc_all_to_green      = td.get("uncertainty_suppress_all_to_green",    0.20)
+        self.unc_red_to_yellow     = td["uncertainty_suppress_red_to_yellow"]
+        self.unc_yellow_to_green   = td["uncertainty_suppress_yellow_to_green"]
+        self.unc_all_to_green      = td["uncertainty_suppress_all_to_green"]
 
         # Confidence level thresholds
-        self.conf_high_prob_min   = td.get("confidence_high_prob_min",   self.red_threshold)
-        self.conf_high_unc_max    = td.get("confidence_high_unc_max",    0.05)
-        self.conf_medium_prob_min = td.get("confidence_medium_prob_min", self.yellow_threshold)
-        self.conf_medium_unc_max  = td.get("confidence_medium_unc_max",  0.10)
+        self.conf_high_prob_min   = td["confidence_high_prob_min"]
+        self.conf_high_unc_max    = td["confidence_high_unc_max"]
+        self.conf_medium_prob_min = td["confidence_medium_prob_min"]
+        self.conf_medium_unc_max  = td["confidence_medium_unc_max"]
 
         logger.info(
-            f"Thresholds: yellow={self.yellow_threshold:.4f}, red={self.red_threshold:.4f} | "
+            f"Operator policy {self.policy.policy_id} loaded "
+            f"(dataset={self.policy_metadata['dataset_used']}, "
+            f"operator_version={self.policy_metadata['operator_version']}) | "
+            f"yellow={self.yellow_threshold:.4f}, red={self.red_threshold:.4f} | "
             f"Uncertainty tiers: {self.unc_red_to_yellow}/{self.unc_yellow_to_green}/{self.unc_all_to_green}"
         )
 

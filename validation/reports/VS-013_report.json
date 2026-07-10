@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-013",
+  "objective": "Test case for Run a security audit",
+  "agents_invoked": [
+    "security-reviewer"
+  ],
+  "expected_agents": [
+    "security-reviewer"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

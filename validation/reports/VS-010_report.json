@@ -1,0 +1,13 @@
+{
+  "scenario_id": "VS-010",
+  "objective": "Test case for Run scientific data validation",
+  "agents_invoked": [
+    "science-reviewer"
+  ],
+  "expected_agents": [
+    "science-reviewer"
+  ],
+  "quality_score": 100,
+  "iterations_run": 1,
+  "status": "PASS"
+}

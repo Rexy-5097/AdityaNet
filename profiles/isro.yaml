@@ -1,0 +1,23 @@
+profile: isro
+description: "Mission-critical, high-reliability, zero-fault software, and spacecraft flight systems."
+standards_enabled:
+  - standards/code_quality.md
+  - standards/security.md
+  - standards/testing.md
+  - standards/data_engineering.md
+agents_enabled:
+  - agents/security-reviewer.md
+  - agents/performance-reviewer.md
+  - agents/chief-architect.md
+  - agents/orchestrator.md
+quality_gates_enabled:
+  - QG-001
+  - QG-002
+  - QG-003
+  - QG-005
+  - QG-006
+  - QG-008
+metrics_enabled:
+  - metrics/performance.md
+  - metrics/quality.md
+  - metrics/benchmarks.md

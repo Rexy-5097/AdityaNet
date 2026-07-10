@@ -1,0 +1,234 @@
+name: adityanet
+description: >
+  SuryaNet / AdityaNet — operational solar flare forecasting platform using
+  GOES XRS, Aditya-L1 SoLEXS, and HEL1OS. ISRO-aligned, mission-critical,
+  scientifically rigorous. Flagship standards + space weather domain overrides.
+
+# ─── Project Identity ───────────────────────────────────────────────────────
+project:
+  canonical_name: SuryaNet
+  repo_name: AdityaNet
+  name_conflict: "KNOWN — directory named AdityaNet, all source code and README say SuryaNet. Treat SuryaNet as authoritative."
+  owner: soumyadeb043@gmail.com
+  status: RESEARCH_ACTIVE
+  production_model: V1          # V1 PatchTST (GOES-only) is active in production
+  research_model: V3            # V3 LateFusionPatchTST under research — not production-ready
+
+# ─── Tech Stack ─────────────────────────────────────────────────────────────
+tech_stack:
+  language: Python
+  python_version: "3.12"        # Historical training env; 3.14 is the current runtime
+  runtime_environment: macOS / Apple M4 (MPS accelerator)
+  ml_framework: PyTorch
+  ml_device: mps                # Apple Silicon MPS; CUDA unavailable on target machine
+  api_framework: FastAPI
+  orm: SQLModel
+  database: TimescaleDB (PostgreSQL 16)
+  cache: Redis 7.2
+  container: docker-compose     # TimescaleDB + Redis only; no app Dockerfile yet
+  package_management: pip / requirements.txt
+
+# ─── AI/ML Modules ──────────────────────────────────────────────────────────
+ai_modules:
+  v1_model:
+    architecture: PatchTST (CLS token, GOES-only)
+    status: PRODUCTION
+    checkpoint: artifacts/models/patchtst_best.pt
+    inputs: 14 GOES XRS features, 360-minute window
+    parameters: 822_401 trainable (828_161 including positional encoding buffers)
+    calibration: isotonic regression (artifacts/calibrator.pkl)
+    thresholds: artifacts/operator_thresholds.json   # yellow=0.46, red=0.88
+    inference: app/services/ml/inference.py
+  v3_model:
+    architecture: LateFusionPatchTST (GOES + SoLEXS + HEL1OS, late fusion cross-attention)
+    status: RESEARCH
+    checkpoint: artifacts/sprint14c/checkpoints/model_seed_42_stage2_best.pt
+    inputs:
+      goes: 14 features
+      solexs: 18 features        # CRITICAL: model_v3.py defaults are WRONG (25); use 18
+      hel1os: 4 features         # CRITICAL: model_v3.py defaults are WRONG (10); use 4
+    parameters: 4_353_217 trainable (4_373_377 including positional encoding buffers)
+    note: "Not wired into inference.py. Default params in model_v3.py incompatible with checkpoint — must pass n_features_solexs=18, n_features_hel1os=4 explicitly."
+  instruments:
+    goes:
+      source: NOAA GOES XRS (satellites 16/17/18)
+      channels: short (0.05–0.4 nm), long (0.1–0.8 nm)
+      cadence: 1 minute
+      archive: 2010-01-02 to present
+    solexs:
+      source: Aditya-L1 / SoLEXS (ISRO)
+      available_from: 2023-12-13
+      features: 18 (soft X-ray spectral channels + ratios)
+    hel1os:
+      source: Aditya-L1 / HEL1OS (ISRO)
+      available_from: 2023-10-01
+      features: 4 (hard X-ray flux channels)
+
+# ─── Data Assets ────────────────────────────────────────────────────────────
+data_assets:
+  goes_archive: artifacts/research/goes_full.parquet          # 8.6M records, 2010–2026
+  v1_train: artifacts/research/train.parquet                  # SC24, 0.62% positive rate
+  v1_val: artifacts/research/validation.parquet
+  v1_test: artifacts/research/test.parquet                    # SC25, 23.2% positive rate
+  v3_s2_train: artifacts/sprint14c/s2_train.parquet
+  v3_s2_val: artifacts/sprint14c/s2_val.parquet
+  v3_s2_test: artifacts/sprint14c/s2_test.parquet
+  overlap_dataset: artifacts/aditya_l1/overlap_dataset.parquet  # 4 days, ZERO flare events
+  feature_columns_v1: artifacts/feature_columns.json
+  feature_columns_v3: artifacts/feature_columns_v3.json
+
+# ─── Domain Quality Thresholds (space weather forecasting) ──────────────────
+quality_thresholds:
+  primary_metric: TSS           # True Skill Score = POD − POFD
+  tss_minimum: 0.35             # Below this: model is operationally unsafe
+  tss_target_v1: 0.38           # Bootstrap 95% CI lower bound from evaluation_audit
+  tss_target_v3: 0.40           # V3 full model best result (isotonic calibrated)
+  roc_auc_minimum: 0.72
+  pr_auc_minimum: 0.45
+  ece_maximum: 0.10             # Post-calibration; raw ECE ~0.27 is acceptable before calibration
+  brier_maximum: 0.17           # Post-calibration
+  false_alarm_rate_maximum: 0.15  # Operational RED tier constraint
+  recall_minimum: 0.60          # At standard decision threshold (not RED tier)
+  bootstrap_ci_width_maximum: 0.05  # TSS bootstrap 95% CI must be tight
+
+# ─── Known Critical Conflicts (agents must surface, never silently resolve) ──
+known_conflicts:
+  - id: CONFLICT-001
+    description: "model_v3.py default n_features_solexs=25 and n_features_hel1os=10 are incompatible with the trained checkpoint (18 and 4). Loading with defaults raises shape mismatch."
+    severity: CRITICAL
+    file: app/services/ml/model_v3.py
+    resolution_required: true
+  - id: CONFLICT-002
+    description: "Three operator threshold files exist with inconsistent values (calibration_report: yellow=0.09/red=0.19; operator_thresholds_validation_only: yellow=0.14/red=0.95; operator_thresholds: yellow=0.46/red=0.88). Production uses 0.46/0.88."
+    severity: HIGH
+    files:
+      - artifacts/calibration/calibration_report.json
+      - artifacts/operator_thresholds_validation_only.json
+      - artifacts/operator_thresholds.json
+  - id: CONFLICT-003
+    description: "Sprint 20B sprint20b_summary.json reports PASS but validation_report_20b.md concludes FAIL due to parameter count errors and missing script (train_baseline.py) in inventory."
+    severity: HIGH
+    files:
+      - artifacts/sprint20b/sprint20b_summary.json
+      - validation_report_20b.md
+  - id: CONFLICT-004
+    description: "Repository directory is named AdityaNet; all source code, README, and config refer to the project as SuryaNet."
+    severity: LOW
+
+# ─── Open Scientific Questions (block publication and production promotion) ──
+open_scientific_questions:
+  - id: SCI-001
+    question: "Do SoLEXS and HEL1OS provide statistically significant improvement over GOES alone on flare-containing windows?"
+    status: UNRESOLVED
+    evidence: "Ablation shows GOES-only TSS=0.405 vs full model TSS=0.413 on S2 test (11.92% positive rate, no joint flare validation)"
+    blocker_for: [V3_PRODUCTION, PUBLICATION]
+  - id: SCI-002
+    question: "Does the calibrator leak? calibration/probs.npy has 1,806,313 samples matching the test set."
+    status: UNVERIFIED
+    blocker_for: [V1_SCIENTIFIC_VALIDITY]
+  - id: SCI-003
+    question: "How does V1/V3 performance hold across Solar Cycle 24 → Solar Cycle 25 transition (0.62% → 23.2% positive rate shift)?"
+    status: UNRESOLVED
+    blocker_for: [V1_PRODUCTION, PUBLICATION]
+
+# ─── Standards ──────────────────────────────────────────────────────────────
+standards_enabled:
+  - code_quality       # All Python, all API code
+  - testing            # Required before any production promotion
+  - documentation      # Required for all sprint artifacts and ADRs
+  - security           # API authentication, data handling
+  - ai_ml              # Model architecture, training, calibration, uncertainty
+  - research           # Scientific experiments, ablations, validation protocols
+  - api_design         # FastAPI endpoints
+  - data_engineering   # GOES/SoLEXS/HEL1OS pipelines, TimescaleDB schema
+
+# ui_ux deliberately excluded — no frontend exists
+
+# ─── Agents ─────────────────────────────────────────────────────────────────
+agents_enabled:
+  - orchestrator
+  - chief-architect
+  - planner
+  - ai-reviewer         # PatchTST, LateFusionPatchTST, MC Dropout, calibration
+  - science-reviewer    # Solar physics, TSS/HSS/MCC, distribution shift, leakage audits
+  - security-reviewer   # API auth, data access, ISRO compliance
+  - performance-reviewer  # Inference latency, TimescaleDB query performance
+  - qa-reviewer         # Integration tests, regression tests
+  - docs-reviewer       # Sprint reports, ADRs, validation reports
+  - release-reviewer    # Production promotion gates
+
+# ui-reviewer excluded — no frontend
+
+# ─── Agent Routing Overrides (space weather domain) ─────────────────────────
+routing_overrides:
+  model.py: ai-reviewer
+  model_v3.py: ai-reviewer
+  trainer.py: ai-reviewer
+  trainer_v3.py: ai-reviewer
+  dataset.py: science-reviewer
+  dataset_v3.py: science-reviewer
+  evaluator_v3.py: science-reviewer
+  metrics.py: science-reviewer
+  inference.py: [ai-reviewer, security-reviewer]
+  features.py: science-reviewer
+  calibrate_model.py: science-reviewer
+  download_manager.py: security-reviewer
+  impact.py: [science-reviewer, docs-reviewer]
+
+# ─── Quality Gates ──────────────────────────────────────────────────────────
+quality_gates_enabled:
+  - QG-001   # Feature completion
+  - QG-002   # Pull request
+  - QG-003   # QA signoff
+  - QG-004   # Research validation (required before any metric claim is published)
+  - QG-005   # Security review (required before any external data access)
+  - QG-006   # Deployment (required before production promotion)
+  - QG-007   # Bug fix
+  - QG-008   # Release
+
+# ─── Metrics ────────────────────────────────────────────────────────────────
+metrics_enabled:
+  - quality
+  - performance
+  - benchmarks
+
+# ─── Context Files ──────────────────────────────────────────────────────────
+context_files:
+  - vision
+  - state
+  - architecture
+  - tech_stack
+  - workflow
+  - decisions
+  - memory
+
+# ─── Engineering Gaps (block production certification) ──────────────────────
+engineering_gaps:
+  - GAP-001: "No automated test suite (zero pytest/unittest files)"
+  - GAP-002: "No frontend (no HTML, JS, TS, React — dashboard absent)"
+  - GAP-003: "No authentication on /predict/nowcast or any API endpoint"
+  - GAP-004: "No Dockerfile for FastAPI app (Docker Compose covers DB + Redis only)"
+  - GAP-005: "No real-time GOES ingestion scheduler (manual backfill scripts only)"
+  - GAP-006: "No CI/CD pipeline"
+  - GAP-007: "V3 model not wired into inference.py"
+  - GAP-008: "Not a git repository (no .git directory)"
+
+# ─── Production Promotion Criteria ──────────────────────────────────────────
+production_promotion_criteria:
+  - SCI-001 resolved (Aditya-L1 benefit confirmed or V3 retired)
+  - SCI-002 resolved (calibration leakage either confirmed absent or corrected)
+  - SCI-003 addressed (distribution shift mitigation or documented acceptance)
+  - CONFLICT-001 fixed (model_v3.py defaults corrected to match checkpoint)
+  - GAP-001 closed (test suite with ≥80% coverage on inference path)
+  - GAP-003 closed (API authentication implemented)
+  - GAP-004 closed (Dockerfile created)
+  - GAP-005 closed (automated GOES ingestion scheduler deployed)
+  - TSS ≥ tss_target_v1 confirmed on held-out test set
+
+# ─── Initialization Note ────────────────────────────────────────────────────
+initialization_note: >
+  AdityaNet was onboarded into AgentOS via bootstrap. The existing repository
+  has no AGENTOS.md, no PROJECT_CONFIG.yaml, and no profiles directory.
+  Bootstrap must be run against the existing codebase at:
+  /Volumes/T7 Shield/Projects/AI/AdityaNet/
+  Command: python3 tools/scripts/bootstrap_project.py --profile adityanet --defaults

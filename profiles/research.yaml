@@ -1,0 +1,16 @@
+profile: research
+description: "Scientific computing, mathematical models, and scientific research codebases."
+standards_enabled:
+  - standards/research.md
+  - standards/data_engineering.md
+  - standards/documentation.md
+agents_enabled:
+  - agents/science-reviewer.md
+  - agents/docs-reviewer.md
+quality_gates_enabled:
+  - QG-001
+  - QG-002
+  - QG-004
+metrics_enabled:
+  - metrics/benchmarks.md
+  - metrics/quality.md

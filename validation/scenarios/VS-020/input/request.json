@@ -1,0 +1,7 @@
+{
+  "request_id": "VS-020",
+  "task": "Test case for Complete a release pipeline",
+  "changed_files": ["VERSION"],
+  "priority": "medium",
+  "profile": "ai_project"
+}

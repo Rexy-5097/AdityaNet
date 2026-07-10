@@ -1,0 +1,7 @@
+{
+  "request_id": "VS-016",
+  "task": "Test case for Resolve conflicting reviewer recommendations",
+  "changed_files": ["src/config.yml"],
+  "priority": "medium",
+  "profile": "ai_project"
+}

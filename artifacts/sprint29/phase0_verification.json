@@ -1,0 +1,102 @@
+{
+ "checks": {
+  "v3:model_seed_42_stage2_best.pt": {
+   "ok": true,
+   "detail": ""
+  },
+  "v3:model_seed_42_stage1_best.pt": {
+   "ok": true,
+   "detail": ""
+  },
+  "v3:s2_train.parquet": {
+   "ok": true,
+   "detail": ""
+  },
+  "v3:s2_val.parquet": {
+   "ok": true,
+   "detail": ""
+  },
+  "v3:s2_test.parquet": {
+   "ok": true,
+   "detail": ""
+  },
+  "v3:model_v3.py": {
+   "ok": true,
+   "detail": ""
+  },
+  "v3:patchtst_best.pt structural": {
+   "ok": true,
+   "detail": ""
+  },
+  "v3:calibrator isotonic": {
+   "ok": true,
+   "detail": ""
+  },
+  "s23:policy 9/9 startup checks": {
+   "ok": true,
+   "detail": "{'dataset_identity': 'PASS', 'split_identity': 'PASS', 'dataset_fingerprint': 'PASS', 'generator_version': 'PASS', 'sche"
+  },
+  "s23:policy_id v2.0.0": {
+   "ok": true,
+   "detail": ""
+  },
+  "s24:harness sha vs sprint26 record": {
+   "ok": true,
+   "detail": "3bf9184ff51f44f1 vs 3bf9184ff51f44f1"
+  },
+  "s24:constants BLOCK_LEN=2880 SEED=20260704": {
+   "ok": true,
+   "detail": ""
+  },
+  "s26a:Baseline policy TSS 0.3940": {
+   "ok": true,
+   "detail": "0.3940129618283321"
+  },
+  "s26a:Baseline checkpoint present": {
+   "ok": true,
+   "detail": ""
+  },
+  "s28:01_ROOT_CAUSE_MATRIX": {
+   "ok": true,
+   "detail": ""
+  },
+  "s28:02_FEATURE_PIPELINE_V4": {
+   "ok": true,
+   "detail": ""
+  },
+  "s28:03_DATASET_PIPELINE_V4": {
+   "ok": true,
+   "detail": ""
+  },
+  "s28:04_FAIR_ADITYA_EXPERIMENT": {
+   "ok": true,
+   "detail": ""
+  },
+  "s28:05_VERSION4_DECISION_TREE": {
+   "ok": true,
+   "detail": ""
+  },
+  "s28:06_IMPLEMENTATION_ROADMAP": {
+   "ok": true,
+   "detail": ""
+  },
+  "s28:07_EXTERNAL_REVIEW": {
+   "ok": true,
+   "detail": ""
+  },
+  "s28:08_EXECUTIVE_PLAN": {
+   "ok": true,
+   "detail": ""
+  }
+ },
+ "sprint28_spec_sha256": {
+  "01_ROOT_CAUSE_MATRIX": "54c395cc8eaaa0f8bd02aa37f8f99d9e25ca66b2fc26ab67e15ebd8f86c4acf7",
+  "02_FEATURE_PIPELINE_V4": "fd9bf919daab8764573908e626105fca5fc5712ca50281f06af260c7cf69bff3",
+  "03_DATASET_PIPELINE_V4": "c53e6fcce0e2be43f69ac9a6e1e67b8e297135d5f120c4a54b1f34443ad2f33f",
+  "04_FAIR_ADITYA_EXPERIMENT": "1a5a55896a8444243c8839c4da3b12ec768f504aa1a510f1073635b69a15d006",
+  "05_VERSION4_DECISION_TREE": "14adbefa6ae05ad8be75e22b3d2b77990eea434b4a9e18c57b7cbf941481dda2",
+  "06_IMPLEMENTATION_ROADMAP": "1266c2a848fe719b559161a5c5f75e582d4aaa5c005528c244ebd765f4a208c7",
+  "07_EXTERNAL_REVIEW": "474d459c4753194a216cdb4b428084c525c1b7550c09594270c9e27c502d0633",
+  "08_EXECUTIVE_PLAN": "6ce3963dcf8d034da2ec8902014cce545bd72002c5d5fee3900f646af6e0da79"
+ }
+}

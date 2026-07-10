@@ -1,3 +1,8 @@
+<!-- VERSION STATUS: SUPERSEDED -->
+<!-- REASON: Inventories artifacts/operator_thresholds.json as the production thresholds file; it was proven test-derived, quarantined to artifacts/archive/, and replaced. -->
+<!-- SUPERSEDED BY: Sprint 23 (artifacts/policies/operator_policy_v2.json); proof: artifacts/sprint22_5/FINAL_VERDICT.md; clean baseline: artifacts/sprint23_5/VERSION3_SCIENTIFIC_BASELINE.md -->
+<!-- DATE: 2026-07-03 -->
+
 # SuryaNet V3 Complete Project Status Inventory
 
 ## SECTION A — Repository Status

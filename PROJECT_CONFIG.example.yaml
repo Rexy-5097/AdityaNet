@@ -1,0 +1,37 @@
+version: 1.0.0
+project:
+  name: "My Project"                        # Required: Project display name
+  version: "0.1.0"                          # Required: Project version (semver)
+  profile: "ai_project"                     # Required: One of ai_project | backend | frontend | ml | research | isro | hackathon | flagship
+  framework: "FastAPI"                      # Optional: Primary tech framework
+  languages:                               # Optional: Languages used
+    - "Python"
+    - "TypeScript"
+  owner: "lead-engineer"                   # Required: Primary owner / team lead
+  goals: "Describe the core problem this project solves."  # Required: Brief problem statement
+  deadline: "2026-12-31"                   # Optional: Target completion date
+  status: "INITIALIZED"                    # Auto-set by bootstrap_project.py
+
+# Feature flags — auto-populated from selected profile
+enabled_features:
+  standards:
+    - "code_quality"
+    - "testing"
+    - "documentation"
+    - "security"
+  agents:
+    - "orchestrator"
+    - "chief-architect"
+    - "planner"
+    - "ai-reviewer"
+    - "security-reviewer"
+    - "docs-reviewer"
+    - "qa-reviewer"
+  quality_gates:
+    - "QG-001"
+    - "QG-002"
+    - "QG-005"
+    - "QG-008"
+  metrics:
+    - "quality"
+    - "performance"

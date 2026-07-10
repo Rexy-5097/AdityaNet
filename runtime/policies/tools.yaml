@@ -1,0 +1,22 @@
+# AgentOS Deterministic Tool Routing Policy
+
+tool_triggers:
+  validation:
+    script: tools/scripts/validate_agentos.py
+    priority: static_check
+    description: "Run repo static validate instead of semantic check."
+  
+  bootstrap:
+    script: tools/scripts/bootstrap_project.py
+    priority: static_check
+    description: "Run project init CLI script."
+
+  simulation:
+    script: tools/scripts/simulate_agent_runtime.py
+    priority: dry_run
+    description: "Run dynamic agent routing simulator."
+
+rule_enforcement:
+  # Enforce execution of these local CLI tools before AI model inference
+  run_validator_before_agent_dispatch: true
+  stop_on_validator_failure: true

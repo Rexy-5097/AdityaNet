@@ -1,0 +1,13 @@
+profile: hackathon
+description: "Rapid prototyping, speed-oriented execution, and minimum viable features."
+standards_enabled:
+  - standards/code_quality.md
+  - standards/ui_ux.md
+agents_enabled:
+  - agents/orchestrator.md
+  - agents/ui-reviewer.md
+quality_gates_enabled:
+  - QG-001
+  - QG-002
+metrics_enabled:
+  - metrics/quality.md

@@ -1,0 +1,30 @@
+name: frontend
+description: "Frontend and web application development profile"
+standards_enabled:
+  - code_quality
+  - testing
+  - documentation
+  - ui_ux
+  - security
+agents_enabled:
+  - orchestrator
+  - chief-architect
+  - planner
+  - ui-reviewer
+  - qa-reviewer
+  - security-reviewer
+  - docs-reviewer
+quality_gates_enabled:
+  - QG-001
+  - QG-002
+  - QG-003
+  - QG-005
+  - QG-008
+metrics_enabled:
+  - quality
+  - performance
+context_files:
+  - vision
+  - state
+  - tech_stack
+  - workflow
