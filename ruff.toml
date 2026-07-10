@@ -1,0 +1,17 @@
+# Ruff configuration — Sprint 29 Phase 1.
+# Sprint 28 reference: 06_IMPLEMENTATION_ROADMAP.md Sprint 29 entry gates.
+# Scope note (flagged decision D1, Sprint29_Risk_Report.md): Sprint 28 names CI
+# and tests but no linter; error-level rules (E9, F) applied to new V4 code and
+# tests only — legacy V1/V3 code is out of Sprint 29 scope.
+line-length = 120
+
+[lint]
+select = ["E9", "F"]
+
+[lint.per-file-ignores]
+# FROZEN artifact: scripts/sprint24/eval_framework.py is the fingerprint-pinned
+# Sprint 24 evaluation harness (SHA-256 recorded in
+# artifacts/sprint26/phase1_fingerprints.json and re-verified in Sprint 29
+# Phase 0). The single F841 (dead local `in_pre`, line 196) is behavior-neutral;
+# editing the file would break the fingerprint chain, so it is exempted.
+"scripts/sprint24/eval_framework.py" = ["F841"]

@@ -19,7 +19,6 @@ import pandas as pd
 import pickle
 
 from scripts.sprint24.eval_framework import UnifiedEvaluator
-from app.services.ml.inference import CalibratorWrapper  # unpickle dependency
 from app.services.ml.policy import load_policy, ACTIVE_POLICY_PATH
 
 OUT = os.path.join("artifacts", "sprint24")

@@ -10,7 +10,8 @@
 
 | ADR | Title | Status | Date |
 |-----|-------|--------|------|
-| (No formal ADRs yet — AgentOS just installed 2026-07-03) | | | |
+| [ADR-0001](../artifacts/decisions/ADR-0001-v4-feature-framework.md) | Version 4 feature framework: stateless features, framework-enforced isolation | Accepted | 2026-07-05 |
+| [ADR-0002](../artifacts/decisions/ADR-0002-ci-foundation.md) | CI foundation: local gate runner + hosted mirror; frozen artifacts lint-exempt | Accepted | 2026-07-05 |
 
 ---
 

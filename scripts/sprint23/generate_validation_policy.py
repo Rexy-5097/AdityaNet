@@ -93,7 +93,6 @@ def _trust_score(precision: float, tss: float, f1: float, recall: float) -> floa
 
 
 def _threshold_metrics(probs, labels, t: float) -> dict:
-    import numpy as np
     y_pred = (probs >= t).astype(int)
     tp = int(((y_pred == 1) & (labels == 1)).sum())
     fp = int(((y_pred == 1) & (labels == 0)).sum())

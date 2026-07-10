@@ -14,7 +14,7 @@
 | **Phase** | Phase 3 — Decision-Layer Integrity Restoration (Sprint 23 complete) |
 | **Sprint** | Sprint 23 — DONE (leakage-free versioned policy system deployed) |
 | **Health** | 🟡 YELLOW — decision layer now leakage-free and gated; RED tier dormant at 0.95; docs blast-radius sweep pending |
-| **Next Milestone** | Sprint 29 "Foundations and the GOES fair test" — git+CI+feature-builder tests FIRST, then V4 feature/dataset pipelines (GOES family) and fair-experiment arms F0-reeval + F1 (GOES-physics: T_iso/EM/dT, 3 seeds). Sprint 28 delivered the full V4 engineering spec (8 docs, artifacts/sprint28/): 32-feature space (KEEP 14 / MODIFY 10 / REMOVE 12 / NEW 17), per-timestep-mask dataset pipeline, pre-registered 4-arm fair experiment (F0-F3, min effect ΔTSS ≥ +0.02, 3 seeds w/ escalation to 5 if seed range > 0.015), decision tree (most likely Path A ~40%), 7-9 week roadmap (fits 2026-12-31), adversarial review (3 resolved / 2 unresolved: U1 statistical power, U2 no SWPC benchmark). Executive verdict: PROCEED |
+| **Next Milestone** | Sprint 30 "The Fair Test, Part 1" — build the F1 dataset through the V4 pipeline (17 features, frozen split boundaries, manifest+scaler), parameterize the training driver for 17-feature width, exercise one git push, then run F0-re-eval + F1 across seeds [42,43,44] per the pre-registration (artifacts/sprint29/experiments/). Sprint 29 DONE: Phase 0 22/22; git+remote already existed (stale "no git" record CORRECTED, commit 66ae02e); 6-gate CI green (59 tests); feature framework (9 contract tests); 3 GOES physics features VALIDATED on 77 X-events (94% pre-peak T-rise, 99% +dT — preflare-heating signal is real); dataset_v4 infra (13 tests); F0 READY, F1 3 named gaps. ADR-0001/0002 filed |
 
 ---
 

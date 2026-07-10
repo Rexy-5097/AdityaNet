@@ -24,7 +24,6 @@ import argparse, json, os, sys, time
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 import numpy as np
-import pandas as pd
 import torch
 from sklearn.isotonic import IsotonicRegression
 from sklearn.linear_model import LogisticRegression
@@ -34,7 +33,6 @@ from app.services.ml.model import PatchTST
 from app.services.ml.dataset import SolarFlareWindowDataset, make_eval_loader
 from app.services.ml.metrics import find_best_threshold, compute_ece
 from scripts.sprint26.eval_framework_ref import get_evaluator, persistence_alerts, climatology_prob
-from scripts.sprint24.eval_framework import UnifiedEvaluator
 
 FEATURE_COLS = json.load(open("artifacts/feature_columns.json"))
 SEQ = 360

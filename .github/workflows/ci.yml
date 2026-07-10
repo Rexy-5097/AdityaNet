@@ -1,0 +1,25 @@
+# AdityaNet CI — Sprint 29 Phase 1
+# Sprint 28 reference: 06_IMPLEMENTATION_ROADMAP.md Sprint 29 entry gates;
+# 07_EXTERNAL_REVIEW.md Reviewer-5 (FAANG) resolution.
+# Mirror of scripts/ci/run_ci.sh gates 1-3 for the hosted runner; gates 4-6
+# (policy artifact validation, AgentOS validator) require repository data files
+# excluded from git (*.parquet/*.pkl) and run locally via scripts/ci/run_ci.sh.
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ruff pytest numpy pandas scikit-learn scipy
+      - name: Lint (error-level rules, new V4 code scope)
+        run: ruff check --select E9,F app/services/ml/policy.py app/services/ml/features_v4 app/services/ml/dataset_v4 tests
+      - name: Unit tests (data-independent subset)
+        run: pytest tests/ -q -k "framework or features_v4 or dataset_v4 or episodes"

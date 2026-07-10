@@ -1,0 +1,92 @@
+{
+ "event": {
+  "class": "X9.0",
+  "peak": "2024-10-03 12:18:00"
+ },
+ "checks": {
+  "T_rises_pre_peak_population_fraction": 0.935064935064935,
+  "dT_positive_population_fraction": 0.987012987012987,
+  "population_majority_pass": true,
+  "determinism_real_slice": true,
+  "median_T_rise_MK": 1.3777275559881978,
+  "median_dT_final_hour_MK": 1.5705951053880998,
+  "n_events_checked": 77
+ },
+ "feature_statistics_200k_test_rows": {
+  "goes_T_iso": {
+   "min": 4.63004,
+   "p05": 4.63004,
+   "median": 4.95016216008271,
+   "p95": 8.269323613800228,
+   "max": 47.144999999999996,
+   "mean": 5.864989723260923,
+   "std": 4.620234292656641,
+   "n_nan": 0
+  },
+  "goes_EM": {
+   "min": 43.65312870757079,
+   "p05": 48.41274105662073,
+   "median": 48.75801973243212,
+   "p95": 49.170257440960434,
+   "max": 50.00316675307614,
+   "mean": 48.71485237775092,
+   "std": 0.5739035041980294,
+   "n_nan": 0
+  },
+  "goes_dT_iso_15m": {
+   "min": -42.514959999999995,
+   "p05": -1.4316636175749107,
+   "median": 0.0,
+   "p95": 1.551985202159013,
+   "max": 42.514959999999995,
+   "mean": 0.00010152625155653452,
+   "std": 3.541112389585196,
+   "n_nan": 0
+  }
+ },
+ "provenance_manifest": {
+  "framework": "features_v4",
+  "features": {
+   "goes_T_iso": {
+    "instrument": "goes",
+    "requires": [
+     "short_flux",
+     "long_flux"
+    ],
+    "params": {
+     "ratio_valid_domain": [
+      0.02,
+      0.7
+     ],
+     "inversion": "Thomas-Starr-Crannell-1985-cubic"
+    },
+    "code_sha256": "de433eb2239ac339af6d63861b3a34ac834c939557283e0db7acf511b9646f49"
+   },
+   "goes_EM": {
+    "instrument": "goes",
+    "requires": [
+     "short_flux",
+     "long_flux"
+    ],
+    "params": {
+     "response_proxy": "T^2",
+     "log_const": 56.0,
+     "calibration": "proxy \u2014 absolute scale NOT PROVEN (flagged)"
+    },
+    "code_sha256": "69c98b6f5dd88669c36321f8acc7001b680df4ca7937b169d378bca81c19b5f0"
+   },
+   "goes_dT_iso_15m": {
+    "instrument": "goes",
+    "requires": [
+     "short_flux",
+     "long_flux"
+    ],
+    "params": {
+     "minutes": 15,
+     "scheme": "backward-difference"
+    },
+    "code_sha256": "67785a8df91302d5efb2f965b12cbaa08ec059913d88f9f2eb1bd3c7994302d3"
+   }
+  }
+ }
+}

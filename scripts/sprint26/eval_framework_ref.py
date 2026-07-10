@@ -5,7 +5,6 @@ Shared fixtures for Sprint 26 evaluation: the frozen Sprint 24 UnifiedEvaluator
 built on the test split, and the FIXED persistence and climatology baselines
 (identical to Sprint 24). Every checkpoint is scored against these same objects.
 """
-import json, os
 import numpy as np
 import pandas as pd
 from scripts.sprint24.eval_framework import UnifiedEvaluator
