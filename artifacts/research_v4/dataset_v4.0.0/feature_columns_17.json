@@ -1,0 +1,19 @@
+[
+ "short_flux",
+ "long_flux",
+ "log_long_flux",
+ "mean_15m",
+ "variance_15m",
+ "mean_60m",
+ "variance_60m",
+ "peak_30m",
+ "peak_60m",
+ "flux_gradient_5m",
+ "flux_gradient_15m",
+ "flux_acceleration_5m",
+ "flux_acceleration_15m",
+ "minutes_since_last_flare",
+ "goes_T_iso",
+ "goes_EM",
+ "goes_dT_iso_15m"
+]

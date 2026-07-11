@@ -1,0 +1,144 @@
+{
+ "dataset_version": "dataset_v4.0.0",
+ "creation_timestamp": "2026-07-11T12:58:30.837654+00:00",
+ "generator_script": "scripts/sprint30/build_dataset_v4.py",
+ "generator_commit": "sha256:ff49bb55ba9d851b8f63158efc43f0e8ae5d6ef2ae641966db28fbb8cd32a36b",
+ "source_files": [
+  {
+   "path": "artifacts/research/train.parquet",
+   "sha256": "e31493d60255e9cc27a944e30ea19c67cb580376dc638f545962687e9fb8f518"
+  },
+  {
+   "path": "artifacts/research/validation.parquet",
+   "sha256": "9c1b770f22684abc0a21fb5ba3233cf80a5768619fe868763c0af0b73acff8d4"
+  },
+  {
+   "path": "artifacts/research/test.parquet",
+   "sha256": "3f2b270f98a2480b37637f7e5461e5cc02ac8392d8af2ca9243cb3ad5edc5441"
+  },
+  {
+   "path": "app/services/ml/features_v4/goes_physics.py",
+   "sha256": "d0adbf045a0fbb372d5c7d13cb51e662b93b79e3fcf79532d696180ff45d0d67"
+  },
+  {
+   "path": "app/services/ml/features_v4/framework.py",
+   "sha256": "1631818b4c3e91a67cc129694407b3bb9a3d716010fb0fe5df0680ff0cc26089"
+  },
+  {
+   "path": "app/services/ml/dataset_v4/scaling.py",
+   "sha256": "a911cb0b5bc58e5d3452d9dff282b50087fdc0410e2d89be88843e9f460cd82d"
+  },
+  {
+   "path": "artifacts/feature_columns.json",
+   "sha256": "e499492381c93a40c7a78fd00c3dfcda57bb2bec0b2d2059ffe7463b8c7dbae0"
+  }
+ ],
+ "split_counts": {
+  "train": {
+   "rows": 5161312,
+   "positives": 31993
+  },
+  "validation": {
+   "rows": 1568759,
+   "positives": 63849
+  },
+  "test": {
+   "rows": 1806673,
+   "positives": 419150
+  }
+ },
+ "scaler_params": {
+  "fitted_on_split": "train",
+  "columns": {
+   "short_flux": {
+    "median": 5.606954678327725e-09,
+    "iqr": 1.1168865721167265e-08
+   },
+   "long_flux": {
+    "median": 2.6968510269398394e-07,
+    "iqr": 7.254345213425495e-07
+   },
+   "log_long_flux": {
+    "median": -15.122309674371309,
+    "iqr": 2.8479395202828552
+   },
+   "mean_15m": {
+    "median": 2.713947187131064e-07,
+    "iqr": 7.309495739941478e-07
+   },
+   "variance_15m": {
+    "median": 6.227267126768474e-17,
+    "iqr": 1.0280095911420278e-15
+   },
+   "mean_60m": {
+    "median": 2.770036135283741e-07,
+    "iqr": 7.481257533470398e-07
+   },
+   "variance_60m": {
+    "median": 4.244700531641456e-16,
+    "iqr": 9.187194797907113e-15
+   },
+   "peak_30m": {
+    "median": 3.16129074917626e-07,
+    "iqr": 8.750283981839857e-07
+   },
+   "peak_60m": {
+    "median": 3.5283878219161124e-07,
+    "iqr": 1.0075953085220135e-06
+   },
+   "flux_gradient_5m": {
+    "median": -1.5218371007819087e-10,
+    "iqr": 3.3546715627608136e-09
+   },
+   "flux_gradient_15m": {
+    "median": -5.285093844046666e-11,
+    "iqr": 1.9671517748065526e-09
+   },
+   "flux_acceleration_5m": {
+    "median": 4.0237750909000176e-11,
+    "iqr": 8.665733730595093e-10
+   },
+   "flux_acceleration_15m": {
+    "median": 7.868619336351104e-12,
+    "iqr": 2.0324616261607137e-10
+   },
+   "minutes_since_last_flare": {
+    "median": 10080.0,
+    "iqr": 1.0
+   },
+   "goes_T_iso": {
+    "median": 4.63004,
+    "iqr": 5.197972085575262
+   },
+   "goes_EM": {
+    "median": 48.06807601883379,
+    "iqr": 1.7936228358586774
+   },
+   "goes_dT_iso_15m": {
+    "median": 0.0,
+    "iqr": 1.0
+   }
+  }
+ },
+ "feature_list": [
+  "short_flux",
+  "long_flux",
+  "log_long_flux",
+  "mean_15m",
+  "variance_15m",
+  "mean_60m",
+  "variance_60m",
+  "peak_30m",
+  "peak_60m",
+  "flux_gradient_5m",
+  "flux_gradient_15m",
+  "flux_acceleration_5m",
+  "flux_acceleration_15m",
+  "minutes_since_last_flare",
+  "goes_T_iso",
+  "goes_EM",
+  "goes_dT_iso_15m"
+ ],
+ "feature_list_sha256": "22b011c278ac460f7e81bfdb032de85293209eec0249ca173d12c9b91eb2b6f5",
+ "sha256": "5d9d0814ba0e41e66c3eae2d2777814b882c4616210ac55aa1957a0c041610f6"
+}
