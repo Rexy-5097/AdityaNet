@@ -6,9 +6,9 @@ services:
     ports:
       - "5433:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres_secure_pass
-      POSTGRES_DB: suryanet
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-suryanet}
     volumes:
       - timescale_data:/var/lib/postgresql/data
     healthcheck:

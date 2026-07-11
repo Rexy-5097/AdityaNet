@@ -26,17 +26,28 @@ class Settings(BaseSettings):
     POSTGRES_SERVER: str = "localhost"
     POSTGRES_PORT: int = 5432
     POSTGRES_USER: str = "postgres"
-    POSTGRES_PASSWORD: str = "postgres_secure_pass"
+    POSTGRES_PASSWORD: str
     POSTGRES_DB: str = "suryanet"
-
-    DATABASE_ASYNC_URL: str = "postgresql+asyncpg://postgres:postgres_secure_pass@localhost:5432/suryanet"
-    DATABASE_SYNC_URL: str = "postgresql://postgres:postgres_secure_pass@localhost:5432/suryanet"
 
     # Redis Configurations
     REDIS_HOST: str = "localhost"
     REDIS_PORT: int = 6379
     REDIS_DB: int = 0
     REDIS_URL: str = "redis://localhost:6379/0"
+
+    @property
+    def DATABASE_ASYNC_URL(self) -> str:
+        return (
+            f"postgresql+asyncpg://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}"
+            f"@{self.POSTGRES_SERVER}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
+        )
+
+    @property
+    def DATABASE_SYNC_URL(self) -> str:
+        return (
+            f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}"
+            f"@{self.POSTGRES_SERVER}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
+        )
 
 
 settings = Settings()
