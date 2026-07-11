@@ -1,0 +1,378 @@
+{
+ "run_id": "F0",
+ "calibrator": "isotonic",
+ "checkpoint": "artifacts/sprint26a/runs/Baseline/best.pt",
+ "n_features": 14,
+ "best_val_tss_training": 0.6052844097748291,
+ "checkpoint_epoch": 8,
+ "val_swept_threshold": 0.039696969696969696,
+ "val_swept_val_tss": 0.6041991289725733,
+ "val_calibration": {
+  "ECE": 7.50583826414786e-18,
+  "Brier": 0.03302216807459417
+ },
+ "policy_thresholds": {
+  "yellow": 0.14,
+  "red": 0.95
+ },
+ "policy": {
+  "method": "F0_policy",
+  "window": {
+   "ROC_AUC": 0.7520950326373471,
+   "PR_AUC": 0.46799311143806555,
+   "TSS": 0.3940129618283321,
+   "HSS": 0.3068240364170566,
+   "MCC": 0.3368846901081346,
+   "Precision": 0.3988131710921824,
+   "Recall": 0.7236144578313253,
+   "F1": 0.5142193031236013,
+   "FAR": 0.6011868289078176,
+   "POD": 0.7236144578313253,
+   "POFD": 0.32960149600299316,
+   "confusion": {
+    "tp": 303303,
+    "fp": 457211,
+    "fn": 115847,
+    "tn": 929952
+   },
+   "ci": {
+    "TSS": [
+     0.3559244974301102,
+     0.42978032096597624
+    ],
+    "HSS": [
+     0.2727818938405872,
+     0.33935296254499225
+    ],
+    "MCC": [
+     0.3026100930933883,
+     0.3693185620768159
+    ],
+    "Precision": [
+     0.3691216562738335,
+     0.42788499190218926
+    ],
+    "Recall": [
+     0.6921813507307925,
+     0.753324368189631
+    ],
+    "F1": [
+     0.48255728861206876,
+     0.5442782159477936
+    ],
+    "FAR": [
+     0.5721150080978108,
+     0.6308783437261666
+    ],
+    "POD": [
+     0.6921813507307925,
+     0.753324368189631
+    ],
+    "POFD": [
+     0.3031808711058167,
+     0.35580110145951155
+    ],
+    "ROC_AUC": [
+     0.7335622767847189,
+     0.7698351244270598
+    ],
+    "PR_AUC": [
+     0.4305052345047432,
+     0.5066361334458647
+    ]
+   },
+   "ECE": 0.06851889407155629,
+   "Brier": 0.15601879708487768
+  },
+  "episode": {
+   "n_label_episodes": 730,
+   "n_alert_episodes": 336,
+   "episodes_detected": 533,
+   "episodes_missed": 197,
+   "episode_recall": 0.7301369863013699,
+   "episode_precision": 0.6101190476190477,
+   "episodes_detected_pre_onset": 452,
+   "pre_onset_recall": 0.6191780821917808,
+   "false_alert_episodes": 131,
+   "false_episodes_per_month": 3.1629266454820812,
+   "lead_time_min_mean": 2691.472795497186,
+   "lead_time_min_median": 1451.0,
+   "lead_time_positive_fraction": 0.8480300187617261,
+   "alert_minutes_total": 770126.0,
+   "alert_duration_min_mean": 2292.0416666666665,
+   "alert_duration_min_median": 1269.5,
+   "alert_episodes_per_month": 8.112544678488392,
+   "ci": {
+    "episode_recall": [
+     0.684931506849315,
+     0.7767465753424657
+    ],
+    "pre_onset_recall": [
+     0.5698630136986301,
+     0.6712328767123288
+    ]
+   }
+  },
+  "alert_stats": {
+   "yellow_windows": 760514,
+   "yellow_fraction_of_time": 0.4210311280492362,
+   "alert_minutes_per_day": 603.2264685032148,
+   "red_windows": 2503,
+   "red_fraction_of_time": 0.0013856956131080272,
+   "red_episodes": 48
+  }
+ },
+ "valswept": {
+  "method": "F0_valswept",
+  "window": {
+   "ROC_AUC": 0.7520950326373471,
+   "PR_AUC": 0.46799311143806555,
+   "TSS": 0.02069921409368458,
+   "HSS": 0.009725938992194434,
+   "MCC": 0.06642658351712215,
+   "Precision": 0.23580203291411594,
+   "Recall": 0.9982822378623405,
+   "F1": 0.3814925555479072,
+   "FAR": 0.7641979670858841,
+   "POD": 0.9982822378623405,
+   "POFD": 0.9775830237686559,
+   "confusion": {
+    "tp": 418430,
+    "fp": 1356067,
+    "fn": 720,
+    "tn": 31096
+   },
+   "ci": {
+    "TSS": [
+     0.011216762147384892,
+     0.03233353881349729
+    ],
+    "HSS": [
+     0.005271624739017574,
+     0.01527499480912422
+    ],
+    "MCC": [
+     0.0448701201414803,
+     0.08558012641066358
+    ],
+    "Precision": [
+     0.21648880798961356,
+     0.25461664450245464
+    ],
+    "Recall": [
+     0.9956419567016025,
+     1.0
+    ],
+    "F1": [
+     0.3558775409652532,
+     0.4057590493441295
+    ],
+    "FAR": [
+     0.7453833554975453,
+     0.7835111920103864
+    ],
+    "POD": [
+     0.9956419567016025,
+     1.0
+    ],
+    "POFD": [
+     0.9660023998128999,
+     0.9869669773167346
+    ]
+   },
+   "ECE": 0.06851889407155629,
+   "Brier": 0.15601879708487768
+  },
+  "episode": {
+   "n_label_episodes": 730,
+   "n_alert_episodes": 40,
+   "episodes_detected": 728,
+   "episodes_missed": 2,
+   "episode_recall": 0.9972602739726028,
+   "episode_precision": 0.325,
+   "episodes_detected_pre_onset": 728,
+   "pre_onset_recall": 0.9972602739726028,
+   "false_alert_episodes": 27,
+   "false_episodes_per_month": 0.6519009116642458,
+   "lead_time_min_mean": 173161.88186813187,
+   "lead_time_min_median": 134685.5,
+   "lead_time_positive_fraction": 1.0,
+   "alert_minutes_total": 1783752.0,
+   "alert_duration_min_mean": 44593.8,
+   "alert_duration_min_median": 1081.0,
+   "alert_episodes_per_month": 0.9657791283914752,
+   "ci": {
+    "episode_recall": [
+     0.9931506849315068,
+     1.0
+    ],
+    "pre_onset_recall": [
+     0.9931506849315068,
+     1.0
+    ]
+   }
+  },
+  "alert_stats": {
+   "yellow_windows": 1774497,
+   "yellow_fraction_of_time": 0.9823862198854795,
+   "alert_minutes_per_day": 1407.5001363282586
+  }
+ },
+ "paired_policy_vs_persistence": {
+  "window": {
+   "TSS": {
+    "delta_point": 0.09225715891033698,
+    "delta_ci95": [
+     0.06532357828287748,
+     0.11976613882058942
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   },
+   "HSS": {
+    "delta_point": 0.005068233499061436,
+    "delta_ci95": [
+     -0.01687583683576053,
+     0.02832065457371773
+    ],
+    "p_boot": 0.66,
+    "significant": false
+   },
+   "MCC": {
+    "delta_point": 0.03512888719013946,
+    "delta_ci95": [
+     0.011913724007080965,
+     0.059776578502325345
+    ],
+    "p_boot": 0.004,
+    "significant": true
+   },
+   "Recall": {
+    "delta_point": 0.2598329953477275,
+    "delta_ci95": [
+     0.2359041879222612,
+     0.2857012021361706
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   },
+   "Precision": {
+    "delta_point": -0.06496829139141536,
+    "delta_ci95": [
+     -0.08046982770381056,
+     -0.04738703686627939
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   },
+   "F1": {
+    "delta_point": 0.05043784064000356,
+    "delta_ci95": [
+     0.03339667553160871,
+     0.06929984346957024
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   }
+  },
+  "episode": {
+   "episode_recall": {
+    "delta_point": 0.17260273972602747,
+    "delta_ci95": [
+     0.14383561643835618,
+     0.20410958904109588
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   },
+   "pre_onset_recall": {
+    "delta_point": 0.31095890410958904,
+    "delta_ci95": [
+     0.27260273972602744,
+     0.35342465753424657
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   }
+  }
+ },
+ "paired_policy_vs_climatology": {
+  "window": {
+   "TSS": {
+    "delta_point": 0.3940129618283321,
+    "delta_ci95": [
+     0.3559244974301102,
+     0.42978032096597624
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   },
+   "HSS": {
+    "delta_point": 0.3068240364170566,
+    "delta_ci95": [
+     0.2727818938405872,
+     0.33935296254499225
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   },
+   "MCC": {
+    "delta_point": 0.3368846901081346,
+    "delta_ci95": [
+     0.3026100930933883,
+     0.3693185620768159
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   },
+   "Recall": {
+    "delta_point": 0.7236144578313253,
+    "delta_ci95": [
+     0.6921813507307925,
+     0.753324368189631
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   },
+   "Precision": {
+    "delta_point": 0.3988131710921824,
+    "delta_ci95": [
+     0.3691216562738335,
+     0.42788499190218926
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   },
+   "F1": {
+    "delta_point": 0.5142193031236013,
+    "delta_ci95": [
+     0.48255728861206876,
+     0.5442782159477936
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   }
+  },
+  "episode": {
+   "episode_recall": {
+    "delta_point": 0.7301369863013699,
+    "delta_ci95": [
+     0.684931506849315,
+     0.7767465753424657
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   },
+   "pre_onset_recall": {
+    "delta_point": 0.6191780821917808,
+    "delta_ci95": [
+     0.5698630136986301,
+     0.6712328767123288
+    ],
+    "p_boot": 0.001,
+    "significant": true
+   }
+  }
+ },
+ "wall_seconds": 607.0
+}

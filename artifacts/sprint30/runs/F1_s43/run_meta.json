@@ -1,0 +1,28 @@
+{
+ "run_id": "F1_s43",
+ "seed": 43,
+ "device": "mps",
+ "n_features": 17,
+ "n_params": 828545,
+ "features_file": "artifacts/research_v4/dataset_v4.0.0/feature_columns_17.json",
+ "best_val_tss": 0.6142,
+ "best_epoch": 3,
+ "pos_rate": 0.006199,
+ "peak_mem_gb": 0.014,
+ "wall_seconds": 1445.7,
+ "params": {
+  "lr": 0.0001,
+  "weight_decay": 0.0001,
+  "alpha": 0.25,
+  "gamma": 2.0,
+  "clip_norm": 1.0,
+  "batch_size": 64,
+  "steps_per_epoch": 5000,
+  "max_epochs": 20,
+  "patience": 3,
+  "t_max": 20,
+  "train_parquet": "artifacts/research_v4/dataset_v4.0.0/train.parquet",
+  "val_parquet": "artifacts/research_v4/dataset_v4.0.0/validation.parquet"
+ },
+ "torch": "2.12.1"
+}

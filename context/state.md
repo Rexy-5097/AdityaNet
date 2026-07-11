@@ -10,11 +10,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Date** | 2026-07-03 |
-| **Phase** | Phase 3 — Decision-Layer Integrity Restoration (Sprint 23 complete) |
-| **Sprint** | Sprint 23 — DONE (leakage-free versioned policy system deployed) |
-| **Health** | 🟡 YELLOW — decision layer now leakage-free and gated; RED tier dormant at 0.95; docs blast-radius sweep pending |
-| **Next Milestone** | Sprint 30 "The Fair Test, Part 1" — build the F1 dataset through the V4 pipeline (17 features, frozen split boundaries, manifest+scaler), parameterize the training driver for 17-feature width, exercise one git push, then run F0-re-eval + F1 across seeds [42,43,44] per the pre-registration (artifacts/sprint29/experiments/). Sprint 29 DONE: Phase 0 22/22; git+remote already existed (stale "no git" record CORRECTED, commit 66ae02e); 6-gate CI green (59 tests); feature framework (9 contract tests); 3 GOES physics features VALIDATED on 77 X-events (94% pre-peak T-rise, 99% +dT — preflare-heating signal is real); dataset_v4 infra (13 tests); F0 READY, F1 3 named gaps. ADR-0001/0002 filed |
+| **Date** | 2026-07-11 |
+| **Phase** | Version 4 fair-test campaign (Sprint 30 complete) |
+| **Sprint** | Sprint 30 — DONE (F0/F1 pre-registered experiments executed; verdict FAILURE) |
+| **Health** | 🟡 YELLOW — production V1+clean-policy unaffected; first fair-test question answered negatively; Aditya question (F2/F3) is the critical path |
+| **Next Milestone** | Sprint 31 "The Fair Test, Part 2" — rebuild S2-boundary splits through the V4 pipeline (Aditya features rows 4–17, per-timestep masks as model inputs), re-eval F0 + F1 checkpoints on the S2 span for same-span pairing, train F2 (32 features, seeds 42/43/44 + escalation), resolve F2-vs-F1 (Path B/C/D); F3 only if F2 > F1. Sprint 30 DONE: dataset_v4.0.0 built+validated 15/15 (frozen boundaries byte-identical, train-only scaler, tamper-detecting manifest); F0 sealed re-eval reproduced reference TSS exactly (0.3940); F1 (14+T_iso/EM/dT via V4 pipeline) 5 seeds after pre-registered escalation: TSS 0.3629±0.0276, paired dTSS −0.0311±0.0276, 0/5 pass +0.02 criterion → **FAILURE, Path A foreclosed** (artifacts/sprint30/Decision_Tree_Update.md). Measured for the first time: seed-noise band (range 0.064 > 3× min effect). Secondary (not promoted): pre-onset episode recall +0.10..+0.21 sig 5/5 at 5.4× false episodes — input to the Path C operator-policy track under a new pre-registration. All gates PASS; V3 intact; push exercised (gap 3 closed) |
 
 ---
 
