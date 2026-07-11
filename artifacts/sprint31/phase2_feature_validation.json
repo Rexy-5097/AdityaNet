@@ -1,0 +1,506 @@
+{
+  "generated": "2026-07-11T23:31:34.782307",
+  "split": "artifacts/sprint14c/s2_val.parquet",
+  "checks": {
+    "3_no_label_access": {
+      "pass": true,
+      "featureset_construction": "succeeded",
+      "forbidden_columns": [
+        "target_6hr_binary",
+        "target_6hr_class"
+      ],
+      "features_with_label_requires": {},
+      "n_features": 15
+    },
+    "1_formula_conformance": {
+      "pass": true,
+      "tolerance": 1e-09,
+      "per_feature": {
+        "solexs_HR_high_low": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 0,
+          "n_nan_ref": 0
+        },
+        "solexs_HR_mid_low": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 0,
+          "n_nan_ref": 0
+        },
+        "solexs_dHR_15m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 15,
+          "n_nan_ref": 15
+        },
+        "solexs_HR_peak_60m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 0,
+          "n_nan_ref": 0
+        },
+        "log_solexs_soft": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 0,
+          "n_nan_ref": 0
+        },
+        "solexs_variance_15m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 1,
+          "n_nan_ref": 1
+        },
+        "solexs_variance_60m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 1,
+          "n_nan_ref": 1
+        },
+        "solexs_peak_30m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 0,
+          "n_nan_ref": 0
+        },
+        "minutes_since_solexs_active": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 0,
+          "n_nan_ref": 0
+        },
+        "solexs_active_fraction_6h": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 0,
+          "n_nan_ref": 0
+        },
+        "hel1os_fluence_30m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 0,
+          "n_nan_ref": 0
+        },
+        "hel1os_fluence_60m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 0,
+          "n_nan_ref": 0
+        },
+        "nonthermal_thermal_ratio": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 0,
+          "n_nan_ref": 0
+        },
+        "d_ntr_15m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 15,
+          "n_nan_ref": 15
+        },
+        "log_hel1os_band0": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true,
+          "n_nan_module": 0,
+          "n_nan_ref": 0
+        }
+      }
+    },
+    "2_causality_no_future_leakage": {
+      "pass": true,
+      "truncation_rows": 100000,
+      "per_feature": {
+        "solexs_HR_high_low": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "solexs_HR_mid_low": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "solexs_dHR_15m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "solexs_HR_peak_60m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "log_solexs_soft": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "solexs_variance_15m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "solexs_variance_60m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "solexs_peak_30m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "minutes_since_solexs_active": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "solexs_active_fraction_6h": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "hel1os_fluence_30m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "hel1os_fluence_60m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "nonthermal_thermal_ratio": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "d_ntr_15m": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        },
+        "log_hel1os_band0": {
+          "pass": true,
+          "max_abs_diff": 0.0,
+          "nan_placement_identical": true
+        }
+      }
+    },
+    "4_determinism": {
+      "pass": true,
+      "method": "pd.util.hash_pandas_object row hashes + column order",
+      "rows_compared": 262480
+    },
+    "5_physical_ranges_observed": {
+      "pass": false,
+      "per_feature": {
+        "solexs_HR_high_low": {
+          "pass": false,
+          "n": 198435,
+          "min": 0.0,
+          "median": 0.9100039601325989,
+          "max": 27.194658279418945,
+          "flags": [
+            "nonpositive ratio on 1832 observed minutes (0.9232%) \u2014 numerator band sums to exactly 0 in the raw data"
+          ]
+        },
+        "solexs_HR_mid_low": {
+          "pass": false,
+          "n": 198435,
+          "min": 0.0,
+          "median": 0.910369336605072,
+          "max": 28.23835563659668,
+          "flags": [
+            "nonpositive ratio on 1822 observed minutes (0.9182%) \u2014 numerator band sums to exactly 0 in the raw data"
+          ]
+        },
+        "solexs_dHR_15m": {
+          "pass": true,
+          "n": 198423,
+          "min": -21.4964542388916,
+          "median": -0.0005726814270019531,
+          "max": 26.74576187133789,
+          "flags": []
+        },
+        "solexs_HR_peak_60m": {
+          "pass": true,
+          "n": 198435,
+          "min": 0.376705527305603,
+          "median": 3.040480375289917,
+          "max": 27.194658279418945,
+          "flags": []
+        },
+        "log_solexs_soft": {
+          "pass": true,
+          "n": 198435,
+          "min": 6.450164794921875,
+          "median": 7.360406875610352,
+          "max": 11.05101203918457,
+          "quiet_floor_expected": 7.2,
+          "flags": []
+        },
+        "solexs_variance_15m": {
+          "pass": true,
+          "n": 198434,
+          "min": 0.001109722307394798,
+          "median": 0.02097418296573219,
+          "max": 4.149724923390902,
+          "flags": []
+        },
+        "solexs_variance_60m": {
+          "pass": true,
+          "n": 198434,
+          "min": 0.006711992872131726,
+          "median": 0.023150244986073848,
+          "max": 4.149724923390902,
+          "flags": []
+        },
+        "solexs_peak_30m": {
+          "pass": true,
+          "n": 198435,
+          "min": 6.9863715171813965,
+          "median": 7.605100631713867,
+          "max": 11.05101203918457,
+          "flags": []
+        },
+        "minutes_since_solexs_active": {
+          "pass": true,
+          "n": 198435,
+          "min": 0.0,
+          "median": 26.0,
+          "max": 10080.0,
+          "flags": []
+        },
+        "solexs_active_fraction_6h": {
+          "pass": true,
+          "n": 198435,
+          "min": 0.0,
+          "median": 0.03611111111111111,
+          "max": 0.30833333333333335,
+          "flags": []
+        },
+        "hel1os_fluence_30m": {
+          "pass": true,
+          "n": 262419,
+          "min": 6.375422236202005,
+          "median": 9.799510311809446,
+          "max": 13.444891033937783,
+          "flags": []
+        },
+        "hel1os_fluence_60m": {
+          "pass": true,
+          "n": 262419,
+          "min": 6.375422236202005,
+          "median": 10.492765852287262,
+          "max": 13.509592744278354,
+          "flags": []
+        },
+        "nonthermal_thermal_ratio": {
+          "pass": true,
+          "n": 262419,
+          "min": 9.777106817159419,
+          "median": 15.868091534197456,
+          "max": 27.407500324475112,
+          "flags": []
+        },
+        "d_ntr_15m": {
+          "pass": true,
+          "n": 262404,
+          "min": -10.323056931120847,
+          "median": 0.012983782984923309,
+          "max": 12.104851084204016,
+          "flags": []
+        },
+        "log_hel1os_band0": {
+          "pass": true,
+          "n": 262419,
+          "min": 1.7917652130126953,
+          "median": 2.400934934616089,
+          "max": 6.869741916656494,
+          "flags": []
+        }
+      }
+    },
+    "6_train_only_threshold": {
+      "pass": true,
+      "expected_train_p95": 7.599854040145874,
+      "per_feature": {
+        "minutes_since_solexs_active": {
+          "pass": true,
+          "params": {
+            "train_p95_log_solexs_soft": 7.599854040145874,
+            "cap_min": 10080,
+            "threshold_provenance": "train-split-only (dataset layer)"
+          }
+        },
+        "solexs_active_fraction_6h": {
+          "pass": true,
+          "params": {
+            "train_p95_log_solexs_soft": 7.599854040145874,
+            "window_min": 360,
+            "threshold_provenance": "train-split-only (dataset layer)"
+          }
+        }
+      }
+    },
+    "7_flare_response": {
+      "pass": false,
+      "n_flare_minutes": 20,
+      "long_flux_range_of_top20": [
+        0.00022453389829024673,
+        0.0005152947851456702
+      ],
+      "split_median_HR_high_low": 0.9103851318359375,
+      "split_median_log_solexs_soft": 7.360683441162109,
+      "fraction_HR_above_median": 0.3,
+      "fraction_log_soft_above_median": 0.4,
+      "expected": "both fractions > 0.5 (spectral hardening and brightening during flares)",
+      "top20_minutes": [
+        {
+          "row": 214151,
+          "long_flux": 0.0005152947851456702,
+          "HR_high_low": 0.5556424856185913,
+          "log_solexs_soft": 7.503190994262695
+        },
+        {
+          "row": 214150,
+          "long_flux": 0.00048656409489922225,
+          "HR_high_low": 0.7551093697547913,
+          "log_solexs_soft": 7.474276065826416
+        },
+        {
+          "row": 214153,
+          "long_flux": 0.00045325345126912,
+          "HR_high_low": 1.3681309223175049,
+          "log_solexs_soft": 7.3576340675354
+        },
+        {
+          "row": 214154,
+          "long_flux": 0.00042370788287371397,
+          "HR_high_low": 0.9264224767684937,
+          "log_solexs_soft": 7.210070610046387
+        },
+        {
+          "row": 214155,
+          "long_flux": 0.0004034816229250282,
+          "HR_high_low": 0.6197903752326965,
+          "log_solexs_soft": 7.073022365570068
+        },
+        {
+          "row": 218378,
+          "long_flux": 0.00039879907853901386,
+          "HR_high_low": 0.5720027089118958,
+          "log_solexs_soft": 7.500519752502441
+        },
+        {
+          "row": 218376,
+          "long_flux": 0.00038254004903137684,
+          "HR_high_low": 0.41522571444511414,
+          "log_solexs_soft": 7.0085930824279785
+        },
+        {
+          "row": 214157,
+          "long_flux": 0.0003788098692893982,
+          "HR_high_low": 0.8261196613311768,
+          "log_solexs_soft": 7.311519622802734
+        },
+        {
+          "row": 214159,
+          "long_flux": 0.00033995427656918764,
+          "HR_high_low": 0.6055258512496948,
+          "log_solexs_soft": 7.182927131652832
+        },
+        {
+          "row": 218380,
+          "long_flux": 0.00033793941838666797,
+          "HR_high_low": 0.6525583267211914,
+          "log_solexs_soft": 7.290426731109619
+        },
+        {
+          "row": 218375,
+          "long_flux": 0.00033547155908308923,
+          "HR_high_low": 1.0559591054916382,
+          "log_solexs_soft": 6.804361820220947
+        },
+        {
+          "row": 214160,
+          "long_flux": 0.0003190731513313949,
+          "HR_high_low": 0.5437160134315491,
+          "log_solexs_soft": 7.353610038757324
+        },
+        {
+          "row": 218382,
+          "long_flux": 0.0002940575359389186,
+          "HR_high_low": 0.8734139800071716,
+          "log_solexs_soft": 7.397655010223389
+        },
+        {
+          "row": 214162,
+          "long_flux": 0.00028168968856334686,
+          "HR_high_low": 0.9624758362770081,
+          "log_solexs_soft": 7.491767406463623
+        },
+        {
+          "row": 218383,
+          "long_flux": 0.0002785909455269575,
+          "HR_high_low": 0.6180031895637512,
+          "log_solexs_soft": 7.2014875411987305
+        },
+        {
+          "row": 218374,
+          "long_flux": 0.00026754653663374484,
+          "HR_high_low": 0.7645092606544495,
+          "log_solexs_soft": 7.389669895172119
+        },
+        {
+          "row": 214163,
+          "long_flux": 0.000263720634393394,
+          "HR_high_low": 1.6031023263931274,
+          "log_solexs_soft": 7.476138591766357
+        },
+        {
+          "row": 218385,
+          "long_flux": 0.00024247395049314946,
+          "HR_high_low": 0.8622215986251831,
+          "log_solexs_soft": 7.289596080780029
+        },
+        {
+          "row": 214165,
+          "long_flux": 0.0002290813426952809,
+          "HR_high_low": 0.6035453081130981,
+          "log_solexs_soft": 7.179216384887695
+        },
+        {
+          "row": 218386,
+          "long_flux": 0.00022453389829024673,
+          "HR_high_low": 1.1998276710510254,
+          "log_solexs_soft": 7.374063014984131
+        }
+      ],
+      "note": "Top-20 long_flux observed minutes come from two events (~5e-4 W/m^2, M5-class); SoLEXS HR and log_solexs_soft at those minutes sit at or below split medians, i.e. SoLEXS shows no hardening/brightening co-temporal with the GOES peaks in s2_val."
+    }
+  },
+  "train_p95_log_solexs_soft": 7.599854040145874,
+  "train_p95_n_observed_minutes": 594675,
+  "val_rows": 262480,
+  "overall_pass": false,
+  "runtime_seconds": 0.8
+}

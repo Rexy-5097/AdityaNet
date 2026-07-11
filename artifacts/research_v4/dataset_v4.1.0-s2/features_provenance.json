@@ -1,0 +1,300 @@
+{
+ "goes_physics": {
+  "framework": "features_v4",
+  "features": {
+   "goes_T_iso": {
+    "instrument": "goes",
+    "requires": [
+     "short_flux",
+     "long_flux"
+    ],
+    "params": {
+     "ratio_valid_domain": [
+      0.02,
+      0.7
+     ],
+     "inversion": "Thomas-Starr-Crannell-1985-cubic"
+    },
+    "code_sha256": "de433eb2239ac339af6d63861b3a34ac834c939557283e0db7acf511b9646f49"
+   },
+   "goes_EM": {
+    "instrument": "goes",
+    "requires": [
+     "short_flux",
+     "long_flux"
+    ],
+    "params": {
+     "response_proxy": "T^2",
+     "log_const": 56.0,
+     "calibration": "proxy \u2014 absolute scale NOT PROVEN (flagged)"
+    },
+    "code_sha256": "69c98b6f5dd88669c36321f8acc7001b680df4ca7937b169d378bca81c19b5f0"
+   },
+   "goes_dT_iso_15m": {
+    "instrument": "goes",
+    "requires": [
+     "short_flux",
+     "long_flux"
+    ],
+    "params": {
+     "minutes": 15,
+     "scheme": "backward-difference"
+    },
+    "code_sha256": "67785a8df91302d5efb2f965b12cbaa08ec059913d88f9f2eb1bd3c7994302d3"
+   }
+  }
+ },
+ "aditya": {
+  "framework": "features_v4",
+  "features": {
+   "solexs_HR_high_low": {
+    "instrument": "solexs",
+    "requires": [
+     "solexs_rate_ch1",
+     "solexs_rate_ch2",
+     "solexs_rate_ch3",
+     "solexs_rate_ch4",
+     "solexs_rate_ch5",
+     "solexs_rate_ch6",
+     "solexs_rate_ch7",
+     "solexs_rate_ch8",
+     "solexs_rate_ch9"
+    ],
+    "params": {
+     "numerator": "ch7..ch9",
+     "denominator": "ch1..ch3",
+     "eps": 1e-12
+    },
+    "code_sha256": "e10fd16d3f9202b3569a7cc183f84a6be6c2a957807a05b5715d535fcf625143"
+   },
+   "solexs_HR_mid_low": {
+    "instrument": "solexs",
+    "requires": [
+     "solexs_rate_ch1",
+     "solexs_rate_ch2",
+     "solexs_rate_ch3",
+     "solexs_rate_ch4",
+     "solexs_rate_ch5",
+     "solexs_rate_ch6",
+     "solexs_rate_ch7",
+     "solexs_rate_ch8",
+     "solexs_rate_ch9"
+    ],
+    "params": {
+     "numerator": "ch4..ch6",
+     "denominator": "ch1..ch3",
+     "eps": 1e-12
+    },
+    "code_sha256": "178a5920ee3e340887944ad14af8ad7e11e6d6f7ff7d2221dbacef9824b9aacb"
+   },
+   "solexs_dHR_15m": {
+    "instrument": "solexs",
+    "requires": [
+     "solexs_rate_ch1",
+     "solexs_rate_ch2",
+     "solexs_rate_ch3",
+     "solexs_rate_ch4",
+     "solexs_rate_ch5",
+     "solexs_rate_ch6",
+     "solexs_rate_ch7",
+     "solexs_rate_ch8",
+     "solexs_rate_ch9"
+    ],
+    "params": {
+     "minutes": 15,
+     "scheme": "backward-difference"
+    },
+    "code_sha256": "fa9fa47aa4fd154be7fe14caea707581ddfb06aab8442f15f6ee0d7e0dfe0846"
+   },
+   "solexs_HR_peak_60m": {
+    "instrument": "solexs",
+    "requires": [
+     "solexs_rate_ch1",
+     "solexs_rate_ch2",
+     "solexs_rate_ch3",
+     "solexs_rate_ch4",
+     "solexs_rate_ch5",
+     "solexs_rate_ch6",
+     "solexs_rate_ch7",
+     "solexs_rate_ch8",
+     "solexs_rate_ch9"
+    ],
+    "params": {
+     "window_min": 60
+    },
+    "code_sha256": "ef871ccdfab9d90b05d0c8e1301cdb9f0bcd855f923420b85a23056747b73e62"
+   },
+   "log_solexs_soft": {
+    "instrument": "solexs",
+    "requires": [
+     "solexs_rate_ch1",
+     "solexs_rate_ch2",
+     "solexs_rate_ch3",
+     "solexs_rate_ch4",
+     "solexs_rate_ch5",
+     "solexs_rate_ch6",
+     "solexs_rate_ch7",
+     "solexs_rate_ch8",
+     "solexs_rate_ch9"
+    ],
+    "params": {
+     "transform": "log1p(sum ch1..ch9)"
+    },
+    "code_sha256": "76e6a79ffff7ee014b89f5e5b97254623f741cedccc676a1d69dee12afad61e2"
+   },
+   "solexs_variance_15m": {
+    "instrument": "solexs",
+    "requires": [
+     "solexs_rate_ch1",
+     "solexs_rate_ch2",
+     "solexs_rate_ch3",
+     "solexs_rate_ch4",
+     "solexs_rate_ch5",
+     "solexs_rate_ch6",
+     "solexs_rate_ch7",
+     "solexs_rate_ch8",
+     "solexs_rate_ch9"
+    ],
+    "params": {
+     "window_min": 15
+    },
+    "code_sha256": "4486157ff03203998a7d65c332fd032ececaddc5f9003a92355695edcbc35009"
+   },
+   "solexs_variance_60m": {
+    "instrument": "solexs",
+    "requires": [
+     "solexs_rate_ch1",
+     "solexs_rate_ch2",
+     "solexs_rate_ch3",
+     "solexs_rate_ch4",
+     "solexs_rate_ch5",
+     "solexs_rate_ch6",
+     "solexs_rate_ch7",
+     "solexs_rate_ch8",
+     "solexs_rate_ch9"
+    ],
+    "params": {
+     "window_min": 60
+    },
+    "code_sha256": "0752d9c8ad0720e7c0376d56e33ed6c6e3585ae14ca13df05bcab06f52ba6981"
+   },
+   "solexs_peak_30m": {
+    "instrument": "solexs",
+    "requires": [
+     "solexs_rate_ch1",
+     "solexs_rate_ch2",
+     "solexs_rate_ch3",
+     "solexs_rate_ch4",
+     "solexs_rate_ch5",
+     "solexs_rate_ch6",
+     "solexs_rate_ch7",
+     "solexs_rate_ch8",
+     "solexs_rate_ch9"
+    ],
+    "params": {
+     "window_min": 30
+    },
+    "code_sha256": "2a5e59ca270eec5f202f6013de0b97d509507a402e818bac1c36a4d05f3de61b"
+   },
+   "minutes_since_solexs_active": {
+    "instrument": "solexs",
+    "requires": [
+     "solexs_rate_ch1",
+     "solexs_rate_ch2",
+     "solexs_rate_ch3",
+     "solexs_rate_ch4",
+     "solexs_rate_ch5",
+     "solexs_rate_ch6",
+     "solexs_rate_ch7",
+     "solexs_rate_ch8",
+     "solexs_rate_ch9"
+    ],
+    "params": {
+     "train_p95_log_solexs_soft": 7.599854040145874,
+     "cap_min": 10080,
+     "threshold_provenance": "train-split-only (dataset layer)"
+    },
+    "code_sha256": "b2d1a3d4b41a3b107871f89184b40c87da15197659c7fb8d458f9081ff4670f2"
+   },
+   "solexs_active_fraction_6h": {
+    "instrument": "solexs",
+    "requires": [
+     "solexs_rate_ch1",
+     "solexs_rate_ch2",
+     "solexs_rate_ch3",
+     "solexs_rate_ch4",
+     "solexs_rate_ch5",
+     "solexs_rate_ch6",
+     "solexs_rate_ch7",
+     "solexs_rate_ch8",
+     "solexs_rate_ch9"
+    ],
+    "params": {
+     "train_p95_log_solexs_soft": 7.599854040145874,
+     "window_min": 360,
+     "threshold_provenance": "train-split-only (dataset layer)"
+    },
+    "code_sha256": "a6540a8f000b19ecaa61fc2b77e25464431ab7ef3fe52cb0a7e38c578353e3f9"
+   },
+   "hel1os_fluence_30m": {
+    "instrument": "hel1os",
+    "requires": [
+     "hel1os_rate_band0"
+    ],
+    "params": {
+     "window_min": 30,
+     "dt_seconds": 60.0,
+     "store": "log1p"
+    },
+    "code_sha256": "7b157c257f2998b356cbaab5eb4368b1f63bca7b5a09242a4350efabf50249bc"
+   },
+   "hel1os_fluence_60m": {
+    "instrument": "hel1os",
+    "requires": [
+     "hel1os_rate_band0"
+    ],
+    "params": {
+     "window_min": 60,
+     "dt_seconds": 60.0,
+     "store": "log1p"
+    },
+    "code_sha256": "7801ce97e59e3496e09f5d70205e9cf11d03abaf939becd66db2d97fd08dac59"
+   },
+   "nonthermal_thermal_ratio": {
+    "instrument": "hel1os+goes",
+    "requires": [
+     "hel1os_rate_band0",
+     "long_flux"
+    ],
+    "params": {
+     "eps": 1e-12,
+     "store": "log1p"
+    },
+    "code_sha256": "52caa19a60035199733806617e6caba086c5ed03b7b3de584c10f056398916a2"
+   },
+   "d_ntr_15m": {
+    "instrument": "hel1os+goes",
+    "requires": [
+     "hel1os_rate_band0",
+     "long_flux"
+    ],
+    "params": {
+     "minutes": 15,
+     "scheme": "backward-difference"
+    },
+    "code_sha256": "118348d232da39b86f3b839b6b003f25f0d8b98b83b70050e3afd73a188aea56"
+   },
+   "log_hel1os_band0": {
+    "instrument": "hel1os",
+    "requires": [
+     "hel1os_rate_band0"
+    ],
+    "params": {
+     "transform": "log1p"
+    },
+    "code_sha256": "213d14562920651d7bb73ef02e1b271fce78e9d1ae7d25923a5edb74c0014f9f"
+   }
+  }
+ },
+ "train_p95_log_solexs_soft": 7.599854040145874
+}

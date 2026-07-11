@@ -1,0 +1,231 @@
+{
+ "dataset_version": "dataset_v4.1.0-s2",
+ "creation_timestamp": "2026-07-11T18:00:18.509610+00:00",
+ "generator_script": "scripts/sprint31/build_dataset_v4_s2.py",
+ "generator_commit": "sha256:5ccb7e2a6769e5583e5be79cb17e5bf7d79cfedf3732fe8eda46851641b006b4",
+ "source_files": [
+  {
+   "path": "artifacts/sprint14c/s2_train.parquet",
+   "sha256": "8fba40164aa14c4f7ba94af5794882fd9f72f26e6084848236eae30e7f9b46b4"
+  },
+  {
+   "path": "artifacts/sprint14c/s2_val.parquet",
+   "sha256": "e8e3d43fed06088f1a2a4ea43c6959f66f7041f4bed2b41f8e65b70a78eebb0b"
+  },
+  {
+   "path": "artifacts/sprint14c/s2_test.parquet",
+   "sha256": "d2680df034a334e3eef632cb63dfb4b031f932b9df5e7eabd8aa2572d53e1bb7"
+  },
+  {
+   "path": "app/services/ml/features_v4/aditya.py",
+   "sha256": "b1acb982c8d89fa883af6ca384eaadb36af4518d602b87b5470d96ed86b9fa82"
+  },
+  {
+   "path": "app/services/ml/features_v4/goes_physics.py",
+   "sha256": "d0adbf045a0fbb372d5c7d13cb51e662b93b79e3fcf79532d696180ff45d0d67"
+  },
+  {
+   "path": "app/services/ml/features_v4/framework.py",
+   "sha256": "1631818b4c3e91a67cc129694407b3bb9a3d716010fb0fe5df0680ff0cc26089"
+  },
+  {
+   "path": "app/services/ml/dataset_v4/scaling.py",
+   "sha256": "a911cb0b5bc58e5d3452d9dff282b50087fdc0410e2d89be88843e9f460cd82d"
+  },
+  {
+   "path": "app/services/ml/dataset_v4/masks.py",
+   "sha256": "252ff624746689b6ce96b8dea932e03f7c44a5d64203cf838a69c05e501853ea"
+  },
+  {
+   "path": "artifacts/feature_columns.json",
+   "sha256": "e499492381c93a40c7a78fd00c3dfcda57bb2bec0b2d2059ffe7463b8c7dbae0"
+  }
+ ],
+ "split_counts": {
+  "train": {
+   "rows": 786298,
+   "positives": 246518
+  },
+  "validation": {
+   "rows": 262480,
+   "positives": 43691
+  },
+  "test": {
+   "rows": 261455,
+   "positives": 31111
+  }
+ },
+ "scaler_params": {
+  "fitted_on_split": "train",
+  "columns": {
+   "short_flux": {
+    "median": 4.5843679075119326e-08,
+    "iqr": 8.21716352739088e-08
+   },
+   "long_flux": {
+    "median": 2.0496592014751513e-06,
+    "iqr": 2.149206750345911e-06
+   },
+   "log_long_flux": {
+    "median": -13.09734925480868,
+    "iqr": 0.9666562734007869
+   },
+   "mean_15m": {
+    "median": 2.0661250497748066e-06,
+    "iqr": 2.167298693696769e-06
+   },
+   "variance_15m": {
+    "median": 6.481542785313588e-15,
+    "iqr": 5.393157748666859e-14
+   },
+   "mean_60m": {
+    "median": 2.127674975819597e-06,
+    "iqr": 2.241453083229317e-06
+   },
+   "variance_60m": {
+    "median": 6.314774530934055e-14,
+    "iqr": 4.692637849790036e-13
+   },
+   "peak_30m": {
+    "median": 2.4842308903316734e-06,
+    "iqr": 2.919874816598167e-06
+   },
+   "peak_60m": {
+    "median": 2.8589420253410935e-06,
+    "iqr": 3.6655442841038166e-06
+   },
+   "flux_gradient_5m": {
+    "median": -3.76423940906534e-09,
+    "iqr": 3.0695946406922306e-08
+   },
+   "flux_gradient_15m": {
+    "median": -2.0730415902410946e-09,
+    "iqr": 2.3188727027445567e-08
+   },
+   "flux_acceleration_5m": {
+    "median": 6.836739885329736e-10,
+    "iqr": 6.362626550071582e-09
+   },
+   "flux_acceleration_15m": {
+    "median": 2.4286060175250487e-10,
+    "iqr": 2.2569895463675496e-09
+   },
+   "minutes_since_last_flare": {
+    "median": 858.0,
+    "iqr": 2324.75
+   },
+   "goes_T_iso": {
+    "median": 4.917414529491419,
+    "iqr": 1.082586652047433
+   },
+   "goes_EM": {
+    "median": 48.90299350555611,
+    "iqr": 0.3305664399081394
+   },
+   "goes_dT_iso_15m": {
+    "median": 0.0,
+    "iqr": 0.36586567535296366
+   },
+   "solexs_HR_high_low": {
+    "median": 0.9108384251594543,
+    "iqr": 0.569968968629837
+   },
+   "solexs_HR_mid_low": {
+    "median": 0.911601722240448,
+    "iqr": 0.5693675875663757
+   },
+   "solexs_dHR_15m": {
+    "median": 5.5789947509765625e-05,
+    "iqr": 0.8384925723075867
+   },
+   "solexs_HR_peak_60m": {
+    "median": 3.031503200531006,
+    "iqr": 1.1022615432739258
+   },
+   "log_solexs_soft": {
+    "median": 7.359973907470703,
+    "iqr": 0.21160781383514404
+   },
+   "solexs_variance_15m": {
+    "median": 0.020899570690836592,
+    "iqr": 0.014351484450425877
+   },
+   "solexs_variance_60m": {
+    "median": 0.023062040358760194,
+    "iqr": 0.00829822958989453
+   },
+   "solexs_peak_30m": {
+    "median": 7.604246616363525,
+    "iqr": 0.0827784538269043
+   },
+   "minutes_since_solexs_active": {
+    "median": 27.0,
+    "iqr": 46.0
+   },
+   "solexs_active_fraction_6h": {
+    "median": 0.03611111111111111,
+    "iqr": 0.03055555555555555
+   },
+   "hel1os_fluence_30m": {
+    "median": 9.79943682293668,
+    "iqr": 0.03225272031586357
+   },
+   "hel1os_fluence_60m": {
+    "median": 10.492654283691582,
+    "iqr": 0.023368766509451078
+   },
+   "nonthermal_thermal_ratio": {
+    "median": 15.405500362251903,
+    "iqr": 0.994366317563971
+   },
+   "d_ntr_15m": {
+    "median": 0.01796227410241258,
+    "iqr": 0.35107343130749946
+   },
+   "log_hel1os_band0": {
+    "median": 2.4007457494735718,
+    "iqr": 0.15351790189743042
+   }
+  }
+ },
+ "feature_list": [
+  "short_flux",
+  "long_flux",
+  "log_long_flux",
+  "mean_15m",
+  "variance_15m",
+  "mean_60m",
+  "variance_60m",
+  "peak_30m",
+  "peak_60m",
+  "flux_gradient_5m",
+  "flux_gradient_15m",
+  "flux_acceleration_5m",
+  "flux_acceleration_15m",
+  "minutes_since_last_flare",
+  "goes_T_iso",
+  "goes_EM",
+  "goes_dT_iso_15m",
+  "solexs_HR_high_low",
+  "solexs_HR_mid_low",
+  "solexs_dHR_15m",
+  "solexs_HR_peak_60m",
+  "log_solexs_soft",
+  "solexs_variance_15m",
+  "solexs_variance_60m",
+  "solexs_peak_30m",
+  "minutes_since_solexs_active",
+  "solexs_active_fraction_6h",
+  "hel1os_fluence_30m",
+  "hel1os_fluence_60m",
+  "nonthermal_thermal_ratio",
+  "d_ntr_15m",
+  "log_hel1os_band0",
+  "solexs_available",
+  "solexs_staleness_n",
+  "hel1os_available",
+  "hel1os_staleness_n"
+ ],
+ "feature_list_sha256": "f96a580b038a7d5a8cc21f5b3a403395ec60f4413ec5f2fa7cc5295207013fab",
+ "sha256": "c70993b2aea02a25a11242cd7780fbf5bd747f694fe1ae391648bc271691e9e3"
+}
