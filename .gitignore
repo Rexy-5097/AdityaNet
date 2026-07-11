@@ -124,3 +124,9 @@ node_modules/
 # by re-running the corresponding script. Kept on disk, removed from Git
 # via `git rm --cached` — see REPOSITORY_HEALTH.md / PRE_GITHUB_CHECKLIST.md.
 artifacts/aditya_l1/
+
+# ----- Version 4 datasets (Sprint 30) -----
+# Parquets exceed GitHub's 100MB file limit and are exactly reproducible from
+# the frozen sources via scripts/sprint30/build_dataset_v4.py; the manifest
+# (committed) pins source and generator hashes for verification.
+artifacts/research_v4/**/*.parquet
