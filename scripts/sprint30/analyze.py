@@ -46,7 +46,16 @@ import scripts.sprint24.eval_framework as efm
 from scripts.sprint26.eval_framework_ref import get_evaluator
 
 RUNS = os.path.join("artifacts", "sprint30", "runs")
-SEEDS = [42, 43, 44]
+# Escalation (F1.json): observed 3-seed TSS range 0.0426 > 0.015 -> 5 seeds
+# before any verdict. PRE-DECLARED before seeds 45/46 completed: with 5 seeds
+# the success criterion extends to its stated rationale, a MAJORITY of seeds
+# (>= 3 of 5) each meeting the per-seed rule (04_FAIR_ADITYA_EXPERIMENT.md:
+# "three seeds is the minimum giving an across-seed range and a majority
+# criterion"). Pass --seeds to select the seed set.
+SEEDS = [int(s) for s in
+         (sys.argv[sys.argv.index("--seeds") + 1].split(",")
+          if "--seeds" in sys.argv else ["42", "43", "44"])]
+MAJORITY = 2 if len(SEEDS) == 3 else (len(SEEDS) // 2 + 1)
 YELLOW, RED = 0.14, 0.95
 MIN_EFFECT = 0.02
 SEED_RANGE_ESCALATION = 0.015
@@ -57,7 +66,9 @@ def load_probs(run_id):
 
 
 def strip(o):
-    if isinstance(o, dict): return {k: strip(v) for k, v in o.items() if not k.startswith("_")}
+    if isinstance(o, dict):
+        return {str(k): strip(v) for k, v in o.items()
+                if not (isinstance(k, str) and k.startswith("_"))}
     if isinstance(o, list): return [strip(v) for v in o]
     if isinstance(o, (np.floating, np.integer)): return o.item()
     return o
@@ -136,9 +147,10 @@ def main():
             "seed_passes": bool(deltas[i] >= MIN_EFFECT and lower_bounds[i] > 0 and not degraded)})
     n_pass = sum(p["seed_passes"] for p in per_seed_pass)
     primary = {"per_seed": per_seed_pass, "n_seeds_passing": n_pass,
-               "success": bool(n_pass >= 2), "criterion":
-               "paired dTSS >= +0.02 with lower 95% bound > 0 in >= 2 of 3 seeds, "
-               "pre-onset recall not significantly degraded"}
+               "n_seeds": len(SEEDS), "majority_required": MAJORITY,
+               "success": bool(n_pass >= MAJORITY), "criterion":
+               f"paired dTSS >= +0.02 with lower 95% bound > 0 in >= {MAJORITY} "
+               f"of {len(SEEDS)} seeds, pre-onset recall not significantly degraded"}
 
     # ── secondary endpoints: point deltas vs F0 (mean over seeds + per seed) ──
     sec_keys = ["ROC_AUC", "PR_AUC", "episode_recall", "pre_onset_recall",
