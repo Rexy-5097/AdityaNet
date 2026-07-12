@@ -1,0 +1,41 @@
+{
+ "dataset_version": "dataset_v4.2.0-s2-goes17",
+ "derived_from": "artifacts/research_v4/dataset_v4.1.0-s2",
+ "feature_list": [
+  "short_flux",
+  "long_flux",
+  "log_long_flux",
+  "mean_15m",
+  "variance_15m",
+  "mean_60m",
+  "variance_60m",
+  "peak_30m",
+  "peak_60m",
+  "flux_gradient_5m",
+  "flux_gradient_15m",
+  "flux_acceleration_5m",
+  "flux_acceleration_15m",
+  "minutes_since_last_flare",
+  "goes_T_iso",
+  "goes_EM",
+  "goes_dT_iso_15m"
+ ],
+ "note": "GOES-17 subset of dataset_v4.1.0-s2 (byte-identical GOES columns, train-only scaled on s2_train); era-matched GOES control for Sprint 32",
+ "splits": {
+  "train": {
+   "rows": 786298,
+   "positives": 246518,
+   "goes_cols_identical_to_F2": true
+  },
+  "validation": {
+   "rows": 262480,
+   "positives": 43691,
+   "goes_cols_identical_to_F2": true
+  },
+  "test": {
+   "rows": 261455,
+   "positives": 31111,
+   "goes_cols_identical_to_F2": true
+  }
+ }
+}
