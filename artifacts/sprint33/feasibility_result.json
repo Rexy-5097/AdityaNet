@@ -1,0 +1,21 @@
+{
+ "forecast_tss_mean": 0.3592515449072746,
+ "forecast_tss_std": 0.0037126709876281055,
+ "forecast_roc_auc": 0.7488607419116868,
+ "forecast_per_seed_tss": [
+  0.3624893975040747,
+  0.3551992754798807,
+  0.3600659617378685
+ ],
+ "forecast_tier": "STRONG",
+ "nowcast_roc_auc": 0.898,
+ "nowcast_tss": 0.6527,
+ "nowcast_viable": true,
+ "decision": "PROCEED with full Aditya roadmap (Sprints 33-37)",
+ "benchmark": {
+  "F0": 0.4068,
+  "F2": 0.4022,
+  "EMG": 0.4383,
+  "persistence": 0.3368
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "run_id": "ADIN_s42",
+ "seed": 42,
+ "device": "mps",
+ "n_features": 15,
+ "n_params": 824449,
+ "features_file": "artifacts/research_v4/dataset_adi_nowcast/feature_columns_15.json",
+ "best_val_tss": 0.6016,
+ "best_epoch": 1,
+ "pos_rate": 0.020654,
+ "peak_mem_gb": 0.014,
+ "wall_seconds": 1207.2,
+ "params": {
+  "lr": 0.0001,
+  "weight_decay": 0.0001,
+  "alpha": 0.25,
+  "gamma": 2.0,
+  "clip_norm": 1.0,
+  "batch_size": 64,
+  "steps_per_epoch": 5000,
+  "max_epochs": 20,
+  "patience": 3,
+  "t_max": 20,
+  "train_parquet": "artifacts/research_v4/dataset_adi_nowcast/train.parquet",
+  "val_parquet": "artifacts/research_v4/dataset_adi_nowcast/validation.parquet"
+ },
+ "torch": "2.12.1"
+}

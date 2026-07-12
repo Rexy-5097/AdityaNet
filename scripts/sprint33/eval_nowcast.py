@@ -17,7 +17,7 @@ ck = torch.load(ck_path, map_location="cpu", weights_only=True)
 dev = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
 m = PatchTST(n_features=len(feats)); m.load_state_dict(ck["model"]); m.to(dev).eval()
 ds = SolarFlareWindowDataset(test_pq, feature_cols=feats, split_name=run_id + "_nc")
-loader = make_eval_loader(ds, batch_size=512, num_workers=1, shuffle=False)
+loader = make_eval_loader(ds, batch_size=512, num_workers=0, shuffle=False)
 probs = []
 with torch.no_grad():
     for X, _ in loader:
