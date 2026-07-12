@@ -1,0 +1,36 @@
+{
+ "forecast": {
+  "train": {
+   "rows": 786298,
+   "pos": 246518,
+   "pos_rate": 0.3135
+  },
+  "validation": {
+   "rows": 262480,
+   "pos": 43691,
+   "pos_rate": 0.1665
+  },
+  "test": {
+   "rows": 261455,
+   "pos": 31111,
+   "pos_rate": 0.119
+  }
+ },
+ "nowcast": {
+  "train": {
+   "rows": 786298,
+   "pos": 16233,
+   "pos_rate": 0.02064
+  },
+  "validation": {
+   "rows": 262480,
+   "pos": 2604,
+   "pos_rate": 0.00992
+  },
+  "test": {
+   "rows": 261455,
+   "pos": 2295,
+   "pos_rate": 0.00878
+  }
+ }
+}

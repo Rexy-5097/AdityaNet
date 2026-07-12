@@ -1,0 +1,17 @@
+[
+ "solexs_HR_high_low",
+ "solexs_HR_mid_low",
+ "solexs_dHR_15m",
+ "solexs_HR_peak_60m",
+ "log_solexs_soft",
+ "solexs_variance_15m",
+ "solexs_variance_60m",
+ "solexs_peak_30m",
+ "minutes_since_solexs_active",
+ "solexs_active_fraction_6h",
+ "hel1os_fluence_30m",
+ "hel1os_fluence_60m",
+ "nonthermal_thermal_ratio",
+ "d_ntr_15m",
+ "log_hel1os_band0"
+]
