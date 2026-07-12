@@ -59,3 +59,15 @@ IF F2 > F1 AND F3 > F2 (instrument value present AND fusion adds on top)
 **Branches deliberately absent:** an "uncertainty-aware fusion" branch (Sprint 27 assessed it premature until per-timestep masking lands — `05_FUSION_LIMITATIONS.md` alternatives table) and a "more instruments/magnetograms" branch (no data source exists — `04_SOLAR_PHYSICS_RECOMMENDATIONS.md` explicitly-not-recommended section). Per the brief, branches without Sprint 27 evidence do not appear.
 
 **Tie and conflict handling (pre-registered):** if F1-versus-F0 succeeds on the V1 span but fails on the S2 span (regime-dependent gain), Path A still applies but the S2-span number is the one reported to operators (Solar Cycle 25 is the operating regime — the Sprint 24 Method D lesson, `artifacts/sprint24/results_d.json`). If F3 > F2 but F2 ≤ F1, that is *not* Path D — fusion gains without feature-level instrument value would indicate an architecture effect, to be treated as Path C evidence and re-tested on GOES-only inputs before any fusion claim.
+
+---
+
+## MEASURED OUTCOMES (annotation appended Sprints 30–32; pre-registered branches above are UNCHANGED)
+
+These are measured results annotating — not altering — the pre-registered branch definitions.
+
+- **Path A — FORECLOSED (Sprint 30).** F1 (17 GOES-physics features) did not beat F0 on the V1 span: paired ΔTSS −0.0311 ± 0.0276, 0/5 seeds meeting +0.02 (`artifacts/sprint30/Decision_Tree_Update.md`).
+- **Path B — TRIGGERED then PREMISE FALSIFIED (Sprints 31→32).** F2 beat F1-on-S2 (ΔTSS +0.0844, 3/5 seeds — Sprint 31), which activated Path B. Sprint 32's era-matched control (`EraMatchedGOES`) then showed that margin was the training era, not the features: ΔTSS(F2−EraMatchedGOES) = −0.0388 (0/3 passing), and F2 (0.4022) < EraMatchedGOES (0.4383). Path B's rationale — "the value came from features" — is refuted (`artifacts/sprint32/Statistical_Analysis.md`).
+- **Path D — FORECLOSED (Sprint 32).** F3 (late fusion) did not beat F2: ΔTSS(F3−F2) = −0.0070, 0/5 significant, 0/5 meeting +0.02. F3 is in fact the worst arm (TSS 0.3952). Do not build token-level cross-attention fusion.
+- **Path C — ACTIVE, refined.** Feature (Sprint 30), instrument-feature (Sprint 31), and fusion (Sprint 32) levers are all exhausted against GOES-only. The measured Version 4 direction is a single-encoder GOES-only model retrained on the recent Stage-2 era (EraMatchedGOES: +0.0315 TSS over F0, consistent 3/3, pending a powered confirmation), plus the operator-decision-layer program. **The dominant measured lever across the whole campaign is data recency, not any instrument/feature/architecture change.**
+- **ISRO hypothesis verdict (Sprint 32):** NOT SUPPORTED — Aditya-L1 provides no statistically significant incremental value beyond GOES once training era is controlled (`artifacts/sprint32/FINAL_VERDICT.md`).

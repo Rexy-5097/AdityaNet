@@ -14,7 +14,6 @@ written BEFORE the implementation. These tests ARE the specification:
   * documented parameter budget vs the single-encoder Sprint 31 model
 """
 import torch
-import pytest
 
 from app.services.ml.model_f3 import LateFusionPatchTST, GOES_DIM, ADITYA_DIM, TOTAL_DIM
 from app.services.ml.model import PatchTST
