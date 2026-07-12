@@ -10,11 +10,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Date** | 2026-07-11 |
-| **Phase** | Version 4 fair-test campaign (Sprint 30 complete) |
-| **Sprint** | Sprint 30 — DONE (F0/F1 pre-registered experiments executed; verdict FAILURE) |
-| **Health** | 🟡 YELLOW — production V1+clean-policy unaffected; first fair-test question answered negatively; Aditya question (F2/F3) is the critical path |
-| **Next Milestone** | Sprint 31 "The Fair Test, Part 2" — rebuild S2-boundary splits through the V4 pipeline (Aditya features rows 4–17, per-timestep masks as model inputs), re-eval F0 + F1 checkpoints on the S2 span for same-span pairing, train F2 (32 features, seeds 42/43/44 + escalation), resolve F2-vs-F1 (Path B/C/D); F3 only if F2 > F1. Sprint 30 DONE: dataset_v4.0.0 built+validated 15/15 (frozen boundaries byte-identical, train-only scaler, tamper-detecting manifest); F0 sealed re-eval reproduced reference TSS exactly (0.3940); F1 (14+T_iso/EM/dT via V4 pipeline) 5 seeds after pre-registered escalation: TSS 0.3629±0.0276, paired dTSS −0.0311±0.0276, 0/5 pass +0.02 criterion → **FAILURE, Path A foreclosed** (artifacts/sprint30/Decision_Tree_Update.md). Measured for the first time: seed-noise band (range 0.064 > 3× min effect). Secondary (not promoted): pre-onset episode recall +0.10..+0.21 sig 5/5 at 5.4× false episodes — input to the Path C operator-policy track under a new pre-registration. All gates PASS; V3 intact; push exercised (gap 3 closed) |
+| **Date** | 2026-07-12 |
+| **Phase** | Version 4 fair-test campaign (Sprint 31 complete) |
+| **Sprint** | Sprint 31 — DONE (F2 Aditya-L1 experiment; verdict PARTIALLY SUPPORTED) |
+| **Health** | 🟡 YELLOW — production V1+clean-policy still unbeaten at window level; Aditya question answered PARTIALLY; F3 fusion + era-matched control are the critical path |
+| **Next Milestone** | Sprint 32 "The Fair Test, Part 3" — run F3 (late-fusion architecture, same 32 features + masks, S2 splits, seeds 42/43/44 + escalation, mandated by Case A/Path B) AND pre-register + run the era-matched GOES-only control (17 GOES-physics features trained on Stage-2 boundaries) that de-confounds instrument value from training-era match. Sprint 31 DONE: dataset_v4.1.0-s2 built 18/18 (32 feats + 4 disclosure channels; SoLEXS gaps 100% micro-gaps ≤9min); Phase-2 subagent verified 15/15 Aditya features exact (+ 2 flagged data findings: quiet-sun zero hard-band ratios, no SoLEXS response at GOES peaks); F2 5 seeds after auto-escalation (range 0.0153): TSS 0.4022±0.0151. **PRIMARY MET: paired ΔTSS(F2−F1) +0.0844, 3/5 sig, Cohen d 2.40 → Case A/Path B, F3 mandated.** BUT F2 vs F0 (GOES-only): −0.0046, 0/5 sig — margin is F1's span-transfer collapse (F1-on-S2 at/below persistence floor), features×era confounded → **verdict PARTIALLY SUPPORTED** (artifacts/sprint31/FINAL_VERDICT.md). Replicated signal: pre-onset recall +0.44 vs F0 sig 5/5 at 10× false episodes, V_max unchanged. Availability strata degenerate. All gates PASS; V3 intact |
 
 ---
 
