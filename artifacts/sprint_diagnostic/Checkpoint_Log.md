@@ -14,5 +14,10 @@
 
 **All five YES → CONTINUE.** Battery executing.
 
-## Checkpoint 2 — training complete (PENDING)
-## Checkpoint 3 — evaluation complete (PENDING)
+## Checkpoint 2 — all 20 arms trained (pre-analysis)
+
+1. Highest-value uncertainty? YES — the ceiling question. 2. Direction changed? NO (results not yet analysed). 3. Assumption invalidated? NO. 4. Cheaper experiment? NO. 5. Panels approve continuing to evaluation? YES — all 20 arms exit 0, provenance intact. **All YES → CONTINUE to evaluation.**
+
+## Checkpoint 3 — evaluation & analysis complete
+
+1. **Highest-value uncertainty?** It WAS, and it is now answered (GENUINE LIMIT) — no residual uncertainty of higher value remains at the forecasting layer. 2. **Direction changed?** YES — the verdict redirects V4 from forecaster-training to nowcaster + cycle-diverse data accrual; this is the diagnostic's intended output, not a mid-experiment invalidation, so it does not trigger a STOP. 3. **Assumption invalidated?** YES — the implicit assumption that better training could lift the Aditya forecaster toward GOES parity is invalidated (genuine data-regime limit); again, this is the finding the experiment was designed to produce. 4. **Cheaper experiment?** NO — the diagnostic is complete and decisive. 5. **Panels approve?** YES — pre-registered, primary threshold-independent endpoint, decisive Cohen's d ≈ 15 regime effect, test-tracks-validation confirmed, provenance intact. **Experiment complete; verdict stands. No further code before a human direction decision on the redirect.**

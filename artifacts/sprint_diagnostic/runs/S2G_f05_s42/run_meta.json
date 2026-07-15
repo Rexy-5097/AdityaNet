@@ -1,0 +1,24 @@
+{
+ "run_id": "S2G_f05_s42",
+ "seed": 42,
+ "subset_seed": 42,
+ "n_train_windows": 392969,
+ "n_train_pos": 123473,
+ "train_pos_rate": 0.314205,
+ "train_indices_sha256": "fcaa7ab6e7e5b0e6f2985ea2dae333cda3a2523e70fab4284d113a5b9c1af5fc",
+ "n_params": 828545,
+ "best_val_roc_auc": 0.8322,
+ "best_epoch": 1,
+ "peak_val_roc_auc": 0.8322,
+ "config": {
+  "dropout": 0.2,
+  "weight_decay": 0.0001,
+  "sampler_mode": "weighted",
+  "steps_per_epoch": 5000,
+  "data_fraction": 0.5,
+  "match_count": null,
+  "base_rate": null,
+  "train_parquet": "artifacts/research_v4/dataset_v4.2.0-s2-goes17/train.parquet"
+ },
+ "wall_seconds": 1798.7
+}

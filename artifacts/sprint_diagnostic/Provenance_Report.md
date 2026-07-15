@@ -17,4 +17,4 @@
 
 The diagnostic writes only to `artifacts/sprint_diagnostic/`. It reads (never writes) the frozen datasets and harness. All training subsamples record their seed + selected-index SHA-256 (`run_meta.json:train_indices_sha256`, `train_indices.npy`) for exact reproducibility.
 
-**Post-execution re-verification: PENDING (to be completed with the same checks after the battery finishes; this report will be updated with the post-run column).**
+**Post-execution re-verification (OBSERVED, after all 20 arms): INTACT.** V3 stage-2 checkpoint, V3 s2_test, the Sprint-24 harness, and the frozen pre-registration (`e140360c…`) are all byte-identical to their pre-execution state. The diagnostic wrote only under `artifacts/sprint_diagnostic/`; no frozen artifact, no Study-A (`v4-goes-final`) artifact, and no dataset was modified. Every diagnostic run recorded its subsample seed and selected-index SHA-256 for exact reproducibility.

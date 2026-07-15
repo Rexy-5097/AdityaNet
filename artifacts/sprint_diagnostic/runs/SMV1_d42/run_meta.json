@@ -1,0 +1,24 @@
+{
+ "run_id": "SMV1_d42",
+ "seed": 42,
+ "subset_seed": 42,
+ "n_train_windows": 786298,
+ "n_train_pos": 4891,
+ "train_pos_rate": 0.00622,
+ "train_indices_sha256": "8db9c4d10964d8159caab8d196cfdf9920532ffa0134bd4c0190e8a4ad274025",
+ "n_params": 828545,
+ "best_val_roc_auc": 0.8736,
+ "best_epoch": 1,
+ "peak_val_roc_auc": 0.8736,
+ "config": {
+  "dropout": 0.2,
+  "weight_decay": 0.0001,
+  "sampler_mode": "weighted",
+  "steps_per_epoch": 5000,
+  "data_fraction": null,
+  "match_count": 786298,
+  "base_rate": null,
+  "train_parquet": "artifacts/research_v4/dataset_v4.0.0/train.parquet"
+ },
+ "wall_seconds": 2029.3
+}
