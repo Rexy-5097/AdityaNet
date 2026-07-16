@@ -1,0 +1,9 @@
+{
+ "selected_threshold": 0.1,
+ "validation_episode_recall_at_threshold": 0.9014084507042254,
+ "selection_rule": "highest threshold with val episode recall >= 0.9",
+ "calibrator_sha256": "6136692b4c967e6d247f55b08c2f12c91ded9f521492dfe0e95a3f25c26a008a",
+ "max_attainable_val_episode_recall": 0.9859154929577465,
+ "calibrator_fitted_on": "validation",
+ "threshold_selected_on": "validation"
+}
