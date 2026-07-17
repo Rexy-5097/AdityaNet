@@ -1,10 +1,15 @@
-<!-- VERSION STATUS: CURRENT — OPEN, non-blocking for M-IV/V/VI, BLOCKING for M-VIII -->
+<!-- VERSION STATUS: OPEN — Scientific Validation; owner Milestone VIII; NOT a parser blocker -->
 <!-- REASON: Contract §7 spectrum-integrity rule falsified by the real archive. -->
 <!-- DATE: 2026-07-17 -->
 
 # CONTRADICTION-003 — §7's spectrum-integrity tolerance is falsified
 
-**Status: OPEN, advance notice. Does NOT block Milestones IV–VII (no implemented behaviour depends on it). BLOCKS Milestone VIII, whose validation protocol asserts it. Raised now rather than at M-VIII because the evidence is already in hand and the fix affects what M-VII must record.**
+**Status: OPEN — reclassified by owner 2026-07-17.**
+**Category: Scientific Validation. Owner: Milestone VIII. NOT a parser-implementation blocker.**
+
+**Owner ruling:** implementation has *falsified* the §7 assumption but has **not established** the physical relationship between the SoLEXS light curve and PI spectra. This is therefore a **scientific-interpretation** question, not a parser-correctness one. The proposed amendment (§5) was **DECLINED**. Spec §7 instead carries a neutral deferral note (r3): *"No fixed mathematical relationship between the SoLEXS light curve and PI spectra is assumed before scientific validation."* No numeric relationship is encoded; the observed ratio is **not** in the contract; no tolerance is widened.
+
+**Implementation continues** under the existing parser contract. This document is the standing record of an **unresolved scientific question**, to be revisited at Milestone VIII.
 
 Milestone IV is **COMPLETE and COMPLIANT** (93/93 tests, zero deviations) — this defect lies in §7's *validation plan*, not in §2.2's parser contract.
 
@@ -43,7 +48,9 @@ No implemented behaviour depends on §7. The M-IV parser neither sums channels n
 
 **But it changes what M-VII should record**: if T1 `counts_total` (from `.lc`) and T2 `counts` (340 channels) are *not* commensurable, that must be stated in the schema, or a downstream consumer will reasonably assume `sum(T2.counts) == T1.counts_total` and be wrong by ~2.6×.
 
-## 5. Proposed amendment (NOT applied — requires approval)
+## 5. Proposed amendment — **DECLINED by owner 2026-07-17; retained for the audit trail only**
+
+> The five items below were **not** adopted. Item 1 (a "tracked diagnostic" ratio) and item 4 (assumption A-10) would have written an unvalidated observation into the contract — the owner correctly refused. Nothing here is in force. Superseded by the r3 deferral note.
 
 1. **§7 Spectrum integrity** — replace the falsified row with two honest checks:
    - *T2 internal consistency*: per-second `Σ(340 channels)` finite ⟺ `.lc COUNTS` finite (the NaN⟺NaN structural check, which **does** hold — verified three-way at M-IV).
@@ -53,11 +60,20 @@ No implemented behaviour depends on §7. The M-IV parser neither sums channels n
 4. **§8** — new assumption **A-10**: *the `.lc`-vs-spectrum ratio (median 2.60) is VERIFIED on the reference day only.* Milestone VIII must report the distribution across all 436 archives; a **bimodal or drifting** ratio would indicate a band or gain change and is a scientific finding.
 5. **0.5.3 acquisition** — the RMF/ARF request already ranked #2 should additionally request the **`.lc` band definition**; without it the `.lc` cannot be related to the spectra at all.
 
-## 6. Recommendation
+## 6. Recommendation (SUPERSEDED — the owner's narrower ruling prevailed)
 
-Approve. As with r1/r2 this **strengthens**: it replaces a fabricated tolerance with a measured diagnostic, and it closes a real misuse path (`sum(T2) == T1`) before any consumer depends on it. It also converts an unexplained 2.6× discrepancy into a tracked, archive-wide observable.
+~~Approve.~~ As with r1/r2 this **strengthens**: it replaces a fabricated tolerance with a measured diagnostic, and it closes a real misuse path (`sum(T2) == T1`) before any consumer depends on it. It also converts an unexplained 2.6× discrepancy into a tracked, archive-wide observable.
 
 **Deliberately NOT proposed:** widening the 0.1% tolerance to fit the data. The relationship is not approximately-true-with-slop; it is a different quantity. A loosened tolerance would be exactly the "make it work" failure the implementation philosophy forbids.
+
+## 6b. Questions Milestone VIII must answer (owner-defined scope)
+
+1. Do the two products measure **different physical quantities**?
+2. Does **onboard processing** explain the difference?
+3. Does **official ISSDC documentation** resolve the discrepancy?
+4. Does **any reproducible mapping** exist between them?
+
+Until answered, no v2 code, schema, or artifact may assume, assert, or rely on any relationship between `T1.counts_total` and `T2.counts`.
 
 ## 7. State of the work
 

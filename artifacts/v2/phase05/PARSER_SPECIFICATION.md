@@ -292,7 +292,11 @@ One row per parsed source file: `src_file`, `src_sha256` (must equal 0.5.1 manif
 | **Monotonic timestamps** | T1–T5 index | strictly increasing, unique, 1-min |
 | **Plausible count rates** | T1/T3 distributions vs instrument design range | no negatives; quiet-Sun floor > 0; no non-physical spikes beyond saturation |
 | **Detector consistency** | CZT1 vs CZT2, CdTe1 vs CdTe2 rate correlation on shared bands | high correlation; disagreement flagged, **not corrected** |
-| **Spectrum integrity** | T2 channel-sum vs T1 `counts_total`; T5 vs T3 band sums | ≤ 0.1 % (SoLEXS); HEL1OS within band-definition tolerance |
+| **Spectrum integrity** | *(SoLEXS: DEFERRED — see note below and CONTRADICTION-003)*; T5 vs T3 band sums | HEL1OS within band-definition tolerance |
+
+> **Temporary note (r3, 2026-07-17).** **No fixed mathematical relationship between the SoLEXS light curve and PI spectra is assumed before scientific validation.**
+>
+> The prior ≤ 0.1 % channel-sum tolerance was falsified by implementation (CONTRADICTION-003) and is withdrawn. It is **not** replaced by a widened tolerance, nor by any measured ratio: the physical relationship between the two products is **unknown**, and encoding an unvalidated number would substitute one unverified assumption for another. Establishing that relationship is a **scientific-validation task owned by Milestone VIII** (§6), which must determine whether the products measure different physical quantities, whether onboard processing explains the difference, whether official ISSDC documentation resolves it, and whether any reproducible mapping exists. Until M-VIII reports, **no v2 code, schema, or artifact may assume, assert, or rely on any relationship between `T1.counts_total` and `T2.counts`.**
 | **Cross-instrument timing** | SoLEXS vs HEL1OS peak times on D2 | ≤ 5 min |
 
 **Binding:** a failure here is a **scientific stop**, not a warning. No Phase 1 work proceeds on data that fails the coincidence check.
@@ -364,3 +368,15 @@ Original contract, grounded in structure-only schema discovery of the real archi
 **Unchanged.** Every other rule, schema, table, and policy. The 20 fail-loud rule identifiers are untouched — r2 adds a new *application* of F-09, not a new rule. This amendment strengthens: it adds an integrity check the contract lacked and closes a silent data-destruction path at T1 before any code depended on it. **Nothing weakened.**
 
 **Disposition.** **CONTRADICTION-002: CLOSED** by this revision.
+
+### r3 — 2026-07-17 (owner-directed; deferral note, NON-SUBSTANTIVE)
+
+**Not a scientific amendment.** The owner reviewed CONTRADICTION-003 and **declined** the proposed amendment, ruling that implementation had *falsified* the §7 assumption but had **not established** the physical relationship between the SoLEXS light curve and PI spectra — making it a **scientific-interpretation** issue, not a parser-correctness one.
+
+**Change.** §7's falsified spectrum-integrity tolerance is withdrawn and replaced by a neutral note: *"No fixed mathematical relationship between the SoLEXS light curve and PI spectra is assumed before scientific validation."* **No numeric relationship is introduced. No measured ratio is encoded. No tolerance is widened.** The question is assigned to Milestone VIII (§6).
+
+**Why this is logged despite being non-substantive.** The revision history exists so that no text in this contract changes silently. A note that removes a rule is still a change to the governing document, and an unlogged edit — however benign — would break the audit trail that r1 and r2 depend on.
+
+**Rejected alternative (recorded for the audit trail).** The implementer proposed encoding the measured light-curve/spectrum ratio as a "tracked diagnostic". The owner correctly refused: that would have promoted an unvalidated observation into the contract, substituting one unverified assumption for another — the same error class as CONTRADICTION-001 and -003 themselves.
+
+**CONTRADICTION-003: OPEN** — category *Scientific Validation*, owner *Milestone VIII*, **not a parser-implementation blocker**.
