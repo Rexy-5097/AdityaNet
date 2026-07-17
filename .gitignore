@@ -134,3 +134,6 @@ artifacts/research_v4/**/*.parquet
 # Phase 0.5.1: extracted real ISSDC L1 store (135 GB) — regenerate via
 # scripts/v2/phase05/extract_archive.py from data_pipeline/downloads/raw/
 data/aditya_l1/real_l1_v1/
+
+# M-VII canonical build outputs (regenerable via scripts/v2/phase05/build_canonical.py)
+artifacts/v2/phase05/canonical/
