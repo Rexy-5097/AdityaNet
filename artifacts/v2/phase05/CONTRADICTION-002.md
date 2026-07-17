@@ -1,10 +1,10 @@
-<!-- VERSION STATUS: CURRENT — OPEN, non-blocking for M-III, BLOCKING for M-VII -->
-<!-- REASON: Contract §2.1 missing-value clause falsified by the real archive. -->
+<!-- VERSION STATUS: CLOSED -->
+<!-- REASON: Contract §2.1 missing-value clause falsified by the real archive. RESOLVED by spec r2. -->
 <!-- DATE: 2026-07-17 -->
 
 # CONTRADICTION-002 — §2.1's missing-value clause is factually false
 
-**Status: OPEN. Awaiting owner approval. Milestone III completed (63/63) because the contract is *satisfiable*; the defect is BLOCKING for Milestone VII (T1/T2 aggregation), which needs a NaN rule that the contract does not currently provide.**
+**Status: CLOSED 2026-07-17 — owner approved the §5 amendment; applied as PARSER_SPECIFICATION.md r2 (§10 Revision History). Milestone III re-verified 63/63 with zero deviations. See COMPLIANCE_M3.md.**
 
 Raised under: *"If the implementation contradicts the specification, STOP, document the contradiction, explain why, and wait for approval."*
 
@@ -57,10 +57,16 @@ Contract §3's **output** convention already reads: *"Never impute; never fill. 
 4. **§3 T1/T2** — mandate NaN-aware aggregation: `counts_total = Σ` over **finite** seconds within the minute (`np.nansum` semantics); `n_seconds_present` counts finite seconds; a minute with zero finite seconds → `counts_total = NaN`, `q_no_data = True`. **Never** let one NaN void a whole minute.
 5. **§8** — new assumption **A-9**: *the NaN⟺GTI bijection is VERIFIED on 2024-05-14 SDD2 only* (1 of 436). Milestone VIII must verify archive-wide; any deviation is a scientific finding that TERMINATES validation. Same scoping discipline as A-8.
 
-## 6. Recommendation
+## 6. Recommendation (ACCEPTED)
 
 Approve. The amendment is descriptive-correction plus a **strengthening**: it adds an integrity rule (§5.3) that the contract lacked, and it closes a silent data-destruction path at T1 (§5.4) before any code depends on it. As with r1, nothing is weakened.
 
-## 7. State of the work
+## 7. Resolution
 
-**Milestone III COMPLETE: 63/63 tests pass, 0 xfail, 0 skip.** Real D1 file: 86,400 rows, `TSTART=1715644800.0`, `TSTOP=1715731199.0`, `TIMEDEL=1`, `NUMBAND='4'`, `HDUCLAS3='COUNTS'`, span 00:00:00–23:59:59 UTC, strictly 1-s monotonic. Test `test_real_20240514_nan_positions_equal_gti_excluded_seconds` already encodes the proposed §5.3 invariant and passes. **Milestone IV not started.**
+All five proposed changes were **approved and applied verbatim** as spec **r2**: the §2.1 missing-value description replaced; parser behaviour made binding (pass through unchanged; never impute, zero-fill, or remove); the **NaN⟺GTI cross-product rule** added as a REQUIRED archive-consistency check (mismatch → F-09) at the day-assembly layer; the **§3 aggregation contract** added (finite-only aggregation; one NaN must never invalidate a minute; empty minute → `counts_total=NaN`, `q_no_data=True`); and **A-9** recorded, scoping the invariant to the reference archive with a Milestone VIII archive-wide obligation that TERMINATES on any violation.
+
+**Nothing weakened.** The 20 fail-loud rule ids are untouched — r2 adds a new *application* of F-09, not a new rule. Superseded implementation notes were removed from the code, which now cites the contract clause (§2.1 r2) rather than this document.
+
+## 8. State of the work
+
+**Milestone III COMPLETE and re-verified against r2: 63/63 tests pass, 0 xfail, 0 skip, zero deviations.** Real D1 file: 86,400 rows, `TSTART=1715644800.0`, `TSTOP=1715731199.0`, `TIMEDEL=1`, `NUMBAND='4'`, `HDUCLAS3='COUNTS'`, span 00:00:00–23:59:59 UTC, strictly 1-s monotonic. Test `test_real_20240514_nan_positions_equal_gti_excluded_seconds` encodes the now-contractual §2.1 r2 invariant and passes. **Milestone IV authorised.**

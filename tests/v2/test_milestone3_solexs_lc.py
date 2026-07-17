@@ -196,11 +196,10 @@ def test_F19_negative_counts_terminate(tmp_path):
 
 
 def test_nan_counts_are_the_missing_data_sentinel_not_an_error(tmp_path):
-    """OBSERVED: NaN COUNTS mark GTI-excluded seconds (CONTRADICTION-002).
+    """§2.1 (r2): NaN COUNTS is the missing-data sentinel, not an error.
 
-    Frozen F-19 covers "Negative counts" only. NaN must pass through UNTOUCHED --
-    never imputed, never filled, never dropped -- matching the §3 output
-    convention ("Absent data is NaN + q_no_data=True").
+    Binding parser behaviour: pass through unchanged; never imputed, never
+    converted to zero, never removed. F-19 covers negative counts only.
     """
     c = np.full(N, 7.0)
     c[[0, 5, 30072]] = np.nan
@@ -297,7 +296,7 @@ def test_real_20240514_timestamps_span_the_day_exactly():
 
 @real_only
 def test_real_20240514_counts_are_physical():
-    """Finite counts must be non-negative. NaN is legitimate (CONTRADICTION-002)."""
+    """Finite counts must be non-negative. NaN is legitimate data (§2.1 r2)."""
     r = P.parse(REAL)
     c = r.data.samples.counts.to_numpy()
     finite = np.isfinite(c)
@@ -308,11 +307,12 @@ def test_real_20240514_counts_are_physical():
 
 @real_only
 def test_real_20240514_nan_positions_equal_gti_excluded_seconds():
-    """The integrity invariant discovered in Milestone III.
+    """§2.1 (r2) REQUIRED cross-product integrity rule.
 
-    NaN(COUNTS) <-> GTI-excluded second, exactly. This cross-product check is
-    proposed as a new validation rule in CONTRADICTION-002 §6 because it is a far
-    stronger integrity test than either product can provide alone.
+    NaN(COUNTS) set MUST equal the GTI-excluded second set exactly; mismatch
+    terminates via F-09. Enforced for real at the day-assembly layer (M-VII);
+    asserted here on the reference archive. Scope is A-9: VERIFIED on this
+    archive only -- Milestone VIII must prove it across all 436.
     """
     from app.v2.parsers.solexs_gti import SolexsGtiParser
 

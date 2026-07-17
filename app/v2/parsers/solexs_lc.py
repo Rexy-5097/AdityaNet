@@ -16,10 +16,14 @@ OBSERVED schema (spec §2.1):
 Two contract subtleties this parser exists to honour:
   * EXTNAME is 'RATE' but HDUCLAS3 is 'COUNTS'. §2.1 binds semantics to
     HDUCLAS3, NEVER to EXTNAME (F-07). The values are counts per 1-s bin.
+  * §2.1 (r2): NaN COUNTS is the missing-data sentinel and MUST pass through
+    unchanged. Zero is a valid physical count and is never treated as missing.
   * MJDREFI=40587 == Unix epoch. v1 read a key named 'MJDREF' (absent here),
     defaulted to 58484, and was ~49 years wrong -> F-05 makes that impossible.
 
-Applicable fail-loud rules: F-01, F-02, F-04, F-05, F-07, F-16, F-17, F-18, F-19.
+Applicable fail-loud rules: F-01, F-02, F-04, F-05, F-06, F-07, F-16, F-17,
+F-18, F-19. (The NaN<->GTI cross-product check is F-09 at the day-assembly
+layer, §2.1 r2 -- it needs both .lc and .gti, so it is not enforced here.)
 """
 from __future__ import annotations
 
@@ -146,18 +150,14 @@ class SolexsLcParser(BaseParser):
             if not np.all(np.isfinite(time)):
                 raise FailLoud("F-16", "non-finite TIME value", file=path, hdu="RATE")
 
-            # NaN COUNTS are NOT an error: OBSERVED on the real archive, NaN is the
-            # missing-data sentinel and its positions coincide EXACTLY with the
-            # GTI-excluded seconds (2024-05-14 SDD2: offsets [0,5,30072,30078,83951];
-            # 5 NaN, 86395 finite == EXPOSURE). See CONTRADICTION-002: §2.1's clause
-            # "absence is expressed via GTI, not sentinels" is factually wrong.
-            # Contract §3 already mandates the matching OUTPUT convention ("Absent
-            # data is NaN + q_no_data=True"), so NaN passes through UNTOUCHED here.
-            # Never imputed, never filled, never dropped.
+            # §2.1 (r2): NaN is the missing-data sentinel. Parser behaviour is
+            # binding -- pass through unchanged; never impute, zero-fill, or remove.
+            # COUNTS finiteness is NOT validated here: NaN is data, not an error.
+            # The NaN<->GTI bijection is a cross-product check and belongs to the
+            # day-assembly layer (Milestone VII), which has both .lc and .gti.
             n_nan = int(np.count_nonzero(~np.isfinite(counts)))
 
-            # F-19 as frozen covers "Negative counts" only. NaN < 0 is False, so
-            # this test is NaN-safe and needs no guard.
+            # F-19 covers negative counts only; NaN < 0 is False -> NaN-safe (r2).
             if np.any(counts < 0):
                 bad = int(np.argmax(counts < 0))
                 raise FailLoud("F-19", f"negative COUNTS at row {bad}", file=path,
@@ -204,8 +204,8 @@ class SolexsLcParser(BaseParser):
                     "A-6: NUMBAND captured as metadata, not interpreted",
                     "semantics from HDUCLAS3=COUNTS, not EXTNAME='RATE' (F-07)",
                     "epoch=unix_seconds verified via MJDREFI=40587 (F-05)",
-                    "NaN COUNTS preserved as the missing-data sentinel "
-                    "(CONTRADICTION-002); never imputed",
+                    "§2.1 r2: NaN COUNTS preserved as the missing-data "
+                    "sentinel; never imputed, zero-filled, or removed",
                 ])
             return ParsedProduct(
                 data=LcTable(samples=samples, detector=det, obs_date=obs_date_fn,

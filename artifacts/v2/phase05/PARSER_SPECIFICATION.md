@@ -61,9 +61,17 @@ HLS_<YYYYMMDD>_<HHMMSS>_<DUR>sec_lev1_V<XYZ>/
 **Timestamps:** `MJDREFI=40587`, `MJDREFF=0` → **MJD 40587 = 1970-01-01 = Unix epoch**; `TIMESYS='UTC'`, `TIMEUNIT='s'`, `TIMEDEL=1`, `TIMZERO=0`. **∴ `TIME` = Unix seconds UTC.** Verified: `TSTART=1715644800.0` = 2024-05-14T00:00:00Z.
 **Units:** despite `EXTNAME='RATE'`, `HDUCLAS3='COUNTS'` declares the values are **counts per 1-s bin**, not a rate. The parser MUST use `HDUCLAS3`, never `EXTNAME`, to decide semantics (F-07).
 **Coordinate system:** none (non-imaging, Sun-pointed photometry). No spatial columns exist.
-**Missing values:** no NULL convention declared; absence is expressed via GTI, not sentinels. **The parser MUST NOT infer missingness from zero counts** — zero is a physically valid count.
+**Missing values (AMENDED r2 — see §10 / CONTRADICTION-002):** **SoLEXS `COUNTS` uses NaN as the missing-data sentinel.** On the validated reference archive the **NaN set is exactly equal to the GTI-excluded set**. NaN values represent **absent measurements**. **Zero remains a valid physical count** and MUST NOT be treated as missing.
+
+**Parser behaviour (binding).** NaN values MUST: pass through **unchanged**; **never** be imputed; **never** be converted to zero; **never** be removed. The parser is responsible **only** for preserving them — all interpretation happens at aggregation (§3).
+
+`OBSERVED` on 2024-05-14 SDD2: 5 NaN at day-offsets **[0, 5, 30072, 30078, 83951]**, identical to the GTI-excluded set; 0 NaN inside GTI; 0 finite outside GTI; finite count **86,395 == `EXPOSURE`**. *(This independently re-confirms the r1 inclusive convention: under the exclusive reading GTI would exclude ~10 s and could never match the 5 NaNs.)*
+
+**Scope (§8 A-9):** VERIFIED on the reference archive only. Milestone VIII MUST verify the invariant across all **436** SoLEXS archives; any violation is a scientific finding and **TERMINATES validation**.
 **Metadata to capture:** `MISSION, TELESCOP, INSTRUME, ORIGIN, CREATOR, FILENAME, OBS_DATE, OBS_ID, DATE (processing date), FILTER (=SDD2), TSTART, TSTOP, TIMEDEL, NUMBAND`.
-**Validation:** `NAXIS2==86400`; `TIME` strictly increasing, Δ==1 s; `TSTART==TIME[0]`; `OBS_DATE` matches path date; `FILTER` matches directory SDD; `TIMESYS=='UTC'`; `MJDREFI==40587` (F-05 if not).
+**Validation:** `NAXIS2==86400`; `TIME` **finite** and strictly increasing, Δ==1 s (**F-16** — a NaN timestamp would silently defeat the monotonicity test, since all NaN comparisons are False); `TSTART==TIME[0]`; `OBS_DATE` matches path date; `FILTER` matches directory SDD; `TIMESYS=='UTC'`; `MJDREFI==40587` (F-05 if not). **`COUNTS` finiteness is NOT validated at parser level — NaN is data, not an error** (r2). Frozen F-19 covers negative counts only and is inherently NaN-safe (`NaN < 0` is `False`).
+
+**Cross-product integrity (AMENDED r2 — REQUIRED archive-consistency check).** For **every** parsed SoLEXS day: **`NaN(COUNTS)` set MUST equal the GTI-excluded second set exactly.** Any mismatch **terminates validation via F-09**. This is materially stronger than either product can assert alone: it validates the light curve against its GTI *and* re-verifies the inclusive convention on every day. It requires both `.lc` and `.gti` and is therefore enforced at the day-assembly layer (Milestone VII), not inside the single-file `.lc` parser.
 
 ### 2.2 SoLEXS `.pi.gz` — spectra **(the scientific core)**
 
@@ -154,16 +162,18 @@ Format: Parquet, one file per instrument-product per UTC day, partitioned `year=
 
 **Cadence rationale:** 1 min matches the v2 modelling cadence and the inherited harness; native resolution (1 s SoLEXS, ~20 s HEL1OS spectra) remains available from L1 for Phase 1a. Time-averaging to 1 min is declared as the *only* permitted aggregation at this stage; **no spectral aggregation is performed** — all 340/341 channels are retained (roadmap r1: "no lossy aggregation before the capability study").
 
+**Aggregation contract (AMENDED r2 — binding for T1/T2).** Aggregation is defined over **finite observations only** (`np.nansum` semantics). **One NaN MUST NEVER invalidate an otherwise valid minute** — a naive `sum()` over a minute containing a single NaN returns NaN and silently destroys up to 1,439 good seconds. A minute containing **no finite observations** is represented as `counts_total = NaN`, `q_no_data = True`. **No imputation. No filling.**
+
 ### T1 `solexs_lc_1min`
 | column | dtype | unit | notes |
 |---|---|---|---|
 | `timestamp` | datetime64[ns, UTC] | — | index, 1-min |
-| `counts_total` | float64 | counts | Σ over GTI-good seconds in minute |
+| `counts_total` | float64 | counts | Σ over **finite** seconds in the minute (r2); NaN iff no finite second exists |
 | `live_time_s` | float64 | s | GTI∩minute |
 | `rate_total` | float64 | **cts/s** | `counts_total/live_time_s`; NaN if `live_time_s==0` |
 | `gti_fraction` | float64 | — | `live_time_s/60` ∈[0,1] |
-| `n_seconds_present` | int16 | — | rows found in `.lc` |
-| `q_no_data` | bool | — | `live_time_s==0` |
+| `n_seconds_present` | int16 | — | **finite** seconds found in `.lc` (r2) |
+| `q_no_data` | bool | — | no finite observation in the minute (r2) |
 | `q_partial` | bool | — | `0<gti_fraction<1` |
 | `detector` | category | — | `'SDD2'` |
 | `src_file` | string | — | provenance |
@@ -171,7 +181,7 @@ Format: Parquet, one file per instrument-product per UTC day, partitioned `year=
 | `archive_version` | category | — | `v1.0`/`v1.1` |
 
 ### T2 `solexs_spec_1min`
-`timestamp`; `counts` **`list<double>[340]`** (Σ over good seconds, channel-wise); `live_time_s` float64; `channel_index` list<int32>[340] (validated constant, stored once in T7); `q_*` flags; provenance as T1.
+`timestamp`; `counts` **`list<double>[340]`** (Σ over **finite** seconds, channel-wise, per the r2 aggregation contract); `live_time_s` float64; `channel_index` list<int32>[340] (validated constant, stored once in T7); `q_*` flags; provenance as T1.
 **`channel_energy_keV` is ABSENT BY DESIGN** — no RMF exists (§2.2). Adding it later requires a schema revision + an acquired response file.
 
 ### T3 `hel1os_lc_1min`
@@ -277,7 +287,8 @@ One row per parsed source file: `src_file`, `src_sha256` (must equal 0.5.1 manif
 | Check | Method | Pass criterion |
 |---|---|---|
 | **Flare-catalog coincidence** | Superposed-epoch of T1 `rate_total` about all catalogued M/X peaks in the SoLEXS window | Mean rate rises significantly at t=0 vs a matched-quiet baseline; **this is the 0.5.4 authenticity gate — the exact check v1 never ran** |
-| **GTI correctness** | `Σ(STOP−START)` vs `EXPOSURE`; live time vs `n_seconds_present` | ±1 s; no data outside GTI |
+| **GTI correctness** | `Σ(STOP−START+1)` vs `EXPOSURE` (r1, exact); live time vs `n_seconds_present` | exact; no data outside GTI |
+| **NaN⟺GTI bijection** *(new, r2 — REQUIRED)* | per day: `NaN(COUNTS)` set vs GTI-excluded second set | **exactly equal**; mismatch → **F-09**. Milestone VIII runs it across all 436 archives (A-9) |
 | **Monotonic timestamps** | T1–T5 index | strictly increasing, unique, 1-min |
 | **Plausible count rates** | T1/T3 distributions vs instrument design range | no negatives; quiet-Sun floor > 0; no non-physical spikes beyond saturation |
 | **Detector consistency** | CZT1 vs CZT2, CdTe1 vs CdTe2 rate correlation on shared bands | high correlation; disagreement flagged, **not corrected** |
@@ -298,6 +309,7 @@ One row per parsed source file: `src_file`, `src_sha256` (must equal 0.5.1 manif
 - **A-5** SoLEXS `.pi TSTART` shares the `.lc` Unix epoch. → enforced by F-06, not assumed.
 - **A-6** `.lc NUMBAND='4'` semantics unknown while only `TIME`/`COUNTS` columns exist. → captured as metadata, not interpreted.
 - **A-7** The 1-min cadence is adequate. Defensible (matches harness) but it **is** an aggregation; native data remains reachable.
+- **A-9** *(added r2)* The **NaN⟺GTI bijection** (`NaN(COUNTS)` set == GTI-excluded set) is **VERIFIED on the reference archive only** — 2024-05-14 SDD2, 1 of 436. **Milestone VIII MUST verify it across all 436 SoLEXS archives; any violation is a scientific finding that TERMINATES validation** — never tolerated, never absorbed. Same scoping discipline as A-8, and for the same reason: CONTRADICTION-001 and -002 both originated in a convention asserted from a single reading.
 - **A-8** *(added r1)* The **inclusive** GTI convention (`live_time = STOP−START+1`) is **VERIFIED on 2024-05-14 SDD2 only** — one archive of 436. It is deliberately **NOT** promoted to universal archive truth. **Milestone VIII MUST test exact equality across all 436 SoLEXS archives; any deviation is a scientific finding that TERMINATES validation** and is reported, never tolerated and never absorbed by widening the tolerance. Rationale: this assumption is the direct descendant of CONTRADICTION-001, whose root cause was exactly a convention asserted from one reading without arithmetic verification.
 
 **Ambiguous FITS fields:** `.pi`/HEL1OS-spectra `TSTART` epoch (R-1); `EXPOSURE` as string `'86395.0'`; SoLEXS primary `TSTART` as ISO string vs `.lc` HDU1 `TSTART` as float; SDD1 `TSTART=''`; `HDUCLAS3='COUNTS'` (SoLEXS) vs `'COUNT'` (HEL1OS); `EXTNAME='RATE'` containing counts.
@@ -338,3 +350,17 @@ Original contract, grounded in structure-only schema discovery of the real archi
 **Unchanged.** Every other rule, schema, table, and policy of r0. This amendment narrows and sharpens; it weakens nothing.
 
 **Disposition.** **CONTRADICTION-001: CLOSED** by this revision.
+
+### r2 — 2026-07-17 (owner-approved; raised by CONTRADICTION-002)
+
+**Trigger.** Milestone III implementation established that §2.1's missing-value clause — *"absence is expressed via GTI, not sentinels"* — is **factually false**. The real archive uses **NaN in `COUNTS` as a missing-data sentinel**. Unlike r1 the contract remained *satisfiable* (the clause was descriptive, not prescriptive), so Milestone III completed; but the clause would have licensed an incorrect aggregation strategy at Milestone VII.
+
+**Evidence (`OBSERVED`, exact bijection).** 2024-05-14 SDD2: NaN `COUNTS` at day-offsets **[0, 5, 30072, 30078, 83951]** == GTI-excluded seconds **[0, 5, 30072, 30078, 83951]**; **0** NaN inside GTI; **0** finite outside GTI; finite count **86,395 == `EXPOSURE`**. The correspondence holds in both directions. **This independently re-confirms r1**: under the exclusive convention GTI would exclude ~10 s and could never match the 5 NaNs — two mutually confirming lines of evidence from different files now support the inclusive rule.
+
+**Two defects, separated.** (A) *Implementation*: the M-III parser raised F-19 on non-finite `COUNTS`, an invented check — frozen F-19 covers negative counts only, and §2.1's validation list never mentioned finiteness. Fixed under the implementer's own authority; no contract change required. (B) *Contract*: the false clause, amended here.
+
+**Changes.** §2.1 missing-value description replaced (NaN is the sentinel; zero remains a valid count); parser behaviour made binding (pass through unchanged; never impute, zero-fill, or remove); §2.1 validation clarified (`TIME` finiteness → F-16; `COUNTS` finiteness NOT validated — NaN is data); **new REQUIRED cross-product integrity rule** (`NaN(COUNTS)` set == GTI-excluded set, mismatch → **F-09**), enforced at the day-assembly layer since it needs both `.lc` and `.gti`; §3 **aggregation contract** added (finite-only aggregation; one NaN must never invalidate a minute; empty minute → `counts_total = NaN`, `q_no_data = True`; no imputation, no filling); §7 sanity-check table gains the bijection row; §8 gains **A-9** scoping the invariant to the reference archive with a Milestone VIII archive-wide obligation.
+
+**Unchanged.** Every other rule, schema, table, and policy. The 20 fail-loud rule identifiers are untouched — r2 adds a new *application* of F-09, not a new rule. This amendment strengthens: it adds an integrity check the contract lacked and closes a silent data-destruction path at T1 before any code depended on it. **Nothing weakened.**
+
+**Disposition.** **CONTRADICTION-002: CLOSED** by this revision.
