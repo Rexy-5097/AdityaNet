@@ -1,0 +1,200 @@
+{
+ "preregistration": "00_PREREGISTRATION.md @ 58fe865 (expE-prereg) + r1 @ b9c8e7a",
+ "layer1_measurements": {
+  "regression": {
+   "n_included": 7050,
+   "counts_by_class": {
+    "B": 165,
+    "C": 5596,
+    "M": 1217,
+    "X": 72
+   },
+   "excluded_by_reason": {
+    "outside_span": 14791,
+    "malformed_class": 0,
+    "class_not_BCMX": 103,
+    "availability_lt_0.5": 1,
+    "nonfinite_predictor": 0
+   },
+   "intercept_beta0": -5.373014466098076,
+   "slope_beta1_log_solexs_soft": 0.001347748002585818,
+   "slope_beta2_solexs_HR_high_low": 0.011035533572606544,
+   "slope_beta3_log_hel1os_band0": -6.129453403139792e-06,
+   "R2": 0.001752830044346676,
+   "residual_mean": -5.692404782373114e-15,
+   "residual_SD_sigma_dex": 0.41948323641665236,
+   "MAE_dex": 0.31925493710250497,
+   "RMSE_dex": 0.4193642171955259,
+   "sigma_CI95": [
+    0.4060225583899388,
+    0.4328495251026944
+   ],
+   "bootstrap": {
+    "n_reps_effective": 1000,
+    "n_days": 732,
+    "seed": 20260717
+   }
+  },
+  "availability_audit": {
+   "MX": {
+    "n": 1289,
+    "solexs_usable": 1.0,
+    "hel1os_usable": 1.0,
+    "both": 1.0,
+    "neither": 0.0
+   },
+   "C": {
+    "n": 5597,
+    "solexs_usable": 0.9998213328568876,
+    "hel1os_usable": 1.0,
+    "both": 0.9998213328568876,
+    "neither": 0.0
+   }
+  }
+ },
+ "layer2_bridge_HYPOTHESIS": {
+  "assumptions": "S14 (i)-(vi): Gaussian homoscedastic; independent; real method achieves exactly sigma; window-to-episode transfer; one decision per label episode; non-C false retained",
+  "FE_impl_sigma_hat": 29.803671834384602,
+  "FE_impl_sigma_lo": 29.23549022436199,
+  "FE_impl_sigma_hi": 30.338749663238524,
+  "per_seed": {
+   "hat": [
+    36.307,
+    35.172,
+    21.276,
+    23.189,
+    33.074
+   ],
+   "lo": [
+    35.447,
+    34.458,
+    20.927,
+    22.755,
+    32.591
+   ],
+   "hi": [
+    36.884,
+    35.849,
+    21.603,
+    23.6,
+    33.758
+   ]
+  },
+  "population_sizes": {
+   "42": {
+    "n_other": 66,
+    "F_C": 346,
+    "F_MX": 130,
+    "n_false": 412,
+    "n_C_false": 346,
+    "rec_un": 0.9155
+   },
+   "43": {
+    "n_other": 54,
+    "F_C": 316,
+    "F_MX": 128,
+    "n_false": 370,
+    "n_C_false": 316,
+    "rec_un": 0.9014
+   },
+   "44": {
+    "n_other": 20,
+    "F_C": 186,
+    "F_MX": 128,
+    "n_false": 206,
+    "n_C_false": 186,
+    "rec_un": 0.9014
+   },
+   "45": {
+    "n_other": 23,
+    "F_C": 214,
+    "F_MX": 128,
+    "n_false": 237,
+    "n_C_false": 214,
+    "rec_un": 0.9014
+   },
+   "46": {
+    "n_other": 42,
+    "F_C": 316,
+    "F_MX": 128,
+    "n_false": 358,
+    "n_C_false": 316,
+    "rec_un": 0.9014
+   }
+  }
+ },
+ "layer3_interpretation": {
+  "H_availability_supported": false,
+  "outcome": "B"
+ },
+ "layer4_decision": "does_not_support_further_modelling",
+ "secondaries_EXPLORATORY": {
+  "residual_SD_by_flux_quartile": [
+   0.14036317151439925,
+   0.06782898607243178,
+   0.0800872607587124,
+   0.3370429327878627
+  ],
+  "residual_mean_SD_by_class": {
+   "B": [
+    -0.7428063512390443,
+    0.0648599971813402
+   ],
+   "C": [
+    -0.12986020464480055,
+    0.2484221549348298
+   ],
+   "M": [
+    0.6032923473208059,
+    0.2518400114128041
+   ],
+   "X": [
+    1.5979717563511828,
+    0.2478850114381135
+   ]
+  },
+  "residual_SD_boundary_local_C4_to_M4": 0.2342297099558883,
+  "residual_SD_hel1os_usable_vs_not": [
+   0.4193642171955259,
+   NaN
+  ],
+  "residual_corr_with_solexs_avail": 0.004599692194238246,
+  "residual_SD_first_vs_second_half": [
+   0.41490120181166457,
+   0.39418875557122485
+  ],
+  "sigma_univariate_solexs_only": 0.4197622213425781,
+  "implied_max_class_AUC_at_sigma_hat": {
+   "per_seed": [
+    0.8281,
+    0.8144,
+    0.7777,
+    0.7933,
+    0.8148
+   ],
+   "mean": 0.8056737633975859
+  },
+  "missed_MX_label_eps__n_and_lowavail": [
+   [
+    12,
+    0
+   ],
+   [
+    14,
+    0
+   ],
+   [
+    14,
+    0
+   ],
+   [
+    14,
+    0
+   ],
+   [
+    14,
+    0
+   ]
+  ]
+ }
+}
