@@ -33,7 +33,12 @@ _FNAME = re.compile(r"AL1_SOLEXS_(?P<date>\d{8})_(?P<det>SDD\d)_L1\.gti", re.I)
 # AL1_SLX_L1_<YYYYMMDD>_v<ver>
 _ARCHIVE_VER = re.compile(r"AL1_SLX_L1_\d{8}_v(?P<ver>[\d.]+)", re.I)
 
-EXPOSURE_TOL_S = 1.0            # §2.3 / F-09
+# §2.3 (amended r1, CONTRADICTION-001): GTI START/STOP are INCLUSIVE second-marks
+# at 1-s sampling, so live_time = STOP - START + GTI_INCLUSIVE_S.
+# F-09 is EXACT equality (tolerance 0 s): the relation is definitional, and a
+# tolerance would re-admit the ambiguity that produced CONTRADICTION-001.
+GTI_INCLUSIVE_S = 1.0
+
 
 
 @dataclass(frozen=True)
@@ -115,7 +120,8 @@ class SolexsGtiParser(BaseParser):
                 raise FailLoud("F-16", f"GTI intervals overlap at row {bad}", file=path,
                                expected="non-overlapping", got=(stop[bad], start[bad + 1]))
 
-            summed = float(np.sum(stop - start))
+            # §2.3 amended r1: inclusive endpoints -> +1 s per interval.
+            summed = float(np.sum(stop - start + GTI_INCLUSIVE_S))
             # EXPOSURE is a STRING in the archive (§2.3) -> parse explicitly,
             # never coerce silently.
             exp_raw = require_header(gti.header, "EXPOSURE", file=path, hdu="GTI")
@@ -126,10 +132,13 @@ class SolexsGtiParser(BaseParser):
                                file=path, hdu="GTI") from e
             if exposure < 0:
                 raise FailLoud("F-19", "negative EXPOSURE", file=path, got=exposure)
-            if abs(summed - exposure) > EXPOSURE_TOL_S:
-                raise FailLoud("F-09", "sum(STOP-START) != EXPOSURE", file=path,
-                               hdu="GTI", expected=f"{exposure} +/-{EXPOSURE_TOL_S}",
-                               got=summed)
+            # F-09 amended r1: EXACT equality, tolerance 0 s. A-8 scopes the
+            # inclusive convention to the verified target; Milestone VIII must
+            # test all 436 archives and TERMINATE on any deviation.
+            if summed != exposure:
+                raise FailLoud("F-09", "sum(STOP-START+1) != EXPOSURE (exact)",
+                               file=path, hdu="GTI",
+                               expected=f"{exposure} (exact)", got=summed)
 
             # ── epoch: Unix seconds, verified against OBS_DATE (§2.3) ────────
             day0 = pd.Timestamp(obs_date_fn, tz="UTC")
@@ -144,7 +153,8 @@ class SolexsGtiParser(BaseParser):
 
             intervals = pd.DataFrame({
                 "start_utc": t0, "stop_utc": t1,
-                "duration_s": (stop - start).astype(np.float64)})
+                # §2.3 amended r1: inclusive live time, consistent with F-09.
+                "duration_s": (stop - start + GTI_INCLUSIVE_S).astype(np.float64)})
 
             prov = self._prov(path, sha256, det, archive_version, obs_date_fn,
                               creator, processing_date, obs_id, nrows, len(intervals),

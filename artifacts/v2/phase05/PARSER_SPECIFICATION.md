@@ -80,8 +80,17 @@ HLS_<YYYYMMDD>_<HHMMSS>_<DUR>sec_lev1_V<XYZ>/
 ### 2.3 SoLEXS `.gti.gz` — good time intervals
 
 **Purpose:** live-time intervals. **`OBSERVED`:** HDU1 `GTI`, OGIP; columns `START` (D), `STOP` (D), **units undeclared**; primary `TSTART`/`TSTOP` are **ISO-8601 strings** (`'2024-05-14T00:00:01+00:00'`) while HDU1 `EXPOSURE` is a **string** (`'86395.0'`).
-**Timestamps:** `START`/`STOP` are **Unix seconds** — verified: first row `1715644801.0` = 2024-05-14T00:00:01Z, consistent with the primary ISO string. SDD2 on the sample day: **5 intervals, 4 gaps of ~2 s, EXPOSURE 86395/86400 s**.
-**Validation:** `START<STOP` per row; rows sorted and non-overlapping; `Σ(STOP−START)` ≈ `EXPOSURE` (±1 s) → else F-09; all intervals within `[OBS_DATE 00:00, 23:59:59]`; **NAXIS2==0 is legal** → detector inactive (F-12 path).
+**Timestamps:** `START`/`STOP` are **Unix seconds** — verified: first row `1715644801.0` = 2024-05-14T00:00:01Z, consistent with the primary ISO string.
+
+**Interval convention (AMENDED r1 — see §10 CONTRADICTION-001).** `START`/`STOP` are **INCLUSIVE second-marks** at 1-s sampling:
+
+> **`live_time(interval) = STOP − START + 1`**
+
+`OBSERVED` on 2024-05-14 SDD2: 5 intervals; `Σ(STOP−START+1) = 86395.0 s` = declared `EXPOSURE` with **exactly zero error**; independent second-coverage confirms 86,395 of 86,400 s. The excluded seconds are day-offsets **[0, 5, 30072, 30078, 83951]** — second 0 (data begins 00:00:01, matching the primary ISO `TSTART`) plus four isolated 1-s dropouts. *(The pre-amendment reading — "4 gaps of ~2 s" — was an artifact of the exclusive assumption.)*
+
+**Scope of the convention (binding, §8 A-8):** VERIFIED for the implementation target (2024-05-14 SDD2) only. **It is NOT promoted to universal archive truth.** Milestone VIII MUST verify exact equality across all **436** SoLEXS archives; **any deviation is a scientific finding and MUST terminate validation** (never tolerate, never widen).
+
+**Validation:** `START<STOP` per row; rows sorted and non-overlapping; **`Σ(STOP−START+1) == EXPOSURE` (EXACT equality, tolerance 0 s)** → else F-09; all intervals within `[OBS_DATE 00:00, 23:59:59]`; **NAXIS2==0 is legal** → detector inactive (F-12 path).
 
 ### 2.4 SoLEXS `.hk.gz` — housekeeping (**v1.1 only, 5 days**)
 
@@ -224,7 +233,7 @@ One row per parsed source file: `src_file`, `src_sha256` (must equal 0.5.1 manif
 | F-06 | Epoch resolution R-1 fails, or `.pi TSTART[0] ≠ .lc TSTART` | Ambiguous time |
 | F-07 | Declared unit contradicts assumption (`HDUCLAS3` vs `EXTNAME`; `cts/sec` vs counts) | Cross-instrument mismatch |
 | F-08 | `.pi CHANNEL` vector not constant across rows | Channel map assumption void |
-| F-09 | `Σ(STOP−START)` ≠ `EXPOSURE` ±1 s | GTI inconsistent |
+| F-09 | **`Σ(STOP−START+1)` ≠ `EXPOSURE` (EXACT, tolerance 0 s)** — *amended r1* | GTI inconsistent. Exact, not approximate: the relation is definitional, and a tolerance would re-admit the ambiguity that produced CONTRADICTION-001 |
 | F-10 | Band `EXTNAME` outside the §2.6 allowlist | Unknown band silently ingested |
 | F-11 | Any attempt to merge SoLEXS PI(340) with HEL1OS PHA(341) | Incommensurable channel spaces |
 | F-12 | GTI `NAXIS2==0` **→ not fatal**: set `detector_active=False`, emit zero rows, log | Legal state (SDD1) |
@@ -245,7 +254,7 @@ One row per parsed source file: `src_file`, `src_sha256` (must equal 0.5.1 manif
 
 **D1 — 2024-05-14 (mandated; GOES X8.7 at 16:51 UTC).** SoLEXS-only (**no HEL1OS exists before 2025-12-07**).
 *Expected files:* `AL1_SLX_L1_20240514_v1.0` → SDD1 `.gti`(0 rows); SDD2 `.gti`(5 rows), `.lc`(86400), `.pi`(86400×340).
-*Expected observations:* 1440 T1 rows; 1440 T2 rows; live time ≈ 86395 s; GTI gaps ≈ 4×2 s.
+*Expected observations:* 1440 T1 rows; 1440 T2 rows; **live time exactly 86395 s** (`Σ(STOP−START+1)`); **5 excluded seconds at day-offsets [0, 5, 30072, 30078, 83951]** — second 0 plus four isolated 1-s dropouts *(amended r1; the earlier "4 gaps of ~2 s" was an exclusive-convention artifact — see §10)*.
 *Acceptance:* all F-rules pass; T1 `rate_total` peak **within ±2 min of 16:51 UTC**; peak/quiet contrast ≥ 3×; T2 channel sums reconcile with T1 `counts_total` to ≤ 0.1%.
 *Failure:* no peak within ±10 min of 16:51 → **STOP, escalate** (parser or archive wrong; do not proceed).
 
@@ -289,6 +298,7 @@ One row per parsed source file: `src_file`, `src_sha256` (must equal 0.5.1 manif
 - **A-5** SoLEXS `.pi TSTART` shares the `.lc` Unix epoch. → enforced by F-06, not assumed.
 - **A-6** `.lc NUMBAND='4'` semantics unknown while only `TIME`/`COUNTS` columns exist. → captured as metadata, not interpreted.
 - **A-7** The 1-min cadence is adequate. Defensible (matches harness) but it **is** an aggregation; native data remains reachable.
+- **A-8** *(added r1)* The **inclusive** GTI convention (`live_time = STOP−START+1`) is **VERIFIED on 2024-05-14 SDD2 only** — one archive of 436. It is deliberately **NOT** promoted to universal archive truth. **Milestone VIII MUST test exact equality across all 436 SoLEXS archives; any deviation is a scientific finding that TERMINATES validation** and is reported, never tolerated and never absorbed by widening the tolerance. Rationale: this assumption is the direct descendant of CONTRADICTION-001, whose root cause was exactly a convention asserted from one reading without arithmetic verification.
 
 **Ambiguous FITS fields:** `.pi`/HEL1OS-spectra `TSTART` epoch (R-1); `EXPOSURE` as string `'86395.0'`; SoLEXS primary `TSTART` as ISO string vs `.lc` HDU1 `TSTART` as float; SDD1 `TSTART=''`; `HDUCLAS3='COUNTS'` (SoLEXS) vs `'COUNT'` (HEL1OS); `EXTNAME='RATE'` containing counts.
 
@@ -307,3 +317,24 @@ One row per parsed source file: `src_file`, `src_sha256` (must equal 0.5.1 manif
 Parser Specification (§1–2), Data Schema Specification (§3), Version Policy (§4), Failure Matrix (§5), Validation Protocol (§6–7), Self-Review Report (§8).
 
 **Implementation may not begin until this contract is approved.**
+
+---
+
+## 10. Specification Revision History
+
+### r0 — 2026-07-17, commit `6de0eb2` (frozen)
+Original contract, grounded in structure-only schema discovery of the real archive.
+
+### r1 — 2026-07-17 (owner-approved; raised by CONTRADICTION-001)
+
+**Trigger.** Milestone II implementation proved r0 **impossible to satisfy**: rule F-09 as frozen (`Σ(STOP−START)` ≈ `EXPOSURE` ±1 s) *rejected the valid, mandated D1 reference file* `AL1_SOLEXS_20240514_SDD2_L1.gti.gz` — computing 86390.0 s against a declared `EXPOSURE` of 86395.0 s, a −5.0 s error outside the ±1.0 s tolerance. The parser correctly refused to parse the reference file of the reference day.
+
+**Evidence (triple-confirmed, `OBSERVED`).** (a) `Σ(STOP−START+1)` = 86395.0 s = `EXPOSURE`, error **exactly 0.0 s**; the −5.0 s discrepancy equals the interval count precisely — the signature of an off-by-one endpoint convention, not of corrupt data. (b) Independent inclusive second-coverage = **86,395 / 86,400 s**, equal to `EXPOSURE` exactly. (c) The excluded seconds `[0, 5, 30072, 30078, 83951]` are physically coherent: second 0 (data begins 00:00:01, matching the primary ISO `TSTART`) plus four isolated 1-s dropouts.
+
+**Root cause of the r0 defect.** When drafting §2.3 I asserted the standard OGIP *exclusive* convention **without summing the intervals**. Structure-only discovery captured the schema correctly but never tested the *arithmetic relationship between two fields* — a gap in the discovery method, not in the data. r0 was additionally **internally inconsistent**: §5 F-09 implied 86390 s while §6 D1 already stated "live time ≈ 86395 s"; the real data adjudicated for §6.
+
+**Changes.** §2.3 — inclusive convention declared explicitly (`live_time = STOP−START+1`) with the measured excluded-second description replacing the inferred "4×2 s gaps". §5 F-09 — restated as `Σ(STOP−START+1) == EXPOSURE`, **tolerance tightened from ±1 s to EXACT**, because the relation is definitional and a tolerance would re-admit the ambiguity that caused the defect. §6 D1 — measured description substituted. §8 — assumption **A-8** added, scoping the convention to the verified target and mandating the 436-archive check at Milestone VIII with termination on any deviation.
+
+**Unchanged.** Every other rule, schema, table, and policy of r0. This amendment narrows and sharpens; it weakens nothing.
+
+**Disposition.** **CONTRADICTION-001: CLOSED** by this revision.

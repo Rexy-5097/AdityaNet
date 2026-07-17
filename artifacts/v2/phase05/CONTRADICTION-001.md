@@ -1,10 +1,10 @@
-<!-- VERSION STATUS: CURRENT — BLOCKING -->
-<!-- REASON: Implementation proves a frozen-contract rule impossible to satisfy. Milestone II halted. -->
+<!-- VERSION STATUS: CLOSED -->
+<!-- REASON: Implementation proved a frozen-contract rule impossible to satisfy. RESOLVED by spec r1. -->
 <!-- DATE: 2026-07-17 -->
 
 # CONTRADICTION-001 — Frozen contract rule F-09 rejects valid archive data
 
-**Status: BLOCKING. Milestone II halted. No specification change made. Awaiting owner approval.**
+**Status: CLOSED 2026-07-17 — owner approved the §6 amendment; applied as PARSER_SPECIFICATION.md r1 (§10 Revision History). Milestone II now passes 32/32 with the xfail marker removed. See COMPLIANCE_M2.md.**
 
 Raised under the Phase 0.5.2 implementation rule: *"If the implementation contradicts the specification, STOP, document the contradiction, explain why, and wait for approval"* and *"No design changes are permitted unless implementation proves the contract impossible to satisfy."*
 
@@ -73,4 +73,4 @@ The two sections contradict each other, and the real data adjudicates for **§6*
 
 Milestone II code is complete and passes **29/30** tests, including every fail-loud path (F-01, F-02, F-04, F-06, F-07, F-09, F-12, F-16, F-18, F-19) and the real SDD1 empty-GTI F-12 case. The single failing test is the real SDD2 D1 file, marked `xfail(strict=True)` referencing this document — **strict**, so that if the contract is amended and the test starts passing, the marker itself fails and forces its own removal. Nothing has been weakened: `EXPOSURE_TOL_S` remains 1.0 s and F-09 remains exactly as frozen.
 
-**Awaiting approval of the §6 amendment before Milestone II can complete.**
+**RESOLVED.** All 5 proposed changes were approved and applied verbatim. F-09 was *tightened* (±1 s → exact), never weakened. The obligation from §6.5 is carried forward: **Milestone VIII must verify `Σ(STOP−START+1) == EXPOSURE` across all 436 SoLEXS archives and TERMINATE on any deviation** (spec §8 A-8).
