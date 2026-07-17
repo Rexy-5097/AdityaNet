@@ -67,11 +67,18 @@ HLS_<YYYYMMDD>_<HHMMSS>_<DUR>sec_lev1_V<XYZ>/
 
 `OBSERVED` on 2024-05-14 SDD2: 5 NaN at day-offsets **[0, 5, 30072, 30078, 83951]**, identical to the GTI-excluded set; 0 NaN inside GTI; 0 finite outside GTI; finite count **86,395 == `EXPOSURE`**. *(This independently re-confirms the r1 inclusive convention: under the exclusive reading GTI would exclude ~10 s and could never match the 5 NaNs.)*
 
-**Scope (§8 A-9):** VERIFIED on the reference archive only. Milestone VIII MUST verify the invariant across all **436** SoLEXS archives; any violation is a scientific finding and **TERMINATES validation**.
+**Scope (§8 A-9 — DISCHARGED at Milestone VII, r5):** the archive-wide check ran during M-VII. The r2 **equality** claim was falsified and is superseded by the r5 implication (`NaN ⇒ GTI-excluded`). See §8 A-9 and A-14.
 **Metadata to capture:** `MISSION, TELESCOP, INSTRUME, ORIGIN, CREATOR, FILENAME, OBS_DATE, OBS_ID, DATE (processing date), FILTER (=SDD2), TSTART, TSTOP, TIMEDEL, NUMBAND`.
 **Validation:** `NAXIS2==86400`; `TIME` **finite** and strictly increasing, Δ==1 s (**F-16** — a NaN timestamp would silently defeat the monotonicity test, since all NaN comparisons are False); `TSTART==TIME[0]`; `OBS_DATE` matches path date; `FILTER` matches directory SDD; `TIMESYS=='UTC'`; `MJDREFI==40587` (F-05 if not). **`COUNTS` finiteness is NOT validated at parser level — NaN is data, not an error** (r2). Frozen F-19 covers negative counts only and is inherently NaN-safe (`NaN < 0` is `False`).
 
-**Cross-product integrity (AMENDED r2 — REQUIRED archive-consistency check).** For **every** parsed SoLEXS day: **`NaN(COUNTS)` set MUST equal the GTI-excluded second set exactly.** Any mismatch **terminates validation via F-09**. This is materially stronger than either product can assert alone: it validates the light curve against its GTI *and* re-verifies the inclusive convention on every day. It requires both `.lc` and `.gti` and is therefore enforced at the day-assembly layer (Milestone VII), not inside the single-file `.lc` parser.
+**Cross-product integrity (AMENDED r5 — supersedes the r2 bijection; see §10 / CONTRADICTION-005 Defect B).** The r2 rule asserted set **equality** and is **withdrawn**: archive-wide execution falsified it. The parser-level invariant is now a **logical implication**:
+
+> **`NaN(COUNTS)` ⇒ `GTI-excluded`**
+
+- A **NaN inside GTI-good time** is an **F-09 violation** — missing data must never be silently treated as observed.
+- A **GTI-excluded second is PERMITTED to contain a finite count.**
+
+The implication is the strong half: it forbids the dangerous direction while asserting nothing the archive does not support. It requires both `.lc` and `.gti` and is enforced at the day-assembly layer (Milestone VII), not inside the single-file `.lc` parser. **The physical reason for GTI exclusions beyond data absence is a Milestone VIII scientific question (§8 A-14).**
 
 ### 2.2 SoLEXS `.pi.gz` — spectra **(the scientific core)**
 
@@ -128,7 +135,16 @@ HLS_<YYYYMMDD>_<HHMMSS>_<DUR>sec_lev1_V<XYZ>/
 
 ### 2.7 HEL1OS `hel1os_{czt,cdte}_spectra_{det}.fits`
 
-**Purpose:** per-detector spectra. **`OBSERVED`:** HDU1 `SPECTRUM`, Type II, **`DETCHANS=341`**, **`CHANTYPE='PHA'`**, `HDUCLAS3='COUNT'` (singular).
+**Purpose:** per-detector spectra. **`OBSERVED`:** HDU1 `SPECTRUM`, Type II, `HDUCLAS3='COUNT'` (singular), **`CHANTYPE='PHA'`**.
+
+**Channel space (AMENDED r5 — see §10 / CONTRADICTION-005 Defect A).** HEL1OS has **two detector families with different PHA channel spaces**. `DETCHANS` is validated against a **family-specific allowlist**, never a single scalar:
+
+| Detector family | `DETCHANS` | `CHANTYPE` |
+|---|---|---|
+| **CZT** (CZT1, CZT2) | **341** | PHA |
+| **CdTe** (CdTe1, CdTe2) | **511** | PHA |
+
+An unlisted `(family, DETCHANS)` pair **terminates via F-07** — exactly as an unlisted band terminates via F-10. Scope: **§8 A-13**.
 **Columns:** `SPEC_NUM` (I), `CHANNEL` (341J), `COUNTS` (341D, **`cts`**), `STAT_ERR` (341D), `ROWID` (12A), `TSTART` (D, `s`), `TSTOP` (D, `s`), `EXPOSURE` (D, `s`). `NAXIS2 = 2157` over a 43178 s orbit → **~20 s cadence**.
 > **RESOLVED (AMENDED r4 — see §10 / CONTRADICTION-004 Defect A).** The r0 framing was wrong: it read the conflict between column `unit='s'` and header `TSTART`-as-MJD as an **epoch** ambiguity. It is not. **The `unit='s'` declaration is correct — the column really is seconds.** The genuine unknown was the **origin**, and both metadata statements are true and *compose*.
 >
@@ -218,7 +234,9 @@ Format: Parquet, one file per instrument-product per UTC day, partitioned `year=
 `timestamp`; `czt1temp, czt2temp, cdte1temp, cdte2temp` (degC); `czthvmon, cdtehvmon` (V); `cdte1pilectr, cdte2pilectr, czt1satctr1, czt2satctr1` (counters, minute-max); `czt1hotpixcnt, czt2hotpixcnt`; `czt1enth, cdte1enerthr, cdte2enerthr`; `suninfov` (bool, minute-min = conservative); `sunradeg, sundecdeg`; `fehkstat`; provenance.
 
 ### T5 `hel1os_spec_1min`
-`timestamp`; `detector` category; `counts` list<double>[**341**]; `stat_err` list<double>[341]; `live_time_s`; `chantype` category (`'PHA'`); provenance. **Kept separate from T2 — different channel space (F-11).**
+`timestamp`; `detector` category; **`detchans` int16 (AMENDED r5 — carried EXPLICITLY: 341 for CZT, 511 for CdTe)**; `counts` list<double>[`detchans`]; `stat_err` list<double>[`detchans`]; `live_time_s`; `chantype` category (`'PHA'`); provenance.
+
+**Kept separate from T2 — different channel space (F-11). CZT and CdTe channel arrays MUST NEVER be merged (r5):** they are different lengths and different spaces, and stacking them would silently fabricate a channel correspondence that does not exist.
 
 ### T6 `gti_intervals` (long)
 `instrument`, `detector`, `start_utc`, `stop_utc` (datetime64[ns,UTC]), `duration_s`, `src_file`, `src_sha256`.
@@ -272,7 +290,7 @@ One row per parsed source file: `src_file`, `src_sha256` (must equal 0.5.1 manif
 | F-08 | `.pi CHANNEL` vector not constant across rows | Channel map assumption void |
 | F-09 | **`Σ(STOP−START+1)` ≠ `EXPOSURE` (EXACT, tolerance 0 s)** — *amended r1* | GTI inconsistent. Exact, not approximate: the relation is definitional, and a tolerance would re-admit the ambiguity that produced CONTRADICTION-001 |
 | F-10 | Band `EXTNAME` outside the §2.6 allowlist | Unknown band silently ingested |
-| F-11 | Any attempt to merge SoLEXS PI(340) with HEL1OS PHA(341) | Incommensurable channel spaces |
+| F-11 | Any attempt to merge the **three** incommensurable channel spaces — **SoLEXS PI(340)**, **HEL1OS CZT PHA(341)**, **HEL1OS CdTe PHA(511)** *(amended r5)* | Incommensurable channel spaces |
 | F-12 | GTI `NAXIS2==0` **→ not fatal**: set `detector_active=False`, emit zero rows, log | Legal state (SDD1) |
 | F-13 | Member SHA-256 ≠ 0.5.1 manifest | Archive mutated |
 | F-14 | Version precedence unresolved after all tie-breaks | No coin-flips |
@@ -315,7 +333,7 @@ One row per parsed source file: `src_file`, `src_sha256` (must equal 0.5.1 manif
 |---|---|---|
 | **Flare-catalog coincidence** | Superposed-epoch of T1 `rate_total` about all catalogued M/X peaks in the SoLEXS window | Mean rate rises significantly at t=0 vs a matched-quiet baseline; **this is the 0.5.4 authenticity gate — the exact check v1 never ran** |
 | **GTI correctness** | `Σ(STOP−START+1)` vs `EXPOSURE` (r1, exact); live time vs `n_seconds_present` | exact; no data outside GTI |
-| **NaN⟺GTI bijection** *(new, r2 — REQUIRED)* | per day: `NaN(COUNTS)` set vs GTI-excluded second set | **exactly equal**; mismatch → **F-09**. Milestone VIII runs it across all 436 archives (A-9) |
+| **NaN ⇒ GTI-excluded** *(amended r5 — REQUIRED)* | per day: is every NaN second GTI-excluded? | **implication must hold**; a NaN inside good time → **F-09**. A GTI-excluded second may hold a finite count. A-9 **DISCHARGED at M-VII**; the excess is A-14 |
 | **Monotonic timestamps** | T1–T5 index | strictly increasing, unique, 1-min |
 | **Plausible count rates** | T1/T3 distributions vs instrument design range | no negatives; quiet-Sun floor > 0; no non-physical spikes beyond saturation |
 | **Detector consistency** | CZT1 vs CZT2, CdTe1 vs CdTe2 rate correlation on shared bands | high correlation; disagreement flagged, **not corrected** |
@@ -342,7 +360,9 @@ One row per parsed source file: `src_file`, `src_sha256` (must equal 0.5.1 manif
 - **A-7** The 1-min cadence is adequate. Defensible (matches harness) but it **is** an aggregation; native data remains reachable.
 - **A-11** *(added r4)* The **relative-seconds** convention for HEL1OS spectra `TSTART` (H3) is VERIFIED on **one orbit only**. Milestone VIII MUST verify it across all **391** HEL1OS orbits; any deviation **TERMINATES validation** as a scientific finding.
 - **A-12** *(added r4)* HK time **jitter is characterised on one orbit only** (424/9,513 inversions, max ~13 ms). Milestone VIII MUST report the distribution of `max_backward_step_s` across all **391** orbits. **Drifting or growing jitter is a scientific finding**, not a tolerance to widen.
-- **A-9** *(added r2)* The **NaN⟺GTI bijection** (`NaN(COUNTS)` set == GTI-excluded set) is **VERIFIED on the reference archive only** — 2024-05-14 SDD2, 1 of 436. **Milestone VIII MUST verify it across all 436 SoLEXS archives; any violation is a scientific finding that TERMINATES validation** — never tolerated, never absorbed. Same scoping discipline as A-8, and for the same reason: CONTRADICTION-001 and -002 both originated in a convention asserted from a single reading.
+- **A-9** *(added r2; **DISCHARGED at Milestone VII**, r5)* The NaN⟺GTI **bijection** was checked across the SoLEXS archive during the M-VII build — earlier than planned, because the T1 builder runs the check per day. **Result: the equality claim was VIOLATED and is withdrawn.** The invariant that survives is the one-directional implication `NaN(COUNTS) ⇒ GTI-excluded` (§2.1 r5). *A-9 is closed. The measured statistics are recorded in CONTRADICTION-005 and the dataset profile — deliberately NOT in this contract.*
+- **A-13** *(added r5)* The **per-family HEL1OS channel counts** (CZT → 341, CdTe → 511) are **VERIFIED on a sample of 8 orbits only**. **Milestone VIII MUST verify across all 391 orbits; any deviation TERMINATES validation.** This assumption exists because §2.7's original scalar `DETCHANS` carried *no* scoping assumption — the omission that produced CONTRADICTION-005 Defect A.
+- **A-14** *(added r5)* **The excess of GTI-excluded seconds over NaN seconds is UNEXPLAINED.** A GTI-excluded second may legitimately carry a finite count, so GTI evidently excludes time for reasons beyond data absence. **The physical reason is a Milestone VIII scientific question**, to be resolved alongside CONTRADICTION-003. **No mechanism is asserted and no statistic is encoded here.**
 - **A-8** *(added r1)* The **inclusive** GTI convention (`live_time = STOP−START+1`) is **VERIFIED on 2024-05-14 SDD2 only** — one archive of 436. It is deliberately **NOT** promoted to universal archive truth. **Milestone VIII MUST test exact equality across all 436 SoLEXS archives; any deviation is a scientific finding that TERMINATES validation** and is reported, never tolerated and never absorbed by widening the tolerance. Rationale: this assumption is the direct descendant of CONTRADICTION-001, whose root cause was exactly a convention asserted from one reading without arithmetic verification.
 
 **Ambiguous FITS fields:** `.pi`/HEL1OS-spectra `TSTART` epoch (R-1); `EXPOSURE` as string `'86395.0'`; SoLEXS primary `TSTART` as ISO string vs `.lc` HDU1 `TSTART` as float; SDD1 `TSTART=''`; `HDUCLAS3='COUNTS'` (SoLEXS) vs `'COUNT'` (HEL1OS); `EXTNAME='RATE'` containing counts.
@@ -423,3 +443,19 @@ Original contract, grounded in structure-only schema discovery of the real archi
 **Unchanged.** Every other rule, schema, and policy. The 20 fail-loud rule ids are untouched. **Nothing weakened:** F-16 still fires on duplicate timestamps; R-1 still terminates when no hypothesis fits.
 
 **Disposition.** **CONTRADICTION-004: CLOSED** by this revision.
+
+### r5 — 2026-07-17 (owner-approved; raised by CONTRADICTION-005)
+
+**Trigger.** The first archive-wide canonical build falsified three frozen rules at once. The build ran to completion and **reported its own failure**: SoLEXS 353/436 built, **HEL1OS 0/391**, 474 products skipped, each logged with its rule id. The owner ruled the defects **independent** and adjudicated them separately.
+
+**Defect A — APPROVED in full.** §2.7 asserted a single `DETCHANS=341`. `OBSERVED`: HEL1OS has **two detector families with different PHA channel spaces** — **CZT 341**, **CdTe 511**. Every orbit contains CdTe spectra, so every orbit terminated via F-07 and T3/T4/T5 were empty archive-wide. §2.7 now validates `DETCHANS` against a **family-specific allowlist**; §3 T5 carries **`detchans` explicitly** and **CZT/CdTe channel arrays must never be merged**; **F-11 is restated over three incommensurable spaces** (SoLEXS PI 340, CZT PHA 341, CdTe PHA 511) — its intent unchanged, its arithmetic completed. **A-13** added.
+*Root cause:* I wrote §2.7 after inspecting exactly one file and generalised its `DETCHANS`. This is the **fourth instance of one pattern** (with CONTRADICTION-001, -003, -004 Defect A): **asserting a property from a single reading without checking the population.** The A-8/A-9/A-11/A-12 scoping discipline exists precisely for this, and §2.7's `DETCHANS` was the one claim that never received a scoping assumption — which is exactly what let it through. A-13 closes that gap.
+
+**Defect B — PARTIALLY APPROVED; the owner's ruling is narrower than the proposal and better.** A-9's 436-archive obligation was **discharged early** (the T1 builder runs the check per day) and the r2 **equality** was **VIOLATED**. The proposal to record the measured statistics in the contract was **DECLINED**: no archive statistics, no percentages, no median excess. The equality is replaced by a **logical implication** — **`NaN(COUNTS) ⇒ GTI-excluded`** — under which a NaN inside GTI-good time remains an F-09 violation while a GTI-excluded second is **permitted** to contain a finite count. **A-9 recorded as discharged; A-14 created** for the unexplained excess, owner Milestone VIII.
+*Why the owner is right:* the implication is the **strong half** of the bijection — it forbids the dangerous direction (missing data silently treated as observed) while asserting nothing the archive does not support. Encoding the excess statistics would have written an unvalidated observation into the contract, the same error refused in CONTRADICTION-003. Measurements belong in the profile and the contradiction record; **invariants belong in the contract**.
+
+**Defect C — no amendment.** 12 SoLEXS days carry GTI `STOP <= START` and terminate via F-19 (10 more via F-01). F-19 behaves exactly as designed: an interval that ends before it starts is an archive defect, not a convention question. Recorded as an **archive-quality finding** for Milestone VIII.
+
+**Unchanged.** Every other rule, schema, and policy. The 20 fail-loud rule ids are untouched — r5 refines the *application* of F-07, F-09 and F-11, and adds none.
+
+**Disposition.** **CONTRADICTION-005: CLOSED** by this revision. **Milestone VIII is now the final validation milestone: it shall discharge A-8, A-11, A-12, A-13, A-14 and resolve CONTRADICTION-003 through archive-wide scientific validation.**

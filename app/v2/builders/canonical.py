@@ -40,8 +40,10 @@ from app.v2.resolution.version_engine import (CoverageMap,
 SECONDS_PER_DAY = 86400
 MINUTES_PER_DAY = 1440
 SEC_PER_MIN = 60
-SOLEXS_CHANNELS = 340          # PI  -- §2.2
-HEL1OS_CHANNELS = 341          # PHA -- §2.7; F-11 forbids merging with SoLEXS
+SOLEXS_CHANNELS = 340                          # PI  -- §2.2
+# §2.7 (r5): HEL1OS has TWO PHA channel spaces. F-11 now spans THREE
+# incommensurable spaces: SoLEXS PI 340, CZT PHA 341, CdTe PHA 511.
+HEL1OS_CHANNELS = {"CZT": 341, "CDTE": 511}
 
 
 @dataclass
@@ -73,16 +75,20 @@ def _second_coverage(gti: ParsedProduct, obs_date: str) -> np.ndarray:
     return covered
 
 
-def validate_nan_gti_bijection(lc: ParsedProduct, gti: ParsedProduct) -> dict:
-    """§2.1 (r2) REQUIRED cross-product integrity check, run BEFORE aggregation.
+def validate_nan_implies_gti_excluded(lc: ParsedProduct, gti: ParsedProduct) -> dict:
+    """§2.1 (r5) REQUIRED cross-product integrity check, run BEFORE aggregation.
 
-    NaN(COUNTS) set MUST equal the GTI-excluded second set, exactly. Any mismatch
-    terminates via F-09. This is stronger than either product asserts alone: it
-    validates the light curve against its GTI *and* re-verifies the r1 inclusive
-    convention on every single day.
+        NaN(COUNTS)  =>  GTI-excluded
 
-    Scope A-9: VERIFIED on the reference archive only. Milestone VIII must prove
-    it across all 436 SoLEXS archives; any violation TERMINATES validation.
+    A NaN inside GTI-good time is an F-09 violation: missing data must never be
+    silently treated as observed. A GTI-excluded second is PERMITTED to carry a
+    finite count.
+
+    The r2 rule asserted set EQUALITY. Archive-wide execution falsified it
+    (CONTRADICTION-005 Defect B), discharging A-9 early. The implication is the
+    strong half -- it forbids the dangerous direction while asserting nothing the
+    archive does not support. Why GTI excludes time beyond data absence is A-14,
+    a Milestone VIII scientific question; no mechanism is assumed here.
     """
     counts = lc.data.samples.counts.to_numpy()
     if counts.size != SECONDS_PER_DAY:
@@ -91,18 +97,22 @@ def validate_nan_gti_bijection(lc: ParsedProduct, gti: ParsedProduct) -> dict:
     covered = _second_coverage(gti, lc.data.obs_date)
     nan_idx = np.flatnonzero(~np.isfinite(counts))
     excl_idx = np.flatnonzero(~covered)
-    if not np.array_equal(nan_idx, excl_idx):
-        only_nan = np.setdiff1d(nan_idx, excl_idx)
-        only_excl = np.setdiff1d(excl_idx, nan_idx)
+    # The ONLY forbidden case: a NaN inside GTI-good time.
+    nan_in_good = np.setdiff1d(nan_idx, excl_idx)
+    if nan_in_good.size:
         raise FailLoud(
             "F-09",
-            "NaN(COUNTS) set != GTI-excluded second set (§2.1 r2 cross-product "
-            "integrity)", file=lc.provenance.src_file,
-            expected=f"{len(excl_idx)} GTI-excluded seconds",
-            got={"n_nan": int(nan_idx.size), "n_gti_excluded": int(excl_idx.size),
-                 "nan_not_excluded": only_nan[:10].tolist(),
-                 "excluded_not_nan": only_excl[:10].tolist()})
-    return {"n_excluded_seconds": int(excl_idx.size),
+            "NaN(COUNTS) inside GTI-good time violates the §2.1 r5 implication "
+            "NaN => GTI-excluded", file=lc.provenance.src_file,
+            expected="every NaN second to be GTI-excluded",
+            got={"n_nan_in_good_time": int(nan_in_good.size),
+                 "offsets": nan_in_good[:10].tolist()})
+    # A GTI-excluded second MAY carry a finite count (r5). Counted, not judged:
+    # the excess is A-14, unexplained, owner Milestone VIII.
+    excess = int(np.setdiff1d(excl_idx, nan_idx).size)
+    return {"n_nan_seconds": int(nan_idx.size),
+            "n_excluded_seconds": int(excl_idx.size),
+            "n_excluded_with_finite_counts": excess,      # A-14 observable
             "excluded_offsets": excl_idx.tolist()[:32],
             "live_time_s": int(covered.sum())}
 
@@ -147,8 +157,8 @@ def build_T1(lc: ParsedProduct, gti: ParsedProduct) -> BuiltTable:
         raise FailLoud("F-07", "LC and GTI are from different detectors",
                        expected=lc.data.detector, got=gti.data.detector)
 
-    # r2: the cross-product check runs BEFORE aggregation, as the brief requires.
-    validate_nan_gti_bijection(lc, gti)
+    # r5: the cross-product check runs BEFORE aggregation, as the brief requires.
+    validate_nan_implies_gti_excluded(lc, gti)
 
     counts = lc.data.samples.counts.to_numpy().reshape(MINUTES_PER_DAY, SEC_PER_MIN)
     covered = _second_coverage(gti, lc.data.obs_date).reshape(MINUTES_PER_DAY, SEC_PER_MIN)
@@ -332,10 +342,12 @@ def build_T5(specs: list[ParsedProduct], coverage_map: CoverageMap) -> BuiltTabl
                        got=type(coverage_map).__name__)
     frames, provs = [], []
     for sp in specs:
-        if sp.data.counts.shape[1] != HEL1OS_CHANNELS:
-            raise FailLoud("F-11", "T5 requires 341 PHA channels (340 would be "
-                                   "SoLEXS PI)", file=sp.provenance.src_file,
-                           expected=HEL1OS_CHANNELS, got=sp.data.counts.shape[1])
+        fam = "CZT" if sp.data.detector.upper().startswith("CZT") else "CDTE"
+        if sp.data.counts.shape[1] != HEL1OS_CHANNELS[fam]:
+            raise FailLoud("F-11", f"T5: {fam} requires {HEL1OS_CHANNELS[fam]} PHA "
+                                   f"channels (340 would be SoLEXS PI)",
+                           file=sp.provenance.src_file,
+                           expected=HEL1OS_CHANNELS[fam], got=sp.data.counts.shape[1])
         if sp.data.chantype != "PHA":
             raise FailLoud("F-11", "T5 requires PHA", got=sp.data.chantype)
         det, orbit = sp.data.detector, sp.provenance.orbit_id
@@ -363,6 +375,10 @@ def build_T5(specs: list[ParsedProduct], coverage_map: CoverageMap) -> BuiltTabl
             "live_time_s": [v[2] for v in rows.values()],
             "n_spectra": [v[3] for v in rows.values()],
             "chantype": pd.Categorical(["PHA"] * len(rows)),
+            # §3 (r5): detchans carried EXPLICITLY. CZT(341) and CdTe(511) arrays
+            # are never merged -- different lengths, different spaces; stacking
+            # them would fabricate a channel correspondence that does not exist.
+            "detchans": np.int16(HEL1OS_CHANNELS[fam]),
         })
         out["orbit_id"] = orbit
         out = _prov_cols(out, sp.provenance)

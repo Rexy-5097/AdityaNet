@@ -15,7 +15,7 @@ from app.v2.builders import canonical as CB
 from app.v2.builders.canonical import (assert_provenance_complete, build_T1,
                                        build_T2, build_T3, build_T4, build_T5,
                                        build_T6, build_T7,
-                                       validate_nan_gti_bijection)
+                                       validate_nan_implies_gti_excluded)
 from app.v2.models.metadata import FailLoud
 from app.v2.parsers.solexs_gti import SolexsGtiParser
 from app.v2.parsers.solexs_lc import SolexsLcParser
@@ -90,33 +90,51 @@ def test_finite_sum_zero_is_a_valid_count_not_missing():
 
 # ── NaN<->GTI invariant (r2) ────────────────────────────────────────────────
 @real_only
-def test_nan_gti_bijection_holds_on_reference_day(lc, gti):
-    r = validate_nan_gti_bijection(lc, gti)
+def test_nan_implies_gti_excluded_holds_on_reference_day(lc, gti):
+    r = validate_nan_implies_gti_excluded(lc, gti)
     assert r["n_excluded_seconds"] == 5
+    assert r["n_nan_seconds"] == 5
+    assert r["n_excluded_with_finite_counts"] == 0    # A-14 observable: 0 here
     assert r["excluded_offsets"] == [0, 5, 30072, 30078, 83951]
     assert r["live_time_s"] == 86395
 
 
 @real_only
-def test_nan_gti_bijection_terminates_on_mismatch__F09(lc, gti):
-    """Corrupt the GTI by one second -> the invariant must fire."""
+def test_r5_gti_excluded_second_with_finite_count_is_PERMITTED(lc, gti):
+    """r5: a GTI-excluded second MAY carry a finite count.
+
+    Under r2's equality this terminated. Under r5 it is legal and merely counted
+    -- the excess is A-14, unexplained, owner Milestone VIII.
+    """
     iv = gti.data.intervals.copy()
-    # shrink interval 0 by one second -> one extra GTI-excluded second that has
-    # no matching NaN. Stays inside the day, so the bijection check is what fires.
     iv.loc[0, "stop_utc"] = iv.loc[0, "stop_utc"] - pd.Timedelta(seconds=1)
     bad = replace(gti.data, intervals=iv)
     from app.v2.models.metadata import ParsedProduct
+    r = validate_nan_implies_gti_excluded(
+        lc, ParsedProduct(data=bad, provenance=gti.provenance))
+    assert r["n_excluded_with_finite_counts"] == 1     # counted, not judged
+
+
+@real_only
+def test_r5_nan_inside_gti_good_time_terminates__F09(lc, gti):
+    """The ONLY forbidden direction: missing data treated as observed."""
+    s2 = lc.data.samples.copy()
+    s2.loc[1000, "counts"] = np.nan          # second 1000 is inside good time
+    bad = replace(lc.data, samples=s2)
+    from app.v2.models.metadata import ParsedProduct
     with pytest.raises(FailLoud) as e:
-        validate_nan_gti_bijection(lc, ParsedProduct(data=bad, provenance=gti.provenance))
+        validate_nan_implies_gti_excluded(
+            ParsedProduct(data=bad, provenance=lc.provenance), gti)
     assert e.value.rule == "F-09"
-    assert e.value.got["excluded_not_nan"]        # the extra excluded second
+    assert e.value.got["n_nan_in_good_time"] == 1
+    assert e.value.got["offsets"] == [1000]
 
 
 @real_only
 def test_T1_runs_nan_gti_validation_before_aggregating(lc, gti, monkeypatch):
     calls = []
-    orig = CB.validate_nan_gti_bijection
-    monkeypatch.setattr(CB, "validate_nan_gti_bijection",
+    orig = CB.validate_nan_implies_gti_excluded
+    monkeypatch.setattr(CB, "validate_nan_implies_gti_excluded",
                         lambda a, b: (calls.append("validated"), orig(a, b))[1])
     CB.build_T1(lc, gti)
     assert calls == ["validated"]
@@ -235,7 +253,8 @@ def _cm(*cands):
 
 
 def test_T5_rejects_340_channel_PI_input__F11():
-    """341 PHA stays distinct from SoLEXS 340 PI. No merged channel space."""
+    """r5: THREE spaces -- SoLEXS PI 340, CZT PHA 341, CdTe PHA 511.
+    A 340-channel array must never enter T5 under any family."""
     class D:
         counts = np.zeros((3, 340)); chantype = "PI"; detector = "CZT1"
         stat_err = np.zeros((3, 340)); exposure_s = np.ones(3)
@@ -371,3 +390,16 @@ def test_builders_never_use_nansum_which_would_manufacture_zeros():
     for line in code.split("\n"):
         if "nansum" in line:
             assert "exp" in line or "live" in line, f"nansum on a measurement: {line}"
+
+
+def test_r5_hel1os_has_two_channel_spaces_never_merged():
+    """§2.7 r5 / §3: CZT=341 and CdTe=511 are different spaces.
+
+    Merging them would fabricate a channel correspondence that does not exist.
+    """
+    from app.v2.builders.canonical import HEL1OS_CHANNELS
+    from app.v2.parsers.hel1os import EXPECTED_DETCHANS_PHA
+    assert HEL1OS_CHANNELS == {"CZT": 341, "CDTE": 511}
+    assert EXPECTED_DETCHANS_PHA == {"CZT": 341, "CDTE": 511}
+    assert HEL1OS_CHANNELS["CZT"] != HEL1OS_CHANNELS["CDTE"]
+    assert CB.SOLEXS_CHANNELS not in HEL1OS_CHANNELS.values()   # 340 is neither

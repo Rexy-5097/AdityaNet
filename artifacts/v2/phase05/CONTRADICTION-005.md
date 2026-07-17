@@ -1,10 +1,18 @@
-<!-- VERSION STATUS: CURRENT — BLOCKING Milestone VII -->
-<!-- REASON: Archive-wide build falsified three frozen rules. A-9 discharged early and VIOLATED. -->
+<!-- VERSION STATUS: CLOSED -->
+<!-- REASON: Archive-wide build falsified three frozen rules. RESOLVED by spec r5. -->
 <!-- DATE: 2026-07-17 -->
 
 # CONTRADICTION-005 — the archive-wide build falsifies three frozen rules
 
-**Status: BLOCKING Milestone VII. Defect A is a parser-level contradiction (§2.7). Defect B discharges assumption A-9 early and finds it VIOLATED. Defect C is a data anomaly correctly caught. No specification change made. Awaiting owner approval.**
+**Status: CLOSED 2026-07-17 — the owner ruled the three defects independent and adjudicated them separately. Applied as PARSER_SPECIFICATION.md r5 (§10). Milestone VII rebuilt; 188/188 tests pass.**
+
+**Defect A: APPROVED in full.** §2.7 now validates `DETCHANS` against a family allowlist (CZT 341, CdTe 511, both PHA); §3 T5 carries `detchans` explicitly and never merges CZT/CdTe arrays; F-11 restated over three incommensurable spaces. **A-13** added.
+
+**Defect B: PARTIALLY APPROVED — the owner's ruling is narrower than my proposal, and better.** The equality is replaced by the **logical implication `NaN(COUNTS) ⇒ GTI-excluded`**: a NaN inside GTI-good time remains F-09; a GTI-excluded second is **permitted** to hold a finite count. My proposal to record the measured statistics in the contract was **DECLINED** — no archive statistics, no percentages, no median excess. **A-9 recorded as discharged at M-VII; A-14 created.**
+
+*Why the owner was right:* the implication is the **strong half** of the bijection — it forbids the dangerous direction while asserting nothing the archive supports. Encoding the excess statistics would have written an unvalidated observation into the contract: the same refusal as CONTRADICTION-003. **Measurements belong in the profile and this record; invariants belong in the contract.**
+
+**Defect C: no amendment.** F-19 unchanged. Recorded as an archive-quality finding for Milestone VIII.
 
 The first archive-wide build ran to completion and **reported its own failure rather than hiding it**: SoLEXS 353/436 built, **HEL1OS 0/391 built**, 474 products skipped, every skip logged with its rule id. The build driver catches per-product terminations and records them as data (builders and parsers still fail loud); this is what surfaced all three defects at once.
 
@@ -92,4 +100,6 @@ SoLEXS **T1/T2 built cleanly for 353 archives**, and every invariant held on the
 
 Milestone VII is **paused with the code committed and every rule terminating exactly as frozen**. Nothing weakened: `DETCHANS` is still 341, the bijection is still equality, F-19 still fires. The build's own statistics are the evidence.
 
-**Awaiting approval of the Defect A and Defect B amendments.** Defect C needs none.
+**RESOLVED.** All three defects closed by r5. Defect C required no amendment.
+
+**Milestone VIII is now the final validation milestone.** It shall discharge **A-8, A-11, A-12, A-13, A-14** and resolve **CONTRADICTION-003** through archive-wide scientific validation. A-9 is already discharged (here).

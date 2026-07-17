@@ -32,7 +32,11 @@ from app.v2.parsers.hel1os_base import (DETECTORS, EVENT_HDUS, EXPECTED_BANDS_KE
 from app.v2.utils.timeseries import inversion_stats
 from app.v2.utils.fitsio import open_fits
 
-EXPECTED_DETCHANS_PHA = 341        # §2.7 -- NOT 340 (that is SoLEXS PI, F-11)
+# §2.7 (r5): HEL1OS has TWO detector families with DIFFERENT PHA channel spaces.
+# Validated against a family allowlist, never a scalar. An unlisted pair -> F-07.
+# The r0 scalar (341, generalised from one CZT file) blocked all 391 orbits --
+# see CONTRADICTION-005 Defect A. Scope: A-13.
+EXPECTED_DETCHANS_PHA = {"CZT": 341, "CDTE": 511}
 
 
 def _prov(path, sha256, det, product, oid, creator, rows_in, rows_out,
@@ -314,10 +318,15 @@ class HEL1OSSpectraParser(BaseParser):
                 raise FailLoud("F-07", "HEL1OS CHANTYPE is not PHA (PI would be the "
                                        "SoLEXS space -- see F-11)", file=path,
                                hdu="SPECTRUM", expected="PHA", got=chantype)
+            fam = detector_family(det)
             detchans = int(require_header(hdr, "DETCHANS", file=path, hdu="SPECTRUM"))
-            require_equal(detchans, EXPECTED_DETCHANS_PHA, "F-07",
-                          "DETCHANS is not 341 (340 would be SoLEXS PI -- F-11)",
-                          file=path, hdu="SPECTRUM")
+            expected = EXPECTED_DETCHANS_PHA[fam]
+            if detchans != expected:
+                raise FailLoud("F-07",
+                               f"DETCHANS not on the {fam} allowlist (CZT=341, "
+                               f"CdTe=511; 340 would be SoLEXS PI -- F-11)",
+                               file=path, hdu="SPECTRUM",
+                               expected=expected, got=detchans)
             hduclas4 = str(require_header(hdr, "HDUCLAS4", file=path,
                                           hdu="SPECTRUM")).strip()
             require_equal(hduclas4.upper(), "TYPE:II", "F-07",
@@ -345,10 +354,10 @@ class HEL1OSSpectraParser(BaseParser):
             ex = np.asarray(get_column(spec, "EXPOSURE", file=path,
                                        hdu_name="SPECTRUM"), dtype=np.float64)
 
-            if counts.shape != (n, EXPECTED_DETCHANS_PHA):
-                raise FailLoud("F-07", "COUNTS is not (NAXIS2, 341)", file=path,
-                               hdu="SPECTRUM",
-                               expected=(n, EXPECTED_DETCHANS_PHA), got=counts.shape)
+            if counts.shape != (n, expected):
+                raise FailLoud("F-07", f"COUNTS is not (NAXIS2, {expected})",
+                               file=path, hdu="SPECTRUM",
+                               expected=(n, expected), got=counts.shape)
             ch0 = channel[0].astype(np.int64)
             if not np.array_equal(channel, np.broadcast_to(ch0, channel.shape)):
                 raise FailLoud("F-08", "CHANNEL vector not constant across rows",
@@ -381,8 +390,9 @@ class HEL1OSSpectraParser(BaseParser):
                                  epoch.kind,
                                  [f"§2.7 R-1 resolved empirically: {epoch.kind} "
                                   f"(residual {epoch.residual_s:.6f}s)",
-                                  "§2.7: 341 PHA channels; ordinal, incommensurable "
-                                  "with SoLEXS 340 PI (F-11)"]),
+                                  f"§2.7 r5: {fam} PHA has {expected} channels; "
+                                  f"ordinal, incommensurable with SoLEXS 340 PI and "
+                                  f"with the other HEL1OS family (F-11)"]),
                 header={"nrows": n, "detchans": detchans, "chantype": chantype,
                         "epoch_kind": epoch.kind,
                         "epoch_residual_s": epoch.residual_s})
