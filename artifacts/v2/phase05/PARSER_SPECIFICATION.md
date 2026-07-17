@@ -130,7 +130,21 @@ HLS_<YYYYMMDD>_<HHMMSS>_<DUR>sec_lev1_V<XYZ>/
 
 **Purpose:** per-detector spectra. **`OBSERVED`:** HDU1 `SPECTRUM`, Type II, **`DETCHANS=341`**, **`CHANTYPE='PHA'`**, `HDUCLAS3='COUNT'` (singular).
 **Columns:** `SPEC_NUM` (I), `CHANNEL` (341J), `COUNTS` (341D, **`cts`**), `STAT_ERR` (341D), `ROWID` (12A), `TSTART` (D, `s`), `TSTOP` (D, `s`), `EXPOSURE` (D, `s`). `NAXIS2 = 2157` over a 43178 s orbit → **~20 s cadence**.
-> **AMBIGUITY `OBSERVED` — must be resolved empirically, not assumed:** column `TSTART` declares unit `s`, but header `TSTART` is **MJD** (61017.0). The column epoch is undetermined from metadata. **Resolution rule R-1:** at implementation, test the column against both hypotheses (Unix-s and MJD-days) and accept the one reproducing the header `TSTART/TSTOP` span to <1 s; if neither fits → **F-06, terminate**. The chosen interpretation is recorded in the provenance table.
+> **RESOLVED (AMENDED r4 — see §10 / CONTRADICTION-004 Defect A).** The r0 framing was wrong: it read the conflict between column `unit='s'` and header `TSTART`-as-MJD as an **epoch** ambiguity. It is not. **The `unit='s'` declaration is correct — the column really is seconds.** The genuine unknown was the **origin**, and both metadata statements are true and *compose*.
+>
+> **`absolute_time = header TSTART (MJD → UTC) + column TSTART (offset seconds)`**
+>
+> **Resolution rule R-1 (amended).** Evaluate in this order and accept the first that fits; **terminate via F-06 only if ALL fail**:
+>
+> | # | Hypothesis | Accept iff |
+> |---|---|---|
+> | **H3** | **relative seconds from header `TSTART`** *(the observed convention)* | `col[0] == 0` exactly **and** `abs(col_span − header_span)` ≤ one `EXPOSURE` bin |
+> | H1 | MJD days | `abs(col[0] − header TSTART) × 86400` ≤ 1 s |
+> | H2 | Unix seconds | `abs(col[0] − unix(header TSTART))` ≤ 1 s |
+>
+> **H3 is tested first** because `unit='s'` literally declares seconds. **H1 and H2 are retained for future compatibility** — a reprocessed product could legitimately switch to an absolute epoch, and silently mis-reading it would be worse than an extra branch. The resolved hypothesis and its residual are recorded in T7 provenance.
+>
+> `OBSERVED` (`hel1os_czt_spectra_czt1.fits`, orbit `HLS_20251208_000008`): col `TSTART` = `[0.0, 20.0, 40.0, …, 43120.0]`, uniform `EXPOSURE` = 20.0 s, header span 43,160.0 s → **H3**.
 
 **Note the cross-instrument asymmetry (do not conflate):** SoLEXS = 340 **PI** channels @ 1 s; HEL1OS = 341 **PHA** channels @ ~20 s. `PI ≠ PHA` (gain-corrected vs raw pulse height) and 340 ≠ 341. **No v2 code may treat these as a common channel space** (F-11).
 
@@ -147,7 +161,20 @@ HLS_<YYYYMMDD>_<HHMMSS>_<DUR>sec_lev1_V<XYZ>/
 - **Time:** `mjd`, `l0dhobt`, plus decomposed `l0utc{yr,mon,dy,hr,min,sc,msc}`
 
 **Binding rule:** `suninfov` is a **first-class quality flag** — data outside Sun-in-FOV is not solar signal. It MUST propagate to the canonical tables (§3).
-**Validation:** `mjd` non-decreasing; `czt1temp`/`czt2temp` finite; `suninfov ∈ {0,1}`.
+**Validation (AMENDED r4 — see §10 / CONTRADICTION-004 Defect B).** The strict **non-decreasing** requirement is **REMOVED**: it is falsified by the archive. `mjd` is a *measurement* written in telemetry-arrival order, not a sorted index. Validation is now:
+- `mjd` **finite**;
+- `mjd` **unique** (duplicates remain F-16 — a repeated timestamp is a genuine defect);
+- **header-span consistency**: the global `mjd` range lies within the header `TSTART`/`TSTOP`;
+- **inversion statistics recorded** (not thresholded): `n_out_of_order` and `max_backward_step_s` in T7 provenance;
+- `czt1temp`/`czt2temp` finite; `suninfov ∈ {0,1}`.
+
+**No jitter threshold is defined.** The magnitude is *reported*, never compared against an invented tolerance.
+
+> **Parser behaviour (binding, r4): the parser MUST preserve archive order exactly.** It performs **no sorting**. **The parser is a lossless representation of the archive** — this is a general v2 principle, not a HEL1OS special case: reading and transforming are separate acts, and a parser that silently reorders is no longer a faithful reader.
+>
+> Consumers requiring chronological order MUST explicitly invoke the documented utility **`chronological_sort()`** (`app/v2/utils/timeseries.py`), which lives **outside** the parser layer and MUST: preserve every row; preserve every value; be deterministic (stable); and record provenance of the reordering.
+
+`OBSERVED` (orbit `HLS_20251208_000008`): 9,514 rows; **424 of 9,513 steps decrease**; **max backward step 892.4 ms** (median 718.0 ms; the *first* inversion is 13.3 ms); **0 duplicates**; global range 61017.000099–61017.499848 MJD, within the header span. Sub-second telemetry packet-arrival jitter. *(Correction: CONTRADICTION-004 originally cited "~13 ms", which was the first inversion, not the maximum. The ruling is unaffected — statistics are recorded, never thresholded — but the record is corrected here.)*
 **Note:** `czt1enth` has unit `keV` but `czt2enth` has **unit=None** for the same physical quantity — a metadata inconsistency; the parser applies the `czt1enth` unit to both and records the assumption (§8 A-4).
 
 ### 2.9 HEL1OS `aux/gti{czt,cdte}{1,2}.fits`
@@ -313,6 +340,8 @@ One row per parsed source file: `src_file`, `src_sha256` (must equal 0.5.1 manif
 - **A-5** SoLEXS `.pi TSTART` shares the `.lc` Unix epoch. → enforced by F-06, not assumed.
 - **A-6** `.lc NUMBAND='4'` semantics unknown while only `TIME`/`COUNTS` columns exist. → captured as metadata, not interpreted.
 - **A-7** The 1-min cadence is adequate. Defensible (matches harness) but it **is** an aggregation; native data remains reachable.
+- **A-11** *(added r4)* The **relative-seconds** convention for HEL1OS spectra `TSTART` (H3) is VERIFIED on **one orbit only**. Milestone VIII MUST verify it across all **391** HEL1OS orbits; any deviation **TERMINATES validation** as a scientific finding.
+- **A-12** *(added r4)* HK time **jitter is characterised on one orbit only** (424/9,513 inversions, max ~13 ms). Milestone VIII MUST report the distribution of `max_backward_step_s` across all **391** orbits. **Drifting or growing jitter is a scientific finding**, not a tolerance to widen.
 - **A-9** *(added r2)* The **NaN⟺GTI bijection** (`NaN(COUNTS)` set == GTI-excluded set) is **VERIFIED on the reference archive only** — 2024-05-14 SDD2, 1 of 436. **Milestone VIII MUST verify it across all 436 SoLEXS archives; any violation is a scientific finding that TERMINATES validation** — never tolerated, never absorbed. Same scoping discipline as A-8, and for the same reason: CONTRADICTION-001 and -002 both originated in a convention asserted from a single reading.
 - **A-8** *(added r1)* The **inclusive** GTI convention (`live_time = STOP−START+1`) is **VERIFIED on 2024-05-14 SDD2 only** — one archive of 436. It is deliberately **NOT** promoted to universal archive truth. **Milestone VIII MUST test exact equality across all 436 SoLEXS archives; any deviation is a scientific finding that TERMINATES validation** and is reported, never tolerated and never absorbed by widening the tolerance. Rationale: this assumption is the direct descendant of CONTRADICTION-001, whose root cause was exactly a convention asserted from one reading without arithmetic verification.
 
@@ -380,3 +409,17 @@ Original contract, grounded in structure-only schema discovery of the real archi
 **Rejected alternative (recorded for the audit trail).** The implementer proposed encoding the measured light-curve/spectrum ratio as a "tracked diagnostic". The owner correctly refused: that would have promoted an unvalidated observation into the contract, substituting one unverified assumption for another — the same error class as CONTRADICTION-001 and -003 themselves.
 
 **CONTRADICTION-003: OPEN** — category *Scientific Validation*, owner *Milestone VIII*, **not a parser-implementation blocker**.
+
+### r4 — 2026-07-17 (owner-approved; raised by CONTRADICTION-004)
+
+**Trigger.** Milestone V proved **two** frozen §2.x rules impossible to satisfy against valid HEL1OS data. The owner ruled the defects **independent** and adjudicated them separately.
+
+**Defect A — APPROVED in full.** §2.7's rule R-1 omitted a valid hypothesis and terminated on real data (residuals 5.27×10⁹ s and 1.77×10⁹ s). `OBSERVED`: col `TSTART` = `[0, 20, 40, …, 43120]`, uniform `EXPOSURE` 20 s, header span 43,160 s → the column is **relative seconds from the header `TSTART`**. R-1 now evaluates **H3 → H1 → H2**, terminating only if all fail; H1/H2 retained for future compatibility. The composition rule `absolute_time = header TSTART + column offset` is recorded. **A-11** added.
+*Root cause:* the r0 framing mistook an **origin** ambiguity for an **epoch** ambiguity — the `unit='s'` declaration was correct all along. This is the third instance of one root cause (with CONTRADICTION-001 and -003): asserting a relationship between fields from their metadata without computing it. R-1 was written to guard that very class and still fell to it — **a hypothesis test can only find hypotheses you enumerate.**
+
+**Defect B — PARTIALLY APPROVED; the owner's ruling is narrower than the proposal and better.** The **validation contract changes; the parser behaviour does not.** The strict non-decreasing rule is removed (finite + unique + header-span consistency + recorded inversion statistics replace it). **The proposal to stable-sort inside the parser was DECLINED.** Instead: **the parser MUST preserve archive order exactly and remains a lossless representation of the archive**; chronological ordering is provided by an explicit, documented, out-of-parser utility `chronological_sort()` that preserves every row and value, is deterministic, and records provenance. **A-12** added; no jitter threshold defined.
+*Why the owner's ruling is better:* it establishes a **general v2 principle** — reading and transforming are separate acts. My proposal would have made the parser silently reorder; the owner's keeps it a faithful reader and forces every consumer to opt in visibly. That distinction is the difference between a parser and a pipeline.
+
+**Unchanged.** Every other rule, schema, and policy. The 20 fail-loud rule ids are untouched. **Nothing weakened:** F-16 still fires on duplicate timestamps; R-1 still terminates when no hypothesis fits.
+
+**Disposition.** **CONTRADICTION-004: CLOSED** by this revision.

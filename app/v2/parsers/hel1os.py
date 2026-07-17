@@ -25,9 +25,11 @@ from app.v2.models.metadata import (ChanType, FailLoud, Instrument,
 from app.v2.parsers.base import (BaseParser, REGISTRY, get_column, get_hdu,
                                  has_column, require_equal, require_header)
 from app.v2.parsers.hel1os_base import (DETECTORS, EVENT_HDUS, EXPECTED_BANDS_KEV,
-                                        N_BANDS, detector_family, mjd_to_utc,
-                                        orbit_id, parse_band_extname,
-                                        require_hel1os_primary, resolve_epoch_R1)
+                                        N_BANDS, absolute_time_from_R1,
+                                        detector_family, mjd_to_utc, orbit_id,
+                                        parse_band_extname, require_hel1os_primary,
+                                        resolve_epoch_R1)
+from app.v2.utils.timeseries import inversion_stats
 from app.v2.utils.fitsio import open_fits
 
 EXPECTED_DETCHANS_PHA = 341        # §2.7 -- NOT 340 (that is SoLEXS PI, F-11)
@@ -224,10 +226,24 @@ class HEL1OSHkParser(BaseParser):
                 # rather than silently degraded.
                 cols[c] = np.asarray(get_column(hk, c, file=path, hdu_name="HLSHK"))
             mjd = cols["mjd"].astype(np.float64)
+            # §2.8 (r4): validation is finite + unique + header-span consistent
+            # + inversion statistics RECORDED. The strict non-decreasing rule is
+            # REMOVED: mjd is a measurement written in telemetry-arrival order,
+            # not a sorted index. No jitter threshold exists, by design.
             if not np.all(np.isfinite(mjd)):
                 raise FailLoud("F-16", "non-finite HK mjd", file=path, hdu="HLSHK")
-            if np.any(np.diff(mjd) < 0):
-                raise FailLoud("F-16", "HK mjd decreasing", file=path, hdu="HLSHK")
+            if np.unique(mjd).size != mjd.size:
+                raise FailLoud("F-16", "duplicate HK mjd timestamps", file=path,
+                               hdu="HLSHK", expected=f"{mjd.size} unique",
+                               got=int(np.unique(mjd).size))
+            hdr_t0 = float(require_header(hk.header, "TSTART", file=path, hdu="HLSHK"))
+            hdr_t1 = float(require_header(hk.header, "TSTOP", file=path, hdu="HLSHK"))
+            if mjd.min() < hdr_t0 or mjd.max() > hdr_t1:
+                raise FailLoud("F-06", "HK mjd range outside the header span",
+                               file=path, hdu="HLSHK",
+                               expected=(hdr_t0, hdr_t1),
+                               got=(float(mjd.min()), float(mjd.max())))
+            n_inv, max_back_s = inversion_stats(mjd, unit="mjd")
 
             suninfov = cols["suninfov"].astype(np.int16)
             bad = np.setdiff1d(np.unique(suninfov), np.array([0, 1], dtype=np.int16))
@@ -240,6 +256,10 @@ class HEL1OSHkParser(BaseParser):
                 if c == "mjd":
                     continue
                 df[c] = cols[c].astype(np.float64) if c != "suninfov" else suninfov.astype(bool)
+            # §2.8 (r4) BINDING: archive order preserved EXACTLY. No sorting.
+            # The parser is a lossless representation of the archive; consumers
+            # needing chronological order must invoke the documented utility
+            # app.v2.utils.timeseries.chronological_sort() explicitly.
             return ParsedProduct(
                 data=HelHkTable(samples=df, orbit=f"HLS_{oid['date']}_{oid['start']}",
                                 columns_present=tuple(HK_REQUIRED)),
@@ -247,8 +267,14 @@ class HEL1OSHkParser(BaseParser):
                                  "mjd_days",
                                  ["§2.8: suninfov is a first-class quality flag",
                                   "§2.8 A-4: czt2enth declares unit=None; the "
-                                  "czt1enth keV unit is assumed for both"]),
-                header={"nrows": n, "n_columns": len(HK_REQUIRED)})
+                                  "czt1enth keV unit is assumed for both",
+                                  "§2.8 r4: archive order preserved; NOT sorted",
+                                  f"§2.8 r4 A-12: n_out_of_order={n_inv}, "
+                                  f"max_backward_step_s={max_back_s:.6f} (recorded, "
+                                  f"never thresholded)"]),
+                header={"nrows": n, "n_columns": len(HK_REQUIRED),
+                        "n_out_of_order": n_inv,
+                        "max_backward_step_s": max_back_s})
 
 
 # ── §2.7 spectra (341 PHA + R-1) ────────────────────────────────────────────
@@ -257,9 +283,10 @@ class HelSpectraTable:
     counts: np.ndarray             # (n, 341)
     stat_err: np.ndarray
     channel_index: np.ndarray      # (341,)
-    tstart: np.ndarray
+    tstart: np.ndarray             # raw column (offset seconds under H3)
     tstop: np.ndarray
     exposure_s: np.ndarray
+    timestamp_utc: pd.DatetimeIndex   # §2.7 r4: composed absolute time
     chantype: str
     detector: str
     orbit: str
@@ -337,11 +364,16 @@ class HEL1OSSpectraParser(BaseParser):
                 ts,
                 float(require_header(hdr, "TSTART", file=path, hdu="SPECTRUM")),
                 float(require_header(hdr, "TSTOP", file=path, hdu="SPECTRUM")),
-                file=path, hdu="SPECTRUM")
+                file=path, hdu="SPECTRUM",
+                exposure_s=float(np.median(ex)) if ex.size else None,
+                col_tstop=te)
+            # §2.7 r4 composition rule: absolute = header TSTART + column offset.
+            ts_utc = absolute_time_from_R1(ts, epoch)
 
             return ParsedProduct(
                 data=HelSpectraTable(counts=counts, stat_err=err, channel_index=ch0,
                                      tstart=ts, tstop=te, exposure_s=ex,
+                                     timestamp_utc=ts_utc,
                                      chantype=ChanType.PHA.value, detector=det,
                                      orbit=f"HLS_{oid['date']}_{oid['start']}",
                                      epoch_kind=epoch.kind),

@@ -48,7 +48,15 @@ DETECTORS = ("CDTE1", "CDTE2", "CZT1", "CZT2")          # §2.5 F-03
 EVENT_HDUS = tuple(f"{d}-EVENTS" for d in DETECTORS)
 
 MJD_UNIX_EPOCH = 40587          # MJD of 1970-01-01 (spec §2.1)
-_MJD_TOL_S = 1.0                # R-1 acceptance window
+_MJD_TOL_S = 1.0                # R-1 acceptance window for H1/H2 (absolute epochs)
+
+# IEEE754 slack for the MJD(days) -> seconds conversion. NOT a physical
+# tolerance: at MJD ~61017 the float64 ULP is ~7e-12 d ~= 6e-7 s, so a header
+# span computed from MJD carries ~1e-7 s of representation noise. 1 ms sits ~3
+# orders above that noise and ~4 orders below the smallest EXPOSURE bin (20 s),
+# so it can absorb the noise without admitting any physical slack. Required
+# because H3's "<= one EXPOSURE bin" comparison lands exactly ON the boundary.
+_FLOAT_EPS_S = 1e-3
 
 
 def orbit_id(path: str) -> dict[str, str]:
@@ -104,20 +112,29 @@ def parse_band_extname(extname: str, *, file: str | None = None
 
 @dataclass(frozen=True)
 class EpochResolution:
-    """Outcome of §2.7 rule R-1. Recorded in T7 provenance."""
-    kind: str            # "mjd_days" | "unix_seconds"
+    """Outcome of §2.7 rule R-1 (amended r4). Recorded in T7 provenance."""
+    kind: str            # "relative_seconds" | "mjd_days" | "unix_seconds"
     residual_s: float
+    origin_mjd: float | None = None      # set for relative_seconds (H3)
 
 
 def resolve_epoch_R1(col_tstart: np.ndarray, hdr_tstart_mjd: float,
-                     hdr_tstop_mjd: float, *, file: str, hdu: str
-                     ) -> EpochResolution:
-    """§2.7 R-1 — resolve the declared TSTART ambiguity EMPIRICALLY.
+                     hdr_tstop_mjd: float, *, file: str, hdu: str,
+                     exposure_s: float | None = None,
+                     col_tstop: np.ndarray | None = None) -> EpochResolution:
+    """§2.7 R-1 (amended r4) — resolve the TSTART ORIGIN empirically.
 
-    The column declares unit='s' but the header TSTART is MJD (e.g. 61017.0).
-    The column's epoch is therefore undetermined from metadata alone. Test both
-    hypotheses against the header span; accept the one reproducing it to <1 s.
-    If neither fits -> F-06, terminate. Never guess.
+    The r0 rule framed this as an EPOCH ambiguity and enumerated only two
+    absolute hypotheses; it terminated on real data (CONTRADICTION-004 Defect A).
+    The unit='s' declaration was correct all along -- the unknown was the ORIGIN.
+    Both metadata statements are true and COMPOSE:
+
+        absolute_time = mjd_to_utc(header TSTART) + column TSTART seconds
+
+    Evaluation order H3 -> H1 -> H2; terminate (F-06) only if ALL fail. H1/H2 are
+    retained for future compatibility: a reprocessed product could legitimately
+    switch to an absolute epoch, and silently mis-reading it would be far worse
+    than carrying an extra branch.
     """
     col = np.asarray(col_tstart, dtype=np.float64)
     if col.size == 0 or not np.all(np.isfinite(col)):
@@ -125,27 +142,59 @@ def resolve_epoch_R1(col_tstart: np.ndarray, hdr_tstart_mjd: float,
                        file=file, hdu=hdu)
 
     first = float(col[0])
+    hdr_span_s = (hdr_tstop_mjd - hdr_tstart_mjd) * 86400.0
+    # §2.7 r4 "col_span" is the DATA span: start of the first bin to the END of
+    # the last one. Measuring start-to-start would silently omit the final bin's
+    # duration and understate the span by exactly one EXPOSURE.
+    if col_tstop is not None and np.size(col_tstop):
+        col_span_s = float(np.asarray(col_tstop, dtype=np.float64)[-1] - col[0])
+    else:
+        col_span_s = float(col[-1] - col[0])
     hdr_first_unix = (hdr_tstart_mjd - MJD_UNIX_EPOCH) * 86400.0
 
-    # H1: the column is MJD days (same units as the header).
-    resid_mjd = abs((first - hdr_tstart_mjd) * 86400.0)
-    # H2: the column is Unix seconds (as unit='s' would literally imply).
-    resid_unix = abs(first - hdr_first_unix)
+    # ── H3: relative seconds from the header TSTART (the observed convention).
+    # Tested FIRST because unit='s' literally declares seconds.
+    bin_s = float(exposure_s) if exposure_s and np.isfinite(exposure_s) else _MJD_TOL_S
+    span_residual = abs(col_span_s - hdr_span_s)
+    if first == 0.0 and span_residual <= max(bin_s, _MJD_TOL_S) + _FLOAT_EPS_S:
+        return EpochResolution("relative_seconds", span_residual,
+                               origin_mjd=hdr_tstart_mjd)
 
-    if resid_mjd <= _MJD_TOL_S and resid_mjd <= resid_unix:
+    # ── H1: MJD days (same units as the header).
+    resid_mjd = abs((first - hdr_tstart_mjd) * 86400.0)
+    if resid_mjd <= _MJD_TOL_S:
         return EpochResolution("mjd_days", resid_mjd)
+
+    # ── H2: Unix seconds.
+    resid_unix = abs(first - hdr_first_unix)
     if resid_unix <= _MJD_TOL_S:
         return EpochResolution("unix_seconds", resid_unix)
 
     raise FailLoud(
         "F-06",
-        "R-1: TSTART column matches NEITHER the MJD-days nor the Unix-seconds "
-        "hypothesis against the header span; the epoch is undetermined",
+        "R-1: TSTART column matches NONE of H3 (relative seconds), H1 (MJD days) "
+        "or H2 (Unix seconds); the origin is undetermined",
         file=file, hdu=hdu,
-        expected=f"residual <= {_MJD_TOL_S}s under one hypothesis",
-        got={"residual_if_mjd_days_s": resid_mjd,
-             "residual_if_unix_seconds_s": resid_unix,
-             "col_tstart[0]": first, "hdr_TSTART_mjd": hdr_tstart_mjd})
+        expected="one hypothesis to fit (H3 -> H1 -> H2)",
+        got={"col_tstart[0]": first,
+             "H3_span_residual_s": span_residual,
+             "H1_residual_if_mjd_days_s": resid_mjd,
+             "H2_residual_if_unix_seconds_s": resid_unix,
+             "hdr_TSTART_mjd": hdr_tstart_mjd, "hdr_span_s": hdr_span_s})
+
+
+def absolute_time_from_R1(col_tstart: np.ndarray, epoch: EpochResolution
+                          ) -> pd.DatetimeIndex:
+    """§2.7 r4 composition rule: absolute = header TSTART + column offset."""
+    col = np.asarray(col_tstart, dtype=np.float64)
+    if epoch.kind == "relative_seconds":
+        origin_unix = (epoch.origin_mjd - MJD_UNIX_EPOCH) * 86400.0
+        return pd.to_datetime(origin_unix + col, unit="s", utc=True)
+    if epoch.kind == "mjd_days":
+        return mjd_to_utc(col)
+    if epoch.kind == "unix_seconds":
+        return pd.to_datetime(col, unit="s", utc=True)
+    raise FailLoud("F-06", f"unknown R-1 resolution {epoch.kind!r}")
 
 
 def require_hel1os_primary(primary, *, file: str) -> dict[str, str]:

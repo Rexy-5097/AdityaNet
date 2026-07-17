@@ -1,10 +1,16 @@
-<!-- VERSION STATUS: CURRENT — BLOCKING Milestone V -->
-<!-- REASON: Two §2.x parser-level rules falsified by real HEL1OS data. -->
+<!-- VERSION STATUS: CLOSED -->
+<!-- REASON: Two §2.x parser-level rules falsified by real HEL1OS data. RESOLVED by spec r4. -->
 <!-- DATE: 2026-07-17 -->
 
 # CONTRADICTION-004 — two HEL1OS parser-level rules are falsified
 
-**Status: BLOCKING Milestone V. Two frozen §2.x rules are impossible to satisfy against valid, uncorrupted archive data. No specification change made. Awaiting owner approval.**
+**Status: CLOSED 2026-07-17 — the owner ruled the defects independent and adjudicated them separately. Applied as PARSER_SPECIFICATION.md r4 (§10). Milestone V now passes 124/124. See COMPLIANCE_M5.md.**
+
+**Defect A: APPROVED in full.** R-1 gains H3 (relative seconds), evaluated H3→H1→H2, terminating only if all fail; H1/H2 retained for future compatibility; composition rule recorded; **A-11** added.
+
+**Defect B: PARTIALLY APPROVED — the owner's ruling is narrower than my proposal, and better.** The validation contract changes; **the parser behaviour does not**. My proposal to stable-sort inside the parser was **DECLINED**. Instead the parser preserves archive order exactly and remains a **lossless representation of the archive**; chronological ordering is an explicit, documented, out-of-parser utility. **A-12** added; no jitter threshold defined.
+
+*Why the owner was right:* the ruling establishes a **general v2 principle** — reading and transforming are separate acts. My version would have made the parser silently reorder. The owner's keeps it a faithful reader and forces every consumer to opt in visibly. That is the difference between a parser and a pipeline.
 
 Raised under: *"Do not pause implementation unless another parser-level contradiction is proven."* Two are proven. Unlike CONTRADICTION-003 (scientific interpretation, deferred), **both defects below are parser-correctness issues**: the parsers terminate on real data and cannot proceed.
 
@@ -58,10 +64,11 @@ This is a **third instance of the same root cause** as CONTRADICTION-001 and -00
 | **Decreasing steps** | **424** (4.5 % of 9,513 steps) |
 | Zero steps (duplicates) | **0** |
 | All values unique | **True** |
-| First decrease (row 925) | `61017.024131` → `61017.024131`, **Δ = −0.013 s** |
+| First decrease (row 925) | `61017.024131` → `61017.024131`, **Δ = −0.0133 s** |
+| **Max backward step** *(corrected 2026-07-17)* | **−0.8924 s** (median −0.718 s) |
 | Global range | `61017.000099` → `61017.499848` — correct, and within the header span |
 
-The backward steps are **~13 milliseconds**. Every timestamp is unique, the global span is right, and the ordering is otherwise correct. This is **sub-second telemetry packet-arrival jitter**, not corruption: housekeeping packets are written in arrival order, which is not exactly time order.
+**CORRECTION (post-approval):** this document originally characterised the backward steps as "~13 milliseconds". That was the **first** inversion, not the maximum. Measured properly: **max 892.4 ms, median 718.0 ms**. The steps are sub-second but an order of magnitude larger than stated. **The owner's ruling is unaffected** — statistics are recorded and never thresholded, so no approved decision rested on the wrong figure — but the error is recorded here rather than quietly fixed, because a contradiction report that misstates its own evidence is exactly the failure mode this process exists to catch. Every timestamp is unique, the global span is right, and the ordering is otherwise correct. This is **sub-second telemetry packet-arrival jitter**, not corruption: housekeeping packets are written in arrival order, which is not exactly time order.
 
 `INFERRED`: `mjd` is a *measurement*, not an *index*. The contract assumed it was sorted; the archive stores it as recorded.
 
@@ -80,4 +87,10 @@ The backward steps are **~13 milliseconds**. Every timestamp is unique, the glob
 
 Milestone V is **paused with the code committed and both parsers terminating exactly as the frozen contract requires**. Nothing has been weakened: R-1 still enumerates only two hypotheses; §2.8 still demands non-decreasing `mjd`. The three passing parsers (LC, GTI, events) are unaffected and their tests are not yet written — Milestone V's test suite and compliance report follow once these two rules are resolved.
 
-**Awaiting approval of the two amendments above.**
+**RESOLVED.** Both defects closed by r4.
+
+**Post-approval correction (recorded, not quietly fixed):** this document originally cited the HK backward steps as "~13 ms" — that was the *first* inversion, not the maximum. Measured properly: **max 892.4 ms, median 718.0 ms**, an order of magnitude larger. **No approved decision rested on the wrong figure** (statistics are recorded, never thresholded), but a contradiction report that misstates its own evidence is precisely the failure mode this process exists to catch, so the error is logged rather than edited away.
+
+**One implementation detail resolved within the approved rule (not a contract change):** "col_span" in H3 is computed as the **data span** (`tstop[-1] − tstart[0]` = 43,140 s), not start-to-start (43,120 s), which would silently omit the final bin's duration and understate the span by exactly one EXPOSURE. With the data span the residual is exactly one 20 s bin, as the rule requires. A documented IEEE754 slack (1 ms — ~3 orders above the float64 MJD ULP of ~6e-7 s, ~4 orders below the 20 s bin) absorbs MJD→seconds conversion noise, because the comparison lands exactly *on* the boundary. **This is numerical slack, not physical tolerance.**
+
+**Carried to Milestone VIII:** A-11 (verify the relative-seconds convention across all 391 orbits) and A-12 (report the `max_backward_step_s` distribution across all 391 orbits; drifting or growing jitter is a scientific finding).
