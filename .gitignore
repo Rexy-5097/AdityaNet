@@ -130,3 +130,7 @@ artifacts/aditya_l1/
 # the frozen sources via scripts/sprint30/build_dataset_v4.py; the manifest
 # (committed) pins source and generator hashes for verification.
 artifacts/research_v4/**/*.parquet
+
+# Phase 0.5.1: extracted real ISSDC L1 store (135 GB) — regenerate via
+# scripts/v2/phase05/extract_archive.py from data_pipeline/downloads/raw/
+data/aditya_l1/real_l1_v1/

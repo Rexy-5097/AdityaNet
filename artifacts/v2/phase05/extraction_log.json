@@ -1,0 +1,4964 @@
+[
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251207_000006_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251207_120003_43195sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251207_121028_42570sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251208_000008_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251208_000008_43178sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251208_114952_43800sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251209_000006_43189sec_lev1_V112.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251209_000006_5609sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251209_080203_14272sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251209_115955_43194sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251209_115955_43194sec_lev1_V112.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251210_000006_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251210_115000_43792sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251211_000008_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251211_120004_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251212_000007_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251212_114954_43796sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251213_000006_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251213_115946_43208sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251214_000010_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251214_115000_43796sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251215_000012_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251215_114957_43794sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251216_000007_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251216_121027_42565sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251217_000009_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251217_120004_43191sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251218_000012_43176sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251218_114955_43798sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251218_235953_43196sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251219_120005_43186sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251220_000007_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251220_120001_43191sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251221_000008_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251221_114957_43799sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251222_000011_43174sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251222_121027_42565sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251223_000009_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251223_114950_43804sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251224_000010_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251224_120005_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251225_000009_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251225_120006_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251226_000010_43182sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251226_120007_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251227_000010_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251227_121028_42569sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251228_000011_43176sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251228_120003_43200sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251229_000005_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251229_120002_43191sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251230_000009_43176sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251230_120001_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251231_000012_43176sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2025/HLS_20251231_000012_43176sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260101_000005_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260101_120001_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260102_000007_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260102_120003_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260103_000007_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260103_120000_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260104_000006_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260104_120001_43194sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260105_000011_43174sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260105_121027_42568sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260106_000011_43173sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260106_121027_42565sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260107_000008_43182sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260107_120005_43186sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260108_000006_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260108_120002_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260109_000006_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260109_121027_42566sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260110_000008_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260110_120002_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260111_000006_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260111_120005_43193sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260111_121028_42570sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260112_000006_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260112_120003_43186sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260113_000006_43184sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260113_120006_43185sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260114_000006_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260114_120001_43194sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260115_000011_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260115_120003_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260116_000007_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260116_120004_43192sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260117_000012_43175sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260117_120003_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260118_000008_43176sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260118_120000_43193sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260119_000008_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260119_115959_43198sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260120_000005_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260120_114949_43803sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260121_000006_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260121_120004_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260122_000007_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260122_121027_42563sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260123_000006_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260123_114954_43798sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260124_114955_43798sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260125_000009_43175sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260125_120000_43191sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260126_000007_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260126_120003_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260127_000006_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260127_114954_43798sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260128_000008_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260129_114952_43799sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260130_000007_43182sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260130_000007_43182sec_lev1_V112.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260130_120004_43192sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260131_000012_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260131_120007_43186sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260201_000008_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260201_120005_43198sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260202_000005_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260202_114958_43793sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260203_000005_43185sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260203_141301_35212sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260204_000009_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260204_120003_43186sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260205_000005_43185sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260205_000005_43185sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260205_120005_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260206_000012_43172sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260206_114948_43803sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260206_235952_43195sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260207_114953_43800sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260208_000008_43184sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260208_120005_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260209_120004_43185sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260210_000005_674sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260210_012222_503sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260210_050957_24588sec_lev1_V311.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260210_121027_42563sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260211_000006_43185sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260211_121028_42564sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260212_000008_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260212_120002_43193sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260213_000010_43182sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260213_120007_43184sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260214_000006_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260214_120004_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260215_000010_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260215_000010_43180sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260215_121028_42561sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260216_000007_43184sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260216_120006_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260218_000031_43156sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260218_120003_43193sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260219_000011_43174sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260219_120000_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260220_000011_43174sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260220_121027_42567sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260221_000009_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260221_120003_43191sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260222_000010_43175sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260222_114950_43805sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260222_235957_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260223_120001_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260224_000012_43173sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260224_120000_43192sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260225_000007_43184sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260225_120007_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260226_000012_43174sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260226_120002_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260227_000006_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260227_121027_42568sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260228_000010_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260228_120002_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260301_000008_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260301_121027_42567sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260302_000010_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260302_121027_42563sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260303_000008_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260303_120000_43192sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260304_000009_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260304_114956_43799sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260305_000010_43182sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260305_120007_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260306_000010_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260306_120006_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260307_000009_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260307_120004_43186sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260308_000006_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260308_120002_43193sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260309_000010_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260309_121027_42562sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260310_000006_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260310_120002_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260311_000007_43182sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260311_120005_43186sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260312_000007_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260312_000007_43180sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260312_120002_43193sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260313_000011_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260313_121028_42562sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260314_000006_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260314_114949_43802sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260315_000012_43172sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260315_114948_43801sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260315_235951_43198sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260316_120003_43192sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260317_000011_43173sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260317_120000_43194sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260318_000009_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260318_120006_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260319_000009_43176sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260319_114950_43805sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260320_000008_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260320_121027_42566sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260321_000010_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260321_120006_43185sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260322_000006_43182sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260322_120003_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260323_000046_43141sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260323_120003_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260324_000010_43176sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260324_120001_43195sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260325_000012_43173sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260325_120001_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260326_000013_43173sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260326_115947_43209sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260327_000012_43173sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260327_114950_43800sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260328_000006_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260328_120005_43186sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260329_000006_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260329_115959_43197sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260330_000011_43174sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260330_120000_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260331_000004_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260331_115001_43791sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260401_000007_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260401_120007_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260402_000010_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260402_120002_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260403_000005_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260403_120004_43185sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260404_000012_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260404_000012_43177sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260404_120004_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260405_000009_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260405_120006_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260406_000005_43186sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260406_120007_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260407_000010_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260407_120004_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260407_235953_43196sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260408_120006_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260409_000011_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260409_120006_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260410_000010_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260410_120003_43192sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260411_000011_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260411_120006_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260412_000010_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260412_114959_43794sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260413_000011_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260413_121028_42567sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260414_000010_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260414_121028_42568sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260415_000011_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260415_121028_42568sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260417_000010_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260417_000010_43179sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260417_120004_43192sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260418_000012_43174sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260418_120002_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260419_000007_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260419_000007_43180sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260419_120003_43186sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260420_000012_43176sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260420_121027_42568sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260421_000010_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260421_121027_42565sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260422_000008_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260422_235955_43193sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260423_120003_43193sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260424_000012_43174sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260424_120001_43191sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260425_000008_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260425_121028_42560sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260426_000005_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260426_114954_43800sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260426_120004_43190sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260427_000009_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260427_114952_43799sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260428_000008_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260428_120002_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260429_000004_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260429_121027_42562sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260430_000005_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260430_121027_42565sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260501_000009_43176sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260501_121027_42565sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260502_000007_43184sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260502_120006_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260502_235956_43194sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260503_121028_42566sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260504_000010_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260504_114956_43795sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260505_000008_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260505_120005_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260506_000007_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260506_120003_43196sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260507_000012_43173sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260507_114949_43802sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260508_000008_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260508_121027_42570sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260509_000011_43175sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260509_120002_43191sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260510_000009_43182sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260510_120006_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260511_000008_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260511_120001_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260512_000012_43173sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260512_120002_43192sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260513_000009_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260513_120003_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260514_000008_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260514_120007_43182sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260515_000012_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260515_120007_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260516_000010_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260516_120007_43185sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260517_000007_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260517_121027_42567sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260518_000008_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260518_120005_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260518_120005_43188sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260519_000008_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260519_120005_43191sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260520_000009_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260520_121027_42562sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260521_000005_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260521_120001_43194sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260523_000009_43182sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260523_120006_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260524_000006_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260524_120004_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260525_000007_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260525_120001_43200sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260526_000007_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260526_120001_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260527_000007_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260527_120001_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260528_000013_43176sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260528_121028_42562sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260529_000005_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260529_120003_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260530_000007_43180sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260530_120002_43186sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260531_000005_43181sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260531_120001_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260601_000006_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260601_000006_43178sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260601_114948_43804sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260601_120000_43192sec_lev1_V211.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260602_000007_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260602_115954_43200sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260603_000009_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260603_120002_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260605_000007_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260605_120001_43188sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260606_000005_43185sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260606_120006_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260607_000008_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260607_120000_43193sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260608_000009_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260608_114952_43804sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260609_000012_43179sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260609_115000_43795sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260610_000012_43174sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260610_121027_42571sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260611_000006_43178sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260611_114949_43807sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260612_000011_43177sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260612_120003_43192sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260613_000010_43182sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260613_120007_43189sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260614_000012_43175sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260614_120003_43193sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260614_235958_43187sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260615_120000_43190sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260616_115959_43192sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260617_000007_43183sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/hel1os/2026/HLS_20260617_121028_42562sec_lev1_V111.zip",
+  "status": "EXTRACTED",
+  "members_ok": 16,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240201_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240202_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240203_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240204_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240205_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240206_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240207_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240208_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240209_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240210_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240211_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240212_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240213_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240214_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240215_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240216_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240217_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240218_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240219_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240220_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240221_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240222_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240223_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240224_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240225_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240226_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240227_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240228_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240229_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240301_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240302_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240303_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240304_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240305_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240306_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240307_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240308_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240309_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240310_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240311_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240312_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240313_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240314_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240315_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240316_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240317_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240318_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240319_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240320_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240321_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240322_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240323_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240324_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240325_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240326_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240329_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240331_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240401_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240402_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240403_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240404_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240405_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240406_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240407_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240408_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240409_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240410_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240411_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240412_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240413_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240414_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240415_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240416_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240417_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240418_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240419_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240420_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240421_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240422_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240423_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240424_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240425_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240426_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240427_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240428_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240429_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240430_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240501_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240502_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240503_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240504_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240505_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240506_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240507_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240508_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240509_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240510_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240511_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240512_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240513_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240514_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240515_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240516_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240517_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240518_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240519_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240520_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240521_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240522_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240523_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240524_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240525_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240526_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240527_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240528_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240529_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240530_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20240531_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20241001_v1.1.zip",
+  "status": "EXTRACTED",
+  "members_ok": 6,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20241025_v1.1.zip",
+  "status": "EXTRACTED",
+  "members_ok": 6,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2024/AL1_SLX_L1_20241212_v1.1.zip",
+  "status": "EXTRACTED",
+  "members_ok": 6,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250119_v1.1.zip",
+  "status": "EXTRACTED",
+  "members_ok": 6,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250202_v1.1.zip",
+  "status": "EXTRACTED",
+  "members_ok": 6,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250618_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250619_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250620_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250621_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250623_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250625_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250626_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250627_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250628_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250629_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250630_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250701_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250704_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250707_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250708_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250709_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250710_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250714_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250715_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250716_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250718_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250719_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250728_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250729_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250730_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250731_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250801_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250802_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250803_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250804_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250806_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250807_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250808_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250809_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250810_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250811_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250812_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250813_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250816_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250817_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250818_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250819_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250820_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250821_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250822_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250824_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250825_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250827_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250828_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250829_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250830_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250901_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250902_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250903_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250904_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250905_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250906_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250907_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250908_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250909_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250910_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250911_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250912_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250913_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250915_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250916_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250917_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250918_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250919_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250920_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250923_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250925_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20250930_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251001_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251002_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251003_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251004_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251005_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251006_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251007_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251008_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251009_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251010_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251011_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251012_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251013_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251014_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251015_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251017_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251018_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251019_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251020_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251021_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251022_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251023_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251025_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251026_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251027_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251028_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251031_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251101_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251102_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251103_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251104_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251105_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251106_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251107_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251108_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251109_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251110_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251112_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251113_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251114_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251115_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251116_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251118_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251119_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251120_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251121_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251122_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251123_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251124_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251125_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251126_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251127_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251128_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251129_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251130_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251201_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251202_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251203_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251204_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251205_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251206_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251207_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251208_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251209_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251210_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251211_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251212_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251213_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251214_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251215_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251216_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251217_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251218_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251219_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251220_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251221_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251222_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251223_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251224_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251225_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251226_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251227_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251229_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2025/AL1_SLX_L1_20251230_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260101_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260102_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260103_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260104_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260105_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260106_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260107_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260108_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260109_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260110_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260111_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260112_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260113_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260114_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260115_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260116_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260117_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260118_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260119_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260120_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260121_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260122_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260123_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260124_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260125_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260126_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260127_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260128_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260129_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260130_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260131_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260201_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260202_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260203_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260204_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260205_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260206_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260207_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260208_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260209_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260210_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260211_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260212_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260214_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260215_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260216_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260218_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260219_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260221_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260222_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260223_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260224_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260225_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260226_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260227_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260228_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260301_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260302_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260303_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260304_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260305_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260306_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260307_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260308_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260309_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260310_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260311_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260312_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260313_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260314_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260315_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260316_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260317_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260318_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260319_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260320_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260321_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260322_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260323_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260324_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260325_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260326_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260327_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260328_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260329_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260330_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260331_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260401_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260402_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260403_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260404_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260405_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260406_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260407_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260408_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260409_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260410_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260411_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260412_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260413_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260414_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260415_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260418_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260419_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260420_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260421_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260422_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260424_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260425_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260426_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260427_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260428_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260430_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260501_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260502_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260503_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260504_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260505_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260506_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260507_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260508_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260509_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260510_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260511_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260512_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260513_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260514_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260515_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260516_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260517_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260518_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260519_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260520_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260521_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260523_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260524_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260525_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260526_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260527_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260528_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260529_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260530_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260531_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260601_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260602_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260603_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260605_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260606_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260607_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260608_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260610_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260611_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260612_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260613_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260614_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ },
+ {
+  "archive": "data_pipeline/downloads/raw/solex/2026/AL1_SLX_L1_20260615_v1.0.zip",
+  "status": "EXTRACTED",
+  "members_ok": 4,
+  "members_failed": 0
+ }
+]
