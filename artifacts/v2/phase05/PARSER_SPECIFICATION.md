@@ -228,7 +228,9 @@ Format: Parquet, one file per instrument-product per UTC day, partitioned `year=
 **`channel_energy_keV` is ABSENT BY DESIGN** — no RMF exists (§2.2). Adding it later requires a schema revision + an acquired response file.
 
 ### T3 `hel1os_lc_1min`
-`timestamp`; then per detector∈{czt1,czt2,cdte1,cdte2} × band: `{det}_{lo}_{hi}_rate` float64 **cts/s** and `{det}_{lo}_{hi}_stat_err` float64 cts/s (band edges from §2.6, e.g. `czt1_20_40_rate`, `cdte1_5_20_rate`); `{det}_live_time_s`; `{det}_gti_fraction`; `q_suninfov` bool; `q_no_data` bool; `orbit_id` string; `orbit_version` string; provenance.
+**AMENDED r6 — LONG form is canonical (see §10).** One row per **(minute, detector)**, not per minute. The r0 wide shape (one row per minute, all four detectors' columns) is **withdrawn**: it carried a single `orbit_id` per row, but the Version Resolution Engine (§4) resolves ownership per **(minute, detector)**, and at orbit boundaries different detectors of the same minute can be owned by different orbits. A single `orbit_id` therefore cannot represent the provenance the engine produces without loss. The canonical form is long; **wide tables, if required, are DERIVED VIEWS only** and are not part of the frozen dataset.
+
+Columns: `timestamp`; `detector` category (czt1/czt2/cdte1/cdte2); then per band of that detector's family (§2.6): `{det}_{lo}_{hi}_rate` float64 **cts/s**, `{det}_{lo}_{hi}_stat_err` float64 cts/s, `{det}_{lo}_{hi}_n_samples` int; `orbit_id` string; `orbit_version` string; provenance (`src_file`, `src_sha256`, `archive_version`). Keyed uniquely by (minute, detector); F-15-guarded.
 
 ### T4 `hel1os_hk_1min`
 `timestamp`; `czt1temp, czt2temp, cdte1temp, cdte2temp` (degC); `czthvmon, cdtehvmon` (V); `cdte1pilectr, cdte2pilectr, czt1satctr1, czt2satctr1` (counters, minute-max); `czt1hotpixcnt, czt2hotpixcnt`; `czt1enth, cdte1enerthr, cdte2enerthr`; `suninfov` (bool, minute-min = conservative); `sunradeg, sundecdeg`; `fehkstat`; provenance.
@@ -458,4 +460,14 @@ Original contract, grounded in structure-only schema discovery of the real archi
 
 **Unchanged.** Every other rule, schema, and policy. The 20 fail-loud rule ids are untouched — r5 refines the *application* of F-07, F-09 and F-11, and adds none.
 
-**Disposition.** **CONTRADICTION-005: CLOSED** by this revision. **Milestone VIII is now the final validation milestone: it shall discharge A-8, A-11, A-12, A-13, A-14 and resolve CONTRADICTION-003 through archive-wide scientific validation.**
+**Disposition.** **CONTRADICTION-005: CLOSED** by this revision.
+
+### r6 — 2026-07-18 (owner-approved; T3 shape ratification, non-substantive to data)
+
+**Trigger.** Milestone VII declared a T3 shape deviation (long vs the r0 wide schema) for ratification rather than silently reconciling it. The owner **ratified the long form as canonical**.
+
+**Change.** §3 T3 is amended: **one row per (minute, detector)** is canonical; the wide shape is withdrawn because a single `orbit_id` per row cannot faithfully represent per-(minute, detector) ownership at orbit boundaries (§4). Wide tables become **derived views only**. No rebuild required — the M-VII build already emitted long form; this aligns the contract text with the accepted data.
+
+**Unchanged.** All rules, all other schemas, every measurement. r6 changes contract prose to match an owner-accepted table shape; it alters no value and adds no rule id.
+
+**Disposition.** T3 deviation **RATIFIED**. Milestone VII **CLOSED**; dataset version **FROZEN**. **Milestone VIII is now the final validation milestone: it shall discharge A-8, A-11, A-12, A-13, A-14 and resolve CONTRADICTION-003 through archive-wide scientific validation.**
