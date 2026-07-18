@@ -1,10 +1,16 @@
-<!-- VERSION STATUS: CURRENT — BLOCKING Milestone VII completion -->
-<!-- REASON: r5 rebuild surfaced two more §2.8 HK checks that real data falsifies. -->
+<!-- VERSION STATUS: CLOSED -->
+<!-- REASON: r5 rebuild surfaced two more §2.8 HK checks. RESOLVED: Defect A implementation-only fix approved; Defect B not approved (working as designed). -->
 <!-- DATE: 2026-07-17 -->
 
 # CONTRADICTION-006 — two §2.8 HK checks falsified by the archive-wide rebuild
 
-**Status: BLOCKING Milestone VII completion. The r5 rebuild recovered HEL1OS (0 → 295 of 391) but surfaced two §2.8 housekeeping checks that I generalised from a single orbit and that real data falsifies. No specification change made. Awaiting owner approval.**
+**Status: CLOSED 2026-07-17.**
+
+**Defect A: APPROVED as an implementation-only fix.** The observed failures are numerical representation artifacts (all ~6.3×10⁻⁷ s — the float64 ULP of MJD at ~61000), not physically out-of-span telemetry. The HK header-span check now applies the SAME documented `_FLOAT_EPS_S` (1 ms) already employed by §2.7 R-1. **The specification text is unchanged** — the epsilon exists solely to prevent IEEE754 boundary artifacts and is not a physical tolerance, documented as such at the check site. Verified: a previously-rejected ULP orbit parses; no spec edit was made.
+
+**Defect B: NOT APPROVED — §2.8 unchanged, working as designed.** Duplicate HK timestamps remain archive-quality defects; F-16 continues to terminate; parser behaviour unmodified. The 2 affected orbits (`HLS_20260201_120005_43198sec_V111`: 2 duplicate values; one further orbit: 1) are **recorded as archive findings** for Milestone VIII, alongside the 12 SoLEXS `STOP≤START` days and 10 unreadable files.
+
+My disposition-(i) recommendation was upheld. 188/188 tests pass; the duplicate orbit verifiably still terminates with F-16.
 
 Raised under: *"Do not revisit parser implementation unless a new parser-level contradiction is proven."* Two are proven. Both are the **same root-cause pattern as CONTRADICTION-001/-003/-004A/-005A**: a §2.8 property asserted from orbit `20251208` (the one M-V orbit) without checking the population. A-12 already anticipated that HK properties need archive-wide verification; these two checks are further HK properties that also don't hold as written.
 

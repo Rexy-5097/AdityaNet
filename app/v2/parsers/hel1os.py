@@ -24,7 +24,7 @@ from app.v2.models.metadata import (ChanType, FailLoud, Instrument,
                                     ParsedProduct, Product, Provenance)
 from app.v2.parsers.base import (BaseParser, REGISTRY, get_column, get_hdu,
                                  has_column, require_equal, require_header)
-from app.v2.parsers.hel1os_base import (DETECTORS, EVENT_HDUS, EXPECTED_BANDS_KEV,
+from app.v2.parsers.hel1os_base import (_FLOAT_EPS_S, DETECTORS, EVENT_HDUS, EXPECTED_BANDS_KEV,
                                         N_BANDS, absolute_time_from_R1,
                                         detector_family, mjd_to_utc, orbit_id,
                                         parse_band_extname, require_hel1os_primary,
@@ -242,7 +242,16 @@ class HEL1OSHkParser(BaseParser):
                                got=int(np.unique(mjd).size))
             hdr_t0 = float(require_header(hk.header, "TSTART", file=path, hdu="HLSHK"))
             hdr_t1 = float(require_header(hk.header, "TSTOP", file=path, hdu="HLSHK"))
-            if mjd.min() < hdr_t0 or mjd.max() > hdr_t1:
+            # CONTRADICTION-006 Defect A (owner-approved, implementation-only):
+            # the header bounds are themselves MJD floats carrying a ~6e-7 s ULP
+            # at MJD ~61000, so "within the span" cannot be tested tighter than
+            # that. _FLOAT_EPS_S (1 ms) is the SAME documented IEEE754 slack used
+            # by §2.7 R-1: ~3 orders above the ULP, ~4 orders below any physically
+            # meaningful excursion (which would be seconds — a wrong day/epoch).
+            # It exists SOLELY to prevent IEEE754 boundary artifacts. It is NOT a
+            # physical tolerance, and the spec text is unchanged.
+            eps_mjd = _FLOAT_EPS_S / 86400.0
+            if mjd.min() < hdr_t0 - eps_mjd or mjd.max() > hdr_t1 + eps_mjd:
                 raise FailLoud("F-06", "HK mjd range outside the header span",
                                file=path, hdu="HLSHK",
                                expected=(hdr_t0, hdr_t1),

@@ -1,6 +1,6 @@
 {
  "solexs_archives_processed": 424,
- "hel1os_orbits_processed": 295,
+ "hel1os_orbits_processed": 389,
  "n_solexs_available": 436,
  "n_hel1os_available": 391,
  "skipped": [
@@ -65,131 +65,6 @@
    "reason": "[F-19] Negative counts / negative EXPOSURE / live_time_s > 60 :: GTI row 4 has STOP <= START | file=data/aditya_l1/real_l1_v1/solexs/AL1_SLX_L1_20260415_v1.0/AL1_SLX_L1_20260415_v1.0/SDD2/AL1_SOLEXS_20260415_SDD2_L1.gti."
   },
   {
-   "product": "HLS_20251213_000006_43178sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20251213_000006_43178sec_lev1_V111/2025/12/13/HLS_20251213_000006_431"
-  },
-  {
-   "product": "HLS_20251213_115946_43208sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20251213_115946_43208sec_lev1_V111/2025/12/13/HLS_20251213_115946_432"
-  },
-  {
-   "product": "HLS_20251221_000008_43181sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20251221_000008_43181sec_lev1_V111/2025/12/21/HLS_20251221_000008_431"
-  },
-  {
-   "product": "HLS_20251222_000011_43174sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20251222_000011_43174sec_lev1_V111/2025/12/22/HLS_20251222_000011_431"
-  },
-  {
-   "product": "HLS_20251222_121027_42565sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20251222_121027_42565sec_lev1_V111/2025/12/22/HLS_20251222_121027_425"
-  },
-  {
-   "product": "HLS_20251224_000010_43179sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20251224_000010_43179sec_lev1_V111/2025/12/24/HLS_20251224_000010_431"
-  },
-  {
-   "product": "HLS_20251225_000009_43181sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20251225_000009_43181sec_lev1_V111/2025/12/25/HLS_20251225_000009_431"
-  },
-  {
-   "product": "HLS_20251225_120006_43190sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20251225_120006_43190sec_lev1_V111/2025/12/25/HLS_20251225_120006_431"
-  },
-  {
-   "product": "HLS_20251230_120001_43187sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20251230_120001_43187sec_lev1_V111/2025/12/30/HLS_20251230_120001_431"
-  },
-  {
-   "product": "HLS_20260102_000007_43180sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260102_000007_43180sec_lev1_V111/2026/01/02/HLS_20260102_000007_431"
-  },
-  {
-   "product": "HLS_20260106_121027_42565sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260106_121027_42565sec_lev1_V111/2026/01/06/HLS_20260106_121027_425"
-  },
-  {
-   "product": "HLS_20260109_000006_43181sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260109_000006_43181sec_lev1_V111/2026/01/09/HLS_20260109_000006_431"
-  },
-  {
-   "product": "HLS_20260111_000006_43183sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260111_000006_43183sec_lev1_V111/2026/01/11/HLS_20260111_000006_431"
-  },
-  {
-   "product": "HLS_20260112_000006_43180sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260112_000006_43180sec_lev1_V111/2026/01/12/HLS_20260112_000006_431"
-  },
-  {
-   "product": "HLS_20260112_120003_43186sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260112_120003_43186sec_lev1_V111/2026/01/12/HLS_20260112_120003_431"
-  },
-  {
-   "product": "HLS_20260113_000006_43184sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260113_000006_43184sec_lev1_V111/2026/01/13/HLS_20260113_000006_431"
-  },
-  {
-   "product": "HLS_20260116_120004_43192sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260116_120004_43192sec_lev1_V111/2026/01/16/HLS_20260116_120004_431"
-  },
-  {
-   "product": "HLS_20260120_114949_43803sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260120_114949_43803sec_lev1_V111/2026/01/20/HLS_20260120_114949_438"
-  },
-  {
-   "product": "HLS_20260122_000007_43177sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260122_000007_43177sec_lev1_V111/2026/01/22/HLS_20260122_000007_431"
-  },
-  {
-   "product": "HLS_20260125_000009_43175sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260125_000009_43175sec_lev1_V111/2026/01/25/HLS_20260125_000009_431"
-  },
-  {
-   "product": "HLS_20260125_120000_43191sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260125_120000_43191sec_lev1_V111/2026/01/25/HLS_20260125_120000_431"
-  },
-  {
-   "product": "HLS_20260130_000007_43182sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260130_000007_43182sec_lev1_V111/2026/01/30/HLS_20260130_000007_431"
-  },
-  {
-   "product": "HLS_20260130_000007_43182sec_lev1_V112",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260130_000007_43182sec_lev1_V112/2026/01/30/HLS_20260130_000007_431"
-  },
-  {
-   "product": "HLS_20260130_120004_43192sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260130_120004_43192sec_lev1_V111/2026/01/30/HLS_20260130_120004_431"
-  },
-  {
-   "product": "HLS_20260131_000012_43179sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260131_000012_43179sec_lev1_V111/2026/01/31/HLS_20260131_000012_431"
-  },
-  {
    "product": "HLS_20260201_120005_43198sec_lev1_V111",
    "rule": "F-16",
    "reason": "[F-16] Timestamps non-monotonic or duplicated in input :: duplicate HK mjd timestamps | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260201_120005_43198sec_lev1_V111/2026/02/01/HLS_20260201_120005_43198sec_lev1_V111/aux/h"
@@ -198,351 +73,6 @@
    "product": "HLS_20260202_000005_43183sec_lev1_V111",
    "rule": "F-16",
    "reason": "[F-16] Timestamps non-monotonic or duplicated in input :: duplicate HK mjd timestamps | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260202_000005_43183sec_lev1_V111/2026/02/02/HLS_20260202_000005_43183sec_lev1_V111/aux/h"
-  },
-  {
-   "product": "HLS_20260206_235952_43195sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260206_235952_43195sec_lev1_V111/2026/02/07/HLS_20260206_235952_431"
-  },
-  {
-   "product": "HLS_20260207_114953_43800sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260207_114953_43800sec_lev1_V111/2026/02/07/HLS_20260207_114953_438"
-  },
-  {
-   "product": "HLS_20260208_000008_43184sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260208_000008_43184sec_lev1_V111/2026/02/08/HLS_20260208_000008_431"
-  },
-  {
-   "product": "HLS_20260213_120007_43184sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260213_120007_43184sec_lev1_V111/2026/02/13/HLS_20260213_120007_431"
-  },
-  {
-   "product": "HLS_20260215_000010_43180sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260215_000010_43180sec_lev1_V111/2026/02/15/HLS_20260215_000010_431"
-  },
-  {
-   "product": "HLS_20260215_000010_43180sec_lev1_V211",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260215_000010_43180sec_lev1_V211/2026/02/15/HLS_20260215_000010_431"
-  },
-  {
-   "product": "HLS_20260216_120006_43190sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260216_120006_43190sec_lev1_V111/2026/02/16/HLS_20260216_120006_431"
-  },
-  {
-   "product": "HLS_20260219_120000_43189sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260219_120000_43189sec_lev1_V111/2026/02/19/HLS_20260219_120000_431"
-  },
-  {
-   "product": "HLS_20260221_000009_43178sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260221_000009_43178sec_lev1_V111/2026/02/21/HLS_20260221_000009_431"
-  },
-  {
-   "product": "HLS_20260222_000010_43175sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260222_000010_43175sec_lev1_V111/2026/02/22/HLS_20260222_000010_431"
-  },
-  {
-   "product": "HLS_20260223_120001_43188sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260223_120001_43188sec_lev1_V111/2026/02/23/HLS_20260223_120001_431"
-  },
-  {
-   "product": "HLS_20260224_000012_43173sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260224_000012_43173sec_lev1_V111/2026/02/24/HLS_20260224_000012_431"
-  },
-  {
-   "product": "HLS_20260225_000007_43184sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260225_000007_43184sec_lev1_V111/2026/02/25/HLS_20260225_000007_431"
-  },
-  {
-   "product": "HLS_20260226_120002_43189sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260226_120002_43189sec_lev1_V111/2026/02/26/HLS_20260226_120002_431"
-  },
-  {
-   "product": "HLS_20260228_120002_43190sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260228_120002_43190sec_lev1_V111/2026/02/28/HLS_20260228_120002_431"
-  },
-  {
-   "product": "HLS_20260301_121027_42567sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260301_121027_42567sec_lev1_V111/2026/03/01/HLS_20260301_121027_425"
-  },
-  {
-   "product": "HLS_20260303_120000_43192sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260303_120000_43192sec_lev1_V111/2026/03/03/HLS_20260303_120000_431"
-  },
-  {
-   "product": "HLS_20260305_000010_43182sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260305_000010_43182sec_lev1_V111/2026/03/05/HLS_20260305_000010_431"
-  },
-  {
-   "product": "HLS_20260307_000009_43179sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260307_000009_43179sec_lev1_V111/2026/03/07/HLS_20260307_000009_431"
-  },
-  {
-   "product": "HLS_20260309_000010_43178sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260309_000010_43178sec_lev1_V111/2026/03/09/HLS_20260309_000010_431"
-  },
-  {
-   "product": "HLS_20260315_000012_43172sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260315_000012_43172sec_lev1_V111/2026/03/15/HLS_20260315_000012_431"
-  },
-  {
-   "product": "HLS_20260317_120000_43194sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260317_120000_43194sec_lev1_V111/2026/03/17/HLS_20260317_120000_431"
-  },
-  {
-   "product": "HLS_20260318_000009_43181sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260318_000009_43181sec_lev1_V111/2026/03/18/HLS_20260318_000009_431"
-  },
-  {
-   "product": "HLS_20260320_000008_43178sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260320_000008_43178sec_lev1_V111/2026/03/20/HLS_20260320_000008_431"
-  },
-  {
-   "product": "HLS_20260322_000006_43182sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260322_000006_43182sec_lev1_V111/2026/03/22/HLS_20260322_000006_431"
-  },
-  {
-   "product": "HLS_20260326_115947_43209sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260326_115947_43209sec_lev1_V111/2026/03/26/HLS_20260326_115947_432"
-  },
-  {
-   "product": "HLS_20260327_000012_43173sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260327_000012_43173sec_lev1_V111/2026/03/27/HLS_20260327_000012_431"
-  },
-  {
-   "product": "HLS_20260328_120005_43186sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260328_120005_43186sec_lev1_V111/2026/03/28/HLS_20260328_120005_431"
-  },
-  {
-   "product": "HLS_20260329_000006_43178sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260329_000006_43178sec_lev1_V111/2026/03/29/HLS_20260329_000006_431"
-  },
-  {
-   "product": "HLS_20260330_000011_43174sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260330_000011_43174sec_lev1_V111/2026/03/30/HLS_20260330_000011_431"
-  },
-  {
-   "product": "HLS_20260330_120000_43189sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260330_120000_43189sec_lev1_V111/2026/03/30/HLS_20260330_120000_431"
-  },
-  {
-   "product": "HLS_20260331_115001_43791sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260331_115001_43791sec_lev1_V111/2026/03/31/HLS_20260331_115001_437"
-  },
-  {
-   "product": "HLS_20260405_000009_43181sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260405_000009_43181sec_lev1_V111/2026/04/05/HLS_20260405_000009_431"
-  },
-  {
-   "product": "HLS_20260407_000010_43178sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260407_000010_43178sec_lev1_V111/2026/04/07/HLS_20260407_000010_431"
-  },
-  {
-   "product": "HLS_20260409_000011_43179sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260409_000011_43179sec_lev1_V111/2026/04/09/HLS_20260409_000011_431"
-  },
-  {
-   "product": "HLS_20260412_000010_43180sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260412_000010_43180sec_lev1_V111/2026/04/12/HLS_20260412_000010_431"
-  },
-  {
-   "product": "HLS_20260413_000011_43181sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260413_000011_43181sec_lev1_V111/2026/04/13/HLS_20260413_000011_431"
-  },
-  {
-   "product": "HLS_20260414_000010_43180sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260414_000010_43180sec_lev1_V111/2026/04/14/HLS_20260414_000010_431"
-  },
-  {
-   "product": "HLS_20260415_000011_43178sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260415_000011_43178sec_lev1_V111/2026/04/15/HLS_20260415_000011_431"
-  },
-  {
-   "product": "HLS_20260417_000010_43179sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260417_000010_43179sec_lev1_V111/2026/04/17/HLS_20260417_000010_431"
-  },
-  {
-   "product": "HLS_20260417_000010_43179sec_lev1_V211",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260417_000010_43179sec_lev1_V211/2026/04/17/HLS_20260417_000010_431"
-  },
-  {
-   "product": "HLS_20260421_000010_43179sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260421_000010_43179sec_lev1_V111/2026/04/21/HLS_20260421_000010_431"
-  },
-  {
-   "product": "HLS_20260427_000009_43178sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260427_000009_43178sec_lev1_V111/2026/04/27/HLS_20260427_000009_431"
-  },
-  {
-   "product": "HLS_20260429_000004_43183sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260429_000004_43183sec_lev1_V111/2026/04/29/HLS_20260429_000004_431"
-  },
-  {
-   "product": "HLS_20260429_121027_42562sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260429_121027_42562sec_lev1_V111/2026/04/29/HLS_20260429_121027_425"
-  },
-  {
-   "product": "HLS_20260502_000007_43184sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260502_000007_43184sec_lev1_V111/2026/05/02/HLS_20260502_000007_431"
-  },
-  {
-   "product": "HLS_20260504_114956_43795sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260504_114956_43795sec_lev1_V111/2026/05/04/HLS_20260504_114956_437"
-  },
-  {
-   "product": "HLS_20260510_000009_43182sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260510_000009_43182sec_lev1_V111/2026/05/10/HLS_20260510_000009_431"
-  },
-  {
-   "product": "HLS_20260513_120003_43189sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260513_120003_43189sec_lev1_V111/2026/05/13/HLS_20260513_120003_431"
-  },
-  {
-   "product": "HLS_20260514_000008_43183sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260514_000008_43183sec_lev1_V111/2026/05/14/HLS_20260514_000008_431"
-  },
-  {
-   "product": "HLS_20260515_000012_43179sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260515_000012_43179sec_lev1_V111/2026/05/15/HLS_20260515_000012_431"
-  },
-  {
-   "product": "HLS_20260516_120007_43185sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260516_120007_43185sec_lev1_V111/2026/05/16/HLS_20260516_120007_431"
-  },
-  {
-   "product": "HLS_20260519_120005_43191sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260519_120005_43191sec_lev1_V111/2026/05/19/HLS_20260519_120005_431"
-  },
-  {
-   "product": "HLS_20260520_000009_43177sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260520_000009_43177sec_lev1_V111/2026/05/20/HLS_20260520_000009_431"
-  },
-  {
-   "product": "HLS_20260521_120001_43194sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260521_120001_43194sec_lev1_V111/2026/05/21/HLS_20260521_120001_431"
-  },
-  {
-   "product": "HLS_20260524_000006_43183sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260524_000006_43183sec_lev1_V111/2026/05/24/HLS_20260524_000006_431"
-  },
-  {
-   "product": "HLS_20260527_000007_43178sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260527_000007_43178sec_lev1_V111/2026/05/27/HLS_20260527_000007_431"
-  },
-  {
-   "product": "HLS_20260528_121028_42562sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260528_121028_42562sec_lev1_V111/2026/05/28/HLS_20260528_121028_425"
-  },
-  {
-   "product": "HLS_20260529_000005_43183sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260529_000005_43183sec_lev1_V111/2026/05/29/HLS_20260529_000005_431"
-  },
-  {
-   "product": "HLS_20260603_000009_43177sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260603_000009_43177sec_lev1_V111/2026/06/03/HLS_20260603_000009_431"
-  },
-  {
-   "product": "HLS_20260605_000007_43178sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260605_000007_43178sec_lev1_V111/2026/06/05/HLS_20260605_000007_431"
-  },
-  {
-   "product": "HLS_20260605_120001_43188sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260605_120001_43188sec_lev1_V111/2026/06/05/HLS_20260605_120001_431"
-  },
-  {
-   "product": "HLS_20260607_120000_43193sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260607_120000_43193sec_lev1_V111/2026/06/07/HLS_20260607_120000_431"
-  },
-  {
-   "product": "HLS_20260609_000012_43179sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260609_000012_43179sec_lev1_V111/2026/06/09/HLS_20260609_000012_431"
-  },
-  {
-   "product": "HLS_20260609_115000_43795sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260609_115000_43795sec_lev1_V111/2026/06/09/HLS_20260609_115000_437"
-  },
-  {
-   "product": "HLS_20260611_114949_43807sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260611_114949_43807sec_lev1_V111/2026/06/11/HLS_20260611_114949_438"
-  },
-  {
-   "product": "HLS_20260614_000012_43175sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260614_000012_43175sec_lev1_V111/2026/06/14/HLS_20260614_000012_431"
-  },
-  {
-   "product": "HLS_20260614_235958_43187sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260614_235958_43187sec_lev1_V111/2026/06/15/HLS_20260614_235958_431"
-  },
-  {
-   "product": "HLS_20260617_121028_42562sec_lev1_V111",
-   "rule": "F-06",
-   "reason": "[F-06] Epoch resolution R-1 failed, or .pi TSTART[0] != .lc TSTART :: HK mjd range outside the header span | file=data/aditya_l1/real_l1_v1/hel1os/HLS_20260617_121028_42562sec_lev1_V111/2026/06/17/HLS_20260617_121028_425"
   }
  ],
  "failures": [
@@ -595,388 +125,12 @@
    "rule": "F-19"
   },
   {
-   "product": "HLS_20251213_000006_43178sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20251213_115946_43208sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20251221_000008_43181sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20251222_000011_43174sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20251222_121027_42565sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20251224_000010_43179sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20251225_000009_43181sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20251225_120006_43190sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20251230_120001_43187sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260102_000007_43180sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260106_121027_42565sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260109_000006_43181sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260111_000006_43183sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260112_000006_43180sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260112_120003_43186sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260113_000006_43184sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260116_120004_43192sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260120_114949_43803sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260122_000007_43177sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260125_000009_43175sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260125_120000_43191sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260130_000007_43182sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260130_000007_43182sec_lev1_V112",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260130_120004_43192sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260131_000012_43179sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
    "product": "HLS_20260201_120005_43198sec_lev1_V111",
    "rule": "F-16"
   },
   {
    "product": "HLS_20260202_000005_43183sec_lev1_V111",
    "rule": "F-16"
-  },
-  {
-   "product": "HLS_20260206_235952_43195sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260207_114953_43800sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260208_000008_43184sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260213_120007_43184sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260215_000010_43180sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260215_000010_43180sec_lev1_V211",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260216_120006_43190sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260219_120000_43189sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260221_000009_43178sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260222_000010_43175sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260223_120001_43188sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260224_000012_43173sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260225_000007_43184sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260226_120002_43189sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260228_120002_43190sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260301_121027_42567sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260303_120000_43192sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260305_000010_43182sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260307_000009_43179sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260309_000010_43178sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260315_000012_43172sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260317_120000_43194sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260318_000009_43181sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260320_000008_43178sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260322_000006_43182sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260326_115947_43209sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260327_000012_43173sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260328_120005_43186sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260329_000006_43178sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260330_000011_43174sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260330_120000_43189sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260331_115001_43791sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260405_000009_43181sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260407_000010_43178sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260409_000011_43179sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260412_000010_43180sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260413_000011_43181sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260414_000010_43180sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260415_000011_43178sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260417_000010_43179sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260417_000010_43179sec_lev1_V211",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260421_000010_43179sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260427_000009_43178sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260429_000004_43183sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260429_121027_42562sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260502_000007_43184sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260504_114956_43795sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260510_000009_43182sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260513_120003_43189sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260514_000008_43183sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260515_000012_43179sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260516_120007_43185sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260519_120005_43191sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260520_000009_43177sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260521_120001_43194sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260524_000006_43183sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260527_000007_43178sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260528_121028_42562sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260529_000005_43183sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260603_000009_43177sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260605_000007_43178sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260605_120001_43188sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260607_120000_43193sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260609_000012_43179sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260609_115000_43795sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260611_114949_43807sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260614_000012_43175sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260614_235958_43187sec_lev1_V111",
-   "rule": "F-06"
-  },
-  {
-   "product": "HLS_20260617_121028_42562sec_lev1_V111",
-   "rule": "F-06"
   }
  ],
  "checks": {
@@ -984,12 +138,12 @@
   "solexs_detector_inactive_F12": 426,
   "nan_gti_bijection_ok": 424,
   "V_PI_3_lc_pi_tstart_match": 424,
-  "hel1os_lc_built": 295,
-  "hel1os_hk_built": 295,
-  "hel1os_spec_built": 295
+  "hel1os_lc_built": 389,
+  "hel1os_hk_built": 389,
+  "hel1os_spec_built": 389
  },
  "r1_kinds": {
-  "relative_seconds": 1180
+  "relative_seconds": 1556
  },
  "hk_inversions": [
   {
@@ -1078,6 +232,16 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20251213_000006_43178sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20251213_115946_43208sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20251214_000010_43181sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -1148,9 +312,24 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20251221_000008_43181sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20251221_114957_43799sec_lev1_V111",
    "n": 5,
    "max_s": 0.6551563739776611
+  },
+  {
+   "orbit": "HLS_20251222_000011_43174sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20251222_121027_42565sec_lev1_V111",
+   "n": 3,
+   "max_s": 0.24409694597125053
   },
   {
    "orbit": "HLS_20251223_000009_43178sec_lev1_V111",
@@ -1163,7 +342,22 @@
    "max_s": 0.24361477699130774
   },
   {
+   "orbit": "HLS_20251224_000010_43179sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20251224_120005_43189sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20251225_000009_43181sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.19085719250142574
+  },
+  {
+   "orbit": "HLS_20251225_120006_43190sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -1213,6 +407,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20251230_120001_43187sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20251231_000012_43176sec_lev1_V111",
    "n": 16,
    "max_s": 0.840532430447638
@@ -1229,6 +428,11 @@
   },
   {
    "orbit": "HLS_20260101_120001_43190sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260102_000007_43180sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -1273,6 +477,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260106_121027_42565sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260107_000008_43182sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -1293,6 +502,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260109_000006_43181sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260109_121027_42566sec_lev1_V111",
    "n": 1,
    "max_s": 0.16465347725898027
@@ -1308,6 +522,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260111_000006_43183sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.09598808828741312
+  },
+  {
    "orbit": "HLS_20260111_120005_43193sec_lev1_V211",
    "n": 3,
    "max_s": 0.14732368290424347
@@ -1316,6 +535,21 @@
    "orbit": "HLS_20260111_121028_42570sec_lev1_V111",
    "n": 3,
    "max_s": 0.14732368290424347
+  },
+  {
+   "orbit": "HLS_20260112_000006_43180sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.3662874922156334
+  },
+  {
+   "orbit": "HLS_20260112_120003_43186sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260113_000006_43184sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
   },
   {
    "orbit": "HLS_20260113_120006_43185sec_lev1_V111",
@@ -1344,6 +578,11 @@
   },
   {
    "orbit": "HLS_20260116_000007_43181sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260116_120004_43192sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -1383,6 +622,11 @@
    "max_s": 0.41838877368718386
   },
   {
+   "orbit": "HLS_20260120_114949_43803sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260121_000006_43183sec_lev1_V111",
    "n": 328,
    "max_s": 0.8522522170096636
@@ -1391,6 +635,11 @@
    "orbit": "HLS_20260121_120004_43187sec_lev1_V111",
    "n": 2,
    "max_s": 0.19969590939581394
+  },
+  {
+   "orbit": "HLS_20260122_000007_43177sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
   },
   {
    "orbit": "HLS_20260122_121027_42563sec_lev1_V111",
@@ -1411,6 +660,16 @@
    "orbit": "HLS_20260124_114955_43798sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260125_000009_43175sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260125_120000_43191sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.08435191120952368
   },
   {
    "orbit": "HLS_20260126_000007_43181sec_lev1_V111",
@@ -1439,6 +698,26 @@
   },
   {
    "orbit": "HLS_20260129_114952_43799sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260130_000007_43182sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260130_000007_43182sec_lev1_V112",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260130_120004_43192sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260131_000012_43179sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -1503,6 +782,21 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260206_235952_43195sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260207_114953_43800sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260208_000008_43184sec_lev1_V111",
+   "n": 75,
+   "max_s": 0.8881408022716641
+  },
+  {
    "orbit": "HLS_20260208_120005_43190sec_lev1_V111",
    "n": 114,
    "max_s": 0.838948879390955
@@ -1558,6 +852,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260213_120007_43184sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260214_000006_43183sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -1568,6 +867,16 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260215_000010_43180sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.037768855690956116
+  },
+  {
+   "orbit": "HLS_20260215_000010_43180sec_lev1_V211",
+   "n": 1,
+   "max_s": 0.037768855690956116
+  },
+  {
    "orbit": "HLS_20260215_121028_42561sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -1576,6 +885,11 @@
    "orbit": "HLS_20260216_000007_43184sec_lev1_V111",
    "n": 1,
    "max_s": 0.6478716619312763
+  },
+  {
+   "orbit": "HLS_20260216_120006_43190sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
   },
   {
    "orbit": "HLS_20260218_000031_43156sec_lev1_V111",
@@ -1593,6 +907,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260219_120000_43189sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260220_000011_43174sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -1603,9 +922,19 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260221_000009_43178sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260221_120003_43191sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260222_000010_43175sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.007445644587278366
   },
   {
    "orbit": "HLS_20260222_114950_43805sec_lev1_V111",
@@ -1618,7 +947,22 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260223_120001_43188sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260224_000012_43173sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260224_120000_43192sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260225_000007_43184sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -1631,6 +975,11 @@
    "orbit": "HLS_20260226_000012_43174sec_lev1_V111",
    "n": 1,
    "max_s": 0.039306515827775
+  },
+  {
+   "orbit": "HLS_20260226_120002_43189sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
   },
   {
    "orbit": "HLS_20260227_000006_43181sec_lev1_V111",
@@ -1648,9 +997,19 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260228_120002_43190sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260301_000008_43180sec_lev1_V111",
    "n": 1,
    "max_s": 0.09269211441278458
+  },
+  {
+   "orbit": "HLS_20260301_121027_42567sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
   },
   {
    "orbit": "HLS_20260302_000010_43177sec_lev1_V111",
@@ -1668,12 +1027,22 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260303_120000_43192sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260304_000009_43179sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
   {
    "orbit": "HLS_20260304_114956_43799sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260305_000010_43182sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -1693,6 +1062,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260307_000009_43179sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260307_120004_43186sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -1704,6 +1078,11 @@
   },
   {
    "orbit": "HLS_20260308_120002_43193sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260309_000010_43178sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -1768,6 +1147,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260315_000012_43172sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260315_114948_43801sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -1788,6 +1172,16 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260317_120000_43194sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260318_000009_43181sec_lev1_V111",
+   "n": 107,
+   "max_s": 0.7114475592970848
+  },
+  {
    "orbit": "HLS_20260318_120006_43187sec_lev1_V111",
    "n": 1,
    "max_s": 0.6486430065706372
@@ -1803,6 +1197,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260320_000008_43178sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.04395910073071718
+  },
+  {
    "orbit": "HLS_20260320_121027_42566sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -1816,6 +1215,11 @@
    "orbit": "HLS_20260321_120006_43185sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260322_000006_43182sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.5250461865216494
   },
   {
    "orbit": "HLS_20260322_120003_43189sec_lev1_V111",
@@ -1858,6 +1262,16 @@
    "max_s": 0.8630604716017842
   },
   {
+   "orbit": "HLS_20260326_115947_43209sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.7900725351646543
+  },
+  {
+   "orbit": "HLS_20260327_000012_43173sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260327_114950_43800sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -1868,12 +1282,37 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260328_120005_43186sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260329_000006_43178sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260329_115959_43197sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260330_000011_43174sec_lev1_V111",
+   "n": 2674,
+   "max_s": 0.8921528002247214
+  },
+  {
+   "orbit": "HLS_20260330_120000_43189sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260331_000004_43188sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260331_115001_43791sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -1923,6 +1362,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260405_000009_43181sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260405_120006_43183sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -1938,6 +1382,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260407_000010_43178sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260407_120004_43188sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -1949,6 +1398,11 @@
   },
   {
    "orbit": "HLS_20260408_120006_43189sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260409_000011_43179sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -1978,7 +1432,17 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260412_000010_43180sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260412_114959_43794sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260413_000011_43181sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -1988,12 +1452,32 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260414_000010_43180sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260414_121028_42568sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260415_000011_43178sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260415_121028_42568sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260417_000010_43179sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260417_000010_43179sec_lev1_V211",
    "n": 0,
    "max_s": 0.0
   },
@@ -2036,6 +1520,11 @@
    "orbit": "HLS_20260420_121027_42568sec_lev1_V111",
    "n": 1,
    "max_s": 0.0021725893020629883
+  },
+  {
+   "orbit": "HLS_20260421_000010_43179sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
   },
   {
    "orbit": "HLS_20260421_121027_42565sec_lev1_V111",
@@ -2093,6 +1582,11 @@
    "max_s": 0.8826276054605842
   },
   {
+   "orbit": "HLS_20260427_000009_43178sec_lev1_V111",
+   "n": 25,
+   "max_s": 0.6530761951580644
+  },
+  {
    "orbit": "HLS_20260427_114952_43799sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -2106,6 +1600,16 @@
    "orbit": "HLS_20260428_120002_43187sec_lev1_V111",
    "n": 46,
    "max_s": 0.7684635696932673
+  },
+  {
+   "orbit": "HLS_20260429_000004_43183sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260429_121027_42562sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
   },
   {
    "orbit": "HLS_20260430_000005_43183sec_lev1_V111",
@@ -2128,6 +1632,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260502_000007_43184sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260502_120006_43188sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -2146,6 +1655,11 @@
    "orbit": "HLS_20260504_000010_43179sec_lev1_V111",
    "n": 37,
    "max_s": 0.6962972693145275
+  },
+  {
+   "orbit": "HLS_20260504_114956_43795sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
   },
   {
    "orbit": "HLS_20260505_000008_43181sec_lev1_V111",
@@ -2198,6 +1712,11 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260510_000009_43182sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260510_120006_43189sec_lev1_V111",
    "n": 845,
    "max_s": 0.8844324387609959
@@ -2228,7 +1747,22 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260513_120003_43189sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.7515367353335023
+  },
+  {
+   "orbit": "HLS_20260514_000008_43183sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.02557947300374508
+  },
+  {
    "orbit": "HLS_20260514_120007_43182sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260515_000012_43179sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -2241,6 +1775,11 @@
    "orbit": "HLS_20260516_000010_43181sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260516_120007_43185sec_lev1_V111",
+   "n": 65,
+   "max_s": 0.8466667262837291
   },
   {
    "orbit": "HLS_20260517_000007_43177sec_lev1_V111",
@@ -2273,6 +1812,16 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260519_120005_43191sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260520_000009_43177sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260520_121027_42562sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
@@ -2283,12 +1832,22 @@
    "max_s": 0.7600919343531132
   },
   {
+   "orbit": "HLS_20260521_120001_43194sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.01887185499072075
+  },
+  {
    "orbit": "HLS_20260523_000009_43182sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
   {
    "orbit": "HLS_20260523_120006_43187sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260524_000006_43183sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -2318,12 +1877,27 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260527_000007_43178sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260527_120001_43190sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
   {
    "orbit": "HLS_20260528_000013_43176sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260528_121028_42562sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.17642355524003506
+  },
+  {
+   "orbit": "HLS_20260529_000005_43183sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -2383,9 +1957,24 @@
    "max_s": 0.8671793388202786
   },
   {
+   "orbit": "HLS_20260603_000009_43177sec_lev1_V111",
+   "n": 1934,
+   "max_s": 0.8935244986787438
+  },
+  {
    "orbit": "HLS_20260603_120002_43189sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260605_000007_43178sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260605_120001_43188sec_lev1_V111",
+   "n": 1,
+   "max_s": 0.5200824234634638
   },
   {
    "orbit": "HLS_20260606_000005_43185sec_lev1_V111",
@@ -2403,12 +1992,27 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260607_120000_43193sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260608_000009_43178sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
   {
    "orbit": "HLS_20260608_114952_43804sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260609_000012_43179sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260609_115000_43795sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -2426,6 +2030,11 @@
    "orbit": "HLS_20260611_000006_43178sec_lev1_V111",
    "n": 1,
    "max_s": 0.044102431274950504
+  },
+  {
+   "orbit": "HLS_20260611_114949_43807sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
   },
   {
    "orbit": "HLS_20260612_000011_43177sec_lev1_V111",
@@ -2448,7 +2057,17 @@
    "max_s": 0.0
   },
   {
+   "orbit": "HLS_20260614_000012_43175sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
    "orbit": "HLS_20260614_120003_43193sec_lev1_V111",
+   "n": 0,
+   "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260614_235958_43187sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
   },
@@ -2466,6 +2085,11 @@
    "orbit": "HLS_20260617_000007_43183sec_lev1_V111",
    "n": 0,
    "max_s": 0.0
+  },
+  {
+   "orbit": "HLS_20260617_121028_42562sec_lev1_V111",
+   "n": 1,
+   "max_s": 1153.398135630414
   }
  ],
  "version_resolution": {
@@ -2478,5 +2102,5 @@
    "R2_longer_duration": 1276
   }
  },
- "elapsed_min": 74.92
+ "elapsed_min": 93.75
 }
