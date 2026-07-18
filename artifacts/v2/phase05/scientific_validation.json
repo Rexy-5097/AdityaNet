@@ -1,0 +1,551 @@
+{
+ "A8": {
+  "n_verified": 414,
+  "n_f09_failures": 0,
+  "n_other_skips": 22,
+  "f09_failures": [],
+  "other_skips": [
+   {
+    "archive": "AL1_SLX_L1_20240422_v1.0",
+    "rule": "F-19"
+   },
+   {
+    "archive": "AL1_SLX_L1_20240501_v1.0",
+    "rule": "F-19"
+   },
+   {
+    "archive": "AL1_SLX_L1_20250729_v1.0",
+    "rule": "F-19"
+   },
+   {
+    "archive": "AL1_SLX_L1_20251205_v1.0",
+    "rule": "F-19"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260406_v1.0",
+    "rule": "F-19"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260407_v1.0",
+    "rule": "F-19"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260408_v1.0",
+    "rule": "F-19"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260409_v1.0",
+    "rule": "F-19"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260411_v1.0",
+    "rule": "F-19"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260413_v1.0",
+    "rule": "F-19"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260414_v1.0",
+    "rule": "F-19"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260415_v1.0",
+    "rule": "F-19"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260602_v1.0",
+    "rule": "F-01"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260603_v1.0",
+    "rule": "F-01"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260605_v1.0",
+    "rule": "F-01"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260606_v1.0",
+    "rule": "F-01"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260607_v1.0",
+    "rule": "F-01"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260608_v1.0",
+    "rule": "F-01"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260610_v1.0",
+    "rule": "F-01"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260611_v1.0",
+    "rule": "F-01"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260612_v1.0",
+    "rule": "F-01"
+   },
+   {
+    "archive": "AL1_SLX_L1_20260613_v1.0",
+    "rule": "F-01"
+   }
+  ],
+  "status": "VERIFIED",
+  "note": "F-09 enforces exact \u03a3(STOP\u2212START+1)==EXPOSURE at parse; every SDD2 GTI reaching a parsed state satisfies A-8. Non-F-09 skips are separate archive defects (A-quality)."
+ },
+ "A11": {
+  "n_products": 1564,
+  "kinds": {
+   "relative_seconds": 1564
+  },
+  "n_failures": 0,
+  "failures": [],
+  "residual_s": {
+   "min": 19.999998821876943,
+   "max": 20.000001363216143,
+   "median": 20.00000009661744
+  },
+  "status": "VERIFIED"
+ },
+ "A12": {
+  "n_orbits": 389,
+  "n_orbits_with_inversions": 112,
+  "pct_orbits_with_inversions": 28.79177377892031,
+  "inversion_count": {
+   "min": 0,
+   "max": 31436,
+   "median": 0.0,
+   "total": 63166
+  },
+  "inversion_fraction_of_rows": {
+   "min": 0.0,
+   "max": 0.2342854066277223,
+   "median": 0.0
+  },
+  "max_backward_s": {
+   "min": 0.0,
+   "max": 1153.398135662,
+   "median": 0.0
+  },
+  "duration_histogram_s": {
+   "<1": 388,
+   "1-10": 0,
+   "10-60": 0,
+   "60-600": 0,
+   ">=600": 1
+  },
+  "top_orbits_by_max_backward": [
+   {
+    "orbit": "HLS_20260617_121028_42562sec_lev1_V111",
+    "rows": 5548,
+    "n_inversions": 1,
+    "max_backward_s": 1153.398135662
+   },
+   {
+    "orbit": "HLS_20260424_000012_43174sec_lev1_V111",
+    "rows": 39994,
+    "n_inversions": 1677,
+    "max_backward_s": 0.898117304
+   },
+   {
+    "orbit": "HLS_20260119_115959_43198sec_lev1_V111",
+    "rows": 244621,
+    "n_inversions": 31436,
+    "max_backward_s": 0.896495581
+   },
+   {
+    "orbit": "HLS_20260603_000009_43177sec_lev1_V111",
+    "rows": 21246,
+    "n_inversions": 1934,
+    "max_backward_s": 0.893524647
+   },
+   {
+    "orbit": "HLS_20260118_120000_43193sec_lev1_V111",
+    "rows": 34575,
+    "n_inversions": 3532,
+    "max_backward_s": 0.893459082
+   },
+   {
+    "orbit": "HLS_20251210_115000_43792sec_lev1_V111",
+    "rows": 7519,
+    "n_inversions": 328,
+    "max_backward_s": 0.893028499
+   },
+   {
+    "orbit": "HLS_20251208_000008_43178sec_lev1_V111",
+    "rows": 9514,
+    "n_inversions": 424,
+    "max_backward_s": 0.892437697
+   },
+   {
+    "orbit": "HLS_20251208_000008_43178sec_lev1_V211",
+    "rows": 9514,
+    "n_inversions": 424,
+    "max_backward_s": 0.892437697
+   }
+  ],
+  "classification_basis": "prevalence + magnitude, reported not judged"
+ },
+ "A13": {
+  "by_family": {
+   "CZT": {
+    "341": 782
+   },
+   "CDTE": {
+    "511": 782
+   }
+  },
+  "expected": {
+   "CZT": 341,
+   "CDTE": 511
+  },
+  "n_failures": 0,
+  "failures": [],
+  "status": "VERIFIED"
+ },
+ "A14": {
+  "n_days": 414,
+  "days_with_excess": 70,
+  "excess_s": {
+   "min": 0,
+   "median": 0.0,
+   "max": 43199,
+   "total": 266919
+  },
+  "temporal_structure": {
+   "by_month": [
+    {
+     "month": "202402",
+     "sum": 26705,
+     "median": 4.0,
+     "count": 29
+    },
+    {
+     "month": "202403",
+     "sum": 40901,
+     "median": 0.0,
+     "count": 28
+    },
+    {
+     "month": "202404",
+     "sum": 13959,
+     "median": 0.0,
+     "count": 29
+    },
+    {
+     "month": "202405",
+     "sum": 74290,
+     "median": 0.0,
+     "count": 30
+    },
+    {
+     "month": "202410",
+     "sum": 0,
+     "median": 0.0,
+     "count": 2
+    },
+    {
+     "month": "202412",
+     "sum": 43199,
+     "median": 43199.0,
+     "count": 1
+    },
+    {
+     "month": "202501",
+     "sum": 0,
+     "median": 0.0,
+     "count": 1
+    },
+    {
+     "month": "202502",
+     "sum": 0,
+     "median": 0.0,
+     "count": 1
+    },
+    {
+     "month": "202506",
+     "sum": 189,
+     "median": 0.0,
+     "count": 11
+    },
+    {
+     "month": "202507",
+     "sum": 78,
+     "median": 0.0,
+     "count": 14
+    },
+    {
+     "month": "202508",
+     "sum": 2929,
+     "median": 0.0,
+     "count": 25
+    },
+    {
+     "month": "202509",
+     "sum": 2249,
+     "median": 0.0,
+     "count": 22
+    },
+    {
+     "month": "202510",
+     "sum": 2130,
+     "median": 0.0,
+     "count": 27
+    },
+    {
+     "month": "202511",
+     "sum": 150,
+     "median": 0.0,
+     "count": 28
+    },
+    {
+     "month": "202512",
+     "sum": 15385,
+     "median": 0.0,
+     "count": 28
+    },
+    {
+     "month": "202601",
+     "sum": 2405,
+     "median": 0.0,
+     "count": 31
+    },
+    {
+     "month": "202602",
+     "sum": 38409,
+     "median": 0.0,
+     "count": 25
+    },
+    {
+     "month": "202603",
+     "sum": 1915,
+     "median": 0.0,
+     "count": 31
+    },
+    {
+     "month": "202604",
+     "sum": 78,
+     "median": 0.0,
+     "count": 18
+    },
+    {
+     "month": "202605",
+     "sum": 1948,
+     "median": 0.0,
+     "count": 30
+    },
+    {
+     "month": "202606",
+     "sum": 0,
+     "median": 0.0,
+     "count": 3
+    }
+   ],
+   "n_months_with_excess": 17
+  },
+  "concentration": {
+   "top10_days_share_pct": 80.20785331879709,
+   "days_with_full_day_excess_ge_80000s": 0
+  },
+  "detector_dependence": "N/A \u2014 SoLEXS science is SDD2-only (SDD1 is GTI-only, F-12 inactive); no per-detector contrast exists",
+  "note": "Observation only. No mechanism asserted. CONTRADICTION-003 and A-14 both concern GTI/LC/spectra relationships and are reported as measurements for the owner."
+ },
+ "C003": {
+  "n_days_sampled": 12,
+  "per_day": [
+   {
+    "date": "20240201",
+    "ratio_median": 13.066666666666666,
+    "ratio_p05": 5.384615384615385,
+    "ratio_p95": 27.8,
+    "sum_gt_lc_pct": 100.0,
+    "best_band": [
+     40,
+     60
+    ],
+    "best_band_med_abs_err": 1.0,
+    "exact_matches_full_sum": 0,
+    "n": 86398
+   },
+   {
+    "date": "20240311",
+    "ratio_median": 20.4,
+    "ratio_p05": 8.454545454545455,
+    "ratio_p95": 59.0,
+    "sum_gt_lc_pct": 100.0,
+    "best_band": [
+     40,
+     60
+    ],
+    "best_band_med_abs_err": 1.0,
+    "exact_matches_full_sum": 0,
+    "n": 86012
+   },
+   {
+    "date": "20240423",
+    "ratio_median": 3.925619834710744,
+    "ratio_p05": 2.08011149825784,
+    "ratio_p95": 5.734375,
+    "sum_gt_lc_pct": 100.0,
+    "best_band": [
+     40,
+     68
+    ],
+    "best_band_med_abs_err": 4.0,
+    "exact_matches_full_sum": 0,
+    "n": 86397
+   },
+   {
+    "date": "20241001",
+    "ratio_median": 4.232558139534884,
+    "ratio_p05": 1.3878649001586882,
+    "ratio_p95": 6.568627450980392,
+    "sum_gt_lc_pct": 100.0,
+    "best_band": [
+     40,
+     68
+    ],
+    "best_band_med_abs_err": 4.0,
+    "exact_matches_full_sum": 0,
+    "n": 86396
+   },
+   {
+    "date": "20250811",
+    "ratio_median": 1.7565217391304349,
+    "ratio_p05": 1.4583333333333333,
+    "ratio_p95": 2.268292682926829,
+    "sum_gt_lc_pct": 100.0,
+    "best_band": [
+     40,
+     76
+    ],
+    "best_band_med_abs_err": 4.0,
+    "exact_matches_full_sum": 0,
+    "n": 86396
+   },
+   {
+    "date": "20251002",
+    "ratio_median": 2.5483870967741935,
+    "ratio_p05": 1.903225806451613,
+    "ratio_p95": 3.5416666666666665,
+    "sum_gt_lc_pct": 100.0,
+    "best_band": [
+     40,
+     60
+    ],
+    "best_band_med_abs_err": 2.0,
+    "exact_matches_full_sum": 0,
+    "n": 86397
+   },
+   {
+    "date": "20251116",
+    "ratio_median": 5.868421052631579,
+    "ratio_p05": 2.773049645390071,
+    "ratio_p95": 18.49499999999995,
+    "sum_gt_lc_pct": 100.0,
+    "best_band": [
+     40,
+     68
+    ],
+    "best_band_med_abs_err": 2.0,
+    "exact_matches_full_sum": 0,
+    "n": 43204
+   },
+   {
+    "date": "20251226",
+    "ratio_median": 2.6296296296296298,
+    "ratio_p05": 1.9666666666666666,
+    "ratio_p95": 3.736842105263158,
+    "sum_gt_lc_pct": 100.0,
+    "best_band": [
+     40,
+     60
+    ],
+    "best_band_med_abs_err": 2.0,
+    "exact_matches_full_sum": 0,
+    "n": 86397
+   },
+   {
+    "date": "20260206",
+    "ratio_median": 6.041666666666667,
+    "ratio_p05": 3.217885250063468,
+    "ratio_p95": 10.916666666666666,
+    "sum_gt_lc_pct": 100.0,
+    "best_band": [
+     40,
+     60
+    ],
+    "best_band_med_abs_err": 2.0,
+    "exact_matches_full_sum": 0,
+    "n": 86331
+   },
+   {
+    "date": "20260320",
+    "ratio_median": 3.5,
+    "ratio_p05": 1.8333333333333333,
+    "ratio_p95": 10.0,
+    "sum_gt_lc_pct": 99.86511465254534,
+    "best_band": [
+     40,
+     60
+    ],
+    "best_band_med_abs_err": 0.0,
+    "exact_matches_full_sum": 108,
+    "n": 80068
+   },
+   {
+    "date": "20260503",
+    "ratio_median": 10.818181818181818,
+    "ratio_p05": 6.0,
+    "ratio_p95": 23.25,
+    "sum_gt_lc_pct": 100.0,
+    "best_band": [
+     40,
+     60
+    ],
+    "best_band_med_abs_err": 1.0,
+    "exact_matches_full_sum": 0,
+    "n": 86371
+   },
+   {
+    "date": "20260615",
+    "ratio_median": 2.6666666666666665,
+    "ratio_p05": 1.7272727272727273,
+    "ratio_p95": 6.0,
+    "sum_gt_lc_pct": 99.99651024823768,
+    "best_band": [
+     40,
+     60
+    ],
+    "best_band_med_abs_err": 1.0,
+    "exact_matches_full_sum": 3,
+    "n": 85966
+   }
+  ],
+  "ratio_median_across_days": {
+   "min": 1.7565217391304349,
+   "median": 4.079088987122814,
+   "max": 20.4,
+   "std": 5.35506551787301
+  },
+  "sum_always_exceeds_lc": true,
+  "any_exact_full_sum_match": true,
+  "best_band_stability": {
+   "40-60": 8,
+   "40-68": 3,
+   "40-76": 1
+  },
+  "outcome_options": [
+   "independent products",
+   "band-limited integration",
+   "scaling",
+   "calibration",
+   "no deterministic relationship"
+  ],
+  "evidence_summary": "\u03a3(340 PI) exceeds LC on ~100% of seconds every day; median ratio 4.08 (range 1.76\u201320.40); no full-sum exact matches; best contiguous band stable across days = {'40-60': 8, '40-68': 3, '40-76': 1}."
+ }
+}
