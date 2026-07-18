@@ -249,7 +249,7 @@ def c003():
         except FailLoud:
             continue
     rm = np.array([d["ratio_median"] for d in per_day])
-    bands = [tuple(d["best_band"]) for d in per_day]
+    bands = [f"{d['best_band'][0]}-{d['best_band'][1]}" for d in per_day]  # str keys
     R["C003"] = {
         "n_days_sampled": len(per_day),
         "per_day": per_day,
@@ -263,6 +263,7 @@ def c003():
     }
     # evidence-only verdict
     stable_band = len(set(bands)) <= 3
+    band_hist = dict(Counter(bands))
     R["C003"]["evidence_summary"] = (
         f"Σ(340 PI) exceeds LC on ~{np.mean([d['sum_gt_lc_pct'] for d in per_day]):.0f}% "
         f"of seconds every day; median ratio {np.median(rm):.2f} "
