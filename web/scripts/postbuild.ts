@@ -24,6 +24,7 @@ import { createHash } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
+const WEB_ROOT = join(fileURLToPath(new URL("..", import.meta.url)));
 const DIST = join(dirname(fileURLToPath(import.meta.url)), "..", "dist");
 
 /** Names that are operating-system metadata and never deployable content. */
@@ -114,8 +115,65 @@ function injectScriptHashes(): number {
   // an explanatory comment, and a non-global replace silently patched the comment while
   // leaving the live directive untouched. The gate reported success; the policy was
   // unchanged. Found in Sprint 3.
-  writeFileSync(headersPath, headers.replaceAll("__SCRIPT_HASHES__", hashes.join(" ")));
+  const resolved = headers.replaceAll("__SCRIPT_HASHES__", hashes.join(" "));
+  writeFileSync(headersPath, resolved);
+
+  syncVercelHeaders(resolved);
   return hashes.length;
+}
+
+/**
+ * Keep vercel.json's headers identical to dist/_headers.
+ *
+ * `_headers` is Cloudflare Pages syntax. Vercel ignores that file completely, so a
+ * deployment there would silently serve the site with NO Content-Security-Policy and no
+ * transport security — and, because `script-src` is hash-based rather than
+ * 'unsafe-inline', a stale hash list is worse than none: the browser blocks Astro's island
+ * bootstrap and the interactive surfaces die.
+ *
+ * vercel.json is read by Vercel BEFORE the build runs, so the hashes cannot be injected at
+ * deploy time; they have to be committed. This regenerates the file from the same resolved
+ * header text that produced _headers, so the two can never disagree, and reports when it
+ * changed so the result gets committed before deploying.
+ */
+function syncVercelHeaders(resolvedHeaders: string): void {
+  const directives: Record<string, string>[] = [];
+  let current: { source: string; headers: Record<string, string>[] } | null = null;
+  const routes: { source: string; headers: { key: string; value: string }[] }[] = [];
+
+  for (const line of resolvedHeaders.split("\n")) {
+    if (line.trim().length === 0 || line.trimStart().startsWith("#")) continue;
+    if (!line.startsWith(" ") && !line.startsWith("\t")) {
+      // A path pattern. Cloudflare's "/*" means "every route"; Vercel wants "/(.*)".
+      const source = line.trim() === "/*" ? "/(.*)" : line.trim().replace("/*", "/(.*)");
+      current = { source, headers: [] };
+      routes.push({ source, headers: [] });
+      continue;
+    }
+    const separator = line.indexOf(":");
+    if (separator === -1 || current === null) continue;
+    routes[routes.length - 1]!.headers.push({
+      key: line.slice(0, separator).trim(),
+      value: line.slice(separator + 1).trim(),
+    });
+  }
+  void directives;
+
+  const vercelPath = join(WEB_ROOT, "vercel.json");
+  const config = {
+    $schema: "https://openapi.vercel.sh/vercel.json",
+    framework: "astro",
+    headers: routes,
+  };
+  const next = `${JSON.stringify(config, null, 2)}\n`;
+  const previous = existsSync(vercelPath) ? readFileSync(vercelPath, "utf8") : "";
+
+  if (previous !== next) {
+    writeFileSync(vercelPath, next);
+    console.warn(
+      "postbuild: vercel.json headers regenerated — COMMIT IT before deploying, or Vercel will serve a stale CSP.",
+    );
+  }
 }
 
 // Order matters: hash injection WRITES dist/_headers, and on a non-HFS+ volume every
