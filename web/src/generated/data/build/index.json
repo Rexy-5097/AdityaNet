@@ -1,0 +1,86 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-23T16:34:02.124917+00:00",
+  "source_commit": "9efad0c",
+  "data": {
+    "identity": {
+      "dataset_hash": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+      "provenance_hash": "7282b7c34fbd6c2eae7dfca6757f46cdc497b88a9b6312089715479e67be8498",
+      "total_bytes": 596917461,
+      "n_parquet_files": 1985,
+      "build_commit": "be0b7e5114db41e24f592f6483fa643d98586d02",
+      "build_commit_short": "be0b7e5",
+      "specification_revision": "r6",
+      "parser_revision": "M-V/r5 (family DETCHANS) + r6-consistent",
+      "builder_revision": "M-VII/r5 + T3 long-form (r6)",
+      "validation_revision": "M-VIII",
+      "archive_span": "2024-02-01 .. 2026-06-17 (UTC)"
+    },
+    "environment": {
+      "python_version": "3.12.12",
+      "platform": "macOS-26.5.2-arm64-arm-64bit",
+      "lockfile": "artifacts/v2/phase05/requirements.lock",
+      "lockfile_sha256": "6899e001b1c4d64a5aec01b3ee1d2cfce2a3ff38ab64f827a75ab9d55fd13d3f"
+    },
+    "tables": [
+      {
+        "key": "T1",
+        "name": "solexs_lc_1min",
+        "n_files": 424,
+        "table_hash": "5e6d95be2b4359d0f044bb1f591a8767ea67c9c524d99bfa93591465d42ba63d",
+        "bytes": 14061207
+      },
+      {
+        "key": "T2",
+        "name": "solexs_spec_1min",
+        "n_files": 424,
+        "table_hash": "4124d5ee4f598b12b7a2d55c78919e74a1356fdde938f652fdf9b42c447f324f",
+        "bytes": 87134148
+      },
+      {
+        "key": "T3",
+        "name": "hel1os_lc_1min",
+        "n_files": 373,
+        "table_hash": "d814d3ad4c2edcfca13eb186aa212a978e5dab542e8f39cc6277a0b45eaa1056",
+        "bytes": 61014309
+      },
+      {
+        "key": "T4",
+        "name": "hel1os_hk_1min",
+        "n_files": 389,
+        "table_hash": "fdb005c60811f51aaf980307caeabc924f1e9162bf4d06e3e8d1ab10b3e9c67c",
+        "bytes": 19169311
+      },
+      {
+        "key": "T5",
+        "name": "hel1os_spec_1min",
+        "n_files": 373,
+        "table_hash": "ff7f5a90a1a3a7286c4be519c1dd6628722bed4e4d90380dd26abf256d889941",
+        "bytes": 415202374
+      },
+      {
+        "key": "T6",
+        "name": "gti_intervals",
+        "n_files": 1,
+        "table_hash": "5930fe126f49e96f9a6f94b5d30cc8a80f63248a8fc579625c9bb1137ff8ca9c",
+        "bytes": 95397
+      },
+      {
+        "key": "T7",
+        "name": "provenance_manifest",
+        "n_files": 1,
+        "table_hash": "12c2b6d073b99dc0c3577fbe3d2f292c70666ce5c74274fa9dd0b45ed9a04d02",
+        "bytes": 240715
+      }
+    ],
+    "frozen_at": "2026-07-18T08:22:44.103343+00:00",
+    "sources": {
+      "manifest": "artifacts/v2/phase05/freeze_manifest.json",
+      "dataset_manifest": "artifacts/v2/phase05/DATASET_MANIFEST.md",
+      "reproducibility": "artifacts/v2/phase05/REPRODUCIBILITY_REPORT.md",
+      "lockfile": "artifacts/v2/phase05/requirements.lock"
+    }
+  }
+}

@@ -82,7 +82,14 @@ logs/
 
 # ----- Build outputs -----
 dist/
-build/
+# ANCHORED to the repository root. An unanchored `build/` matches ANY directory named
+# "build" at any depth, and it silently swallowed two directories of committed SOURCE:
+#   web/src/pages/build/            the Build surface and its /build/reproduce page
+#   web/src/generated/data/build/   JSON the site imports at build time
+# Every local build kept working because those files existed on disk, while a clean
+# checkout could not build at all. The only nested "build" directory that genuinely needs
+# ignoring is web/dist/build, and `dist/` above already covers it.
+/build/
 *.egg-info/
 site/
 
