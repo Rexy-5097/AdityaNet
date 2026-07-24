@@ -1,0 +1,200 @@
+---
+/**
+ * Build — reproduce the dataset independently.
+ *
+ * Reproducibility is a headline claim, and a claim without an executable path is
+ * marketing. This surface publishes the exact table inventory with per-table digests,
+ * the pinned environment, and the record of a byte-identical rebuild.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import KeyFacts from "@/components/shell/KeyFacts.astro";
+import NextDepth from "@/components/shell/NextDepth.astro";
+import ReportSections from "@/components/evidence/ReportSections.astro";
+import build from "@/generated/data/build/index.json";
+import reproducibility from "@/generated/data/build/reproducibility.json";
+
+const { identity, environment, tables, frozen_at, sources } = build.data;
+
+const totalBytes = tables.reduce((sum, t) => sum + t.bytes, 0);
+const formatBytes = (bytes: number) => {
+  const units = ["B", "KiB", "MiB", "GiB"];
+  let scaled = bytes;
+  let i = 0;
+  while (scaled >= 1024 && i < units.length - 1) {
+    scaled /= 1024;
+    i += 1;
+  }
+  return `${scaled.toFixed(i === 0 ? 0 : 1)} ${units[i]}`;
+};
+---
+
+<BaseLayout
+  title="Build — AdityaNet"
+  description="Reproduce the AdityaNet canonical dataset independently: table inventory, per-table digests, pinned environment, and a byte-identical rebuild record."
+>
+  <AmbientBackdrop
+    src="/video/space-skywatch.mp4"
+    poster="/video/space-skywatch-poster.jpg"
+    shape="frame"
+    align="right"
+  />
+
+  <main id="main" class="mx-auto max-w-4xl px-6 pb-32">
+    <div class="section-tight flow">
+      <p class="eyebrow">Reproduce</p>
+      <h1 class="display-1 mt-5">Rebuild it yourself.</h1>
+      <p class="lede mt-6">
+        A reproducibility claim without an executable path is marketing. This is the path.
+      </p>
+    </div>
+
+    <KeyFacts
+      facts={[
+        { label: "Canonical tables", value: String(tables.length), note: "each independently verifiable" },
+        { label: "Total files", value: tables.reduce((n, t) => n + t.n_files, 0).toLocaleString("en-US") },
+        { label: "Dataset size", value: formatBytes(totalBytes) },
+        { label: "Rebuild", value: "byte-identical", note: "verified against the published digest", emphasis: true },
+      ]}
+    />
+
+    {/* Identity */}
+    <section class="section flow" aria-labelledby="identity-heading">
+      <h2 id="identity-heading" class="display-3">Identity</h2>
+      <p class="lede mt-4">What you are rebuilding, and what a correct rebuild must match.</p>
+
+      {/* The two digests are the whole point of this section, so they lead — full width,
+          monospace, selectable. Everything else is context and becomes a chip. */}
+      <div class="reveal-stagger mt-8 grid gap-4 lg:grid-cols-2">
+        <div class="glass p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Dataset digest</p>
+          <p class="mt-3 font-mono text-sm break-all text-fg" data-numeric>{identity.dataset_hash}</p>
+        </div>
+        <div class="glass p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Provenance digest</p>
+          <p class="mt-3 font-mono text-sm break-all text-fg" data-numeric>{identity.provenance_hash}</p>
+        </div>
+      </div>
+
+      <ul class="mt-6 flex flex-wrap gap-2" aria-label="Build identity">
+        <li class="chip"><span class="chip-key">version</span>{build.dataset_version}</li>
+        <li class="chip"><span class="chip-key">commit</span>{identity.build_commit}</li>
+        <li class="chip"><span class="chip-key">spec</span>{identity.specification_revision}</li>
+        <li class="chip"><span class="chip-key">archive</span>{identity.archive_span}</li>
+        <li class="chip"><span class="chip-key">frozen</span>{frozen_at}</li>
+      </ul>
+
+      <dl class="sr-only">
+        <div class="flex flex-wrap gap-x-4">
+          <dt class="w-44 shrink-0 text-fg-muted">Dataset version</dt>
+          <dd class="font-mono">{build.dataset_version}</dd>
+        </div>
+        <div class="flex flex-wrap gap-x-4">
+          <dt class="w-44 shrink-0 text-fg-muted">Dataset digest</dt>
+          <dd class="font-mono break-all" data-numeric>{identity.dataset_hash}</dd>
+        </div>
+        <div class="flex flex-wrap gap-x-4">
+          <dt class="w-44 shrink-0 text-fg-muted">Provenance digest</dt>
+          <dd class="font-mono break-all" data-numeric>{identity.provenance_hash}</dd>
+        </div>
+        <div class="flex flex-wrap gap-x-4">
+          <dt class="w-44 shrink-0 text-fg-muted">Build commit</dt>
+          <dd class="font-mono">{identity.build_commit}</dd>
+        </div>
+        <div class="flex flex-wrap gap-x-4">
+          <dt class="w-44 shrink-0 text-fg-muted">Specification</dt>
+          <dd class="font-mono">{identity.specification_revision}</dd>
+        </div>
+        <div class="flex flex-wrap gap-x-4">
+          <dt class="w-44 shrink-0 text-fg-muted">Archive span</dt>
+          <dd class="font-mono">{identity.archive_span}</dd>
+        </div>
+        <div class="flex flex-wrap gap-x-4">
+          <dt class="w-44 shrink-0 text-fg-muted">Frozen at</dt>
+          <dd class="font-mono">{frozen_at}</dd>
+        </div>
+      </dl>
+    </section>
+
+    {/* Table inventory */}
+    <section class="section flow" aria-labelledby="tables-heading">
+      <h2 id="tables-heading" class="display-3">Table inventory</h2>
+      <p class="lede mt-4">
+        Each digest covers that table's full file set — verify table by table, not only
+        in aggregate.
+      </p>
+
+      <div class="mt-5 overflow-x-auto rounded-md border border-line-subtle">
+        <table class="table-scan w-full border-collapse text-sm">
+          <caption class="sr-only">
+            Canonical table inventory with file counts, sizes, and SHA-256 digests.
+          </caption>
+          <thead>
+            <tr class="border-b border-line-subtle bg-surface text-left">
+              <th scope="col" class="px-4 py-2.5 text-2xs font-medium tracking-wide text-fg-muted uppercase">Table</th>
+              <th scope="col" class="px-4 py-2.5 text-2xs font-medium tracking-wide text-fg-muted uppercase">Name</th>
+              <th scope="col" class="px-4 py-2.5 text-right text-2xs font-medium tracking-wide text-fg-muted uppercase">Files</th>
+              <th scope="col" class="px-4 py-2.5 text-right text-2xs font-medium tracking-wide text-fg-muted uppercase">Size</th>
+              <th scope="col" class="px-4 py-2.5 text-2xs font-medium tracking-wide text-fg-muted uppercase">SHA-256</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              tables.map((t) => (
+                <tr class="border-b border-line-subtle last:border-0">
+                  <th scope="row" class="px-4 py-2.5 text-left font-mono">{t.key}</th>
+                  <td class="px-4 py-2.5 font-mono text-fg-muted">{t.name}</td>
+                  <td class="px-4 py-2.5 text-right font-mono tabular-nums" data-numeric>
+                    {t.n_files.toLocaleString("en-US")}
+                  </td>
+                  <td class="px-4 py-2.5 text-right font-mono tabular-nums" data-numeric>
+                    {formatBytes(t.bytes)}
+                  </td>
+                  <td class="px-4 py-2.5 font-mono text-2xs text-fg-subtle" data-numeric>
+                    {t.table_hash.slice(0, 12)}…
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-3 font-mono text-2xs text-fg-subtle tabular-nums" data-numeric>
+        {tables.length} tables · {formatBytes(totalBytes)} total
+      </p>
+    </section>
+
+    {/* Environment */}
+    <section class="section flow" aria-labelledby="env-heading">
+      <h2 id="env-heading" class="display-3">Environment</h2>
+      <p class="mt-2 max-w-2xl text-sm text-fg-muted">
+        Pinned. The dependency set is frozen in a lockfile because an unpinned numeric
+        library silently changed results in this project once already.
+      </p>
+      <dl class="mt-5 space-y-2 card p-5 text-sm">
+        {
+          Object.entries(environment).map(([key, value]) => (
+            <div class="flex flex-wrap gap-x-4">
+              <dt class="w-44 shrink-0 text-fg-muted">{key}</dt>
+              <dd class="font-mono break-all">{String(value)}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="mt-3 font-mono text-2xs break-all text-fg-subtle">{sources.lockfile}</p>
+    </section>
+
+    {/* Reproducibility record */}
+    <section class="section flow" aria-labelledby="repro-heading">
+      <h2 id="repro-heading" class="display-3">
+        Reproducibility record
+      </h2>
+      <ReportSections sections={reproducibility.data.sections} />
+      <p class="mt-6 font-mono text-2xs break-all text-fg-subtle">
+        {reproducibility.data.source}
+      </p>
+    </section>
+    <NextDepth />
+  </main>
+</BaseLayout>

@@ -1,0 +1,32 @@
+# Cloudflare Pages response headers.
+#
+# The Content-Security-Policy permits NO external origins: no CDN fonts, no analytics
+# scripts, no third-party anything. A site that loads nothing from elsewhere cannot
+# leak its visitors elsewhere, and the claim is verifiable by reading these headers
+# rather than by trusting a privacy page.
+#
+# `script-src 'self'` plus BUILD-TIME HASHES. No 'unsafe-inline', ever.
+#
+# Astro bootstraps client islands with inline <script type="module">. A static site
+# cannot mint a per-request nonce, but it does not need one: the scripts are fixed at
+# build time, so scripts/postbuild.ts hashes them and replaces the placeholder token below.
+# Any tampering changes the hash and the browser refuses to run the script.
+#
+# Historical note: Under Next.js this was impossible —
+# the React Server Component payload streams through inline <script> tags and static
+# export cannot mint a per-request nonce. Moving to Astro removed the inline scripts
+# entirely, so the policy the specification originally asked for is now achievable.
+# scripts/check.ts fails the build if an inline <script> ever reappears.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' __SCRIPT_HASHES__; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Content-hashed build assets are immutable by construction.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

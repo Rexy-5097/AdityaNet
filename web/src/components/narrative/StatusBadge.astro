@@ -1,0 +1,27 @@
+---
+/**
+ * Adjudication state. Icon plus text, never colour alone — the badge has to survive
+ * grayscale printing into a referee's report, and colour-blind readers must get the
+ * same information as everyone else.
+ */
+interface Props {
+  state: "OPEN" | "CLOSED";
+}
+const { state } = Astro.props;
+
+const config = {
+  CLOSED: { glyph: "✓", label: "Closed", classes: "border-pass/35 text-pass" },
+  OPEN: { glyph: "!", label: "Open", classes: "border-open/40 text-open" },
+} as const;
+
+const { glyph, label, classes } = config[state];
+---
+
+<span
+  class:list={[
+    "inline-flex items-center gap-1.5 rounded-sm border px-2 py-0.5 font-mono text-2xs tracking-wide uppercase",
+    classes,
+  ]}
+>
+  <span aria-hidden="true">{glyph}</span>{label}
+</span>

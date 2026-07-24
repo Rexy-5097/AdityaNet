@@ -1,0 +1,26 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-23T16:34:01.540646+00:00",
+  "source_commit": "9efad0c",
+  "data": {
+    "dataset": {
+      "version": "AdityaNet_v2_dataset_r1",
+      "hash": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+      "hash_short": "43fd0e22",
+      "archive_span": "2024-02-01 .. 2026-06-17 (UTC)",
+      "specification_revision": "r6",
+      "build_commit": "be0b7e5",
+      "frozen_at": "2026-07-18T08:22:44.103343+00:00"
+    },
+    "headline_measurements": [
+      "artifacts/v2/phase05/freeze_manifest.json#/identity/n_parquet_files",
+      "artifacts/v2/phase05/freeze_manifest.json#/tables/T1/n_files",
+      "artifacts/v2/phase05/freeze_manifest.json#/tables/T4/n_files",
+      "artifacts/v2/phase05/freeze_manifest.json#/identity/total_bytes",
+      "artifacts/v2/ml/benchmark_results.json#/M~1X NOWCAST/results/threshold_rate/minute/roc_auc",
+      "artifacts/v2/ml/benchmark_results.json#/M~1X NOWCAST/results/threshold_rate/event/event_recall"
+    ]
+  }
+}

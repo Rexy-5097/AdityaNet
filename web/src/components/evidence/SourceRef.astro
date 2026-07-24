@@ -1,0 +1,52 @@
+---
+/**
+ * A verifiable pointer from an on-screen value to the committed artifact that
+ * produced it. Every component that displays a measured number composes this.
+ *
+ * IMPLEMENTATION NOTE. The specification describes a hover popover. This uses a
+ * native <details> disclosure instead, for three reasons: it costs zero JavaScript
+ * (the route budget is 15 KB and currently spends 0), it is keyboard- and
+ * touch-accessible without any focus-management code, and it degrades to visible
+ * text with scripting disabled. A hover popover would be strictly worse on all
+ * three. Raised in the Sprint 1 report as a deliberate deviation.
+ */
+import type { Measurement } from "@/generated/measurements";
+import { formatSha } from "@/lib/format/quantity";
+
+interface Props {
+  measurement: Measurement;
+}
+
+const { measurement } = Astro.props;
+---
+
+<details class="group mt-2 text-2xs text-fg-subtle">
+  <summary
+    class="cursor-pointer list-none rounded-sm transition-colors hover:text-fg-muted focus-visible:text-fg-muted"
+  >
+    <span aria-hidden="true">⛭</span>
+    <span class="underline decoration-dotted underline-offset-2">source</span>
+  </summary>
+
+  <dl class="mt-2 space-y-1 border-l border-line pl-3 font-mono">
+    <div>
+      <dt class="sr-only">Artifact</dt>
+      <dd class="break-all">{measurement.artifact}</dd>
+    </div>
+    <div>
+      <dt class="sr-only">JSON pointer</dt>
+      <dd class="break-all">{measurement.pointer}</dd>
+    </div>
+    <div>
+      <dt class="sr-only">Artifact digest</dt>
+      <dd>
+        <span aria-hidden="true">sha256 {formatSha(measurement.sha256)}</span>
+        <span class="sr-only">SHA-256 {measurement.sha256}</span>
+      </dd>
+    </div>
+    <div>
+      <dt class="sr-only">Commit</dt>
+      <dd>commit {measurement.commit}</dd>
+    </div>
+  </dl>
+</details>

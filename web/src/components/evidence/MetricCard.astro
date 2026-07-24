@@ -1,0 +1,64 @@
+---
+/**
+ * Presents one measured quantity with its uncertainty, denominator, and source.
+ * Nothing else.
+ *
+ * The component takes a MeasurementKey rather than a value. There is deliberately
+ * no `value` prop: a caller cannot pass a number, so a number cannot reach the page
+ * without existing in an artifact first. This is principle P1 expressed as an API.
+ *
+ * There is also no `trend` prop, and there never will be. Every dashboard component
+ * library ships one; a trend on a frozen dataset is meaningless because nothing
+ * changes. Its absence is the clearest statement of what this platform is not.
+ */
+import { M, type MeasurementKey } from "@/generated/measurements";
+import { formatValue, formatInterval, describeMeasurement } from "@/lib/format/quantity";
+import SourceRef from "./SourceRef.astro";
+
+interface Props {
+  metric: MeasurementKey;
+}
+
+const { metric } = Astro.props;
+const measurement = M[metric];
+const interval = formatInterval(measurement);
+---
+
+<article
+  class="glass p-5"
+  data-measurement-key={metric}
+>
+  <dl>
+    <dt class="text-xs font-medium tracking-wide text-fg-muted uppercase">
+      {measurement.label}
+    </dt>
+
+    <dd class="mt-2">
+      {/* The visible value is what the evidence-consistency gate reads back. */}
+      <span
+        class="font-mono text-metric leading-[--text-metric--line-height] tabular-nums"
+        data-measurement-value
+        aria-hidden="true">{formatValue(measurement)}</span
+      >
+      {
+        measurement.n !== undefined && (
+          <span class="ml-1 font-mono text-sm text-fg-muted" aria-hidden="true">
+            / {measurement.n}
+          </span>
+        )
+      }
+      {/* Assistive technology gets a spoken form; the layout above is not readable aloud. */}
+      <span class="sr-only">{describeMeasurement(measurement)}</span>
+    </dd>
+
+    {
+      interval !== null && (
+        <dd class="mt-1 font-mono text-xs text-fg-muted tabular-nums" aria-hidden="true">
+          95% CI {interval}
+        </dd>
+      )
+    }
+  </dl>
+
+  <SourceRef measurement={measurement} />
+</article>

@@ -1,0 +1,24 @@
+---
+/**
+ * Redirect: /v2 -> /
+ *
+ * The opening scene was developed here and is now the site's landing page. This stub keeps
+ * any existing link working rather than returning a 404. Static output, so the redirect is
+ * a meta refresh plus a canonical link rather than a server 301.
+ */
+const TARGET = "/";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${TARGET}`} />
+    <link rel="canonical" href={TARGET} />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting to AdityaNet</title>
+  </head>
+  <body style="background:#06080a;color:#cfe0ff;font-family:ui-monospace,monospace;padding:40px">
+    <p>The opening scene is now the landing page. <a href={TARGET} style="color:#8fb8ff">Continue →</a></p>
+  </body>
+</html>

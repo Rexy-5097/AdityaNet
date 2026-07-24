@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+*.tsbuildinfo
+
+# macOS AppleDouble files — the project volume is not HFS+
+._*
+.DS_Store

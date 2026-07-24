@@ -1,0 +1,55 @@
+{
+  "$comment": [
+    "Design tokens — typography. Spec §5.1.",
+    "",
+    "TWO FAMILIES ONLY. Part 4 §16 R-B cut IBM Plex Serif: it served one route and its",
+    "'serif = argument' semantics were already carried by layout and the 68ch measure.",
+    "",
+    "The surviving epistemic distinction (§5.0) is the one that does real work:",
+    "  sans = interface (controls the user operates)",
+    "  mono = measurement (values produced by the pipeline)",
+    "",
+    "TWO SCALES. `interface` is dense (13px base) for tables and controls; `document`",
+    "is 17px for sustained reading. A single scale cannot serve both (§5.1.3).",
+    "`document` tokens are legal only inside DocRenderer — asserted in scripts/check.ts."
+  ],
+
+  "family": {
+    "$comment": "--font-plex-* are emitted by next/font in app/layout.tsx, which self-hosts the files at build time. The fallbacks apply only if that asset fails to load.",
+    "sans": "var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif",
+    "mono": "var(--font-plex-mono), ui-monospace, \"SF Mono\", monospace"
+  },
+
+  "interface": {
+    "$comment": "base 13px, ratio ~1.2 (minor third). Tight steps so adjacent sizes stay distinguishable in dense UI.",
+    "2xs": { "size": "0.625rem", "leading": "0.875rem" },
+    "xs": { "size": "0.6875rem", "leading": "1rem" },
+    "sm": { "size": "0.75rem", "leading": "1.125rem" },
+    "base": { "size": "0.8125rem", "leading": "1.25rem" },
+    "md": { "size": "0.9375rem", "leading": "1.375rem" },
+    "lg": { "size": "1.125rem", "leading": "1.625rem" },
+    "xl": { "size": "1.5rem", "leading": "2rem" },
+    "2xl": { "size": "2rem", "leading": "2.5rem" },
+    "metric": { "size": "1.75rem", "leading": "2rem" },
+    "metric-lg": { "size": "2.5rem", "leading": "2.75rem" }
+  },
+
+  "document": {
+    "$comment": "base 17px, ratio 1.25. Measure capped at 68ch — below ~45ch the eye returns too often, above ~75ch it loses the line on return sweep.",
+    "body": { "size": "1.0625rem", "leading": "1.75rem" },
+    "h3": { "size": "1.1875rem", "leading": "1.75rem" },
+    "h2": { "size": "1.4375rem", "leading": "2rem" },
+    "h1": { "size": "1.8125rem", "leading": "2.375rem" }
+  },
+
+  "weight": {
+    "regular": "400",
+    "medium": "500",
+    "semibold": "600"
+  },
+
+  "measure": {
+    "$comment": "Maximum line length for sustained reading (§5.1.3).",
+    "document": "68ch"
+  }
+}

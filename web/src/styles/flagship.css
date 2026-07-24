@@ -1,0 +1,648 @@
+/*
+ * The flagship design language.
+ *
+ * One rule governs this file: the site after the hero must feel like the same product as
+ * the hero. That means the same typographic voice (light display weights, wide mono
+ * eyebrows), the same restraint, the same breathing room — and choreography that feels
+ * authored rather than defaulted.
+ *
+ * ARCHITECTURAL CONSTRAINT, and the reason this is CSS and not a motion library:
+ * evidence surfaces ship ~0 KB JavaScript, enforced by the budget gate. Scroll reveals,
+ * the scroll-aware header and every micro-interaction below are therefore built on
+ * CSS scroll-driven animations (`animation-timeline`) and pure CSS state. They cost zero
+ * bytes of script, run on the compositor, and degrade to "simply visible" where
+ * unsupported — which is the correct failure mode for a page whose job is evidence.
+ *
+ * Everything is wrapped in `prefers-reduced-motion: no-preference`. Motion is an
+ * enhancement here, never a carrier of meaning.
+ */
+
+/* ---------------------------------------------------------------------------
+ * 1 · Voice — shared with the hero so the seam is invisible
+ * ------------------------------------------------------------------------- */
+
+:root {
+  /* The hero's kicker colour, promoted to a token so every surface can speak it. */
+  --color-eyebrow: #93a7c9;
+  /* Vertical rhythm for full-bleed editorial sections. */
+  --rhythm: clamp(4.5rem, 11vh, 8rem);
+  --rhythm-tight: clamp(2.5rem, 6vh, 4rem);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Fixed, predictable header height so a full-bleed hero can run beneath it. */
+  --header-h: 4rem;
+}
+
+/* Display type. Light weight + tight tracking, matching the hero's headline voice.
+   Fluid so it is composed, not merely scaled, at every viewport. */
+.display-1 {
+  text-shadow: 0 2px 26px rgb(0 0 0 / 0.5);
+  font-size: clamp(2.25rem, 5.6vw, 4rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+
+.display-2 {
+  text-shadow: 0 2px 22px rgb(0 0 0 / 0.45);
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  font-weight: 300;
+  letter-spacing: -0.022em;
+  line-height: 1.14;
+  text-wrap: balance;
+}
+
+.display-3 {
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+/* The eyebrow — the hero's mono kicker, verbatim. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-eyebrow);
+}
+
+/* Lede paragraph beneath a display heading. */
+.lede {
+  /* A soft shadow buys legibility over live footage without dimming the footage —
+     the cheaper half of the "sweet spot" between visible video and readable text. */
+  text-shadow: 0 1px 14px rgb(0 0 0 / 0.55);
+  font-size: clamp(1rem, 1.5vw, 1.1875rem);
+  line-height: 1.7;
+  font-weight: 300;
+  color: var(--color-fg-muted);
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+/* Measure control — long-form prose should never run wider than it reads. */
+.measure { max-width: 68ch; }
+.measure-wide { max-width: 82ch; }
+
+/* ---------------------------------------------------------------------------
+ * 2 · Rhythm — breathing room is the single biggest premium signal
+ * ------------------------------------------------------------------------- */
+
+.section { padding-block: var(--rhythm); }
+.section-tight { padding-block: var(--rhythm-tight); }
+
+/* A hairline that reads as a considered division rather than a default <hr>. */
+.rule {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(
+    to right,
+    var(--color-line) 0%,
+    var(--color-line-subtle) 45%,
+    transparent 100%
+  );
+}
+
+/* ---------------------------------------------------------------------------
+ * 3 · Scroll choreography — zero JavaScript
+ * ------------------------------------------------------------------------- */
+
+@keyframes reveal-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Sections rise as they enter. `both` holds the end state so nothing can flicker back
+   out once read. The range ends well before the element centres, so content is fully
+   settled by the time the eye arrives — reveal, never a thing you wait for. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 26%;
+    }
+
+    .reveal-fade {
+      animation: reveal-fade linear both;
+      animation-timeline: view();
+      animation-range: entry 2% cover 22%;
+    }
+
+    /* Staggered children: each successive child completes marginally later, which reads
+       as cascade rather than as a group snapping into place. */
+    .reveal-stagger > * {
+      animation: reveal-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 24%;
+    }
+    .reveal-stagger > *:nth-child(2) { animation-range: entry 6% cover 28%; }
+    .reveal-stagger > *:nth-child(3) { animation-range: entry 8% cover 32%; }
+    .reveal-stagger > *:nth-child(4) { animation-range: entry 10% cover 36%; }
+    .reveal-stagger > *:nth-child(n + 5) { animation-range: entry 12% cover 40%; }
+  }
+}
+
+/*
+ * OVERLAPPING SECTION FLOW — the fix for "A ends, stop, B starts".
+ *
+ * `.reveal` above only handles entry, so a section that had finished entering just sat
+ * there and the next one began from nothing: two disconnected events. `.flow` runs a
+ * single timeline across the element's WHOLE pass through the viewport — it rises in,
+ * holds at full strength through the reading zone, then gently releases (a slight lift and
+ * a partial fade) as it leaves. Because the release of one element and the entrance of the
+ * next overlap in scroll space, control is handed over rather than dropped.
+ *
+ * The exit only reaches 0.55 opacity, never 0. Content a visitor might still be reading
+ * must not vanish; this reads as depth, not disappearance.
+ */
+@keyframes section-flow {
+  0% { opacity: 0; transform: translateY(26px) scale(0.994); }
+  22% { opacity: 1; transform: none; }
+  78% { opacity: 1; transform: none; }
+  100% { opacity: 0.55; transform: translateY(-14px) scale(0.998); }
+}
+
+/* A quieter variant for dense evidence bodies, where a strong exit would fight reading. */
+@keyframes section-flow-soft {
+  0% { opacity: 0; transform: translateY(18px); }
+  20% { opacity: 1; transform: none; }
+  100% { opacity: 1; transform: none; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .flow {
+      animation: section-flow linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 92%;
+    }
+
+    /* Parallax depth: cards drift marginally slower than the page, so foreground and
+       background feel physically connected rather than glued together. */
+    .flow-parallax {
+      animation: section-flow-soft linear both, flow-drift linear both;
+      animation-timeline: view(), view();
+      animation-range: entry 0% cover 30%, cover 0% exit 100%;
+    }
+  }
+}
+
+@keyframes flow-drift {
+  from { translate: 0 14px; }
+  to { translate: 0 -14px; }
+}
+
+/* Reading-progress rail — mirrors the hero's progress line, so the visitor keeps the
+   same sense of travel after the opening scene ends. */
+@keyframes progress-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+.progress-rail {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  height: 2px;
+  z-index: 60;
+  transform-origin: left;
+  background: linear-gradient(to right, var(--color-eyebrow), var(--color-accent));
+  transform: scaleX(0);
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .progress-rail {
+      animation: progress-grow linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * 4 · The header — scroll-aware, still zero JavaScript
+ * ------------------------------------------------------------------------- */
+
+@keyframes header-solidify {
+  from {
+    background-color: transparent;
+    border-bottom-color: transparent;
+    backdrop-filter: blur(0);
+  }
+  to {
+    background-color: color-mix(in oklab, var(--color-canvas) 82%, transparent);
+    border-bottom-color: var(--color-line-subtle);
+    backdrop-filter: blur(14px) saturate(1.3);
+  }
+}
+
+/*
+ * FIXED, not sticky. A sticky header occupies flow, which pushed the landing hero down and
+ * left a dead canvas band above the footage. Fixed lets the opening scene run edge to edge
+ * with the navigation floating over it; surfaces that are not full-bleed reserve the space
+ * back with `.page-content`.
+ */
+.site-header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  background-color: color-mix(in oklab, var(--color-canvas) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(1.3);
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .site-header {
+      animation: header-solidify linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 96px;
+    }
+  }
+}
+
+/* Content sits below the fixed header — except where a surface is deliberately
+   full-bleed, which opts out and lets its own composition reach the top edge. */
+.page-content { padding-top: var(--header-h); }
+.page-content--bleed { padding-top: 0; }
+
+/* ---------------------------------------------------------------------------
+ * 5 · Micro-interactions — small, intentional, never decorative
+ * ------------------------------------------------------------------------- */
+
+/* Navigation links: an underline that grows from the leading edge. Directional, so it
+   reads as intent rather than as a generic hover wash. */
+.nav-link {
+  position: relative;
+  transition: color 180ms var(--ease-out-soft);
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 260ms var(--ease-out-soft);
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link[aria-current="page"]::after { transform: scaleX(1); }
+
+/* Chips — metadata that is worth showing but not worth a row of its own. Replaces
+   definition lists whose only job was to name a version or a date. */
+.chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  border: 1px solid var(--color-line-subtle);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-fg);
+  background: color-mix(in oklab, var(--color-surface) 45%, transparent);
+  backdrop-filter: blur(10px);
+  transition: border-color 240ms var(--ease-out-soft), background-color 240ms var(--ease-out-soft);
+}
+.chip:hover {
+  border-color: var(--color-line);
+  background: color-mix(in oklab, var(--color-surface) 70%, transparent);
+}
+.chip-key {
+  color: var(--color-fg-subtle);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: var(--text-2xs);
+}
+
+/* Cards lift a hair and their edge brightens. Two properties, both cheap, both
+   compositor-friendly. */
+.card {
+  border: 1px solid var(--color-line-subtle);
+  border-radius: 10px;
+  background: color-mix(in oklab, var(--color-surface) 70%, transparent);
+  transition:
+    transform 320ms var(--ease-out-soft),
+    border-color 320ms var(--ease-out-soft),
+    background-color 320ms var(--ease-out-soft);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card:hover { transform: translateY(-3px); }
+}
+.card:hover {
+  border-color: var(--color-line);
+  background: color-mix(in oklab, var(--color-surface) 100%, transparent);
+}
+
+/* A card that is itself a link gets the whole surface as the target. */
+.card-link { display: block; color: inherit; text-decoration: none; }
+.card-link:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+
+/* Dense evidence tables: a row highlight makes scanning a wide row survivable. */
+.table-scan tbody tr { transition: background-color 140ms linear; }
+.table-scan tbody tr:hover { background-color: color-mix(in oklab, var(--color-raised) 55%, transparent); }
+
+/* Inline prose links — underline offset so descenders stay legible. */
+.link {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 160ms var(--ease-out-soft);
+}
+.link:hover { color: var(--color-accent-hover); }
+
+/* The forward affordance at the foot of every surface. The arrow travels on hover —
+   the one flourish, and it points where the visitor is going. */
+.next-link { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; color: inherit; }
+.next-link .arrow { transition: transform 300ms var(--ease-out-soft); }
+@media (prefers-reduced-motion: no-preference) {
+  .next-link:hover .arrow { transform: translateX(5px); }
+}
+
+/* ---------------------------------------------------------------------------
+ * 6 · Liquid glass — translucent surfaces that sit over live footage
+ * ------------------------------------------------------------------------- */
+
+/*
+ * Glass is used ONLY where something real sits behind it (the ambient video). Over a flat
+ * background it is a texture pretending to be depth, which this project has no appetite
+ * for. Three layers make it read as glass rather than as a grey box:
+ *   1. a blurred, saturated backdrop  — the refraction
+ *   2. a top-edge specular highlight  — the lit rim
+ *   3. an inner shadow at the base    — thickness
+ */
+.glass {
+  position: relative;
+  background: color-mix(in oklab, var(--color-surface) 42%, transparent);
+  backdrop-filter: blur(22px) saturate(1.6);
+  -webkit-backdrop-filter: blur(22px) saturate(1.6);
+  border: 1px solid color-mix(in oklab, #ffffff 9%, transparent);
+  border-radius: 16px;
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, #ffffff 10%, transparent) inset,
+    0 -18px 30px -22px rgb(0 0 0 / 0.7) inset,
+    0 22px 50px -28px rgb(0 0 0 / 0.85);
+  transition:
+    transform 380ms var(--ease-out-soft),
+    border-color 380ms var(--ease-out-soft),
+    background-color 380ms var(--ease-out-soft);
+}
+
+/* The specular sweep along the top edge — what sells it as a lit surface. */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    color-mix(in oklab, #ffffff 34%, transparent) 22%,
+    color-mix(in oklab, #ffffff 12%, transparent) 55%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.glass:hover {
+  background: color-mix(in oklab, var(--color-surface) 58%, transparent);
+  border-color: color-mix(in oklab, #ffffff 15%, transparent);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .glass:hover { transform: translateY(-3px); }
+}
+
+/* Where backdrop-filter is unavailable, fall back to an opaque panel. Never leave text
+   floating on unblurred video — legibility is not negotiable. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: color-mix(in oklab, var(--color-surface) 94%, transparent); }
+}
+
+/* Pill buttons in the glass family. */
+.glass-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.7rem 1.35rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: none;
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  transition:
+    transform 260ms var(--ease-out-soft),
+    background-color 260ms var(--ease-out-soft),
+    border-color 260ms var(--ease-out-soft);
+}
+.glass-button--primary {
+  background: color-mix(in oklab, #ffffff 90%, transparent);
+  color: var(--color-canvas);
+  border: 1px solid transparent;
+}
+.glass-button--primary:hover { background: #ffffff; }
+.glass-button--ghost {
+  background: color-mix(in oklab, var(--color-surface) 45%, transparent);
+  color: var(--color-fg);
+  border: 1px solid color-mix(in oklab, #ffffff 14%, transparent);
+}
+.glass-button--ghost:hover { border-color: color-mix(in oklab, #ffffff 26%, transparent); }
+@media (prefers-reduced-motion: no-preference) {
+  .glass-button:hover { transform: translateY(-2px); }
+}
+
+/* The ambient video bed. Fixed so content glides over a stable field rather than
+   dragging it — the parallax is the absence of motion, not extra motion.
+ *
+ * COMPOSITION. The footage is weighted to the right and masked to an oval so it dissolves
+ * into the page instead of ending at a rectangle. Text then occupies clean canvas on the
+ * left and the Sun is allowed to be genuinely bright on the right — legibility comes from
+ * keeping them apart, not from dimming the footage into mud. */
+.ambient-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(1.18) saturate(1.2) contrast(1.04);
+}
+
+/*
+ * DISC — for footage whose subject is a round body (Sun, Moon). A SQUARE box for a square
+ * source, so the body is never cropped into an unreadable texture: full-bleed cover
+ * magnified the Sun into a brown smear, whereas at true aspect it reads unmistakably as
+ * the thing it is. The circular falloff lets the limb dissolve into the page.
+ */
+.ambient-video--disc {
+  width: min(118vw, 132vh);
+  height: min(118vw, 132vh);
+  mask-image: radial-gradient(circle at 50% 50%, #000 42%, rgba(0, 0, 0, 0.55) 58%, transparent 74%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 42%, rgba(0, 0, 0, 0.55) 58%, transparent 74%);
+}
+
+/*
+ * FRAME — for footage that is a whole scene (Earth on the limb, a starfield). Cropping a
+ * scene to a circle would throw away the composition, so it fills the viewport and is
+ * feathered at the edges instead.
+ */
+.ambient-video--frame {
+  width: 100%;
+  height: 100%;
+  filter: brightness(1.02) saturate(1.12) contrast(1.02);
+  mask-image: radial-gradient(120% 100% at 50% 45%, #000 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(120% 100% at 50% 45%, #000 45%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+}
+
+/*
+ * Placement. On wide viewports the subject moves off the reading column so text sits on
+ * clean canvas and the footage gets to be genuinely bright rather than dimmed into mud.
+ * Pages alternate sides so consecutive surfaces do not feel like the same page repainted.
+ */
+@media (min-width: 1024px) {
+  .ambient-video--disc.ambient-video--right,
+  .ambient-video--disc.ambient-video--left {
+    width: min(96vh, 900px);
+    height: min(96vh, 900px);
+    transform: translateY(-50%);
+  }
+  .ambient-video--disc.ambient-video--right { left: auto; right: -10vw; }
+  .ambient-video--disc.ambient-video--left { left: -10vw; right: auto; transform: translateY(-50%); }
+
+  .ambient-video--frame.ambient-video--right { object-position: 72% center; }
+  .ambient-video--frame.ambient-video--left { object-position: 28% center; }
+}
+
+/*
+ * The footage RECEDES as the visitor scrolls into the evidence.
+ *
+ * Without this a fixed background stays at full strength behind the measured content,
+ * which is both a legibility problem and the wrong argument: this platform's whole thesis
+ * is that illustration gives way to measurement. The Sun dimming as the numbers arrive is
+ * the same crossing the opening scene performs, restated in one CSS rule. Zero JavaScript.
+ */
+@keyframes ambient-recede {
+  from { opacity: 1; }
+  to { opacity: 0.16; }
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ambient-video {
+      animation: ambient-recede linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 88vh;
+    }
+  }
+}
+
+/*
+ * The illustrative label travels with the footage.
+ *
+ * It is position:fixed, so left alone it would sit on top of body copy further down the
+ * page. It therefore fades on the same scroll timeline as the footage — but over a LONGER
+ * range, so the label always outlives the imagery it describes. P8 is satisfied (no
+ * illustrative frame is ever shown unlabelled) and nothing collides with the content.
+ */
+.ambient-watermark {
+  text-shadow: 0 1px 12px rgb(0 0 0 / 0.85);
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ambient-watermark {
+      animation: reveal-fade linear reverse both;
+      animation-timeline: scroll(root block);
+      animation-range: 40vh 108vh;
+    }
+  }
+}
+
+/* Reduced motion: the poster still communicates everything the loop does. */
+@media (prefers-reduced-motion: reduce) {
+  .ambient-video { display: none; }
+}
+
+/*
+ * The scrim protects the reading column, not the whole frame. Narrow viewports get a
+ * vertical wash (text sits over the footage, so it must be held down everywhere); wide
+ * viewports get a left-weighted wash so the right side stays open and the Sun reads.
+ * Both end in solid canvas at the bottom so the content below inherits a clean field.
+ */
+.ambient-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    /* Reading band — darkens only the centre, where the text column lives. */
+    radial-gradient(
+      78% 72% at 50% 46%,
+      color-mix(in oklab, var(--color-canvas) 80%, transparent) 0%,
+      color-mix(in oklab, var(--color-canvas) 52%, transparent) 55%,
+      transparent 88%
+    ),
+    /* Base wash — light, so the footage stays visible at the edges. */
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--color-canvas) 40%, transparent) 0%,
+      color-mix(in oklab, var(--color-canvas) 52%, transparent) 42%,
+      var(--color-canvas) 92%
+    );
+}
+
+/*
+ * DIRECTIONAL scrim — opt-in, for layouts with a genuine one-sided reading column (the
+ * entry surface). Evidence surfaces use centred columns, where a side-weighted wash would
+ * leave text exposed on the open side, so they keep the even vertical wash above.
+ */
+@media (min-width: 1024px) {
+  .ambient-scrim--directional {
+    background:
+      linear-gradient(
+        to right,
+        var(--color-canvas) 0%,
+        var(--color-canvas) 24%,
+        color-mix(in oklab, var(--color-canvas) 78%, transparent) 46%,
+        color-mix(in oklab, var(--color-canvas) 26%, transparent) 70%,
+        transparent 90%
+      ),
+      linear-gradient(to bottom, transparent 58%, var(--color-canvas) 94%);
+  }
+
+  /* Subject on the left -> shield the right-hand reading column instead. */
+  .ambient-scrim--directional.ambient-scrim--flip {
+    background:
+      linear-gradient(
+        to left,
+        var(--color-canvas) 0%,
+        var(--color-canvas) 24%,
+        color-mix(in oklab, var(--color-canvas) 78%, transparent) 46%,
+        color-mix(in oklab, var(--color-canvas) 26%, transparent) 70%,
+        transparent 90%
+      ),
+      linear-gradient(to bottom, transparent 58%, var(--color-canvas) 94%);
+  }
+}
+
+/* Reduced motion: no travel, no blur — the page simply is there. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(page-content),
+  ::view-transition-new(page-content) { animation: none; }
+}

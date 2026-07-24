@@ -1,0 +1,33 @@
+{
+  "$comment": [
+    "Design tokens — motion. Spec §5.5.",
+    "",
+    "THREE MOTION LAWS, which the token set alone cannot enforce but which every",
+    "consumer of these tokens is bound by:",
+    "",
+    "  L1  Data marks never animate position. A point may fade in; it may never slide",
+    "      to its value. An animated data point asserts intermediate values that were",
+    "      never measured. This is the rule that separates scientific software from",
+    "      dashboard software.",
+    "",
+    "  L2  No animation loops. Every animation runs once, on a discrete trigger. A",
+    "      perpetual pulse implies ongoing process — a live-telemetry claim, which",
+    "      violates principle P2.",
+    "",
+    "  L3  Reduced motion is a hard gate, not a degradation. globals.css sets every",
+    "      duration to 1ms under prefers-reduced-motion. No information is ever",
+    "      delivered only through motion."
+  ],
+
+  "duration": {
+    "instant": "80ms",
+    "fast": "150ms",
+    "base": "250ms",
+    "slow": "400ms"
+  },
+
+  "easing": {
+    "out": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "inOut": "cubic-bezier(0.65, 0, 0.35, 1)"
+  }
+}

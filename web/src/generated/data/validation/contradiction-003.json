@@ -1,0 +1,54 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-23T16:34:02.114423+00:00",
+  "source_commit": "9efad0c",
+  "data": {
+    "id": "CONTRADICTION-003",
+    "slug": "contradiction-003",
+    "title": "\u00a77's spectrum-integrity tolerance is falsified",
+    "state": "OPEN",
+    "date": "2026-07-17",
+    "reason": "Contract \u00a77 spectrum-integrity rule falsified by the real archive.",
+    "resolving_revision": null,
+    "status_line": "Status: OPEN \u2014 reclassified by owner 2026-07-17.",
+    "declined_amendment": true,
+    "lead": "**Status: OPEN \u2014 reclassified by owner 2026-07-17.**\n**Category: Scientific Validation. Owner: Milestone VIII. NOT a parser-implementation blocker.**\n\n**Owner ruling:** implementation has *falsified* the \u00a77 assumption but has **not established** the physical relationship between the SoLEXS light curve and PI spectra. This is therefore a **scientific-interpretation** question, not a parser-correctness one. The proposed amendment (\u00a75) was **DECLINED**. Spec \u00a77 instead carries a neutral deferral note (r3): *\"No fixed mathematical relationship between the SoLEXS light curve and PI spectra is assumed before scientific validation.\"* No numeric relationship is encoded; the observed ratio is **not** in the contract; no tolerance is widened.\n\n**Implementation continues** under the existing parser contract. This document is the standing record of an **unresolved scientific question**, to be revisited at Milestone VIII.\n\nMilestone IV is **COMPLETE and COMPLIANT** (93/93 tests, zero deviations) \u2014 this defect lies in \u00a77's *validation plan*, not in \u00a72.2's parser contract.\n\n---",
+    "sections": [
+      {
+        "heading": "1. The claim",
+        "body": "Contract \u00a77 (Scientific Sanity Checks):\n\n> | **Spectrum integrity** | T2 channel-sum vs T1 `counts_total`; T5 vs T3 band sums | **\u2264 0.1 %** (SoLEXS) |"
+      },
+      {
+        "heading": "2. Measured on the D1 reference day (2024-05-14 SDD2)",
+        "body": "| Quantity | Value |\n|---|---|\n| `\u03a3(340 channels)` vs `.lc COUNTS`, mean abs diff | **569.6 counts** |\n| `.lc COUNTS` median | **275 counts** |\n| Exact matches | **0 / 86,395** |\n| `spec_sum > lc` | **100.0 %** of seconds |\n| Ratio `spec_sum / lc` | **median 2.60** (p01 1.13, p99 4.34) |\n| `\u03a3(340)` median vs `.lc` median | **725 vs 275** |\n\n**The discrepancy is ~160%, against a stated tolerance of 0.1%.** The relationship is not noisy \u2014 it is systematic and one-directional."
+      },
+      {
+        "heading": "3. Interpretation",
+        "body": "`LOGICALLY IMPLIED`: **the `.lc` is not the sum over all 340 PI channels.** It is a *band-limited* light curve. Supporting `OBSERVED` evidence: the `.lc` `RATE` HDU carries **`NUMBAND = '4'`** \u2014 the SoLEXS pipeline defines four bands \u2014 while exposing only `TIME` and `COUNTS`, with no band identification.\n\nA search for the contiguous channel range best reproducing the `.lc` found **[40:170]** at mean abs diff 38.3 \u2014 far better than the full-band 569.6, but still only **16/86,395 exact matches**. `HYPOTHESIS`: the `.lc` band is defined by an energy interval mapped through a response the archive does not contain (see \u00a72.2: **no RMF/ARF exists anywhere in the archive**), so it cannot be reconstructed from channel indices alone. This is consistent with, and downstream of, the already-recorded RMF gap.\n\n**Root cause of the \u00a77 defect:** the same class as CONTRADICTION-001 \u2014 I asserted a relationship between two fields from their names and OGIP conventions (`HDUCLAS2='TOTAL'`) **without computing it**. `HDUCLAS2='TOTAL'` means \"not background-subtracted\", not \"all channels\"; I over-read it."
+      },
+      {
+        "heading": "4. Why nothing is blocked yet",
+        "body": "No implemented behaviour depends on \u00a77. The M-IV parser neither sums channels nor cross-references the `.lc`. \u00a77 is Milestone VIII's validation protocol, and \u00a73's T1/T2 (Milestone VII) do not require the two to reconcile.\n\n**But it changes what M-VII should record**: if T1 `counts_total` (from `.lc`) and T2 `counts` (340 channels) are *not* commensurable, that must be stated in the schema, or a downstream consumer will reasonably assume `sum(T2.counts) == T1.counts_total` and be wrong by ~2.6\u00d7."
+      },
+      {
+        "heading": "5. Proposed amendment \u2014 **DECLINED by owner 2026-07-17; retained for the audit trail only**",
+        "body": "> The five items below were **not** adopted. Item 1 (a \"tracked diagnostic\" ratio) and item 4 (assumption A-10) would have written an unvalidated observation into the contract \u2014 the owner correctly refused. Nothing here is in force. Superseded by the r3 deferral note.\n\n1. **\u00a77 Spectrum integrity** \u2014 replace the falsified row with two honest checks:\n   - *T2 internal consistency*: per-second `\u03a3(340 channels)` finite \u27fa `.lc COUNTS` finite (the NaN\u27faNaN structural check, which **does** hold \u2014 verified three-way at M-IV).\n   - *T2 vs T1 relationship*: **NOT a tolerance check.** Record the measured ratio `\u03a3(340)/counts_total` per day as a **reported diagnostic**; flag any day whose median ratio departs from the archive-wide median by >20% as an instrument-configuration change worth investigating. **No pass/fail threshold**, because the correct value is unknown without an RMF.\n2. **\u00a73 T1/T2** \u2014 add a binding schema note: *`T1.counts_total` (from `.lc`) is **band-limited** and is **NOT** `\u03a3(T2.counts)`; the observed ratio is \u22482.6 on the reference day. Consumers MUST NOT treat them as interchangeable.*\n3. **\u00a72.1** \u2014 record that `NUMBAND='4'` and the band definition are **not recoverable from the archive** (no RMF), promoting A-6 from \"captured, not interpreted\" to an explicit acquisition dependency.\n4. **\u00a78** \u2014 new assumption **A-10**: *the `.lc`-vs-spectrum ratio (median 2.60) is VERIFIED on the reference day only.* Milestone VIII must report the distribution across all 436 archives; a **bimodal or drifting** ratio would indicate a band or gain change and is a scientific finding.\n5. **0.5.3 acquisition** \u2014 the RMF/ARF request already ranked #2 should additionally request the **`.lc` band definition**; without it the `.lc` cannot be related to the spectra at all."
+      },
+      {
+        "heading": "6. Recommendation (SUPERSEDED \u2014 the owner's narrower ruling prevailed)",
+        "body": "~~Approve.~~ As with r1/r2 this **strengthens**: it replaces a fabricated tolerance with a measured diagnostic, and it closes a real misuse path (`sum(T2) == T1`) before any consumer depends on it. It also converts an unexplained 2.6\u00d7 discrepancy into a tracked, archive-wide observable.\n\n**Deliberately NOT proposed:** widening the 0.1% tolerance to fit the data. The relationship is not approximately-true-with-slop; it is a different quantity. A loosened tolerance would be exactly the \"make it work\" failure the implementation philosophy forbids."
+      },
+      {
+        "heading": "6b. Questions Milestone VIII must answer (owner-defined scope)",
+        "body": "1. Do the two products measure **different physical quantities**?\n2. Does **onboard processing** explain the difference?\n3. Does **official ISSDC documentation** resolve the discrepancy?\n4. Does **any reproducible mapping** exist between them?\n\nUntil answered, no v2 code, schema, or artifact may assume, assert, or rely on any relationship between `T1.counts_total` and `T2.counts`."
+      },
+      {
+        "heading": "7. State of the work",
+        "body": "**Milestone IV COMPLETE: 93/93 tests, 0 xfail, 0 skip, zero deviations.** Real D1 `.pi`: (86400, 340), `CHANTYPE='PI'`, `DETCHANS=340`, exposure 1.0 s/spectrum, channel map constant `0..339` (validated then collapsed, F-08), 5 all-NaN spectra at **[0, 5, 30072, 30078, 83951]** \u2014 a **three-way** agreement with the `.lc` NaN set and the GTI-excluded set. V-PI-3 (`.pi TSTART[0]` == `.lc TSTART`) passes. Parse: 0.5 s, **2.10 GB peak RSS** \u2014 confirming \u00a72.2's streaming mandate is a real constraint, not a stylistic one. **Milestone V not started.**"
+      }
+    ],
+    "source": "artifacts/v2/phase05/CONTRADICTION-003.md"
+  }
+}

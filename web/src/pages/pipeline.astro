@@ -1,0 +1,147 @@
+---
+/**
+ * Pipeline — how raw archive products become validated evidence.
+ *
+ * Every stage links to what it produced. A diagram that did not resolve to real counts
+ * and real digests would be decoration, and this surface was cut once already for
+ * exactly that reason before being restored as a data-backed reconstruction.
+ *
+ * The stage list is structural knowledge about the system, not measured quantity —
+ * the counts beside each stage come from the profile and quality reports, rendered
+ * verbatim below rather than restated here.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import NextDepth from "@/components/shell/NextDepth.astro";
+import ReportSections from "@/components/evidence/ReportSections.astro";
+import profile from "@/generated/data/pipeline/profile.json";
+import quality from "@/generated/data/pipeline/quality.json";
+import dictionary from "@/generated/data/pipeline/dictionary.json";
+import build from "@/generated/data/build/index.json";
+
+const { tables } = build.data;
+
+const STAGES = [
+  {
+    name: "ISSDC archive",
+    detail: "Raw Level-1 FITS products for SoLEXS and HEL1OS, as published.",
+    output: "Compressed archive files",
+  },
+  {
+    name: "Extraction",
+    detail:
+      "Archives unpacked and inventoried. Inactive detectors, malformed GTI, and operating-system sidecar files are identified here rather than downstream.",
+    output: "Verified file set",
+  },
+  {
+    name: "Parsing",
+    detail:
+      "FITS products read under a frozen contract. Twenty fail-loud rules terminate the parse rather than emit a value the specification cannot vouch for.",
+    output: "Typed records",
+  },
+  {
+    name: "Version resolution",
+    detail:
+      "Where the archive carries several versions of the same observation minute, a deterministic rule set selects one and records why.",
+    output: "One row per (minute, detector)",
+  },
+  {
+    name: "Canonical build",
+    detail: "Records written to seven partitioned tables with per-row provenance.",
+    output: `${tables.length} tables`,
+  },
+  {
+    name: "Validation",
+    detail:
+      "Scientific checks against the assembled dataset. Six falsifications of the written specification were found and adjudicated here.",
+    output: "Adjudication record",
+  },
+  {
+    name: "Freeze",
+    detail: "The dataset is hashed and closed. Every figure on this site descends from that hash.",
+    output: "Immutable dataset",
+  },
+] as const;
+---
+
+<BaseLayout
+  title="Pipeline — AdityaNet"
+  description="How raw SoLEXS and HEL1OS Level-1 products become a validated, provenance-tracked canonical dataset."
+>
+  <AmbientBackdrop
+    src="/video/space-aurora.mp4"
+    poster="/video/space-aurora-poster.jpg"
+    shape="frame"
+    align="right"
+  />
+
+  <main id="main" class="mx-auto max-w-4xl px-6 pb-32">
+    <p class="eyebrow">
+      Processing flow
+    </p>
+    <h1 class="display-1 mt-5">Pipeline</h1>
+
+    <p class="mt-5 max-w-2xl text-md leading-relaxed text-fg-muted">
+      From raw archive products to validated scientific evidence. Each stage below
+      produced something that is published on this site and can be checked against it.
+    </p>
+
+    {/* Stage sequence. An ordered list in the DOM, so assistive technology receives a
+        coherent sequence rather than a set of decorated boxes. */}
+    <section class="section flow" aria-labelledby="stages-heading">
+      <h2 id="stages-heading" class="display-3">Stages</h2>
+
+      <ol class="mt-6 border-l border-line-subtle">
+        {
+          STAGES.map((stage, i) => (
+            <li class="relative pb-8 pl-7 last:pb-0">
+              <span
+                class="absolute top-1 -left-[5px] flex h-2.5 w-2.5 items-center justify-center rounded-full bg-line-strong"
+                aria-hidden="true"
+              />
+              <p class="font-mono text-2xs text-fg-subtle">
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <h3 class="mt-1 text-md font-semibold tracking-tight">{stage.name}</h3>
+              <p class="mt-1.5 max-w-2xl text-sm leading-relaxed text-fg-muted">
+                {stage.detail}
+              </p>
+              <p class="mt-2 font-mono text-2xs text-fg-subtle">→ {stage.output}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    {/* What the archive actually contained */}
+    <section class="section flow" aria-labelledby="quality-heading">
+      <h2 id="quality-heading" class="display-3">
+        What the archive actually contained
+      </h2>
+      <p class="mt-2 max-w-2xl text-sm text-fg-muted">
+        Defects found in the source data, recorded rather than quietly worked around.
+      </p>
+      <ReportSections sections={quality.data.sections} limit={6} />
+      <p class="mt-6 font-mono text-2xs break-all text-fg-subtle">{quality.data.source}</p>
+    </section>
+
+    {/* Canonical profile */}
+    <section class="section flow" aria-labelledby="profile-heading">
+      <h2 id="profile-heading" class="display-3">
+        Canonical dataset profile
+      </h2>
+      <ReportSections sections={profile.data.sections} limit={6} />
+      <p class="mt-6 font-mono text-2xs break-all text-fg-subtle">{profile.data.source}</p>
+    </section>
+
+    {/* Schema */}
+    <section class="section flow" aria-labelledby="dictionary-heading">
+      <h2 id="dictionary-heading" class="display-3">
+        Table schemas
+      </h2>
+      <ReportSections sections={dictionary.data.sections} />
+      <p class="mt-6 font-mono text-2xs break-all text-fg-subtle">{dictionary.data.source}</p>
+    </section>
+    <NextDepth />
+  </main>
+</BaseLayout>

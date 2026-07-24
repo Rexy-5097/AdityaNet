@@ -1,0 +1,33 @@
+---
+/**
+ * PREVIZ route — dev-only. Not a product surface; not linked from anywhere.
+ *
+ * Mounts the Slice 1–2 previz harness so camera choreography and timeline pacing can be
+ * reviewed in a browser before any real scene exists. In a production build this route
+ * renders an empty notice and ships zero JavaScript, so the harness never reaches users.
+ */
+import PrevizHarness from "@/experience/v2/PrevizHarness";
+
+const isDev = import.meta.env.DEV;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>AdityaNet · v2 previz (dev)</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #06080a; color: #cfe0ff; }
+      .notice { font-family: ui-monospace, monospace; padding: 40px; font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    {isDev ? (
+      <PrevizHarness client:only="react" />
+    ) : (
+      <div class="notice">v2 previz is a development-only harness and is not built for production.</div>
+    )}
+  </body>
+</html>

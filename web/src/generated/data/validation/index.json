@@ -1,0 +1,80 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-23T16:34:02.111304+00:00",
+  "source_commit": "9efad0c",
+  "data": {
+    "contradictions": [
+      {
+        "id": "CONTRADICTION-001",
+        "slug": "contradiction-001",
+        "title": "Frozen contract rule F-09 rejects valid archive data",
+        "state": "CLOSED",
+        "date": "2026-07-17",
+        "reason": "Implementation proved a frozen-contract rule impossible to satisfy. RESOLVED by spec r1.",
+        "resolving_revision": "r1",
+        "declined_amendment": false,
+        "source": "artifacts/v2/phase05/CONTRADICTION-001.md"
+      },
+      {
+        "id": "CONTRADICTION-002",
+        "slug": "contradiction-002",
+        "title": "\u00a72.1's missing-value clause is factually false",
+        "state": "CLOSED",
+        "date": "2026-07-17",
+        "reason": "Contract \u00a72.1 missing-value clause falsified by the real archive. RESOLVED by spec r2.",
+        "resolving_revision": "r2",
+        "declined_amendment": false,
+        "source": "artifacts/v2/phase05/CONTRADICTION-002.md"
+      },
+      {
+        "id": "CONTRADICTION-003",
+        "slug": "contradiction-003",
+        "title": "\u00a77's spectrum-integrity tolerance is falsified",
+        "state": "OPEN",
+        "date": "2026-07-17",
+        "reason": "Contract \u00a77 spectrum-integrity rule falsified by the real archive.",
+        "resolving_revision": null,
+        "declined_amendment": true,
+        "source": "artifacts/v2/phase05/CONTRADICTION-003.md"
+      },
+      {
+        "id": "CONTRADICTION-004",
+        "slug": "contradiction-004",
+        "title": "two HEL1OS parser-level rules are falsified",
+        "state": "CLOSED",
+        "date": "2026-07-17",
+        "reason": "Two \u00a72.x parser-level rules falsified by real HEL1OS data. RESOLVED by spec r4.",
+        "resolving_revision": "r4",
+        "declined_amendment": true,
+        "source": "artifacts/v2/phase05/CONTRADICTION-004.md"
+      },
+      {
+        "id": "CONTRADICTION-005",
+        "slug": "contradiction-005",
+        "title": "the archive-wide build falsifies three frozen rules",
+        "state": "CLOSED",
+        "date": "2026-07-17",
+        "reason": "Archive-wide build falsified three frozen rules. RESOLVED by spec r5.",
+        "resolving_revision": "r5",
+        "declined_amendment": true,
+        "source": "artifacts/v2/phase05/CONTRADICTION-005.md"
+      },
+      {
+        "id": "CONTRADICTION-006",
+        "slug": "contradiction-006",
+        "title": "two \u00a72.8 HK checks falsified by the archive-wide rebuild",
+        "state": "CLOSED",
+        "date": "2026-07-17",
+        "reason": "r5 rebuild surfaced two more \u00a72.8 HK checks. RESOLVED: Defect A implementation-only fix approved; Defect B not approved (working as designed).",
+        "resolving_revision": null,
+        "declined_amendment": false,
+        "source": "artifacts/v2/phase05/CONTRADICTION-006.md"
+      }
+    ],
+    "open_count": 1,
+    "closed_count": 5,
+    "spec_revision": "r6"
+  }
+}

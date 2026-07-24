@@ -1,0 +1,51 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-23T16:34:02.122158+00:00",
+  "source_commit": "9efad0c",
+  "data": {
+    "title": "Evaluation Protocol \u2014 Milestone XI",
+    "date": "2026-07-18",
+    "lead": "**Frozen before any model was fit.** Every design choice below is justified by a measurement on the frozen dataset, not by convention.\n\n---",
+    "sections": [
+      {
+        "heading": "1. Train / validation / test split",
+        "body": "**Choice.** Chronological. **Train** 2024-02-01 \u2192 2025-12-31; **Validation** = last 20 % of the pre-test period by time; **Test** = 2026-01-01 \u2192 2026-06-15. Test opened once.\n\n**Evidence.** Autocorrelation of `log1p(rate_total)`: **0.997 @ 1 min, 0.804 @ 60 min, 0.643 @ 480 min**. A random or k-fold split over minutes would place near-identical neighbours in both train and test, leaking the answer. The decorrelation time exceeds 8 hours, so only a *temporal* split with a gap at day granularity avoids leakage.\n\n**Why this boundary.** M/X events by quarter: 2024Q1 96, 2024Q2 181, 2024Q4 6, 2025Q1 7, 2025Q2 3, 2025Q3 46, 2025Q4 87, **2026Q1 94, 2026Q2 61**. The 2026-01-01 cut yields **~423 training events and ~155 test events** \u2014 a substantial, contiguous, unseen test period spanning two quarters of genuine activity. Earlier cuts would test on the sparse 2025 tail (3\u20137 events/quarter); later cuts would leave too little test data."
+      },
+      {
+        "heading": "2. Temporal split strategy",
+        "body": "**Choice.** Single forward-chaining split (train \u2192 val \u2192 test in time), no shuffling, no random folds.\n\n**Evidence.** Same autocorrelation result. Additionally, flare occurrence is non-stationary across the solar cycle; a forward split is the only one that measures *generalisation to a future period*, which is the operational question. Cross-validation over time would either leak (random folds) or waste the scarce events (blocked k-fold on 581 events leaves too few per fold for stable estimates)."
+      },
+      {
+        "heading": "3. Event grouping",
+        "body": "**Choice.** Contiguous runs of positive-label minutes = one **event**. Metrics are computed at both the minute and the event level; the event level is primary.\n\n**Evidence.** The dataset contains **564,160 usable minutes but only 581 independent M/X events** (Milestone X). Treating minutes as independent samples overstates the effective sample size by ~970\u00d7. An event is the unit at which the label is actually independent.\n\n**Event-level definitions.**\n- **Event recall** = fraction of true events with \u2265 1 predicted-positive minute.\n- **False event runs** = predicted-positive minute-runs not overlapping any true event (the operational false-alarm unit)."
+      },
+      {
+        "heading": "4. Handling of autocorrelation",
+        "body": "**Choice.** Confidence intervals by **day-block bootstrap**: resample whole UTC days with replacement (1,000 replicates), recompute event recall and minute ROC-AUC on each.\n\n**Evidence.** With minute-level autocorrelation of 0.64 even at 8 h, an IID bootstrap over minutes would produce absurdly narrow intervals. The day (1,440 min) is the practical independent block \u2014 it exceeds the strong-correlation window and matches the natural observing unit. This is the same moving-block principle the frozen v1 harness uses, adapted to day granularity."
+      },
+      {
+        "heading": "5. Confidence intervals",
+        "body": "**Choice.** 95 % CIs from the day-block bootstrap percentiles (2.5 / 97.5) for every reported metric on every model.\n\n**Evidence.** 155 test events is small; point estimates without intervals would invite over-reading. The block bootstrap over days is the honest uncertainty given the autocorrelation structure measured in \u00a74."
+      },
+      {
+        "heading": "6. Statistical significance testing",
+        "body": "**Choice.** For the headline comparison (best model vs threshold detector), a **paired day-block bootstrap** of the metric *difference*: resample days, compute \u0394(event recall) and \u0394(ROC-AUC) per replicate, and report the CI of the difference. If that CI contains zero, the two are declared **statistically indistinguishable**.\n\n**Evidence.** Paired testing controls for day-to-day difficulty variation (some test days have large flares, some none). An unpaired comparison would be dominated by which days each bootstrap sample happened to draw. The paired difference isolates the model contribution."
+      },
+      {
+        "heading": "7. Metrics reported",
+        "body": "Minute-level and event-level, for every model: ROC-AUC, PR-AUC, precision, recall, F1, balanced accuracy, MCC, Brier score (calibration), confusion matrix, false-alarm rate, miss rate, and inference latency (\u00b5s/sample).\n\n**Operating-point rule.** Every thresholded metric uses a threshold selected on **train/validation only** \u2014 the threshold detector's cut maximises F1 on train; each model's cut maximises F1 on validation. The test set never informs any threshold. Threshold-free metrics (ROC-AUC, PR-AUC) are reported alongside to separate ranking quality from operating-point choice."
+      },
+      {
+        "heading": "8. No imputation",
+        "body": "**Choice.** Minutes with non-finite `rate_total` are **dropped** (masked) from training and evaluation; never imputed.\n\n**Evidence.** Dataset policy (Milestones I\u2013IX): NaN is the missing-data sentinel, never filled. 7.6 % of minutes are non-finite rate (`live_time_s == 0`). The dropped fraction is reported as an experimental parameter."
+      },
+      {
+        "heading": "9. What would falsify a positive ML claim",
+        "body": "Pre-committed, so the conclusion cannot be rationalised after the fact:\n- If the best model's event-recall CI **overlaps** the threshold detector's, the models are **not** shown to add operational value \u2192 recommend the threshold.\n- If ROC-AUC differences are within the paired-bootstrap CI of zero, the models are **statistically indistinguishable** from the threshold.\n- If T2 spectral features do not move validation metrics beyond their CI, T2 is declared **non-contributory** (Milestone X predicted this; the ablation tests it).\n- If T4 housekeeping features improve validation but degrade test, they are declared a **generalisation hazard** and excluded."
+      }
+    ],
+    "source": "artifacts/v2/ml/EVALUATION_PROTOCOL.md"
+  }
+}

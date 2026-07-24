@@ -1,0 +1,69 @@
+# CI for the AdityaNet web platform. Spec §13.3.
+#
+# Three gates in Sprint 0. The `e2e` gate is added in the sprint that ships the
+# first persona journey — a gate with zero tests is not a gate, it is a slow no-op.
+#
+# Target wall time is under 12 minutes (§13.3): a pipeline slower than that gets
+# bypassed, and a bypassed gate is not a gate.
+
+name: web
+
+on:
+  push:
+    branches: [main]
+    paths: ["web/**", ".github/workflows/web.yml"]
+  pull_request:
+    paths: ["web/**", ".github/workflows/web.yml"]
+
+defaults:
+  run:
+    working-directory: web
+
+jobs:
+  verify:
+    # Generated-code drift, type errors, and architecture-boundary violations.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: web/.nvmrc
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm verify
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: web/.nvmrc
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+
+  budget:
+    # Performance and accessibility budgets are measured against real build output,
+    # so this gate must build first (§11.6).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: web/.nvmrc
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm budget
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: web/dist
+          retention-days: 7

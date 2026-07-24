@@ -1,0 +1,40 @@
+---
+/**
+ * End-of-surface handoff — the connective tissue of the descent.
+ *
+ * Every surface previously ended in nothing. A reader who finished Validation had no
+ * reason to continue and no idea what came next, so six well-built surfaces read as six
+ * separate sites.
+ *
+ * This names the next depth AND why a reader would want it. "Next page" is navigation;
+ * "with the method established, read what it concluded" is an argument. The difference
+ * is what turns a set of pages into a journey.
+ *
+ * Zero JavaScript: it is a link with a reason attached.
+ */
+import { DESCENT, depthOf } from "./journey";
+
+const current = depthOf(Astro.url.pathname);
+const next = DESCENT[current + 1];
+---
+
+{
+  next && (
+    <nav class="mt-20 border-t border-line-subtle pt-8" aria-label="Continue the descent">
+      <p class="font-mono text-2xs tracking-[0.18em] text-fg-subtle uppercase">
+        Depth {current + 1} of {DESCENT.length - 1} · {next.state}
+      </p>
+
+      <a
+        href={next.href}
+        class="group mt-4 block max-w-2xl rounded-md border border-line-subtle bg-surface p-6 transition-colors hover:border-line-strong hover:bg-raised"
+      >
+        <p class="text-lg font-semibold tracking-tight">{next.label}</p>
+        <p class="mt-2 text-sm leading-relaxed text-fg-muted">{next.invitation}</p>
+        <p class="mt-4 font-mono text-2xs text-fg-subtle">
+          Continue <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-0.5">→</span>
+        </p>
+      </a>
+    </nav>
+  )
+}

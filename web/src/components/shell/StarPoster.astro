@@ -1,0 +1,44 @@
+---
+/**
+ * The static star poster. Server-rendered, zero JavaScript.
+ *
+ * This is the LCP element for `/`. Amendment 02 §18.0 makes it a hard requirement that
+ * the canvas is never the LCP: the page must be readable and navigable before the GPU
+ * scene exists, and it must stay complete if the scene never arrives.
+ *
+ * It is also tier 0 in its own right — the rendering a visitor sees under reduced
+ * motion, without WebGL2, or after opting out of effects. So it is composed to be
+ * looked at, not to be a loading spinner.
+ *
+ * Inline SVG rather than a raster: about 700 bytes, resolution-independent, and it
+ * needs no additional request on the critical path.
+ */
+interface Props {
+  activityLabel: string;
+}
+const { activityLabel } = Astro.props;
+---
+
+<svg
+  class="absolute inset-0 h-full w-full"
+  viewBox="0 0 800 800"
+  preserveAspectRatio="xMidYMid slice"
+  role="img"
+  aria-label={activityLabel}
+>
+  <defs>
+    <radialGradient id="corona" cx="50%" cy="50%" r="50%">
+      <stop offset="30%" stop-color="#FFB86B" stop-opacity="0.55" />
+      <stop offset="55%" stop-color="#D9662B" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#0A0C0E" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="disc" cx="42%" cy="40%" r="62%">
+      <stop offset="0%" stop-color="#FFD9A0" />
+      <stop offset="45%" stop-color="#F08A34" />
+      <stop offset="100%" stop-color="#8C2D0A" />
+    </radialGradient>
+  </defs>
+
+  <circle cx="400" cy="400" r="380" fill="url(#corona)" />
+  <circle cx="400" cy="400" r="170" fill="url(#disc)" />
+</svg>

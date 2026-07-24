@@ -1,0 +1,43 @@
+---
+/**
+ * A content section with the site's standard rhythm and reveal.
+ *
+ * Exists so breathing room is a property of the system rather than a decision each page
+ * re-makes. Every section on every surface gets the same vertical rhythm, the same
+ * optional eyebrow/heading pair, and the same scroll reveal — which is what stops the
+ * site reading as a set of separately-built documents.
+ */
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  /** Renders the heading at display-2 instead of display-3. For major divisions. */
+  major?: boolean;
+  /** Adds a hairline above the section. */
+  ruled?: boolean;
+  id?: string;
+  class?: string;
+}
+
+const { eyebrow, title, major = false, ruled = false, id, class: className = "" } = Astro.props;
+---
+
+<section id={id} class={`section flow ${className}`} aria-labelledby={title && id ? `${id}-h` : undefined}>
+  {ruled && <hr class="rule mb-[var(--rhythm-tight)]" />}
+
+  {
+    (eyebrow || title) && (
+      <div class="reveal-stagger mb-10">
+        {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+        {title && (
+          <h2 id={id ? `${id}-h` : undefined} class={`${major ? "display-2" : "display-3"} mt-4`}>
+            {title}
+          </h2>
+        )}
+      </div>
+    )
+  }
+
+  <div class="reveal">
+    <slot />
+  </div>
+</section>

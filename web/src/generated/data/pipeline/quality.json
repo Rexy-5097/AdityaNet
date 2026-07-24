@@ -1,0 +1,47 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-23T16:34:03.817924+00:00",
+  "source_commit": "9efad0c",
+  "data": {
+    "title": "Archive Quality Report",
+    "date": "2026-07-18",
+    "lead": "**Complete inventory of every archive anomaly discovered during AdityaNet v2, Phase 0.5.** Counts, affected products, governing rule ids, and disposition. **No interpretation.** Each disposition is the ruling already recorded in the cited contradiction or contract revision.\n\nSource of record: `canonical_build_stats.json` (the authoritative archive-wide build), `version_resolution_log.json`, and the Phase 0.5.1 manifest.\n\n---",
+    "sections": [
+      {
+        "heading": "1. Summary",
+        "body": "| Anomaly class | Rule | Count | Products affected | Disposition |\n|---|---|---|---|---|\n| GTI interval `STOP \u2264 START` | F-19 | **12** | SoLEXS daily archives | Archive defect (CONTRADICTION-005 Defect C) \u2014 excluded, logged |\n| Duplicate HK `mjd` timestamp | F-16 | **2** | HEL1OS orbits | Archive defect (CONTRADICTION-006 Defect B) \u2014 excluded, logged |\n| Inactive detector (empty GTI) | F-12 | **426** | SoLEXS SDD1 GTI files | Legal state, not an error \u2014 SDD1 is GTI-only, SDD2 carries science |\n| HK time inversions (jitter) | \u2014 | see A-12 | HEL1OS orbits | Characterised in `MILESTONE_VIII_VALIDATION_REPORT.md` (A-12) |\n| Two PHA channel families | F-07\u2192resolved | 0 (resolved) | HEL1OS CZT/CdTe | Contract corrected (CONTRADICTION-005 Defect A, r5) \u2014 0 residual failures |\n| AppleDouble `._*` sidecars | F-18 | (excluded) | filesystem artifacts | exFAT/macOS artifacts, never data \u2014 excluded by allowlist |\n\n**Total products excluded from the canonical dataset: 14** (12 SoLEXS + 2 HEL1OS), of 436 + 391 = 827 available. Coverage: SoLEXS **424/436**, HEL1OS **389/391**."
+      },
+      {
+        "heading": "2. F-19 \u2014 SoLEXS GTI `STOP \u2264 START` (12 archives)",
+        "body": "A GTI interval whose stop time is at or before its start time. `STOP \u2264 START` is not a convention question; it is an internal inconsistency in the archived GTI table. F-19 terminates on parse.\n\n**Affected (all SoLEXS daily archives):**\n`AL1_SLX_L1_20240422_v1.0`, `20240501`, `20250729`, `20251205`, `20260406`, `20260407`, `20260408`, `20260409`, `20260411`, `20260413`, `20260414`, `20260415`.\n\n**Disposition:** archive defect. Excluded from the canonical dataset, individually logged. No amendment (F-19 behaves as designed). Note the temporal clustering (8 of 12 in April 2026) \u2014 recorded as an observation, not interpreted."
+      },
+      {
+        "heading": "3. F-16 \u2014 Duplicate HK `mjd` (2 orbits)",
+        "body": "Two housekeeping rows sharing an identical `mjd` timestamp. \u00a72.8 (r4) requires HK `mjd` to be unique; a duplicate terminates via F-16.\n\n**Affected (HEL1OS orbits):**\n- `HLS_20260201_120005_43198sec_lev1_V111` \u2014 2 duplicated values (of 63,298 rows)\n- `HLS_20260202_000005_43183sec_lev1_V111` \u2014 1 duplicated value\n\n**Disposition:** archive defect (CONTRADICTION-006 Defect B, owner ruled **not approved** for amendment \u2014 F-16 continues to terminate). Excluded, logged. 389 of 391 orbits have fully unique HK `mjd`."
+      },
+      {
+        "heading": "4. F-12 \u2014 Inactive detectors (426 GTI files)",
+        "body": "A GTI table with zero rows (`NAXIS2 = 0`), which the contract treats as a **legal** inactive-detector state, not an error (the single deliberately non-terminating rule). `OBSERVED`: SoLEXS SDD1 supplies GTI only (no `.lc`/`.pi`), and its GTI is empty across the archive; SDD2 carries all science.\n\n**Count:** 426 F-12 detections among 850 parsed SoLEXS GTI files (SDD1 across the built days). **Disposition:** expected structural property of the SoLEXS archive; not a defect."
+      },
+      {
+        "heading": "5. Two PHA channel families (resolved, 0 residual)",
+        "body": "`OBSERVED` during the archive-wide build: HEL1OS has two detector families with different PHA channel counts \u2014 **CZT = 341, CdTe = 511**. The r0 contract asserted a single `DETCHANS = 341`, which blocked all 391 orbits at F-07.\n\n**Disposition:** contract corrected (CONTRADICTION-005 Defect A \u2192 spec r5: per-family allowlist; F-11 restated over three incommensurable channel spaces \u2014 SoLEXS PI 340, HEL1OS CZT PHA 341, HEL1OS CdTe PHA 511). After the fix: **0 F-07 DETCHANS failures** archive-wide. Not an archive defect \u2014 an archive property the contract now encodes."
+      },
+      {
+        "heading": "6. AppleDouble sidecars (`._*`)",
+        "body": "macOS writes `._<name>` metadata sidecars on the exFAT volume. These are filesystem artifacts, never instrument data. F-18 (allowlist + `._*` guard) excludes them. **Disposition:** not data; excluded structurally. *(Note: the withdrawn \"10 F-01 unreadable days\" figure from CONTRADICTION-005 originated in an ad-hoc scan that globbed these sidecars; the authoritative build has no F-01 skips.)*"
+      },
+      {
+        "heading": "7. Lost / unavailable dates (not defects of parsed data)",
+        "body": "From Phase 0.5.1: exactly **one** genuinely lost SoLEXS date (`2023-12-13`, an interrupted download in `downloads/corrupted/`), and the HEL1OS archive begins only **2025-12-07** (combined SoLEXS+HEL1OS coverage = 179 days). These are **acquisition gaps**, not quality defects of the data on hand; carried to Phase 0.5.3."
+      },
+      {
+        "heading": "8. Disposition ledger",
+        "body": "| Product(s) | Rule | Permanent disposition |\n|---|---|---|\n| 12 SoLEXS F-19 archives (\u00a72) | F-19 | **Archive defect** \u2014 permanently excluded |\n| 2 HEL1OS F-16 orbits (\u00a73) | F-16 | **Archive defect** \u2014 permanently excluded |\n| 426 SDD1 empty GTIs (\u00a74) | F-12 | **Legal inactive** \u2014 not excluded, not a defect |\n| CZT/CdTe channel counts (\u00a75) | F-07\u2192r5 | **Archive property** \u2014 contract corrected, 0 residual |\n| `._*` sidecars (\u00a76) | F-18 | **Not data** \u2014 structurally excluded |\n| 2023-12-13, pre-2025-12 HEL1OS (\u00a77) | \u2014 | **Acquisition gap** \u2014 Phase 0.5.3 |\n\nThese are the permanent archive findings of Phase 0.5."
+      }
+    ],
+    "source": "artifacts/v2/phase05/ARCHIVE_QUALITY_REPORT.md"
+  }
+}

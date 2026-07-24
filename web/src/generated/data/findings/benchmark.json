@@ -1,0 +1,391 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-23T16:34:02.118617+00:00",
+  "source_commit": "9efad0c",
+  "data": {
+    "tasks": [
+      {
+        "key": "M/X NOWCAST",
+        "slug": "nowcast",
+        "label": "M/X nowcast",
+        "n_train": 297295,
+        "n_val": 74324,
+        "n_test": 192541,
+        "test_positive_rate": 0.012428521717452387,
+        "rows": [
+          {
+            "model": "random",
+            "label": "Random",
+            "is_baseline": true,
+            "roc_auc": 0.4973685463438377,
+            "roc_auc_ci95": [
+              0.48342170787500327,
+              0.5091658292778315
+            ],
+            "event_recall": 0.9878048780487805,
+            "event_recall_ci95": [
+              0.9777777777777777,
+              1.0
+            ],
+            "false_event_runs": 47595,
+            "n_events": 82,
+            "precision": 0.012420685937046406,
+            "brier": 0.3338018652047485,
+            "latency_us": null
+          },
+          {
+            "model": "majority",
+            "label": "Majority",
+            "is_baseline": true,
+            "roc_auc": 0.5,
+            "roc_auc_ci95": [
+              0.5,
+              0.5
+            ],
+            "event_recall": 0.0,
+            "event_recall_ci95": [
+              0.0,
+              0.0
+            ],
+            "false_event_runs": 0,
+            "n_events": 82,
+            "precision": 0.0,
+            "brier": 0.012428521717452387,
+            "latency_us": null
+          },
+          {
+            "model": "climatology",
+            "label": "Climatology",
+            "is_baseline": true,
+            "roc_auc": 0.5,
+            "roc_auc_ci95": [
+              0.5,
+              0.5
+            ],
+            "event_recall": 0.0,
+            "event_recall_ci95": [
+              0.0,
+              0.0
+            ],
+            "false_event_runs": 0,
+            "n_events": 82,
+            "precision": 0.0,
+            "brier": 0.012654278658883182,
+            "latency_us": null
+          },
+          {
+            "model": "persistence",
+            "label": "Persistence",
+            "is_baseline": true,
+            "roc_auc": 0.9820242447607684,
+            "roc_auc_ci95": [
+              0.9776125642391055,
+              0.9862143506457364
+            ],
+            "event_recall": 1.0,
+            "event_recall_ci95": [
+              1.0,
+              1.0
+            ],
+            "false_event_runs": 0,
+            "n_events": 82,
+            "precision": 0.9656903765690377,
+            "brier": 0.0008673477337294395,
+            "latency_us": null
+          },
+          {
+            "model": "threshold_rate",
+            "label": "Threshold (rate)",
+            "is_baseline": false,
+            "roc_auc": 0.953889401574726,
+            "roc_auc_ci95": [
+              0.9396726855158811,
+              0.966399848937842
+            ],
+            "event_recall": 0.926829268292683,
+            "event_recall_ci95": [
+              0.875,
+              0.975609756097561
+            ],
+            "false_event_runs": 15,
+            "n_events": 82,
+            "precision": 0.5478227060653188,
+            "brier": null,
+            "latency_us": null
+          },
+          {
+            "model": "logistic",
+            "label": "Logistic regression",
+            "is_baseline": false,
+            "roc_auc": 0.9642052306479267,
+            "roc_auc_ci95": [
+              0.9533269457573925,
+              0.9736627369302028
+            ],
+            "event_recall": 0.975609756097561,
+            "event_recall_ci95": [
+              0.928538961038961,
+              1.0
+            ],
+            "false_event_runs": 228,
+            "n_events": 82,
+            "precision": 0.5401091978160437,
+            "brier": 0.02939556122095305,
+            "latency_us": 0.08722775911442948
+          },
+          {
+            "model": "random_forest",
+            "label": "Random forest",
+            "is_baseline": false,
+            "roc_auc": 0.9662843740755711,
+            "roc_auc_ci95": [
+              0.9557300512219781,
+              0.975804175718045
+            ],
+            "event_recall": 0.975609756097561,
+            "event_recall_ci95": [
+              0.9298245614035088,
+              1.0
+            ],
+            "false_event_runs": 61,
+            "n_events": 82,
+            "precision": 0.7662689804772235,
+            "brier": 0.019122337480831374,
+            "latency_us": 0.504550976137342
+          },
+          {
+            "model": "lightgbm",
+            "label": "LightGBM",
+            "is_baseline": false,
+            "roc_auc": 0.9613298152227362,
+            "roc_auc_ci95": [
+              0.9494247128058102,
+              0.9719706094243763
+            ],
+            "event_recall": 0.9878048780487805,
+            "event_recall_ci95": [
+              0.96,
+              1.0
+            ],
+            "false_event_runs": 79,
+            "n_events": 82,
+            "precision": 0.744796828543112,
+            "brier": 0.015516050938366631,
+            "latency_us": 1.33008123451489
+          }
+        ]
+      },
+      {
+        "key": "M/X 30-MIN PREDICTION",
+        "slug": "prediction",
+        "label": "M/X 30-minute prediction",
+        "n_train": 297295,
+        "n_val": 74324,
+        "n_test": 192541,
+        "test_positive_rate": 0.012937504219880441,
+        "rows": [
+          {
+            "model": "random",
+            "label": "Random",
+            "is_baseline": true,
+            "roc_auc": 0.49329682199248,
+            "roc_auc_ci95": [
+              0.4826542473013718,
+              0.5065390644725356
+            ],
+            "event_recall": 1.0,
+            "event_recall_ci95": [
+              1.0,
+              1.0
+            ],
+            "false_event_runs": 47578,
+            "n_events": 82,
+            "precision": 0.012513996599344752,
+            "brier": 0.3339076663536726,
+            "latency_us": null
+          },
+          {
+            "model": "majority",
+            "label": "Majority",
+            "is_baseline": true,
+            "roc_auc": 0.5,
+            "roc_auc_ci95": [
+              0.5,
+              0.5
+            ],
+            "event_recall": 0.0,
+            "event_recall_ci95": [
+              0.0,
+              0.0
+            ],
+            "false_event_runs": 0,
+            "n_events": 82,
+            "precision": 0.0,
+            "brier": 0.012937504219880441,
+            "latency_us": null
+          },
+          {
+            "model": "climatology",
+            "label": "Climatology",
+            "is_baseline": true,
+            "roc_auc": 0.5,
+            "roc_auc_ci95": [
+              0.5,
+              0.5
+            ],
+            "event_recall": 0.0,
+            "event_recall_ci95": [
+              0.0,
+              0.0
+            ],
+            "false_event_runs": 0,
+            "n_events": 82,
+            "precision": 0.0,
+            "brier": 0.013163939271184992,
+            "latency_us": null
+          },
+          {
+            "model": "persistence",
+            "label": "Persistence",
+            "is_baseline": true,
+            "roc_auc": 0.9829235687834267,
+            "roc_auc_ci95": [
+              0.9821447109474465,
+              0.9835125646165433
+            ],
+            "event_recall": 1.0,
+            "event_recall_ci95": [
+              0.975609756097561,
+              1.0
+            ],
+            "false_event_runs": 0,
+            "n_events": 82,
+            "precision": 0.9670550421856167,
+            "brier": 0.0008621540347250715,
+            "latency_us": null
+          },
+          {
+            "model": "threshold_rate",
+            "label": "Threshold (rate)",
+            "is_baseline": false,
+            "roc_auc": 0.7918849843123749,
+            "roc_auc_ci95": [
+              0.7079506068308818,
+              0.8557131453707901
+            ],
+            "event_recall": 0.43902439024390244,
+            "event_recall_ci95": [
+              0.25,
+              0.5714947089947089
+            ],
+            "false_event_runs": 208,
+            "n_events": 82,
+            "precision": 0.11904394757131842,
+            "brier": null,
+            "latency_us": null
+          },
+          {
+            "model": "logistic",
+            "label": "Logistic regression",
+            "is_baseline": false,
+            "roc_auc": 0.7796751050427158,
+            "roc_auc_ci95": [
+              0.6743968775350682,
+              0.8498328304203941
+            ],
+            "event_recall": 0.4634146341463415,
+            "event_recall_ci95": [
+              0.2682520325203252,
+              0.6000862068965517
+            ],
+            "false_event_runs": 221,
+            "n_events": 82,
+            "precision": 0.15475982532751092,
+            "brier": 0.060102668040649,
+            "latency_us": 0.025665712180980082
+          },
+          {
+            "model": "random_forest",
+            "label": "Random forest",
+            "is_baseline": false,
+            "roc_auc": 0.7842735568646971,
+            "roc_auc_ci95": [
+              0.6939621823071341,
+              0.8500941259613135
+            ],
+            "event_recall": 0.4146341463414634,
+            "event_recall_ci95": [
+              0.21951219512195122,
+              0.5471698113207547
+            ],
+            "false_event_runs": 243,
+            "n_events": 82,
+            "precision": 0.15191036002939015,
+            "brier": 0.05100785609223049,
+            "latency_us": 0.4984512367537598
+          },
+          {
+            "model": "lightgbm",
+            "label": "LightGBM",
+            "is_baseline": false,
+            "roc_auc": 0.7680612731484489,
+            "roc_auc_ci95": [
+              0.6802889801800104,
+              0.8307542457719912
+            ],
+            "event_recall": 0.43902439024390244,
+            "event_recall_ci95": [
+              0.2563725490196078,
+              0.5652378999179655
+            ],
+            "false_event_runs": 473,
+            "n_events": 82,
+            "precision": 0.17860408412069492,
+            "brier": 0.036773415604167345,
+            "latency_us": 1.26874331523642
+          }
+        ]
+      }
+    ],
+    "ablation": {
+      "t1_only": 0.9604823657233289,
+      "t1_bands": 0.9637609861088609,
+      "t1_hr": 0.9618164805858531,
+      "t1_all": 0.9633954791464657,
+      "delta_bands": 0.0032786203855319496,
+      "delta_hr": 0.001334114862524216,
+      "delta_all": 0.002913113423136826,
+      "n_train": 371619,
+      "n_test": 192541
+    },
+    "meta": {
+      "generated_utc": "2026-07-23T03:35:02.908975+00:00",
+      "features": [
+        "log_rate",
+        "roll_mean_5",
+        "roll_mean_15",
+        "roll_mean_30",
+        "roll_mean_60",
+        "roll_max_15",
+        "roll_std_15",
+        "roll_std_60",
+        "bg_excess",
+        "rise_5",
+        "rise_15",
+        "gti_fraction",
+        "n_seconds_present",
+        "q_partial"
+      ],
+      "seed": 20260718,
+      "test_start": "2026-01-01 00:00:00+00:00",
+      "val_fraction": 0.2,
+      "effective_n_note": "581 M/X events; day-block bootstrap CIs"
+    },
+    "sources": {
+      "benchmark": "artifacts/v2/ml/benchmark_results.json",
+      "ablation": "artifacts/v2/ml/ablation_results.json"
+    }
+  }
+}

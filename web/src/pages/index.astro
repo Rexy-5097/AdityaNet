@@ -1,0 +1,46 @@
+---
+/**
+ * The landing page — the cinematic opening scene, and nothing else.
+ *
+ * This surface is the film. It ends on the measured number and hands off to the Overview,
+ * which is a SEPARATE document at /overview. The two were briefly merged into one scroll;
+ * that collapsed two distinct moments into a single page and is not the design. The
+ * handoff below is a thin closing beat, not a second page — it exists only to carry the
+ * visitor across, and the cross-document view transition makes the crossing smooth.
+ *
+ * ASSET EXCLUSIVITY. The two clips this scene uses (SDO AIA 171 and the SDO Beauty Pass)
+ * appear ONLY here. Every other surface has its own footage.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import V2Experience from "@/experience/v2/V2Experience";
+---
+
+<BaseLayout
+  title="AdityaNet — Aditya-L1 X-Ray Archive Research Platform"
+  description="An independent research platform that makes the Aditya-L1 X-ray archive usable, verifiable, and honest. Not affiliated with ISRO or any space agency."
+  bleed
+>
+  {/*
+    The opening scene. `client:only` because it drives video playheads from scroll position
+    and has no meaningful server-rendered form; every evidence surface remains static.
+  */}
+  <V2Experience client:only="react" />
+
+  {/*
+    The crossing to the archive. Deliberately short and quiet — the scene has already made
+    its argument, so this is a door, not a destination.
+  */}
+  <section id="main" class="relative flex min-h-[52vh] items-center justify-center px-6">
+    <div class="reveal-stagger text-center">
+      <p class="eyebrow">The archive</p>
+      <p class="lede mx-auto mt-5 max-w-md text-balance">
+        That single value is one of millions. Everything behind it is published, versioned
+        and checkable.
+      </p>
+      <a href="/overview/" class="glass-button glass-button--primary next-link mt-9">
+        Enter the archive
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

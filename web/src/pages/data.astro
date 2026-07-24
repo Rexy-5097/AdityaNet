@@ -1,0 +1,175 @@
+---
+/**
+ * Data — browse the canonical dataset.
+ *
+ * Coverage calendar plus a light curve for any observation day.
+ *
+ * ARCHITECTURE. The calendar is a single static SVG rendered at build time; day
+ * payloads are fetched at runtime from /api/v1/days. Generating 424 static day PAGES
+ * would multiply build time for content identical in shape and differing only by
+ * payload — the specification's own R5 fallback anticipated exactly this.
+ *
+ * Absence is shown, never filled: days outside the dataset are simply not drawn, and
+ * partial days are rendered at their true coverage rather than rounded up.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import KeyFacts from "@/components/shell/KeyFacts.astro";
+import NextDepth from "@/components/shell/NextDepth.astro";
+import ReportSections from "@/components/evidence/ReportSections.astro";
+import LightCurve from "@/scientific/LightCurve";
+import coverage from "@/generated/data/coverage.json";
+import dictionary from "@/generated/data/pipeline/dictionary.json";
+
+const { days, table, unit } = coverage.data;
+
+// The scene opens on the archive's most energetic day.
+const peak = days.reduce((best, d) => (d.peak > best.peak ? d : best), days[0]!);
+
+// Calendar geometry: one column per week, one row per weekday.
+const CELL = 11;
+const GAP = 2;
+const byDate = new Map(days.map((d) => [d.date, d]));
+const first = new Date(`${days[0]!.date}T00:00:00Z`);
+const last = new Date(`${days[days.length - 1]!.date}T00:00:00Z`);
+
+const cells: { date: string; col: number; row: number; intensity: number | null }[] = [];
+const logMin = Math.log10(Math.max(Math.min(...days.map((d) => d.peak)), 0.1));
+const logMax = Math.log10(Math.max(...days.map((d) => d.peak)));
+
+for (let t = first.getTime(); t <= last.getTime(); t += 86_400_000) {
+  const day = new Date(t);
+  const iso = day.toISOString().slice(0, 10);
+  const col = Math.floor((t - first.getTime()) / (7 * 86_400_000));
+  const row = (day.getUTCDay() + 6) % 7; // Monday-first
+  const record = byDate.get(iso);
+  cells.push({
+    date: iso,
+    col,
+    row,
+    intensity: record
+      ? (Math.log10(Math.max(record.peak, 0.1)) - logMin) / Math.max(logMax - logMin, 1e-9)
+      : null,
+  });
+}
+
+const columns = Math.max(...cells.map((c) => c.col)) + 1;
+const calWidth = columns * (CELL + GAP);
+const calHeight = 7 * (CELL + GAP);
+---
+
+<BaseLayout
+  title="Data — AdityaNet"
+  description="Browse the canonical Aditya-L1 dataset: coverage across the archive and the SoLEXS light curve for any observation day."
+>
+  <AmbientBackdrop
+    src="/video/sun-ambient-304.mp4"
+    poster="/video/sun-ambient-304-poster.jpg"
+    shape="disc"
+    align="right"
+  />
+
+  <main id="main" class="mx-auto max-w-5xl px-6 pb-32">
+    <div class="section-tight flow">
+      <p class="eyebrow">Canonical dataset</p>
+      <h1 class="display-1 mt-5">Every observed minute.</h1>
+      <p class="lede mt-6">
+        Gaps are shown as gaps. Nothing is interpolated, and a day the instrument did not
+        observe is not drawn.
+      </p>
+    </div>
+
+    <KeyFacts
+      facts={[
+        { label: "Observation days", value: days.length.toLocaleString("en-US"), emphasis: true },
+        { label: "Archive span", value: `${days[0]!.date} — ${days[days.length - 1]!.date}` },
+        { label: "Resolution", value: "1 min", note: `unit ${unit}` },
+        { label: "Interpolated values", value: "0", note: "gaps are left as gaps" },
+      ]}
+    />
+
+    {/* Coverage calendar */}
+    <section class="section flow" aria-labelledby="coverage-heading">
+      <h2 id="coverage-heading" class="display-3">Coverage</h2>
+      <p class="lede mt-4">
+        Brightness encodes that day's peak rate, log scale. Select any cell to load it.
+      </p>
+      <ul class="mt-5 flex flex-wrap gap-2" aria-label="Coverage source">
+        <li class="chip"><span class="chip-key">table</span>{table}</li>
+        <li class="chip"><span class="chip-key">unit</span>{unit}</li>
+      </ul>
+
+      <div class="mt-5 overflow-x-auto card p-5">
+        <svg
+          viewBox={`0 0 ${calWidth} ${calHeight}`}
+          width={calWidth}
+          height={calHeight}
+          class="block max-w-none"
+          role="img"
+          aria-label={`Coverage calendar: ${days.length} observation days between ${days[0]!.date} and ${days[days.length - 1]!.date}.`}
+        >
+          {
+            cells.map((c) =>
+              c.intensity === null ? null : (
+                <rect
+                  x={c.col * (CELL + GAP)}
+                  y={c.row * (CELL + GAP)}
+                  width={CELL}
+                  height={CELL}
+                  rx="2"
+                  fill="currentColor"
+                  class="cursor-pointer text-data-1 transition-opacity hover:opacity-100"
+                  opacity={0.18 + c.intensity * 0.82}
+                  data-day={c.date}
+                >
+                  <title>{c.date}</title>
+                </rect>
+              ),
+            )
+          }
+        </svg>
+      </div>
+
+      <p class="mt-3 font-mono text-2xs text-fg-subtle">
+        {days[0]!.date} — {days[days.length - 1]!.date} · unit {unit}
+      </p>
+    </section>
+
+    {/* Light curve */}
+    <section class="section flow" aria-labelledby="curve-heading">
+      <h2 id="curve-heading" class="display-3">Light curve</h2>
+      <p class="lede mt-4">
+        Total SoLEXS count rate per minute — opening on {peak.date}, the archive's most
+        energetic day.
+      </p>
+
+      <div class="mt-5">
+        <LightCurve initialDate={peak.date} client:visible />
+      </div>
+    </section>
+
+    {/* Schema */}
+    <section class="section flow" aria-labelledby="schema-heading">
+      <h2 id="schema-heading" class="display-3">
+        Table schemas
+      </h2>
+      <ReportSections sections={dictionary.data.sections} limit={3} />
+      <p class="mt-6 font-mono text-2xs break-all text-fg-subtle">{dictionary.data.source}</p>
+    </section>
+    <NextDepth />
+  </main>
+</BaseLayout>
+
+<script>
+  // Calendar → light curve. Delegated from the SVG so the calendar itself ships no
+  // per-cell handlers: 866 elements with individual listeners would cost real hydration
+  // time for a purely presentational grid.
+  document.addEventListener("click", (event) => {
+    const target = (event.target as Element | null)?.closest("[data-day]");
+    const date = target?.getAttribute("data-day");
+    if (date) {
+      window.dispatchEvent(new CustomEvent("adityanet:select-day", { detail: { date } }));
+      document.querySelector("#curve-heading")?.scrollIntoView({ block: "start" });
+    }
+  });
+</script>

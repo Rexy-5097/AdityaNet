@@ -1,0 +1,39 @@
+---
+/**
+ * Position on the descent.
+ *
+ * A reader had no way to know how deep they were. This is a gauge, not a progress bar:
+ * progress implies a task to complete, and nobody is obliged to reach the bottom. It
+ * reports position, which is what an explorer needs.
+ *
+ * The Domain A/B boundary is marked between depth 0 and 1, because that crossing — from
+ * an artistic impression to measured evidence — is the single most meaningful transition
+ * in the product, and it previously passed in silence.
+ */
+import { DESCENT, depthOf } from "./journey";
+
+const current = depthOf(Astro.url.pathname);
+---
+
+<div class="flex items-center gap-1.5" title={`Depth ${current}: ${DESCENT[current]!.state}`}>
+  <span class="sr-only">
+    Depth {current} of {DESCENT.length - 1}: {DESCENT[current]!.state}
+    ({DESCENT[current]!.domain === "A" ? "artistic rendering" : "measured evidence"})
+  </span>
+
+  {
+    DESCENT.map((_depth, i) => (
+      <>
+        {/* The Domain A -> B crossing gets a visible boundary, not just a gap. */}
+        {i === 1 && <span class="mx-0.5 h-2.5 w-px bg-line-strong" aria-hidden="true" />}
+        <span
+          aria-hidden="true"
+          class:list={[
+            "block h-1 rounded-full transition-all",
+            i === current ? "w-4 bg-fg" : i < current ? "w-1.5 bg-fg-subtle" : "w-1.5 bg-line",
+          ]}
+        />
+      </>
+    ))
+  }
+</div>

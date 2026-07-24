@@ -1,0 +1,67 @@
+---
+/**
+ * Persistent site header.
+ *
+ * Navigation order is an argument, not an alphabetisation. Validation sits at
+ * position two — before the data and before the results — because the platform's
+ * central claim is that its evidence is checkable, and putting the adjudication
+ * record ahead of the findings is the strongest available way to say so.
+ *
+ * The dataset chip is global and always visible. Every surface's content is relative
+ * to a dataset version, so showing it constantly pre-empts "which data is this?"
+ * rather than answering it in a footnote.
+ */
+import overview from "@/generated/data/overview.json";
+import DepthGauge from "./DepthGauge.astro";
+import { DESCENT } from "./journey";
+
+const { dataset } = overview.data;
+const path = Astro.url.pathname;
+
+// Navigation IS the descent — one source of truth, so the two can never disagree.
+const NAV = DESCENT;
+
+const isCurrent = (href: string): boolean =>
+  href === "/" ? path === "/" : path.startsWith(href);
+---
+
+<header class="site-header" style="view-transition-name: site-header">
+  <div class="mx-auto flex w-full max-w-6xl items-center gap-x-7 px-6">
+    <a href="/" class="nav-link text-md font-semibold tracking-tight whitespace-nowrap">
+      Aditya<span class="text-fg-muted">Net</span>
+    </a>
+
+    <nav aria-label="Primary" class="flex-1">
+      <ul class="flex items-center gap-x-5 overflow-x-auto">
+        {
+          NAV.map(({ href, label }) => (
+            <li>
+              <a
+                href={href}
+                aria-current={isCurrent(href) ? "page" : undefined}
+                class="nav-link rounded-sm text-sm text-fg-muted hover:text-fg aria-[current=page]:text-fg"
+              >
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    {/*
+      Dataset identity, not a measurement: an identifier has no uncertainty and no
+      denominator, so it takes no source reference. The distinction matters — every
+      *quantity* on this site must cite an artifact, and blurring identifiers into
+      that category would dilute what the requirement means.
+    */}
+    <div class="hidden items-center gap-4 md:flex">
+      <DepthGauge />
+      <p class="font-mono text-2xs text-fg-subtle">
+        <span class="sr-only">Dataset version </span>{dataset.version}
+        <span aria-hidden="true"> · </span>
+        <span class="sr-only">digest prefix </span>{dataset.hash_short}
+      </p>
+    </div>
+  </div>
+</header>

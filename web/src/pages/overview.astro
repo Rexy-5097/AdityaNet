@@ -1,0 +1,111 @@
+---
+/**
+ * Overview — the entry surface for the evidence, restored as its OWN page.
+ *
+ * This is the surface with the red-Sun setting and the AdityaNet identity. It is reached
+ * by finishing the landing scene and continuing, and it is a separate document: the
+ * landing is the film, this is the front door of the archive. Stacking one inside the
+ * other collapsed two distinct moments into a single scroll and is not what the design
+ * calls for.
+ *
+ * Every figure is resolved at build time from a committed artifact by
+ * scripts/web/derive.py, and `pnpm budget` re-reads those artifacts from disk to
+ * confirm the rendered text still matches. No number on this page was typed by a person.
+ *
+ * HONESTY. Real solar imagery is governed by P8 Exception 01 — always labelled
+ * illustrative, never presented as Aditya-L1 data. The watermark travels with the
+ * footage via AmbientBackdrop and must not be removed.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import MetricCard from "@/components/evidence/MetricCard.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import overview from "@/generated/data/overview.json";
+
+const { dataset } = overview.data;
+
+const VIDEO = "/video/sun-ambient-304.mp4";
+const POSTER = "/video/sun-ambient-304-poster.jpg";
+---
+
+<BaseLayout
+  title="Overview — AdityaNet"
+  description="An independent research platform that makes the Aditya-L1 X-ray archive usable, verifiable, and honest. Not affiliated with ISRO or any space agency."
+>
+  <AmbientBackdrop
+    src={VIDEO}
+    poster={POSTER}
+    shape="disc"
+    align="right"
+    scrim="directional"
+  />
+
+  <section
+    class="relative isolate flex min-h-[calc(100svh-var(--header-h))] items-center"
+    aria-labelledby="hero-heading"
+  >
+    <div class="mx-auto w-full max-w-6xl px-6">
+      <div class="hero-enter max-w-2xl">
+        <p class="eyebrow">Independent research platform</p>
+
+        <h1 id="hero-heading" class="display-1 mt-6">
+          Aditya<span class="text-fg-muted">Net</span>
+        </h1>
+
+        <p class="lede mt-7">
+          The Aditya-L1 X-ray archive — made usable, verifiable, and honest, with the
+          record of how every number was checked.
+        </p>
+
+        <div class="mt-11 flex flex-wrap items-center gap-3">
+          <a href="/validation/" class="glass-button glass-button--primary">
+            Examine the evidence
+          </a>
+          <a href="/findings/" class="glass-button glass-button--ghost next-link">
+            Read the findings
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main" class="mx-auto max-w-6xl px-6 pb-28">
+    <div
+      class="reveal flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-fg-muted"
+    >
+      <span>{dataset.version}</span>
+      <span aria-hidden="true">·</span>
+      <span>sha256 {dataset.hash_short}</span>
+      <span aria-hidden="true">·</span>
+      <span>spec {dataset.specification_revision}</span>
+      <span aria-hidden="true">·</span>
+      <span>ARCHIVE {dataset.archive_span}</span>
+    </div>
+
+    <section class="section flow" aria-labelledby="measurements-heading">
+      <p class="eyebrow">Evidence</p>
+      <h2 id="measurements-heading" class="display-2 mt-4">Measured</h2>
+      <p class="lede mt-5">
+        Each figure resolves to a committed artifact and a JSON pointer within it. Open a
+        source reference to see the file, the pointer, and the digest of the exact bytes
+        that were read.
+      </p>
+
+      <div class="reveal-stagger mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <MetricCard metric={"artifacts/v2/phase05/freeze_manifest.json#/identity/n_parquet_files"} />
+        <MetricCard metric={"artifacts/v2/phase05/freeze_manifest.json#/tables/T1/n_files"} />
+        <MetricCard metric={"artifacts/v2/phase05/freeze_manifest.json#/tables/T4/n_files"} />
+        <MetricCard metric={"artifacts/v2/phase05/freeze_manifest.json#/identity/total_bytes"} />
+        <MetricCard metric={"artifacts/v2/ml/benchmark_results.json#/M~1X NOWCAST/results/threshold_rate/minute/roc_auc"} />
+        <MetricCard metric={"artifacts/v2/ml/benchmark_results.json#/M~1X NOWCAST/results/threshold_rate/event/event_recall"} />
+      </div>
+    </section>
+
+    <p class="lede reveal mt-4">
+      AdityaNet publishes a provenance-tracked canonical dataset derived from SoLEXS and
+      HEL1OS Level-1 products, the record of how that dataset was validated, and an honest
+      account of what can and cannot be concluded from it. Surfaces are published as each
+      is completed and verified.
+    </p>
+  </main>
+</BaseLayout>

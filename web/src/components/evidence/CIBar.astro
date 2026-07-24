@@ -1,0 +1,51 @@
+---
+/**
+ * A 95% confidence interval, drawn and stated.
+ *
+ * The numeric interval is ALWAYS rendered as text beside the bar. Readers systematically
+ * misjudge whether two intervals overlap by eye, and "these are statistically
+ * indistinguishable" is the single most misread claim in a benchmark table — so it is
+ * never left to be inferred from a picture.
+ *
+ * The bar is positioned within a shared domain so rows are comparable across the table;
+ * a bar scaled to its own extent would make every interval look the same width.
+ */
+interface Props {
+  value: number;
+  ci95: readonly [number, number];
+  domainMin: number;
+  domainMax: number;
+  precision?: number;
+}
+
+const { value, ci95, domainMin, domainMax, precision = 3 } = Astro.props;
+const [low, high] = ci95;
+
+const span = Math.max(domainMax - domainMin, 1e-9);
+const pct = (v: number) => ((v - domainMin) / span) * 100;
+const left = Math.max(0, pct(low));
+const width = Math.max(0.8, pct(high) - pct(low));
+const marker = Math.min(99.5, Math.max(0, pct(value)));
+---
+
+<div class="flex items-center gap-3">
+  <span class="w-14 shrink-0 text-right font-mono text-sm tabular-nums" data-numeric>
+    {value.toFixed(precision)}
+  </span>
+
+  <span
+    class="relative hidden h-1.5 w-24 shrink-0 rounded-full bg-sunken sm:block"
+    aria-hidden="true"
+  >
+    <span
+      class="absolute h-1.5 rounded-full bg-line-strong"
+      style={`left:${left}%;width:${width}%`}></span>
+    <span
+      class="absolute -top-0.5 h-2.5 w-0.5 rounded-full bg-fg"
+      style={`left:${marker}%`}></span>
+  </span>
+
+  <span class="font-mono text-2xs whitespace-nowrap text-fg-subtle tabular-nums" data-numeric>
+    [{low.toFixed(precision)}, {high.toFixed(precision)}]
+  </span>
+</div>

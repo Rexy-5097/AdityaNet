@@ -1,0 +1,41 @@
+---
+/**
+ * Renders a parsed markdown report's sections at build time.
+ *
+ * Extracted because Build, Pipeline, and Findings all render the same shape — a report
+ * split into level-2 sections. Three real uses, so the abstraction is earned rather
+ * than anticipated.
+ *
+ * Prose is passed through verbatim. These are scientific reports, and paraphrasing one
+ * on the way to the screen would defeat the point of publishing it.
+ */
+import { marked } from "marked";
+
+interface Section {
+  heading: string;
+  body: string;
+}
+interface Props {
+  sections: readonly Section[];
+  limit?: number;
+}
+
+const { sections, limit } = Astro.props;
+marked.setOptions({ gfm: true, breaks: false });
+
+const rendered = await Promise.all(
+  (limit ? sections.slice(0, limit) : sections).map(async (s) => ({
+    heading: marked.parseInline(s.heading),
+    html: await marked.parse(s.body),
+  })),
+);
+---
+
+{
+  rendered.map((s) => (
+    <div class="mt-8">
+      <h3 class="text-md font-semibold tracking-tight" set:html={s.heading} />
+      <div class="doc mt-2" set:html={s.html} />
+    </div>
+  ))
+}

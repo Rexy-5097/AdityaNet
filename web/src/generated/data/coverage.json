@@ -1,0 +1,2981 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-23T16:34:03.812945+00:00",
+  "source_commit": "9efad0c",
+  "data": {
+    "days": [
+      {
+        "date": "2024-02-01",
+        "peak": 106.8,
+        "median": 13.83,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-02",
+        "peak": 742.72,
+        "median": 28.82,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-03",
+        "peak": 417.55,
+        "median": 70.93,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-04",
+        "peak": 1883.48,
+        "median": 100.97,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-05",
+        "peak": 1534.15,
+        "median": 76.45,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-06",
+        "peak": 6198.52,
+        "median": 105.03,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-07",
+        "peak": 3982.65,
+        "median": 58.07,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-08",
+        "peak": 3035.85,
+        "median": 58.65,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-09",
+        "peak": 19752.88,
+        "median": 72.2,
+        "observed": 1275,
+        "coverage": 0.8854
+      },
+      {
+        "date": "2024-02-10",
+        "peak": 5448.82,
+        "median": 103.35,
+        "observed": 1275,
+        "coverage": 0.8854
+      },
+      {
+        "date": "2024-02-11",
+        "peak": 596.02,
+        "median": 46.0,
+        "observed": 1275,
+        "coverage": 0.8854
+      },
+      {
+        "date": "2024-02-12",
+        "peak": 4587.07,
+        "median": 117.58,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-13",
+        "peak": 193.72,
+        "median": 32.53,
+        "observed": 1434,
+        "coverage": 0.9958
+      },
+      {
+        "date": "2024-02-14",
+        "peak": 454.9,
+        "median": 46.18,
+        "observed": 696,
+        "coverage": 0.4833
+      },
+      {
+        "date": "2024-02-15",
+        "peak": 1184.12,
+        "median": 49.13,
+        "observed": 1274,
+        "coverage": 0.8847
+      },
+      {
+        "date": "2024-02-16",
+        "peak": 15367.62,
+        "median": 52.92,
+        "observed": 1274,
+        "coverage": 0.8847
+      },
+      {
+        "date": "2024-02-17",
+        "peak": 385.67,
+        "median": 60.7,
+        "observed": 1274,
+        "coverage": 0.8847
+      },
+      {
+        "date": "2024-02-18",
+        "peak": 221.43,
+        "median": 35.32,
+        "observed": 1274,
+        "coverage": 0.8847
+      },
+      {
+        "date": "2024-02-19",
+        "peak": 363.57,
+        "median": 27.37,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-20",
+        "peak": 153.93,
+        "median": 24.95,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-21",
+        "peak": 12766.55,
+        "median": 38.22,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-22",
+        "peak": 25120.53,
+        "median": 82.87,
+        "observed": 1414,
+        "coverage": 0.9819
+      },
+      {
+        "date": "2024-02-23",
+        "peak": 1692.5,
+        "median": 105.53,
+        "observed": 1274,
+        "coverage": 0.8847
+      },
+      {
+        "date": "2024-02-24",
+        "peak": 3656.97,
+        "median": 73.83,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-25",
+        "peak": 1503.33,
+        "median": 49.7,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-26",
+        "peak": 158.32,
+        "median": 28.38,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-27",
+        "peak": 156.3,
+        "median": 23.93,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-28",
+        "peak": 952.8,
+        "median": 71.02,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-02-29",
+        "peak": 344.42,
+        "median": 41.92,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-01",
+        "peak": 193.9,
+        "median": 29.03,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-02",
+        "peak": 340.78,
+        "median": 29.07,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-03",
+        "peak": 127.9,
+        "median": 22.38,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-04",
+        "peak": 115.83,
+        "median": 12.58,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-05",
+        "peak": 117.25,
+        "median": 11.33,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-06",
+        "peak": 44.27,
+        "median": 9.75,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-07",
+        "peak": 495.08,
+        "median": 13.38,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2024-03-08",
+        "peak": 849.47,
+        "median": 6.03,
+        "observed": 907,
+        "coverage": 0.6299
+      },
+      {
+        "date": "2024-03-09",
+        "peak": 346.08,
+        "median": 8.68,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-10",
+        "peak": 5841.42,
+        "median": 8.05,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-11",
+        "peak": 325.07,
+        "median": 6.2,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-12",
+        "peak": 180.62,
+        "median": 15.83,
+        "observed": 1424,
+        "coverage": 0.9889
+      },
+      {
+        "date": "2024-03-13",
+        "peak": 314.73,
+        "median": 6.52,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-14",
+        "peak": 587.07,
+        "median": 20.08,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-15",
+        "peak": 258.78,
+        "median": 28.28,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-16",
+        "peak": 2602.28,
+        "median": 20.77,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-17",
+        "peak": 339.62,
+        "median": 47.63,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-18",
+        "peak": 2093.95,
+        "median": 48.45,
+        "observed": 1010,
+        "coverage": 0.7014
+      },
+      {
+        "date": "2024-03-19",
+        "peak": 453.0,
+        "median": 44.87,
+        "observed": 1005,
+        "coverage": 0.6979
+      },
+      {
+        "date": "2024-03-20",
+        "peak": 5517.77,
+        "median": 45.1,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-21",
+        "peak": 482.23,
+        "median": 47.33,
+        "observed": 1428,
+        "coverage": 0.9917
+      },
+      {
+        "date": "2024-03-22",
+        "peak": 3143.9,
+        "median": 86.82,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-23",
+        "peak": 7425.48,
+        "median": 314.25,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-24",
+        "peak": 1630.63,
+        "median": 129.38,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-25",
+        "peak": 389.82,
+        "median": 64.3,
+        "observed": 797,
+        "coverage": 0.5535
+      },
+      {
+        "date": "2024-03-26",
+        "peak": 1256.3,
+        "median": 67.97,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-03-29",
+        "peak": 693.87,
+        "median": 201.62,
+        "observed": 661,
+        "coverage": 0.459
+      },
+      {
+        "date": "2024-03-31",
+        "peak": 228.48,
+        "median": 52.02,
+        "observed": 660,
+        "coverage": 0.4583
+      },
+      {
+        "date": "2024-04-01",
+        "peak": 3153.48,
+        "median": 26.72,
+        "observed": 683,
+        "coverage": 0.4743
+      },
+      {
+        "date": "2024-04-02",
+        "peak": 20.7,
+        "median": 5.63,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-03",
+        "peak": 16.37,
+        "median": 2.7,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-04",
+        "peak": 20.45,
+        "median": 3.37,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-05",
+        "peak": 162.6,
+        "median": 6.3,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-06",
+        "peak": 46.55,
+        "median": 4.63,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-07",
+        "peak": 26.28,
+        "median": 3.47,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-08",
+        "peak": 36.52,
+        "median": 3.3,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-09",
+        "peak": 23.58,
+        "median": 3.8,
+        "observed": 1357,
+        "coverage": 0.9424
+      },
+      {
+        "date": "2024-04-10",
+        "peak": 201.98,
+        "median": 16.15,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-11",
+        "peak": 4235.53,
+        "median": 26.9,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-12",
+        "peak": 692.0,
+        "median": 40.33,
+        "observed": 944,
+        "coverage": 0.6556
+      },
+      {
+        "date": "2024-04-13",
+        "peak": 1547.72,
+        "median": 27.05,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-14",
+        "peak": 3327.17,
+        "median": 55.98,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-15",
+        "peak": 2911.62,
+        "median": 83.18,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-16",
+        "peak": 610.5,
+        "median": 42.45,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-17",
+        "peak": 986.52,
+        "median": 57.15,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-18",
+        "peak": 1406.43,
+        "median": 136.83,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-19",
+        "peak": 1393.28,
+        "median": 69.37,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-20",
+        "peak": 320.03,
+        "median": 44.17,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-21",
+        "peak": 1445.15,
+        "median": 64.55,
+        "observed": 1035,
+        "coverage": 0.7188
+      },
+      {
+        "date": "2024-04-23",
+        "peak": 2637.33,
+        "median": 124.37,
+        "observed": 1439,
+        "coverage": 0.9993
+      },
+      {
+        "date": "2024-04-24",
+        "peak": 1261.42,
+        "median": 95.38,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-25",
+        "peak": 926.97,
+        "median": 50.95,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2024-04-26",
+        "peak": 320.42,
+        "median": 57.12,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-27",
+        "peak": 2169.95,
+        "median": 52.65,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-28",
+        "peak": 480.55,
+        "median": 38.87,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-29",
+        "peak": 2684.17,
+        "median": 29.27,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-04-30",
+        "peak": 6960.45,
+        "median": 20.7,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-02",
+        "peak": 2821.25,
+        "median": 32.37,
+        "observed": 1409,
+        "coverage": 0.9785
+      },
+      {
+        "date": "2024-05-03",
+        "peak": 10362.6,
+        "median": 55.17,
+        "observed": 1154,
+        "coverage": 0.8014
+      },
+      {
+        "date": "2024-05-04",
+        "peak": 6747.33,
+        "median": 98.17,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-05",
+        "peak": 9522.35,
+        "median": 433.73,
+        "observed": 834,
+        "coverage": 0.5792
+      },
+      {
+        "date": "2024-05-06",
+        "peak": 20128.05,
+        "median": 175.87,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-07",
+        "peak": 6381.83,
+        "median": 262.82,
+        "observed": 1437,
+        "coverage": 0.9979
+      },
+      {
+        "date": "2024-05-08",
+        "peak": 11796.0,
+        "median": 912.52,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-09",
+        "peak": 15164.0,
+        "median": 543.55,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-10",
+        "peak": 19606.02,
+        "median": 385.12,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-11",
+        "peak": 21580.27,
+        "median": 449.27,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-12",
+        "peak": 7831.37,
+        "median": 228.15,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-13",
+        "peak": 5033.25,
+        "median": 219.47,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-14",
+        "peak": 29036.25,
+        "median": 275.43,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-15",
+        "peak": 19581.52,
+        "median": 229.75,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-16",
+        "peak": 561.17,
+        "median": 56.85,
+        "observed": 982,
+        "coverage": 0.6819
+      },
+      {
+        "date": "2024-05-17",
+        "peak": 5114.68,
+        "median": 43.52,
+        "observed": 1412,
+        "coverage": 0.9806
+      },
+      {
+        "date": "2024-05-18",
+        "peak": 352.03,
+        "median": 26.03,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-19",
+        "peak": 1643.97,
+        "median": 49.82,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2024-05-20",
+        "peak": 303.88,
+        "median": 28.87,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-21",
+        "peak": 1274.55,
+        "median": 37.37,
+        "observed": 1176,
+        "coverage": 0.8167
+      },
+      {
+        "date": "2024-05-22",
+        "peak": 1358.72,
+        "median": 68.07,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-23",
+        "peak": 2991.08,
+        "median": 134.27,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-24",
+        "peak": 829.8,
+        "median": 66.22,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-25",
+        "peak": 295.9,
+        "median": 30.33,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-26",
+        "peak": 341.57,
+        "median": 35.97,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-27",
+        "peak": 16829.97,
+        "median": 179.22,
+        "observed": 745,
+        "coverage": 0.5174
+      },
+      {
+        "date": "2024-05-28",
+        "peak": 493.05,
+        "median": 91.57,
+        "observed": 1407,
+        "coverage": 0.9771
+      },
+      {
+        "date": "2024-05-29",
+        "peak": 9850.08,
+        "median": 214.78,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-30",
+        "peak": 481.4,
+        "median": 46.03,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-05-31",
+        "peak": 8641.07,
+        "median": 49.1,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-10-01",
+        "peak": 23405.63,
+        "median": 101.8,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-10-25",
+        "peak": 681.52,
+        "median": 45.43,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2024-12-12",
+        "peak": 164.4,
+        "median": 16.67,
+        "observed": 720,
+        "coverage": 0.5
+      },
+      {
+        "date": "2025-01-19",
+        "peak": 1726.67,
+        "median": 34.97,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-02-02",
+        "peak": 3192.4,
+        "median": 96.55,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-06-18",
+        "peak": 465.33,
+        "median": 48.9,
+        "observed": 1295,
+        "coverage": 0.8993
+      },
+      {
+        "date": "2025-06-19",
+        "peak": 12201.65,
+        "median": 28.52,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-06-20",
+        "peak": 3179.67,
+        "median": 8.53,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-06-21",
+        "peak": 61.88,
+        "median": 5.23,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-06-23",
+        "peak": 222.45,
+        "median": 9.55,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-06-25",
+        "peak": 29.15,
+        "median": 5.33,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-06-26",
+        "peak": 34.53,
+        "median": 6.05,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-06-27",
+        "peak": 50.42,
+        "median": 3.83,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-06-28",
+        "peak": 144.1,
+        "median": 3.53,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-06-29",
+        "peak": 22.3,
+        "median": 5.73,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-06-30",
+        "peak": 48.58,
+        "median": 6.07,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-01",
+        "peak": 22.98,
+        "median": 5.37,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-04",
+        "peak": 67.45,
+        "median": 4.87,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-07",
+        "peak": 122.08,
+        "median": 10.05,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-08",
+        "peak": 1424.3,
+        "median": 9.5,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-09",
+        "peak": 718.13,
+        "median": 10.17,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-10",
+        "peak": 508.18,
+        "median": 21.03,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-14",
+        "peak": 191.52,
+        "median": 27.67,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-15",
+        "peak": 71.62,
+        "median": 15.8,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-16",
+        "peak": 149.8,
+        "median": 14.18,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-18",
+        "peak": 143.63,
+        "median": 25.5,
+        "observed": 1355,
+        "coverage": 0.941
+      },
+      {
+        "date": "2025-07-19",
+        "peak": 196.23,
+        "median": 37.37,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-28",
+        "peak": 47.43,
+        "median": 11.2,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-30",
+        "peak": 216.05,
+        "median": 15.15,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-07-31",
+        "peak": 55.38,
+        "median": 11.95,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-01",
+        "peak": 125.15,
+        "median": 21.92,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-02",
+        "peak": 144.6,
+        "median": 14.57,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-03",
+        "peak": 1897.65,
+        "median": 25.1,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-04",
+        "peak": 1317.03,
+        "median": 20.47,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-06",
+        "peak": 574.27,
+        "median": 39.05,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-07",
+        "peak": 1407.97,
+        "median": 47.2,
+        "observed": 925,
+        "coverage": 0.6424
+      },
+      {
+        "date": "2025-08-08",
+        "peak": 1881.45,
+        "median": 32.88,
+        "observed": 1438,
+        "coverage": 0.9986
+      },
+      {
+        "date": "2025-08-09",
+        "peak": 1082.72,
+        "median": 41.87,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-10",
+        "peak": 1476.48,
+        "median": 72.77,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-11",
+        "peak": 965.38,
+        "median": 146.67,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-12",
+        "peak": 1055.3,
+        "median": 75.23,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-13",
+        "peak": 171.93,
+        "median": 21.93,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-16",
+        "peak": 113.95,
+        "median": 7.03,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-17",
+        "peak": 70.23,
+        "median": 10.43,
+        "observed": 241,
+        "coverage": 0.1674
+      },
+      {
+        "date": "2025-08-18",
+        "peak": 69.55,
+        "median": 7.1,
+        "observed": 1295,
+        "coverage": 0.8993
+      },
+      {
+        "date": "2025-08-19",
+        "peak": 629.9,
+        "median": 9.8,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-20",
+        "peak": 104.17,
+        "median": 12.78,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-21",
+        "peak": 140.8,
+        "median": 10.2,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-22",
+        "peak": 1036.95,
+        "median": 18.08,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-24",
+        "peak": 779.9,
+        "median": 76.6,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-25",
+        "peak": 3091.18,
+        "median": 73.28,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-27",
+        "peak": 459.38,
+        "median": 64.68,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-28",
+        "peak": 913.25,
+        "median": 93.07,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-29",
+        "peak": 549.73,
+        "median": 57.77,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-08-30",
+        "peak": 1613.92,
+        "median": 54.52,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-01",
+        "peak": 195.73,
+        "median": 38.77,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-02",
+        "peak": 288.2,
+        "median": 25.62,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-03",
+        "peak": 140.63,
+        "median": 27.75,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-04",
+        "peak": 481.18,
+        "median": 28.17,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-05",
+        "peak": 696.15,
+        "median": 24.63,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-06",
+        "peak": 664.63,
+        "median": 58.9,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-07",
+        "peak": 523.15,
+        "median": 48.12,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-08",
+        "peak": 31.97,
+        "median": 7.92,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-09",
+        "peak": 39.55,
+        "median": 5.32,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2025-09-10",
+        "peak": 37.2,
+        "median": 7.37,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-11",
+        "peak": 460.9,
+        "median": 10.12,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-12",
+        "peak": 35.87,
+        "median": 7.72,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-13",
+        "peak": 37.82,
+        "median": 12.42,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-15",
+        "peak": 147.3,
+        "median": 18.22,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-16",
+        "peak": 154.72,
+        "median": 16.9,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-17",
+        "peak": 16.7,
+        "median": 9.67,
+        "observed": 241,
+        "coverage": 0.1674
+      },
+      {
+        "date": "2025-09-18",
+        "peak": 156.08,
+        "median": 16.42,
+        "observed": 1295,
+        "coverage": 0.8993
+      },
+      {
+        "date": "2025-09-19",
+        "peak": 854.98,
+        "median": 19.7,
+        "observed": 1321,
+        "coverage": 0.9174
+      },
+      {
+        "date": "2025-09-20",
+        "peak": 123.25,
+        "median": 18.03,
+        "observed": 1283,
+        "coverage": 0.891
+      },
+      {
+        "date": "2025-09-23",
+        "peak": 593.13,
+        "median": 19.83,
+        "observed": 1306,
+        "coverage": 0.9069
+      },
+      {
+        "date": "2025-09-25",
+        "peak": 129.98,
+        "median": 33.3,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-09-30",
+        "peak": 1626.93,
+        "median": 48.33,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-01",
+        "peak": 665.8,
+        "median": 48.62,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-02",
+        "peak": 690.98,
+        "median": 28.12,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-03",
+        "peak": 801.52,
+        "median": 56.63,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-04",
+        "peak": 237.28,
+        "median": 34.9,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-05",
+        "peak": 135.85,
+        "median": 35.98,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2025-10-06",
+        "peak": 230.02,
+        "median": 13.25,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-07",
+        "peak": 476.3,
+        "median": 5.72,
+        "observed": 1407,
+        "coverage": 0.9771
+      },
+      {
+        "date": "2025-10-08",
+        "peak": 61.87,
+        "median": 6.07,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-09",
+        "peak": 1318.18,
+        "median": 6.85,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-10",
+        "peak": 77.05,
+        "median": 6.0,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-11",
+        "peak": 99.88,
+        "median": 8.92,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-12",
+        "peak": 470.33,
+        "median": 24.12,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-13",
+        "peak": 1829.98,
+        "median": 50.08,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-14",
+        "peak": 2183.03,
+        "median": 84.8,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-15",
+        "peak": 3505.85,
+        "median": 154.18,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-17",
+        "peak": 949.68,
+        "median": 87.15,
+        "observed": 241,
+        "coverage": 0.1674
+      },
+      {
+        "date": "2025-10-18",
+        "peak": 943.7,
+        "median": 122.3,
+        "observed": 1395,
+        "coverage": 0.9688
+      },
+      {
+        "date": "2025-10-19",
+        "peak": 1269.48,
+        "median": 66.87,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-20",
+        "peak": 574.48,
+        "median": 38.25,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-21",
+        "peak": 158.83,
+        "median": 14.83,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-22",
+        "peak": 180.3,
+        "median": 19.62,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-23",
+        "peak": 238.45,
+        "median": 8.98,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-25",
+        "peak": 79.23,
+        "median": 5.65,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-26",
+        "peak": 35.37,
+        "median": 4.8,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-27",
+        "peak": 54.75,
+        "median": 3.82,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-28",
+        "peak": 45.88,
+        "median": 4.98,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-10-31",
+        "peak": 344.73,
+        "median": 25.78,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-01",
+        "peak": 209.12,
+        "median": 10.65,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-02",
+        "peak": 590.13,
+        "median": 17.68,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-03",
+        "peak": 3362.0,
+        "median": 43.05,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-04",
+        "peak": 12020.42,
+        "median": 47.37,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-05",
+        "peak": 6200.42,
+        "median": 59.37,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-06",
+        "peak": 654.13,
+        "median": 32.13,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-07",
+        "peak": 997.53,
+        "median": 40.07,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-08",
+        "peak": 191.82,
+        "median": 23.5,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-09",
+        "peak": 10522.63,
+        "median": 21.68,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-10",
+        "peak": 8028.58,
+        "median": 60.78,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-12",
+        "peak": 138.52,
+        "median": 13.82,
+        "observed": 1323,
+        "coverage": 0.9187
+      },
+      {
+        "date": "2025-11-13",
+        "peak": 248.88,
+        "median": 21.78,
+        "observed": 1424,
+        "coverage": 0.9889
+      },
+      {
+        "date": "2025-11-14",
+        "peak": 18859.55,
+        "median": 31.42,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-15",
+        "peak": 560.32,
+        "median": 28.88,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-16",
+        "peak": 201.85,
+        "median": 39.87,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2025-11-18",
+        "peak": 72.28,
+        "median": 6.55,
+        "observed": 1300,
+        "coverage": 0.9028
+      },
+      {
+        "date": "2025-11-19",
+        "peak": 591.03,
+        "median": 8.35,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-20",
+        "peak": 88.92,
+        "median": 12.93,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-21",
+        "peak": 207.85,
+        "median": 12.15,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-22",
+        "peak": 322.1,
+        "median": 11.45,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-23",
+        "peak": 58.02,
+        "median": 8.55,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-24",
+        "peak": 101.47,
+        "median": 5.33,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-25",
+        "peak": 71.35,
+        "median": 6.2,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-26",
+        "peak": 68.28,
+        "median": 8.48,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-27",
+        "peak": 122.65,
+        "median": 16.07,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-11-28",
+        "peak": 4221.0,
+        "median": 80.08,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2025-11-29",
+        "peak": 1971.73,
+        "median": 104.35,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2025-11-30",
+        "peak": 501.22,
+        "median": 107.02,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-01",
+        "peak": 12234.03,
+        "median": 70.45,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-02",
+        "peak": 243.08,
+        "median": 27.17,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2025-12-03",
+        "peak": 215.0,
+        "median": 40.23,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-04",
+        "peak": 3991.28,
+        "median": 62.33,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-06",
+        "peak": 4740.35,
+        "median": 20.28,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-07",
+        "peak": 343.13,
+        "median": 39.58,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-08",
+        "peak": 8275.3,
+        "median": 41.13,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-09",
+        "peak": 901.02,
+        "median": 84.52,
+        "observed": 959,
+        "coverage": 0.666
+      },
+      {
+        "date": "2025-12-10",
+        "peak": 3057.53,
+        "median": 45.65,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-11",
+        "peak": 544.22,
+        "median": 18.43,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-12",
+        "peak": 1264.35,
+        "median": 23.5,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-13",
+        "peak": 511.58,
+        "median": 12.32,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-14",
+        "peak": 170.43,
+        "median": 10.42,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-15",
+        "peak": 165.5,
+        "median": 6.27,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-16",
+        "peak": 111.52,
+        "median": 5.97,
+        "observed": 1439,
+        "coverage": 0.9993
+      },
+      {
+        "date": "2025-12-17",
+        "peak": 80.4,
+        "median": 80.4,
+        "observed": 1,
+        "coverage": 0.0007
+      },
+      {
+        "date": "2025-12-18",
+        "peak": 21.85,
+        "median": 5.5,
+        "observed": 720,
+        "coverage": 0.5
+      },
+      {
+        "date": "2025-12-19",
+        "peak": 631.97,
+        "median": 12.98,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-20",
+        "peak": 600.97,
+        "median": 13.78,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-21",
+        "peak": 878.8,
+        "median": 21.97,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-22",
+        "peak": 486.23,
+        "median": 14.1,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2025-12-23",
+        "peak": 48.88,
+        "median": 13.5,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-24",
+        "peak": 221.25,
+        "median": 22.92,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-25",
+        "peak": 72.92,
+        "median": 26.22,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-26",
+        "peak": 327.5,
+        "median": 27.08,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-27",
+        "peak": 3563.75,
+        "median": 39.12,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-29",
+        "peak": 1327.28,
+        "median": 51.8,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2025-12-30",
+        "peak": 219.9,
+        "median": 37.17,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-01",
+        "peak": 511.58,
+        "median": 23.47,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-02",
+        "peak": 279.77,
+        "median": 17.85,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-03",
+        "peak": 414.55,
+        "median": 19.02,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-04",
+        "peak": 97.32,
+        "median": 18.35,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-05",
+        "peak": 112.5,
+        "median": 19.95,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-06",
+        "peak": 226.85,
+        "median": 25.85,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-07",
+        "peak": 139.15,
+        "median": 13.77,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2026-01-08",
+        "peak": 235.63,
+        "median": 14.87,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-09",
+        "peak": 134.95,
+        "median": 7.75,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-10",
+        "peak": 164.72,
+        "median": 4.65,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-11",
+        "peak": 2287.53,
+        "median": 6.22,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-12",
+        "peak": 1481.12,
+        "median": 25.38,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-13",
+        "peak": 89.5,
+        "median": 12.58,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-14",
+        "peak": 1083.05,
+        "median": 19.68,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-15",
+        "peak": 495.73,
+        "median": 19.65,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-16",
+        "peak": 356.15,
+        "median": 19.17,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-17",
+        "peak": 176.4,
+        "median": 36.8,
+        "observed": 241,
+        "coverage": 0.1674
+      },
+      {
+        "date": "2026-01-18",
+        "peak": 12137.45,
+        "median": 35.6,
+        "observed": 1290,
+        "coverage": 0.8958
+      },
+      {
+        "date": "2026-01-19",
+        "peak": 555.22,
+        "median": 34.82,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-20",
+        "peak": 150.62,
+        "median": 25.82,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-21",
+        "peak": 2284.87,
+        "median": 24.05,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-22",
+        "peak": 530.57,
+        "median": 25.72,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-23",
+        "peak": 227.08,
+        "median": 25.62,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-24",
+        "peak": 185.5,
+        "median": 21.17,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2026-01-25",
+        "peak": 410.95,
+        "median": 21.03,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-26",
+        "peak": 439.38,
+        "median": 15.88,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-27",
+        "peak": 106.48,
+        "median": 16.62,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-28",
+        "peak": 28.6,
+        "median": 8.1,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-01-29",
+        "peak": 35.4,
+        "median": 8.08,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2026-01-30",
+        "peak": 58.33,
+        "median": 16.18,
+        "observed": 720,
+        "coverage": 0.5
+      },
+      {
+        "date": "2026-01-31",
+        "peak": 396.32,
+        "median": 61.9,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-02-01",
+        "peak": 26767.42,
+        "median": 194.27,
+        "observed": 741,
+        "coverage": 0.5146
+      },
+      {
+        "date": "2026-02-02",
+        "peak": 23344.27,
+        "median": 1089.97,
+        "observed": 739,
+        "coverage": 0.5132
+      },
+      {
+        "date": "2026-02-03",
+        "peak": 2488.75,
+        "median": 1220.12,
+        "observed": 74,
+        "coverage": 0.0514
+      },
+      {
+        "date": "2026-02-04",
+        "peak": 76088.33,
+        "median": 155.75,
+        "observed": 737,
+        "coverage": 0.5118
+      },
+      {
+        "date": "2026-02-05",
+        "peak": 9968.6,
+        "median": 97.53,
+        "observed": 570,
+        "coverage": 0.3958
+      },
+      {
+        "date": "2026-02-06",
+        "peak": 320.39,
+        "median": 28.97,
+        "observed": 1214,
+        "coverage": 0.8431
+      },
+      {
+        "date": "2026-02-07",
+        "peak": 335.67,
+        "median": 35.35,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-02-08",
+        "peak": 1950.55,
+        "median": 95.97,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-02-09",
+        "peak": 500.72,
+        "median": 27.67,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2026-02-10",
+        "peak": 138.37,
+        "median": 34.17,
+        "observed": 521,
+        "coverage": 0.3618
+      },
+      {
+        "date": "2026-02-11",
+        "peak": 853.72,
+        "median": 26.83,
+        "observed": 829,
+        "coverage": 0.5757
+      },
+      {
+        "date": "2026-02-12",
+        "peak": 933.17,
+        "median": 8.05,
+        "observed": 828,
+        "coverage": 0.575
+      },
+      {
+        "date": "2026-02-14",
+        "peak": 293.8,
+        "median": 5.03,
+        "observed": 1424,
+        "coverage": 0.9889
+      },
+      {
+        "date": "2026-02-15",
+        "peak": 50.38,
+        "median": 3.32,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-02-16",
+        "peak": 1513.1,
+        "median": 4.0,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-02-18",
+        "peak": 5.76,
+        "median": 3.15,
+        "observed": 241,
+        "coverage": 0.1674
+      },
+      {
+        "date": "2026-02-19",
+        "peak": 79.33,
+        "median": 4.02,
+        "observed": 1169,
+        "coverage": 0.8118
+      },
+      {
+        "date": "2026-02-21",
+        "peak": 16.68,
+        "median": 2.77,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-02-22",
+        "peak": 84.0,
+        "median": 3.35,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-02-23",
+        "peak": 7.03,
+        "median": 2.52,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-02-24",
+        "peak": 196.35,
+        "median": 25.08,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-02-25",
+        "peak": 1526.43,
+        "median": 22.53,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-02-26",
+        "peak": 385.07,
+        "median": 12.32,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-02-27",
+        "peak": 157.17,
+        "median": 12.35,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-02-28",
+        "peak": 277.67,
+        "median": 21.42,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-01",
+        "peak": 263.77,
+        "median": 24.72,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-02",
+        "peak": 191.88,
+        "median": 18.33,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-03",
+        "peak": 98.62,
+        "median": 8.27,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-04",
+        "peak": 143.42,
+        "median": 5.1,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-05",
+        "peak": 58.5,
+        "median": 6.72,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-06",
+        "peak": 25.98,
+        "median": 6.65,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-07",
+        "peak": 24.15,
+        "median": 6.2,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-08",
+        "peak": 61.97,
+        "median": 7.22,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-09",
+        "peak": 355.78,
+        "median": 8.02,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-10",
+        "peak": 195.2,
+        "median": 7.8,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-11",
+        "peak": 25.15,
+        "median": 6.77,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-12",
+        "peak": 51.78,
+        "median": 13.52,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2026-03-13",
+        "peak": 473.03,
+        "median": 31.9,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2026-03-14",
+        "peak": 100.45,
+        "median": 10.85,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-15",
+        "peak": 557.73,
+        "median": 5.5,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-16",
+        "peak": 1717.93,
+        "median": 3.7,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-17",
+        "peak": 11.21,
+        "median": 3.55,
+        "observed": 256,
+        "coverage": 0.1778
+      },
+      {
+        "date": "2026-03-18",
+        "peak": 1499.12,
+        "median": 7.5,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-19",
+        "peak": 68.18,
+        "median": 2.75,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-20",
+        "peak": 12.0,
+        "median": 3.05,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-21",
+        "peak": 39.72,
+        "median": 4.38,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-22",
+        "peak": 108.62,
+        "median": 8.67,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-23",
+        "peak": 113.0,
+        "median": 10.3,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-24",
+        "peak": 344.3,
+        "median": 7.9,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-25",
+        "peak": 128.68,
+        "median": 22.53,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-26",
+        "peak": 2680.75,
+        "median": 28.95,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-27",
+        "peak": 251.75,
+        "median": 24.43,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-28",
+        "peak": 707.45,
+        "median": 43.0,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-29",
+        "peak": 70.95,
+        "median": 14.82,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-30",
+        "peak": 9576.2,
+        "median": 44.35,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-03-31",
+        "peak": 30.5,
+        "median": 8.57,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-01",
+        "peak": 414.88,
+        "median": 10.95,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-02",
+        "peak": 2247.5,
+        "median": 19.15,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-03",
+        "peak": 754.33,
+        "median": 17.43,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-04",
+        "peak": 5059.73,
+        "median": 20.38,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-05",
+        "peak": 157.5,
+        "median": 6.53,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-10",
+        "peak": 18.57,
+        "median": 2.63,
+        "observed": 1409,
+        "coverage": 0.9785
+      },
+      {
+        "date": "2026-04-12",
+        "peak": 87.38,
+        "median": 2.07,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-18",
+        "peak": 52.68,
+        "median": 2.93,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-19",
+        "peak": 12.72,
+        "median": 2.72,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-20",
+        "peak": 45.28,
+        "median": 4.03,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-21",
+        "peak": 218.68,
+        "median": 8.15,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-22",
+        "peak": 47.37,
+        "median": 6.65,
+        "observed": 720,
+        "coverage": 0.5
+      },
+      {
+        "date": "2026-04-24",
+        "peak": 14601.4,
+        "median": 54.63,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-25",
+        "peak": 683.28,
+        "median": 16.85,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-26",
+        "peak": 3781.25,
+        "median": 52.67,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-27",
+        "peak": 470.52,
+        "median": 12.73,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-28",
+        "peak": 860.62,
+        "median": 29.88,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-04-30",
+        "peak": 200.55,
+        "median": 11.27,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-01",
+        "peak": 336.03,
+        "median": 9.68,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-02",
+        "peak": 424.0,
+        "median": 15.6,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-03",
+        "peak": 113.95,
+        "median": 10.13,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-04",
+        "peak": 1048.42,
+        "median": 10.07,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-05",
+        "peak": 307.35,
+        "median": 7.58,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-06",
+        "peak": 27.17,
+        "median": 4.62,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-07",
+        "peak": 1622.48,
+        "median": 11.65,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-08",
+        "peak": 156.2,
+        "median": 8.78,
+        "observed": 720,
+        "coverage": 0.5
+      },
+      {
+        "date": "2026-05-09",
+        "peak": 78.28,
+        "median": 11.9,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-10",
+        "peak": 3671.7,
+        "median": 13.03,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-11",
+        "peak": 56.9,
+        "median": 7.63,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-12",
+        "peak": 54.35,
+        "median": 8.77,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-13",
+        "peak": 60.7,
+        "median": 8.18,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-14",
+        "peak": 249.87,
+        "median": 15.0,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-15",
+        "peak": 510.65,
+        "median": 4.4,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-16",
+        "peak": 1202.55,
+        "median": 3.93,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-17",
+        "peak": 884.5,
+        "median": 9.42,
+        "observed": 240,
+        "coverage": 0.1667
+      },
+      {
+        "date": "2026-05-18",
+        "peak": 48.15,
+        "median": 2.37,
+        "observed": 1335,
+        "coverage": 0.9271
+      },
+      {
+        "date": "2026-05-19",
+        "peak": 60.67,
+        "median": 2.27,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-20",
+        "peak": 18.32,
+        "median": 5.32,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-21",
+        "peak": 484.73,
+        "median": 6.17,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-23",
+        "peak": 239.45,
+        "median": 17.08,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-24",
+        "peak": 208.25,
+        "median": 9.62,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-25",
+        "peak": 186.05,
+        "median": 16.83,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-26",
+        "peak": 509.43,
+        "median": 19.53,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-27",
+        "peak": 109.18,
+        "median": 8.08,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-28",
+        "peak": 101.75,
+        "median": 7.97,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2026-05-29",
+        "peak": 582.08,
+        "median": 7.92,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-30",
+        "peak": 170.25,
+        "median": 7.55,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-05-31",
+        "peak": 42.7,
+        "median": 6.2,
+        "observed": 721,
+        "coverage": 0.5007
+      },
+      {
+        "date": "2026-06-01",
+        "peak": 27.23,
+        "median": 4.9,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-06-02",
+        "peak": 1915.88,
+        "median": 14.12,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-06-03",
+        "peak": 6956.9,
+        "median": 14.17,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-06-05",
+        "peak": 152.87,
+        "median": 11.31,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-06-06",
+        "peak": 931.27,
+        "median": 14.98,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-06-07",
+        "peak": 99.47,
+        "median": 10.4,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-06-08",
+        "peak": 316.32,
+        "median": 9.87,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-06-10",
+        "peak": 253.77,
+        "median": 5.7,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-06-11",
+        "peak": 412.95,
+        "median": 8.0,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-06-12",
+        "peak": 238.5,
+        "median": 10.29,
+        "observed": 835,
+        "coverage": 0.5799
+      },
+      {
+        "date": "2026-06-13",
+        "peak": 85.15,
+        "median": 5.37,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-06-14",
+        "peak": 43.37,
+        "median": 3.85,
+        "observed": 1440,
+        "coverage": 1.0
+      },
+      {
+        "date": "2026-06-15",
+        "peak": 61.75,
+        "median": 6.92,
+        "observed": 1440,
+        "coverage": 1.0
+      }
+    ],
+    "table": "T1 solexs_lc_1min",
+    "unit": "counts/s"
+  }
+}

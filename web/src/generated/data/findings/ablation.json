@@ -1,0 +1,35 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-23T16:34:02.122931+00:00",
+  "source_commit": "9efad0c",
+  "data": {
+    "title": "Feature Ablation Report \u2014 Milestone XI",
+    "date": "2026-07-18",
+    "lead": "Incremental contribution of every feature family to the M/X nowcast, measured by held-out test ROC-AUC (LightGBM, identical chronological split). Each family must earn inclusion.\n\n---",
+    "sections": [
+      {
+        "heading": "1. T1 temporal features (Stage 1 \u2014 the base)",
+        "body": "The full benchmark's T1 feature set (14 features: level, rolling stats, background excess, rise rates, observability) achieves **ROC-AUC 0.961** on nowcast.\n\n**Incremental test \u2014 what the temporal context adds over raw level:** the univariate `rate_total` threshold scores **0.954**; the 14-feature LightGBM scores **0.961**. The rolling/rise/background features add **+0.007 AUC** \u2014 statistically significant (paired [+0.003, +0.012]) but under one AUC point. The feature-importance analysis (MODEL_COMPARISON \u00a73) shows the model leans on `roll_mean_60`, `roll_std_60`, and `bg_excess` \u2014 i.e. the **background activity level**, exactly the Milestone X finding.\n\n**Verdict: T1 temporal features are the signal carrier and add marginal value over raw level. INCLUDE.**"
+      },
+      {
+        "heading": "2. T2 spectral summaries (Stage 2 \u2014 tested, null)",
+        "body": "Ablation on the SoLEXS-only nowcast (371,619 train / 192,541 test minutes), LightGBM, base = {`log_rate`, `roll_mean_15`, `roll_std_15`, `gti_fraction`}:\n\n| Feature set | ROC-AUC | \u0394 vs T1-only |\n|---|---|---|\n| T1-only | 0.9605 | \u2014 |\n| T1 + spectral bands (soft/mid/hard) | 0.9638 | **+0.0033** |\n| T1 + hardness ratio | 0.9618 | **+0.0013** |\n| T1 + all spectral | 0.9634 | +0.0029 |\n\n**Verdict: T2 spectral features add \u2264 0.003 AUC \u2014 a confirmed NULL.** This was predicted in Milestone X from univariate analysis (\u2264 0.012 AUC; hardness ratio at random for prediction). The multivariate LightGBM result is *even smaller* (+0.003), and well within the day-block-bootstrap CI width (~\u00b10.012) of the base model. The 340-channel spectrum, summarised into bands, does **not** improve M/X detection at 1-minute resolution.\n\n**Scientific weight of this null.** This is the central empirical test of v2's founding premise \u2014 that spectral resolution (340 real channels vs v1's 9 synthetic ones) would unlock performance. **The evidence does not support that premise for flare detection.** The result is reported as a contribution, not hidden: spectral resolution is scientifically valuable for *characterising* flares, but it does not measurably improve *detecting or predicting* them here.\n\n**Recommendation: EXCLUDE T2 from the operational feature set.** Retain it only for future spectral-characterisation work (e.g. severity ranking once an RMF exists), not for detection."
+      },
+      {
+        "heading": "3. T4 housekeeping (Stage 3 \u2014 not added, by justified decision)",
+        "body": "**Not tested as features, and this is the correct decision under the stopping rule.** Two independent reasons, both pre-committed in Milestone X:\n\n1. **Leakage/generalisation hazard.** T4 is instrument-state telemetry (temperatures, HV, pile-up/saturation counters). These correlate with orbital and seasonal cycles that happen to track observing conditions in this sample; a model can fit those correlations and fail to generalise. With 581 events there is ample room to overfit such a spurious signal.\n2. **Confounded population.** T4 is HEL1OS-only, overlapping SoLEXS on **171 days**. Joining it to the SoLEXS nowcast would simultaneously (a) restrict to a 171-day window with different base rates and (b) introduce the leakage risk \u2014 the two effects cannot be separated, so the experiment could not yield a clean answer.\n\nSince Stage 2 (spectral) already returned a null, the stopping rule \u2014 *do not add complexity without demonstrated incremental value* \u2014 directs against a confounded T4 experiment. **T4 is used only as a quality filter (`suninfov`, saturation counters), never as features.**\n\n**Recommendation: EXCLUDE T4 as features.** If instrument-state features are ever tested, it must be a separate, explicitly-labelled experiment with a dedicated generalisation check."
+      },
+      {
+        "heading": "4. Feature-family summary",
+        "body": "| Family | \u0394 ROC-AUC | Statistically meaningful? | Decision |\n|---|---|---|---|\n| Raw `rate_total` (level) | baseline (0.954) | \u2014 | **The core signal** |\n| T1 temporal (rolling, rise, background) | +0.007 | significant, sub-1-point | **INCLUDE** |\n| T2 spectral bands | +0.003 | **NO** (within CI) | **EXCLUDE** |\n| T2 hardness ratio | +0.001 | **NO** | **EXCLUDE** |\n| T4 housekeeping | not tested | leakage + confounded | **EXCLUDE as features** |"
+      },
+      {
+        "heading": "5. Recommended operational feature set",
+        "body": "**`rate_total` plus light T1 temporal context** (rolling mean/std, background-relative excess). ~6\u201314 features from a single table. Every family beyond this returned a null or a hazard. This is the smallest defensible feature set, and the evidence says it is also near the best available."
+      }
+    ],
+    "source": "artifacts/v2/ml/FEATURE_ABLATION_REPORT.md"
+  }
+}

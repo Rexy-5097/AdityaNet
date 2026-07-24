@@ -1,0 +1,27 @@
+---
+/**
+ * The opening of every surface after the hero.
+ *
+ * One component so that no two pages can drift apart: the same eyebrow, the same display
+ * weight, the same lede measure, the same space beneath. The visitor should not be able
+ * to tell which page was built first.
+ *
+ * The voice is inherited from the locked hero — mono eyebrow at wide tracking, light
+ * display headline — so arriving here from the opening scene reads as one product.
+ */
+interface Props {
+  /** Mono kicker. Names the register of the page, as in the hero's beats. */
+  eyebrow: string;
+  title: string;
+  /** One or two sentences. Optional — some surfaces open straight into evidence. */
+  lede?: string;
+}
+
+const { eyebrow, title, lede } = Astro.props;
+---
+
+<header class="reveal-stagger">
+  <p class="eyebrow">{eyebrow}</p>
+  <h1 class="display-1 mt-5">{title}</h1>
+  {lede && <p class="lede mt-6">{lede}</p>}
+</header>

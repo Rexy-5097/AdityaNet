@@ -1,0 +1,131 @@
+---
+/**
+ * One contradiction, in full.
+ *
+ * Markdown is rendered at BUILD time with `marked`, so this page ships zero client
+ * JavaScript despite containing formatted prose, tables, and blockquotes.
+ *
+ * The prose is passed through verbatim. The site never paraphrases a ruling: a reader
+ * examining the adjudication record has to be looking at what the owner actually wrote,
+ * or the record is worthless. Structure — identity, state, section boundaries — is the
+ * only thing derived.
+ */
+import { marked } from "marked";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import StatusBadge from "@/components/narrative/StatusBadge.astro";
+import index from "@/generated/data/validation/index.json";
+
+import c001 from "@/generated/data/validation/contradiction-001.json";
+import c002 from "@/generated/data/validation/contradiction-002.json";
+import c003 from "@/generated/data/validation/contradiction-003.json";
+import c004 from "@/generated/data/validation/contradiction-004.json";
+import c005 from "@/generated/data/validation/contradiction-005.json";
+import c006 from "@/generated/data/validation/contradiction-006.json";
+
+const DOCUMENTS = [c001, c002, c003, c004, c005, c006];
+
+export function getStaticPaths() {
+  return [c001, c002, c003, c004, c005, c006].map((doc) => ({
+    params: { slug: doc.data.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const doc = DOCUMENTS.find((d) => d.data.slug === slug)!.data;
+
+// `marked` runs here, in Astro frontmatter — build time only, nothing shipped.
+marked.setOptions({ gfm: true, breaks: false });
+const lead = doc.lead ? await marked.parse(doc.lead) : "";
+const sections = await Promise.all(
+  doc.sections.map(async (s) => ({ heading: s.heading, html: await marked.parse(s.body) })),
+);
+
+const ordered = index.data.contradictions;
+const position = ordered.findIndex((c) => c.slug === slug);
+const previous = position > 0 ? ordered[position - 1] : null;
+const next = position < ordered.length - 1 ? ordered[position + 1] : null;
+---
+
+<BaseLayout title={`${doc.id} — AdityaNet`} description={doc.reason}>
+  <main id="main" class="mx-auto max-w-3xl px-6 pt-12 pb-24">
+    <nav aria-label="Breadcrumb" class="text-xs">
+      <a href="/validation/" class="text-fg-muted transition-colors hover:text-fg">
+        ← Adjudication record
+      </a>
+    </nav>
+
+    <header class="mt-8">
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="font-mono text-2xs text-fg-subtle">{doc.id}</span>
+        <StatusBadge state={doc.state as "OPEN" | "CLOSED"} />
+        {
+          doc.resolving_revision && (
+            <span class="font-mono text-2xs text-fg-subtle">
+              → spec {doc.resolving_revision}
+            </span>
+          )
+        }
+        <span class="font-mono text-2xs text-fg-subtle">{doc.date}</span>
+      </div>
+
+      <h1 class="mt-5 text-2xl leading-tight font-semibold tracking-[-0.02em]">
+        {doc.title}
+      </h1>
+
+      {
+        doc.status_line && (
+          <p class="mt-5 rounded-md border-l-2 border-line-strong bg-surface px-4 py-3 text-sm leading-relaxed text-fg-muted">
+            {doc.status_line}
+          </p>
+        )
+      }
+
+      {
+        doc.declined_amendment && (
+          <p class="mt-3 text-xs leading-relaxed text-open">
+            This record contains an amendment the owner declined. It is retained here for
+            the audit trail — the alternatives that were rejected are part of the evidence.
+          </p>
+        )
+      }
+    </header>
+
+    {lead && <div class="doc mt-8" set:html={lead} />}
+
+    {
+      sections.map((s) => (
+        <section class="mt-10">
+          <h2 class="text-md font-semibold tracking-tight" set:html={marked.parseInline(s.heading)} />
+          <div class="doc mt-3" set:html={s.html} />
+        </section>
+      ))
+    }
+
+    <footer class="mt-16 border-t border-line-subtle pt-6">
+      <p class="font-mono text-2xs break-all text-fg-subtle">
+        Source: {doc.source}
+      </p>
+
+      <nav class="mt-6 flex justify-between gap-4 text-sm" aria-label="Adjacent records">
+        {
+          previous ? (
+            <a href={`/validation/${previous.slug}/`} class="text-fg-muted transition-colors hover:text-fg">
+              ← {previous.id}
+            </a>
+          ) : (
+            <span />
+          )
+        }
+        {
+          next ? (
+            <a href={`/validation/${next.slug}/`} class="text-fg-muted transition-colors hover:text-fg">
+              {next.id} →
+            </a>
+          ) : (
+            <span />
+          )
+        }
+      </nav>
+    </footer>
+  </main>
+</BaseLayout>

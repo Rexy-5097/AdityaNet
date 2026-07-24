@@ -1,0 +1,67 @@
+---
+/**
+ * The ambient setting for a surface.
+ *
+ * Every page gets its own footage, chosen to carry that page's argument — the Moon's slow
+ * libration for the adjudication record, deep space for the findings, Earth for the
+ * pipeline that begins there. One component so the treatment (dim, mask, scrim, recede,
+ * watermark) is identical everywhere and no page can drift into looking special.
+ *
+ * HONESTY. All footage is public-domain NASA/SVS and none of it is Aditya-L1. P8
+ * Exception 01 requires the illustrative label wherever real space imagery appears, so the
+ * watermark ships with the video rather than being left to each page to remember. Removing
+ * it is a scientific-integrity regression, not a style change.
+ *
+ * COST. A <video> element and two divs. No JavaScript — the recede-on-scroll is a CSS
+ * scroll-timeline, so evidence surfaces keep their 0 KB budget.
+ */
+interface Props {
+  /** Path under /video. */
+  src: string;
+  poster: string;
+  /** Placement of the disc/subject. Pages alternate so consecutive surfaces differ. */
+  align?: "right" | "left" | "center";
+  /** Full-frame footage (Earth, starfields) reads better uncropped than as a disc. */
+  shape?: "disc" | "frame";
+  /**
+   * "directional" weights the scrim to one side — only correct where the layout has a
+   * genuine one-sided reading column (the entry surface). Evidence surfaces use centred
+   * columns, so they take the default even wash; a side-weighted one would leave their
+   * text exposed on the open side.
+   */
+  scrim?: "even" | "directional";
+}
+
+const { src, poster, align = "right", shape = "disc", scrim = "even" } = Astro.props;
+---
+
+<video
+  class:list={["ambient-video", `ambient-video--${align}`, `ambient-video--${shape}`]}
+  src={src}
+  poster={poster}
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="metadata"
+  aria-hidden="true"
+  tabindex="-1"
+  style="view-transition-name: ambient"></video>
+
+{/* The scrim mirrors the footage: it always shields the reading column, whichever side
+    the subject occupies. */}
+<div
+  class:list={[
+    "ambient-scrim",
+    scrim === "directional" && "ambient-scrim--directional",
+    scrim === "directional" && align === "left" && "ambient-scrim--flip",
+  ]}
+  aria-hidden="true"
+></div>
+
+{/* P8 Exception 01 — travels with the footage, never optional. */}
+<p
+  class="ambient-watermark pointer-events-none fixed inset-x-0 bottom-5 z-10 mx-auto max-w-6xl px-6 font-mono text-2xs tracking-[0.16em] text-fg-subtle"
+>
+  ILLUSTRATIVE · NASA / SVS · NOT ADITYA-L1 DATA
+</p>

@@ -1,0 +1,219 @@
+@import "tailwindcss";
+@import "../generated/tokens.css";
+/* The flagship design language — display type, rhythm, CSS-only scroll choreography,
+   micro-interactions. Imported after tokens so it can compose with them. */
+@import "./flagship.css";
+
+/*
+ * Base layer. Spec §5.
+ *
+ * Everything here is a system-wide rule that a component must not have to
+ * re-declare. Component-specific styling belongs with the component.
+ */
+
+@layer base {
+  html {
+    /* Anchors must land below the sticky header, not underneath it (§8.1). */
+    scroll-padding-top: var(--spacing-16);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+    /* Correctness of glyph shapes matters more than the faux-crispness of
+       -webkit-font-smoothing: antialiased, which thins strokes and lowers
+       effective contrast on dark backgrounds. */
+    text-rendering: optimizeLegibility;
+  }
+
+  /*
+   * Numeric rendering — a hard rule (§5.1.4).
+   *
+   * tabular-nums: in a benchmark table, 0.954 and 0.9605 must align on the decimal
+   *   point or the reader cannot compare magnitudes by scanning.
+   * slashed-zero: we display hexadecimal digests where 0 and O must be unambiguous.
+   */
+  code,
+  kbd,
+  samp,
+  pre,
+  [data-numeric] {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums lining-nums slashed-zero;
+  }
+
+  /* Focus is never removed (§5.7). A keyboard user must always know where they are. */
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-accent) 30%, transparent);
+  }
+}
+
+/*
+ * Cross-document view transitions.
+ *
+ * `navigation: auto` opts every same-origin navigation into a transition with ZERO
+ * JavaScript — no router, no framework, no bytes on the evidence surfaces, which ship
+ * at 0 KB and must stay that way.
+ *
+ * This is what makes six surfaces read as one continuous descent rather than six
+ * separate sites: the header persists visually while the content beneath it changes,
+ * so the reader perceives movement THROUGH something rather than jumps BETWEEN things.
+ *
+ * Progressive enhancement — unsupporting browsers navigate normally and lose nothing.
+ */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+  animation-timing-function: var(--ease-out);
+}
+
+/* The header is continuous across the descent, so it must not cross-fade with the page. */
+::view-transition-group(site-header) {
+  animation-duration: 220ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-group(site-header) {
+    animation: none;
+  }
+}
+
+/*
+ * Long-form scientific prose.
+ *
+ * Scoped to `.doc`, which wraps markdown rendered at build time. Uses the document type
+ * scale (17px base, 68ch measure) rather than the interface scale: this is sustained
+ * reading, and the two scales exist precisely because one cannot serve both.
+ *
+ * Tables scroll inside their own container. The page body must never scroll sideways —
+ * a horizontal scrollbar on the whole document is the fastest way to make a research
+ * page feel broken.
+ */
+@layer components {
+  .doc {
+    font-size: var(--text-doc-body);
+    line-height: var(--text-doc-body--line-height);
+    color: var(--color-fg-muted);
+    max-width: var(--measure-document);
+  }
+  .doc > * + * { margin-top: 1.1em; }
+  .doc strong { color: var(--color-fg); font-weight: 600; }
+  .doc a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+  .doc a:hover { color: var(--color-accent-hover); }
+  .doc code {
+    font-size: 0.86em;
+    color: var(--color-fg);
+    background: var(--color-sunken);
+    border: 1px solid var(--color-line-subtle);
+    border-radius: var(--radius-sm);
+    padding: 0.1em 0.35em;
+  }
+  .doc pre {
+    background: var(--color-sunken);
+    border: 1px solid var(--color-line-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-4);
+    overflow-x: auto;
+  }
+  .doc pre code { background: none; border: 0; padding: 0; }
+  .doc ul, .doc ol { padding-left: 1.4em; }
+  .doc ul { list-style: disc; }
+  .doc ol { list-style: decimal; }
+  .doc li + li { margin-top: 0.4em; }
+  .doc h3, .doc h4 {
+    color: var(--color-fg);
+    font-weight: 600;
+    font-size: var(--text-doc-h3);
+    margin-top: 1.6em;
+  }
+  .doc blockquote {
+    border-left: 2px solid var(--color-line-strong);
+    padding-left: var(--spacing-4);
+    color: var(--color-fg-subtle);
+  }
+  /* Tables carry most of the measured evidence in these documents. */
+  .doc table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums lining-nums slashed-zero;
+    font-size: var(--text-sm);
+  }
+  .doc th, .doc td {
+    border: 1px solid var(--color-line-subtle);
+    padding: 0.45em 0.7em;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .doc th { color: var(--color-fg); background: var(--color-surface); font-weight: 500; }
+  .doc hr { border-color: var(--color-line-subtle); margin: 2em 0; }
+}
+
+/*
+ * Hero entrance.
+ *
+ * A staggered fade-up on first paint. Premium products almost never have content simply
+ * appear — the entrance is what signals intent, and its absence is felt even by viewers
+ * who could not name it.
+ *
+ * Deliberately restrained: 500 ms, 12 px of travel, one shot. It runs once on load and
+ * never again, so it can never read as decoration. Fully suppressed under
+ * prefers-reduced-motion by the global rule below, which collapses the duration and
+ * leaves the finished state.
+ */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer components {
+  .hero-enter > * {
+    animation: hero-rise 500ms var(--ease-out) both;
+  }
+  /* Stagger reads as one considered movement rather than four separate ones. */
+  .hero-enter > *:nth-child(1) { animation-delay: 60ms; }
+  .hero-enter > *:nth-child(2) { animation-delay: 130ms; }
+  .hero-enter > *:nth-child(3) { animation-delay: 200ms; }
+  .hero-enter > *:nth-child(4) { animation-delay: 280ms; }
+}
+
+/*
+ * Motion law L3 (§5.5): reduced motion is a hard gate, not a degradation.
+ *
+ * Rather than asking every component to check the preference, durations collapse
+ * to ~0 globally. Any draw-on animation therefore renders in its completed state,
+ * which is required because no information may be delivered only through motion.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}

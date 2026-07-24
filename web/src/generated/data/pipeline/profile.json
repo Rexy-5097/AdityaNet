@@ -1,0 +1,51 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-23T16:34:03.816951+00:00",
+  "source_commit": "9efad0c",
+  "data": {
+    "title": "Canonical Dataset Profile",
+    "date": "2026-07-17",
+    "lead": "**Descriptive only.** This document is an engineering inventory of the canonical dataset produced by the Milestone VII build under contract r5. It records counts and statistics; it interprets nothing. Quantities marked **[A-14]** or **[M-VIII]** are unexplained by design and await Milestone VIII.\n\nBuild: `scripts/v2/phase05/build_canonical.py`, 93.75 min. Store: `artifacts/v2/phase05/canonical/`.",
+    "sections": [
+      {
+        "heading": "1. Row counts",
+        "body": "| Table | Files | Rows |\n|---|---|---|\n| T1 `solexs_lc_1min` | 424 | 610,560 |\n| T2 `solexs_spec_1min` | 424 | 610,560 |\n| T3 `hel1os_lc_1min` | 373 | 1,027,773 |\n| T4 `hel1os_hk_1min` | 389 | 277,054 |\n| T5 `hel1os_spec_1min` | 373 | 1,026,816 |\n| T6 `gti_intervals` | 1 | 2,130 |\n| T7 `provenance_manifest` | 1 | 5,199 |"
+      },
+      {
+        "heading": "2. Date coverage",
+        "body": "| Table | First | Last |\n|---|---|---|\n| T1/T2 (SoLEXS) | 2024-02-01 00:00:00+00:00 | 2026-06-15 23:59:00+00:00 |\n| T3 (HEL1OS LC) | 2025-12-07 00:00:00+00:00 | 2026-06-17 23:59:00+00:00 |\n| T4 (HEL1OS HK) | 2025-12-07 00:00:00+00:00 | 2026-06-17 23:59:00+00:00 |"
+      },
+      {
+        "heading": "3. Missing-value statistics",
+        "body": "- **T1** `counts_total`: 25,623 NaN of 610,560 rows (4.20%). `q_no_data` minutes: 25,623; `q_partial`: 2,063.\n- **T2**: `q_no_data` minutes: 25,623 of 610,560. Channel arrays preserve NaN per the r2/r5 rules; never imputed.\n- **T3** band-rate cells: 15,418,723 NaN of 20,555,460 (75.01%) across 20 band columns.\n- No imputation, filling, or interpolation exists anywhere in the pipeline (verified by test suite)."
+      },
+      {
+        "heading": "4. GTI coverage (T6)",
+        "body": "- Intervals: 2,130 ({'solexs': 2130})\n- Total good exposure: **33829521 s** (391.5 days)\n- Interval duration: min 2.0 s | median 4363.0 s | mean 15882.4 s | max 59916.0 s\n- SoLEXS detector activity: SDD2 active 425 days; SDD1 inactive (F-12) on 426 of 850 parsed GTI files.\n- T1 live time total: 33829521 s. GTI-excluded seconds carrying finite counts are counted per day and **[A-14] remain unexplained \u2014 Milestone VIII**."
+      },
+      {
+        "heading": "5. Version-resolution statistics",
+        "body": "- Orbit files examined: 391\n- Owned (minute, detector) pairs: 1,065,572\n- Conflicting pairs: 48,604 in 256 distinct conflicts\n- Resolved by R1 (higher version): 47,328\n- Resolved by R2 (longer duration): 1,276\n- R3 (processing date) invoked: 0 \u2014 HEL1OS primaries carry no `DATE` header\n- F-14 terminations: 0\n- Unique ownership: **holds** \u2014 every owned pair has exactly one provenance owner (asserted at map construction and by F-15 output guards)."
+      },
+      {
+        "heading": "6. Provenance completeness (T7)",
+        "body": "- Provenance rows: 5,199; duplicate (file, product, detector) rows: 0\n- Output rows missing provenance: {'T1': 0, 'T3': 0, 'T4': 0}\n- Orphan rows (src_file absent from T7): {'T1': 0, 'T3': 0, 'T4': 0}"
+      },
+      {
+        "heading": "7. Descriptive statistics (no interpretation)",
+        "body": "- T1 `rate_total` (cts/s): min 1.0 | median 21.6 | mean 102.0 | max 76088.3\n- T3 detector row counts: {'CZT1': 256945, 'CZT2': 256945, 'CDTE2': 256944, 'CDTE1': 256939}\n- T4 `suninfov` true: 268,885 of 277,054 minutes (97.1%)\n- T5 `detchans` distribution: {341: 513434, 511: 513382} (CZT=341, CdTe=511 carried explicitly; never merged)\n- HK inversion statistics (recorded, never thresholded): 389 orbits; max backward step 1153.398 s\n- R-1 epoch resolutions: {'relative_seconds': 1556}"
+      },
+      {
+        "heading": "8. Archive inventory",
+        "body": "- SoLEXS archives processed: **424 / 436**\n- HEL1OS orbits processed: **389 / 391**\n- Skipped products: **14**, by rule: {'F-19': 12, 'F-16': 2}\n  - F-19: SoLEXS GTI `STOP <= START` (archive defect; CONTRADICTION-005 Defect C)\n  - F-01: unreadable/gzip-corrupt SoLEXS members\n  - F-16: duplicate HK `mjd` timestamps (archive defect; CONTRADICTION-006 Defect B, ruled working-as-designed)\n  - Every skip is individually logged with its rule id in `canonical_build_stats.json`."
+      },
+      {
+        "heading": "9. Data quality summary",
+        "body": "Validation executed during the build (counts from `checks`):\n- NaN \u21d2 GTI-excluded implication (r5): held on all **424** built SoLEXS days (violation = F-09 = skip; none skipped for F-09)\n- V-PI-3 (`.pi TSTART[0]` == `.lc TSTART`): **424** days\n- SoLEXS GTI files parsed: 850; F-12 inactive detections: 426\n- HEL1OS builds: LC 389, HK 389, spectra 389 orbits\n- Validation failures: none among built products (failures terminate and become skips, \u00a78)\n\n**Assumptions awaiting Milestone VIII:** **A-8** (GTI exposure identity across all 436 SoLEXS archives), **A-11** (relative-seconds convention across all 391 orbits \u2014 1,180/1,180 spectra products resolved `relative_seconds` in this build), **A-12** (HK inversion distribution), **A-13** (per-family `DETCHANS` across all orbits), **A-14** (the GTI-exclusion excess \u2014 unexplained). **CONTRADICTION-003** (SoLEXS LC\u2194PI relationship) remains OPEN for M-VIII."
+      }
+    ],
+    "source": "artifacts/v2/phase05/CANONICAL_DATASET_PROFILE.md"
+  }
+}

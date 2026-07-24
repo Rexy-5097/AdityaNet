@@ -1,0 +1,92 @@
+{
+  "$comment": [
+    "Design tokens — colour. Source of truth; src/generated/tokens.css is derived.",
+    "Spec: PRODUCT_SPECIFICATION.md §5.2.",
+    "",
+    "TIER 1 (primitive): raw values. Never referenced by a component.",
+    "TIER 2 (semantic): role names, themed. This is what components use.",
+    "TIER 3 (component): introduced with the first component that needs it (§5.8).",
+    "",
+    "DISJOINTNESS RULE (§5.2.1): the `ui` and `data` namespaces share no values.",
+    "A chart series may never use a UI colour; a UI element may never use a data colour."
+  ],
+
+  "primitive": {
+    "$comment": "Ink scale is cool-cast near-black through near-white; see §5.2.2 on why not pure #000.",
+    "ink-1000": "#06080A",
+    "ink-950": "#0A0C0E",
+    "ink-900": "#121518",
+    "ink-850": "#1A1E22",
+    "ink-800": "#1E2328",
+    "ink-700": "#2A3138",
+    "ink-600": "#3D454D",
+    "ink-400": "#6B747C",
+    "ink-300": "#A0A8AF",
+    "ink-100": "#E8EBED",
+
+    "blue-500": "#4A9EFF",
+    "blue-400": "#6BB1FF",
+    "blue-300": "#7FC4FF",
+
+    "green-500": "#3FB950",
+    "amber-500": "#D29922",
+    "red-500": "#F85149",
+    "slate-400": "#8B949E",
+
+    "$comment-data": "Okabe & Ito (2008) colourblind-safe qualitative palette. Peer-reviewed, grayscale-correct, recognisable to the audience. See §5.2.4 on why this rather than a bespoke palette.",
+    "okabe-orange": "#E69F00",
+    "okabe-skyblue": "#56B4E9",
+    "okabe-green": "#009E73",
+    "okabe-yellow": "#F0E442",
+    "okabe-blue": "#0072B2",
+    "okabe-vermillion": "#D55E00",
+    "okabe-purple": "#CC79A7"
+  },
+
+  "semantic": {
+    "dark": {
+      "$comment": "Contrast ratios against --color-canvas are asserted in scripts/check.ts. NOTE: this role must NOT be named `base` — Tailwind generates text-base as a font-size utility, and a colour token of the same name silently overrides it. See ENGINEERING_JOURNAL 2026-07-23 Sprint 3.",
+      "canvas": "ink-950",
+      "surface": "ink-900",
+      "raised": "ink-850",
+      "sunken": "ink-1000",
+
+      "fg": "ink-100",
+      "fg-muted": "ink-300",
+      "fg-subtle": "ink-400",
+
+      "line-subtle": "ink-800",
+      "line": "ink-700",
+      "line-strong": "ink-600",
+
+      "accent": "blue-500",
+      "accent-hover": "blue-400",
+      "focus": "blue-300",
+
+      "pass": "green-500",
+      "open": "amber-500",
+      "fail": "red-500",
+      "info": "slate-400",
+
+      "data-1": "okabe-orange",
+      "data-2": "okabe-skyblue",
+      "data-3": "okabe-green",
+      "data-4": "okabe-yellow",
+      "data-5": "okabe-blue",
+      "data-6": "okabe-vermillion",
+      "data-7": "okabe-purple"
+    }
+  },
+
+  "contrastFloors": {
+    "$comment": "Minimum contrast vs --color-base, enforced by `pnpm budget` (§12.2). AAA body text = 7:1.",
+    "fg": 7,
+    "fg-muted": 7,
+    "accent": 4.5,
+    "focus": 4.5,
+    "pass": 4.5,
+    "open": 4.5,
+    "fail": 4.5,
+    "info": 4.5
+  }
+}

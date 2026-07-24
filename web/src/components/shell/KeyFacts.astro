@@ -1,0 +1,68 @@
+---
+/**
+ * The at-a-glance row that opens an evidence surface.
+ *
+ * These pages read like documentation because their first screen was prose: a visitor had
+ * to parse a paragraph before learning anything. A short row of large figures inverts
+ * that — the headline numbers land in about a second, and the prose becomes support
+ * rather than the entry point.
+ *
+ * The figures here are always values already published elsewhere on the page or resolved
+ * from an artifact by the caller. This component presents; it never computes, because a
+ * number computed in a presentational component could silently disagree with the
+ * artifact it claims to report.
+ */
+interface Fact {
+  /** Short uppercase label. */
+  readonly label: string;
+  /** The figure itself. Kept as a string so the caller controls formatting. */
+  readonly value: string;
+  /** Optional qualifier shown beneath, e.g. a unit or interval. */
+  readonly note?: string;
+  /** Draws attention to the one fact that matters most on the page. */
+  readonly emphasis?: boolean;
+}
+
+interface Props {
+  facts: readonly Fact[];
+  class?: string;
+}
+
+const { facts, class: className = "" } = Astro.props;
+
+// Static class names only — Tailwind's compiler cannot see an interpolated one, so a
+// template-literal column count would silently produce an unstyled grid.
+const COLUMNS: Record<number, string> = {
+  1: "lg:grid-cols-1",
+  2: "lg:grid-cols-2",
+  3: "lg:grid-cols-3",
+  4: "lg:grid-cols-4",
+};
+const columnClass = COLUMNS[Math.min(Math.max(facts.length, 1), 4)] ?? "lg:grid-cols-4";
+---
+
+<dl
+  class:list={[
+    "flow-parallax grid gap-px overflow-hidden rounded-[14px] border border-line-subtle bg-line-subtle sm:grid-cols-2",
+    columnClass,
+    className,
+  ]}
+>
+  {
+    facts.map((f) => (
+      <div class="bg-canvas/70 px-6 py-7 backdrop-blur-xl">
+        <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">{f.label}</dt>
+        <dd
+          class:list={[
+            "mt-3 font-mono text-metric leading-none tabular-nums",
+            f.emphasis ? "text-fg" : "text-fg-muted",
+          ]}
+          data-numeric
+        >
+          {f.value}
+        </dd>
+        {f.note && <p class="mt-2 text-2xs leading-relaxed text-fg-subtle">{f.note}</p>}
+      </div>
+    ))
+  }
+</dl>

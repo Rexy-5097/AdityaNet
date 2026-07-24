@@ -1,0 +1,49 @@
+{
+  "$comment": [
+    "Design tokens — spacing, layout, radius, elevation. Spec §5.3, §5.4.",
+    "",
+    "Base unit is 4px, not 8px: dense data UI needs sub-8px increments. A table cell",
+    "needs 6px vertical padding, and rounding to 8 makes rows 25% taller, costing",
+    "visible rows. 4px is the smallest unit that still constrains (§5.3)."
+  ],
+
+  "space": {
+    "0": "0",
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "5": "1.25rem",
+    "6": "1.5rem",
+    "8": "2rem",
+    "10": "2.5rem",
+    "12": "3rem",
+    "16": "4rem",
+    "20": "5rem",
+    "24": "6rem"
+  },
+
+  "layout": {
+    "$comment": "Content caps at 1440px: beyond that, vertical eye-travel between time-aligned panels exceeds comfortable saccade distance and the user stops perceiving them as aligned. The alignment IS the feature (§5.3).",
+    "content-max": "90rem",
+    "gutter": "1.5rem"
+  },
+
+  "radius": {
+    "$comment": "Charts and data tables use radius 0. A rounded corner on a plot area implies the data is clipped by decoration — the clearest 'web designer touched this' tell (§5.4).",
+    "sm": "3px",
+    "md": "5px",
+    "lg": "8px",
+    "chart": "0"
+  },
+
+  "elevation": {
+    "$comment": [
+      "Elevation is luminance + border, never shadow. On a #0A0C0E ground a drop shadow",
+      "is physically invisible — there is no lighter surface for it to darken. Systems",
+      "that ship shadows into dark mode are porting a light-mode metaphor that does not",
+      "survive the transport (§5.4). Shadow appears at exactly one level: modal."
+    ],
+    "modal": "0 8px 24px rgba(0, 0, 0, 0.6)"
+  }
+}

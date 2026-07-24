@@ -1,0 +1,54 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-23T16:34:02.113457+00:00",
+  "source_commit": "9efad0c",
+  "data": {
+    "id": "CONTRADICTION-002",
+    "slug": "contradiction-002",
+    "title": "\u00a72.1's missing-value clause is factually false",
+    "state": "CLOSED",
+    "date": "2026-07-17",
+    "reason": "Contract \u00a72.1 missing-value clause falsified by the real archive. RESOLVED by spec r2.",
+    "resolving_revision": "r2",
+    "status_line": "Status: CLOSED 2026-07-17 \u2014 owner approved the \u00a75 amendment; applied as PARSER_SPECIFICATION.md r2 (\u00a710 Revision History). Milestone III re-verified 63/63 with zero deviations. See COMPLIANCE_M3.md.",
+    "declined_amendment": false,
+    "lead": "**Status: CLOSED 2026-07-17 \u2014 owner approved the \u00a75 amendment; applied as PARSER_SPECIFICATION.md r2 (\u00a710 Revision History). Milestone III re-verified 63/63 with zero deviations. See COMPLIANCE_M3.md.**\n\nRaised under: *\"If the implementation contradicts the specification, STOP, document the contradiction, explain why, and wait for approval.\"*\n\n---",
+    "sections": [
+      {
+        "heading": "1. Two distinct defects \u2014 one mine, one the contract's",
+        "body": "**(A) My implementation defect \u2014 already fixed, no approval required.** The Milestone III parser raised **F-19 on non-finite COUNTS**. Frozen F-19 covers *\"Negative counts / negative EXPOSURE / live_time_s > 60\"* \u2014 **NaN is not negative**, and \u00a72.1's validation list never mentions finiteness. I invented an unspecified check, and it terminated on the valid D1 reference file. Fixed: NaN now passes through untouched; the negative-count test is inherently NaN-safe (`NaN < 0` is `False`). TIME finiteness is retained under **F-16**, where a NaN timestamp genuinely belongs \u2014 it would otherwise silently defeat the monotonicity test, since all NaN comparisons are `False`.\n\n**(B) The contract defect \u2014 requires approval.** Contract \u00a72.1 states:\n\n> **Missing values:** no NULL convention declared; absence is expressed via GTI, **not sentinels**.\n\nThis is **`OBSERVED` false.** The real archive uses **NaN in `COUNTS` as a missing-data sentinel.**"
+      },
+      {
+        "heading": "2. Evidence \u2014 an exact bijection",
+        "body": "Measured on the mandated D1 file `AL1_SOLEXS_20240514_SDD2_L1.lc.gz` against its GTI sibling:\n\n| Quantity | Value |\n|---|---|\n| Rows | 86,400 |\n| NaN `COUNTS` | **5** \u2014 at day-offsets `[0, 5, 30072, 30078, 83951]` |\n| GTI-excluded seconds (inclusive rule, r1) | **5** \u2014 at day-offsets `[0, 5, 30072, 30078, 83951]` |\n| **NaN set == GTI-excluded set** | **True** |\n| NaN *inside* GTI (unexplained) | **0** |\n| Finite *outside* GTI (unexplained) | **0** |\n| Finite `COUNTS` | **86,395 == `EXPOSURE`** |\n| Finite-count statistics | min 64, median 275, max 29,568 |\n\n`NaN \u27fa GTI-excluded`, exactly and in both directions. The two products encode the same absence **redundantly and consistently**.\n\n**This independently confirms the r1 amendment.** Under the pre-r1 *exclusive* convention, GTI would have excluded ~10 seconds and could never have matched the 5 NaNs. Two mutually confirming lines of evidence from different files now support the inclusive rule \u2014 a stronger position than r1 rested on."
+      },
+      {
+        "heading": "3. Why the contract is satisfiable anyway (and M-III proceeded)",
+        "body": "\u00a72.1's validation list does **not** require a finiteness check. A literal implementation passes NaN straight through and parses the file successfully. The false clause is *descriptive*, not *prescriptive* \u2014 unlike CONTRADICTION-001, which made a frozen rule arithmetically impossible. So M-III completed honestly at 63/63, with the fix at (A).\n\n**But it becomes prescriptive at Milestone VII.** \u00a73 T1 requires `counts_total` = \"\u03a3 over GTI-good seconds in minute\". A naive `sum()` over a minute containing a NaN yields **NaN for the entire minute** \u2014 silently destroying 1,439 good seconds of data per affected minute. The contract gives no instruction here, and \u00a72.1 actively misleads an implementer into believing no sentinel exists."
+      },
+      {
+        "heading": "4. Fortunate alignment worth noting",
+        "body": "Contract \u00a73's **output** convention already reads: *\"Never impute; never fill. Absent data is `NaN` + `q_no_data=True`.\"* The archive's **input** convention is identical. Input and output already agree; only \u00a72.1's description of the input is wrong."
+      },
+      {
+        "heading": "5. Proposed amendment (NOT applied \u2014 requires approval)",
+        "body": "1. **\u00a72.1 Missing values** \u2014 replace the false clause with: *`COUNTS` uses **NaN as a missing-data sentinel**. `OBSERVED` on 2024-05-14 SDD2: the NaN set equals the GTI-excluded set exactly (5 s, offsets [0,5,30072,30078,83951]); finite count == `EXPOSURE` == 86,395. NaN MUST pass through the parser untouched \u2014 never imputed, filled, or dropped. Zero remains a physically valid count and MUST NOT be treated as missing.*\n2. **\u00a72.1 validation** \u2014 add: *TIME must be finite (F-16 \u2014 a NaN timestamp defeats the monotonicity test). `COUNTS` finiteness is **not** validated at parser level; NaN is data.*\n3. **New validation rule (\u00a77) \u2014 the strong one.** Add a cross-product integrity check: **`NaN(COUNTS)` set MUST equal the GTI-excluded set exactly**; deviation \u2192 **F-09** (GTI inconsistent). This is a materially stronger test than either product yields alone: it validates the light curve against the GTI *and* re-verifies the inclusive convention on every single day. Recommend Milestone VIII run it across all 436 archives alongside the A-8 exposure check.\n4. **\u00a73 T1/T2** \u2014 mandate NaN-aware aggregation: `counts_total = \u03a3` over **finite** seconds within the minute (`np.nansum` semantics); `n_seconds_present` counts finite seconds; a minute with zero finite seconds \u2192 `counts_total = NaN`, `q_no_data = True`. **Never** let one NaN void a whole minute.\n5. **\u00a78** \u2014 new assumption **A-9**: *the NaN\u27faGTI bijection is VERIFIED on 2024-05-14 SDD2 only* (1 of 436). Milestone VIII must verify archive-wide; any deviation is a scientific finding that TERMINATES validation. Same scoping discipline as A-8."
+      },
+      {
+        "heading": "6. Recommendation (ACCEPTED)",
+        "body": "Approve. The amendment is descriptive-correction plus a **strengthening**: it adds an integrity rule (\u00a75.3) that the contract lacked, and it closes a silent data-destruction path at T1 (\u00a75.4) before any code depends on it. As with r1, nothing is weakened."
+      },
+      {
+        "heading": "7. Resolution",
+        "body": "All five proposed changes were **approved and applied verbatim** as spec **r2**: the \u00a72.1 missing-value description replaced; parser behaviour made binding (pass through unchanged; never impute, zero-fill, or remove); the **NaN\u27faGTI cross-product rule** added as a REQUIRED archive-consistency check (mismatch \u2192 F-09) at the day-assembly layer; the **\u00a73 aggregation contract** added (finite-only aggregation; one NaN must never invalidate a minute; empty minute \u2192 `counts_total=NaN`, `q_no_data=True`); and **A-9** recorded, scoping the invariant to the reference archive with a Milestone VIII archive-wide obligation that TERMINATES on any violation.\n\n**Nothing weakened.** The 20 fail-loud rule ids are untouched \u2014 r2 adds a new *application* of F-09, not a new rule. Superseded implementation notes were removed from the code, which now cites the contract clause (\u00a72.1 r2) rather than this document."
+      },
+      {
+        "heading": "8. State of the work",
+        "body": "**Milestone III COMPLETE and re-verified against r2: 63/63 tests pass, 0 xfail, 0 skip, zero deviations.** Real D1 file: 86,400 rows, `TSTART=1715644800.0`, `TSTOP=1715731199.0`, `TIMEDEL=1`, `NUMBAND='4'`, `HDUCLAS3='COUNTS'`, span 00:00:00\u201323:59:59 UTC, strictly 1-s monotonic. Test `test_real_20240514_nan_positions_equal_gti_excluded_seconds` encodes the now-contractual \u00a72.1 r2 invariant and passes. **Milestone IV authorised.**"
+      }
+    ],
+    "source": "artifacts/v2/phase05/CONTRADICTION-002.md"
+  }
+}
