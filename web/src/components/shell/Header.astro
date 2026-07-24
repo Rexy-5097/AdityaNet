@@ -7,9 +7,21 @@
  * central claim is that its evidence is checkable, and putting the adjudication
  * record ahead of the findings is the strongest available way to say so.
  *
- * The dataset chip is global and always visible. Every surface's content is relative
- * to a dataset version, so showing it constantly pre-empts "which data is this?"
- * rather than answering it in a footnote.
+ * The dataset chip is global on wide screens. Every surface's content is relative to a
+ * dataset version, so showing it constantly pre-empts "which data is this?" rather than
+ * answering it in a footnote.
+ *
+ * RESPONSIVE. The inline row is a desktop layout and cannot simply shrink: measured at
+ * 375px it pushed "Data" and "Build" past the viewport edge with no way to reach them —
+ * the list was clipped rather than scrollable, so two of six surfaces had no mobile
+ * access path at all. Narrow screens therefore get a disclosure menu instead, with touch
+ * targets at the 44px floor (WCAG 2.5.5) rather than the 16px the inline links measured.
+ *
+ * The menu is a native <details>, so it costs ZERO JavaScript and keeps the evidence
+ * surfaces inside their 0 KB budget. It is keyboard operable and screen-reader announced
+ * for free, which a scripted dropdown would have had to re-implement.
+ *
+ * Both layouts render from DESCENT, so they can never disagree.
  */
 import overview from "@/generated/data/overview.json";
 import DepthGauge from "./DepthGauge.astro";
@@ -23,16 +35,19 @@ const NAV = DESCENT;
 
 const isCurrent = (href: string): boolean =>
   href === "/" ? path === "/" : path.startsWith(href);
+
+const current = NAV.find(({ href }) => isCurrent(href));
 ---
 
 <header class="site-header" style="view-transition-name: site-header">
-  <div class="mx-auto flex w-full max-w-6xl items-center gap-x-7 px-6">
+  <div class="mx-auto flex w-full max-w-6xl items-center gap-x-7 px-5 sm:px-6">
     <a href="/" class="nav-link text-md font-semibold tracking-tight whitespace-nowrap">
       Aditya<span class="text-fg-muted">Net</span>
     </a>
 
-    <nav aria-label="Primary" class="flex-1">
-      <ul class="flex items-center gap-x-5 overflow-x-auto">
+    {/* Wide screens: the full descent, inline. */}
+    <nav aria-label="Primary" class="hidden flex-1 lg:block">
+      <ul class="flex items-center gap-x-5">
         {
           NAV.map(({ href, label }) => (
             <li>
@@ -49,13 +64,41 @@ const isCurrent = (href: string): boolean =>
       </ul>
     </nav>
 
+    {/* Narrow screens: a disclosure menu. Native <details> — no JavaScript. */}
+    <details class="nav-menu ml-auto lg:hidden">
+      <summary aria-label="Navigation menu">
+        <span class="nav-menu__current">{current?.label ?? "Menu"}</span>
+        <span class="nav-menu__chevron" aria-hidden="true"></span>
+      </summary>
+
+      <nav aria-label="Primary" class="nav-menu__panel">
+        <ul>
+          {
+            NAV.map(({ href, label, state }) => (
+              <li>
+                <a href={href} aria-current={isCurrent(href) ? "page" : undefined}>
+                  <span class="nav-menu__label">{label}</span>
+                  <span class="nav-menu__state">{state}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="nav-menu__dataset font-mono">
+          <span class="sr-only">Dataset version </span>{dataset.version}
+          <span aria-hidden="true"> · </span>
+          <span class="sr-only">digest prefix </span>{dataset.hash_short}
+        </p>
+      </nav>
+    </details>
+
     {/*
       Dataset identity, not a measurement: an identifier has no uncertainty and no
       denominator, so it takes no source reference. The distinction matters — every
       *quantity* on this site must cite an artifact, and blurring identifiers into
       that category would dilute what the requirement means.
     */}
-    <div class="hidden items-center gap-4 md:flex">
+    <div class="hidden items-center gap-4 lg:flex">
       <DepthGauge />
       <p class="font-mono text-2xs text-fg-subtle">
         <span class="sr-only">Dataset version </span>{dataset.version}

@@ -339,6 +339,143 @@
   text-shadow: 0 2px 30px rgb(0 0 0 / 0.5);
 }
 
+/* ---------------------------------------------------------------------------
+ * Mobile navigation — a native <details> disclosure, zero JavaScript
+ *
+ * The desktop row does not shrink honestly: at 375px it clipped "Data" and "Build" off
+ * the viewport with no scroll, so two surfaces were unreachable. This is a different
+ * component for a different screen, not the same one made smaller.
+ * ------------------------------------------------------------------------- */
+
+.nav-menu { position: relative; }
+
+.nav-menu > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  /* 44px floor — WCAG 2.5.5 target size. The inline links measured 16px. */
+  min-height: 44px;
+  padding: 0 0.25rem;
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-fg);
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-menu > summary::-webkit-details-marker { display: none; }
+.nav-menu > summary::marker { content: ""; }
+.nav-menu > summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; border-radius: 6px; }
+
+/* A chevron that rotates on open — the only affordance the control needs. */
+.nav-menu__chevron {
+  width: 9px;
+  height: 9px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 260ms var(--ease-out-soft);
+}
+.nav-menu[open] > summary .nav-menu__chevron { transform: translateY(1px) rotate(-135deg); }
+
+.nav-menu__panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.6rem);
+  z-index: 60;
+  min-width: min(78vw, 20rem);
+  padding: 0.5rem;
+  border: 1px solid color-mix(in oklab, #ffffff 10%, transparent);
+  border-radius: 14px;
+  background: color-mix(in oklab, var(--color-canvas) 92%, transparent);
+  backdrop-filter: blur(20px) saturate(1.4);
+  box-shadow: 0 24px 60px -24px rgb(0 0 0 / 0.9);
+}
+
+.nav-menu__panel ul { display: flex; flex-direction: column; gap: 2px; }
+
+.nav-menu__panel a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  /* Comfortably above the 44px floor: this is the primary way to move around on a phone. */
+  min-height: 48px;
+  padding: 0.7rem 0.85rem;
+  border-radius: 9px;
+  text-decoration: none;
+  color: var(--color-fg-muted);
+  transition: background-color 180ms var(--ease-out-soft), color 180ms var(--ease-out-soft);
+}
+.nav-menu__panel a:hover { background: color-mix(in oklab, var(--color-raised) 70%, transparent); color: var(--color-fg); }
+.nav-menu__panel a[aria-current="page"] { background: color-mix(in oklab, var(--color-raised) 90%, transparent); color: var(--color-fg); }
+.nav-menu__panel a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+
+.nav-menu__label { font-size: var(--text-md); }
+/* The epistemic state of each depth — the descent, legible at a glance. */
+.nav-menu__state {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-fg-subtle);
+}
+
+.nav-menu__dataset {
+  margin: 0.4rem 0.85rem 0.3rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--color-line-subtle);
+  font-size: var(--text-2xs);
+  color: var(--color-fg-subtle);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav-menu[open] > .nav-menu__panel { animation: reveal-rise 240ms var(--ease-out-soft) both; }
+}
+
+/* KeyFacts values are fluid, because the row mixes short numbers ("424") with long
+   strings ("2024-02-01 — 2026-06-15"). A fixed metric size made the long ones wrap into
+   very tall cards on a phone. */
+.keyfact-value {
+  font-size: clamp(1.25rem, 5vw, 1.75rem);
+  overflow-wrap: anywhere;
+}
+
+/* The wordmark is the way home and measured 22px tall — below the 44px target floor. */
+.site-header .nav-link:first-child {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/*
+ * LANDSCAPE PHONES. A 100svh hero is correct in portrait and absurd at 375px tall: the
+ * headline, lede and both buttons cannot coexist in that band, so the section is allowed
+ * to grow to its content instead of being pinned to the viewport.
+ */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero-viewport { min-height: auto !important; padding-block: 3.5rem 4.5rem; }
+  .ambient-video--disc { top: 50%; width: min(70vw, 90vh); height: min(70vw, 90vh); }
+
+  /* The fixed label sits where the call-to-action lands when the viewport is only 375px
+     tall — measured collision between the buttons and the watermark strip. It still shows
+     at rest, so P8 is satisfied while the footage is the subject, but it retires almost
+     immediately on scroll instead of sitting on top of the content being read. */
+  .ambient-watermark { animation-range: 0 18vh !important; }
+}
+
+/*
+ * ULTRAWIDE. max-w-6xl alone leaves the composition stranded in the middle of a 1920+
+ * display with the footage running to both edges. Widening the reading column keeps the
+ * type in proportion to the frame rather than shrinking into it.
+ */
+@media (min-width: 1728px) {
+  :root { --rhythm: clamp(5.5rem, 10vh, 9rem); }
+  .ambient-video--disc.ambient-video--right { right: -6vw; width: min(88vh, 1000px); height: min(88vh, 1000px); }
+}
+
 /* Chips — metadata that is worth showing but not worth a row of its own. Replaces
    definition lists whose only job was to name a version or a date. */
 .chip {
@@ -531,6 +668,8 @@
 .ambient-video--disc {
   width: min(118vw, 132vh);
   height: min(118vw, 132vh);
+  /* Narrow screens have no side margin to place the subject in, so it moves UP. */
+  top: 32%;
   mask-image: radial-gradient(circle at 50% 50%, #000 42%, rgba(0, 0, 0, 0.55) 58%, transparent 74%);
   -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 42%, rgba(0, 0, 0, 0.55) 58%, transparent 74%);
 }
@@ -568,6 +707,39 @@
 }
 
 /*
+ * MOBILE COMPOSITION — a different arrangement, not the desktop one re-centred.
+ *
+ * Wide screens put the subject beside the reading column. A phone has no side margin to
+ * do that with, so the axis rotates: the disc sits ABOVE and the copy sits below it on
+ * clean canvas. Sized so its lower limb clears the headline rather than sitting behind
+ * it — measured at 375x812, where the previous full-width disc ran under the lede and
+ * turned the type murky.
+ *
+ * Because the copy no longer overlaps the footage, the reading band can be lifted, and
+ * the Sun gets to be vivid instead of dimmed into brown.
+ */
+@media (max-width: 767px) {
+  .ambient-video--disc {
+    width: min(100vw, 58vh);
+    height: min(100vw, 58vh);
+    top: 27%;
+    filter: brightness(1.22) saturate(1.25) contrast(1.06);
+  }
+
+  .ambient-scrim {
+    background:
+      /* Gentle top-down wash only — no centre band, because nothing overlaps now. */
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--color-canvas) 18%, transparent) 0%,
+        color-mix(in oklab, var(--color-canvas) 34%, transparent) 34%,
+        color-mix(in oklab, var(--color-canvas) 82%, transparent) 56%,
+        var(--color-canvas) 74%
+      );
+  }
+}
+
+/*
  * The footage RECEDES as the visitor scrolls into the evidence.
  *
  * Without this a fixed background stays at full strength behind the measured content,
@@ -600,6 +772,16 @@
  */
 .ambient-watermark {
   text-shadow: 0 1px 12px rgb(0 0 0 / 0.85);
+}
+
+/* At 375px the label wrapped onto a second line. It is an honesty statement, not body
+   copy — a broken line reads as an accident. Tighten it until it fits one line. */
+@media (max-width: 480px) {
+  .ambient-watermark {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
 }
 
 @supports (animation-timeline: scroll()) {
