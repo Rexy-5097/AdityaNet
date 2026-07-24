@@ -1,0 +1,226 @@
+---
+/**
+ * Findings — METHOD. The documentation surface.
+ *
+ * This is the paper: full benchmark tables for every task, the adjudicated verdicts
+ * rendered verbatim, the spectral ablation, and the evaluation protocol that was frozen
+ * before any model was fit.
+ *
+ * It exists so the story surface at /findings can be brief without being thin. Every
+ * number a sceptic could want is here, at a citable URL, unchanged.
+ *
+ * DIVISION OF SOURCES. Numbers come from benchmark_results.json, where every cell is
+ * traceable. Verdicts — "statistically indistinguishable", "significantly worse" — are
+ * rendered verbatim from the prose reports, because they are adjudications made under a
+ * protocol frozen before any model was fit. Recomputing them here would let the site
+ * disagree with the paper it publishes.
+ */
+import { marked } from "marked";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import PageHeader from "@/components/shell/PageHeader.astro";
+import Section from "@/components/shell/Section.astro";
+import NextDepth from "@/components/shell/NextDepth.astro";
+import CIBar from "@/components/evidence/CIBar.astro";
+import benchmark from "@/generated/data/findings/benchmark.json";
+import conclusions from "@/generated/data/findings/conclusions.json";
+import comparison from "@/generated/data/findings/comparison.json";
+import protocol from "@/generated/data/findings/protocol.json";
+import ablationReport from "@/generated/data/findings/ablation.json";
+
+marked.setOptions({ gfm: true, breaks: false });
+
+const { tasks, ablation, meta, sources } = benchmark.data;
+
+// Shared ROC-AUC domain so bars are comparable down the column. Trivial baselines sit
+// at 0.5 by construction, so the domain starts there rather than at zero.
+const DOMAIN: readonly [number, number] = [0.45, 1.0];
+
+const conclusionLead = await marked.parse(conclusions.data.lead);
+const verdictSection = comparison.data.sections.find((s) =>
+  s.heading.toLowerCase().includes("overall"),
+);
+const verdictHtml = verdictSection ? await marked.parse(verdictSection.body) : "";
+const protocolSections = await Promise.all(
+  protocol.data.sections.slice(0, 6).map(async (s) => ({
+    heading: s.heading,
+    html: await marked.parse(s.body),
+  })),
+);
+const ablationVerdict = ablationReport.data.sections.find((s) =>
+  s.heading.toLowerCase().includes("spectral"),
+);
+const ablationHtml = ablationVerdict ? await marked.parse(ablationVerdict.body) : "";
+
+const fmt = (v: number | null, digits: number) => (v === null ? "—" : v.toFixed(digits));
+
+
+---
+
+<BaseLayout
+  title="Findings · Method — AdityaNet"
+  description="Full method behind the AdityaNet findings: benchmark tables, adjudicated verdicts, the spectral ablation, and the frozen evaluation protocol."
+>
+  <AmbientBackdrop
+    src="/video/space-galaxies.mp4"
+    poster="/video/space-galaxies-poster.jpg"
+    shape="frame"
+    align="right"
+  />
+
+  <main id="main" class="mx-auto max-w-5xl px-6 pb-32">
+    <div class="section-tight flow">
+      <PageHeader
+        eyebrow="Findings · method"
+        title="The full method"
+        lede="Every benchmark table, the adjudicated verdicts verbatim, and the protocol that was frozen before any model was fit."
+      />
+      <p class="mt-8">
+        <a href="/findings/" class="link">← Back to the finding</a>
+      </p>
+    </div>
+
+    
+    <div class="doc measure flow mt-[var(--rhythm)]" set:html={conclusionLead} />
+
+    {/* Benchmark tables — one per task */}
+    {
+      tasks.map((task) => (
+        <Section id={`task-${task.slug}`} eyebrow="Benchmark" title={task.label} ruled>
+          <p class="font-mono text-2xs text-fg-subtle tabular-nums" data-numeric>
+            train {task.n_train.toLocaleString("en-US")} · val{" "}
+            {task.n_val.toLocaleString("en-US")} · test {task.n_test.toLocaleString("en-US")} minutes
+            · test positives {(task.test_positive_rate! * 100).toFixed(2)}%
+          </p>
+
+          {/* Scrolls inside its own container; the page body never scrolls sideways. */}
+          <div class="mt-6 overflow-x-auto rounded-[10px] border border-line-subtle">
+            <table class="table-scan w-full border-collapse text-sm">
+              <caption class="sr-only">
+                {task.label}: ROC-AUC and event recall with 95% confidence intervals, and
+                false event runs, for eight models.
+              </caption>
+              <thead>
+                <tr class="border-b border-line-subtle bg-surface text-left">
+                  <th scope="col" class="px-5 py-3 text-2xs font-medium tracking-[0.12em] text-fg-muted uppercase">Model</th>
+                  <th scope="col" class="px-5 py-3 text-2xs font-medium tracking-[0.12em] text-fg-muted uppercase">ROC-AUC · 95% CI</th>
+                  <th scope="col" class="px-5 py-3 text-2xs font-medium tracking-[0.12em] text-fg-muted uppercase">Event recall · 95% CI</th>
+                  <th scope="col" class="px-5 py-3 text-right text-2xs font-medium tracking-[0.12em] text-fg-muted uppercase">False runs</th>
+                </tr>
+              </thead>
+              <tbody>
+                {task.rows.map((row) => (
+                  <tr class="border-b border-line-subtle last:border-0">
+                    <th scope="row" class="px-5 py-3.5 text-left font-medium whitespace-nowrap">
+                      {row.label}
+                      {row.is_baseline && (
+                        <span class="ml-2 font-mono text-2xs font-normal text-fg-subtle">
+                          trivial
+                        </span>
+                      )}
+                    </th>
+                    <td class="px-5 py-3.5">
+                      {row.roc_auc !== null && row.roc_auc_ci95 ? (
+                        <CIBar
+                          value={row.roc_auc}
+                          ci95={row.roc_auc_ci95 as [number, number]}
+                          domainMin={DOMAIN[0]}
+                          domainMax={DOMAIN[1]}
+                        />
+                      ) : (
+                        <span class="font-mono text-sm tabular-nums" data-numeric>
+                          {fmt(row.roc_auc, 3)}
+                        </span>
+                      )}
+                    </td>
+                    <td class="px-5 py-3.5">
+                      {row.event_recall !== null && row.event_recall_ci95 ? (
+                        <CIBar
+                          value={row.event_recall}
+                          ci95={row.event_recall_ci95 as [number, number]}
+                          domainMin={0}
+                          domainMax={1}
+                        />
+                      ) : (
+                        <span class="font-mono text-sm tabular-nums" data-numeric>
+                          {fmt(row.event_recall, 3)}
+                        </span>
+                      )}
+                    </td>
+                    <td class="px-5 py-3.5 text-right font-mono tabular-nums" data-numeric>
+                      {row.false_event_runs?.toLocaleString("en-US") ?? "—"}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p class="mt-4 font-mono text-2xs break-all text-fg-subtle">{sources.benchmark}</p>
+        </Section>
+      ))
+    }
+
+    {/* Adjudicated verdicts, verbatim */}
+    <Section id="verdict" eyebrow="Adjudication" title="Overall verdict" major ruled>
+      <p class="lede -mt-2 mb-8">
+        Rendered verbatim from the comparison report. These are adjudications made under a
+        protocol frozen before any model was fit, not classifications this page computes.
+      </p>
+      <div class="doc measure" set:html={verdictHtml} />
+    </Section>
+
+    {/* Spectral ablation — the null result, at full weight */}
+    <Section id="ablation" eyebrow="Null result" title="Spectral resolution: a confirmed null" ruled>
+      <dl class="reveal-stagger grid gap-4 sm:grid-cols-3">
+        <div class="card p-5">
+          <dt class="text-2xs tracking-[0.14em] text-fg-muted uppercase">T1 only</dt>
+          <dd class="mt-2 font-mono text-metric tabular-nums" data-numeric>
+            {ablation.t1_only!.toFixed(4)}
+          </dd>
+        </div>
+        <div class="card p-5">
+          <dt class="text-2xs tracking-[0.14em] text-fg-muted uppercase">+ spectral bands</dt>
+          <dd class="mt-2 font-mono text-metric tabular-nums" data-numeric>
+            {ablation.t1_bands!.toFixed(4)}
+          </dd>
+        </div>
+        <div class="card p-5">
+          <dt class="text-2xs tracking-[0.14em] text-fg-muted uppercase">Δ ROC-AUC</dt>
+          <dd class="mt-2 font-mono text-metric tabular-nums text-open" data-numeric>
+            +{ablation.delta_bands!.toFixed(4)}
+          </dd>
+        </div>
+      </dl>
+
+      <div class="doc measure mt-10" set:html={ablationHtml} />
+      <p class="mt-4 font-mono text-2xs break-all text-fg-subtle">{sources.ablation}</p>
+    </Section>
+
+    {/* Protocol */}
+    <Section id="protocol" eyebrow="Method" title="Evaluation protocol" ruled>
+      <p class="lede -mt-2">
+        Frozen before any model was fit. Every choice below is justified by a measurement
+        on the dataset, not by convention.
+      </p>
+      <p class="mt-4 font-mono text-2xs text-fg-subtle">
+        seed {meta.seed} · test from {meta.test_start} · {meta.effective_n_note}
+      </p>
+
+      <div class="reveal-stagger mt-12 grid gap-10">
+        {
+          protocolSections.map((s) => (
+            <div>
+              <h3 class="display-3" set:html={marked.parseInline(s.heading)} />
+              <div class="doc measure mt-3" set:html={s.html} />
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-8 font-mono text-2xs break-all text-fg-subtle">{protocol.data.source}</p>
+    </Section>
+
+    <NextDepth />
+  </main>
+</BaseLayout>

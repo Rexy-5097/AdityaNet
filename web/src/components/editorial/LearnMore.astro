@@ -1,0 +1,30 @@
+---
+/**
+ * The seam between story and documentation.
+ *
+ * This component is what makes the editorial split honest. The story surfaces are allowed
+ * to be brief ONLY because the full record — protocol, intervals, schemas, per-table
+ * digests — is one click away and still published in full. Remove these links and the
+ * brevity becomes omission.
+ *
+ * It is a link, not a disclosure widget: the detail lives at a real URL that can be cited,
+ * bookmarked and linked to by someone challenging a claim.
+ */
+interface Props {
+  href: string;
+  /** What the reader will find, not "learn more" alone — a bare label tells them nothing. */
+  label: string;
+  /** Optional short description of the destination. */
+  note?: string;
+}
+
+const { href, label, note } = Astro.props;
+---
+
+<a href={href} class="learn-more next-link group">
+  <span class="learn-more__body">
+    <span class="learn-more__label">{label}</span>
+    {note && <span class="learn-more__note">{note}</span>}
+  </span>
+  <span class="arrow" aria-hidden="true">→</span>
+</a>

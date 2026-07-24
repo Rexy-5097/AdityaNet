@@ -1,0 +1,122 @@
+---
+/**
+ * The verdict, made visible.
+ *
+ * The central finding — that machine learning did not beat a threshold — was previously
+ * something a visitor had to READ, across a paragraph and a wide table of numbers. It is
+ * fundamentally a visual claim: the models' confidence intervals overlap, so none of them
+ * is distinguishable from the simple detector.
+ *
+ * Drawing each interval as a band with its point estimate marked lets the eye do the
+ * statistics. Overlapping bands are obvious at a glance; a reader does not need to compare
+ * eight pairs of decimals to see that the bars line up.
+ *
+ * HONESTY. The bars are positioned on a shared, explicitly labelled domain, so their
+ * lengths are comparable and no visual exaggeration is possible. Point estimates and
+ * intervals are printed as text beside every bar — the graphic is an aid to the numbers,
+ * never a replacement for them, and it stays truthful for a screen-reader user who
+ * receives only the text.
+ */
+interface Row {
+  readonly label: string;
+  readonly value: number | null;
+  readonly ci95?: readonly number[] | null;
+  /** Trivial baselines are drawn muted: present for honesty, not competing for attention. */
+  readonly isBaseline?: boolean;
+  /** The reference the others are being judged against. */
+  readonly highlight?: boolean;
+}
+
+interface Props {
+  rows: readonly Row[];
+  /** Shared axis. Starts at 0.5 for ROC-AUC, where a coin flip sits. */
+  domain: readonly [number, number];
+  axisLabel: string;
+  caption?: string;
+}
+
+const { rows, domain, axisLabel, caption } = Astro.props;
+
+const [lo, hi] = domain;
+const pct = (v: number): number => ((v - lo) / (hi - lo)) * 100;
+const clamp = (v: number): number => Math.min(100, Math.max(0, v));
+const ticks = [lo, lo + (hi - lo) / 2, hi];
+---
+
+<figure class="flow-parallax">
+  <div class="glass overflow-hidden p-6 sm:p-8">
+    <ul class="space-y-5">
+      {
+        rows.map((r) => {
+          const hasCi = r.ci95 != null && r.value != null;
+          const left = hasCi ? clamp(pct(r.ci95![0]!)) : 0;
+          const right = hasCi ? clamp(pct(r.ci95![1]!)) : 0;
+          const point = r.value != null ? clamp(pct(r.value)) : 0;
+          return (
+            <li>
+              <div class="flex items-baseline justify-between gap-4">
+                <span
+                  class:list={[
+                    "text-sm",
+                    r.highlight ? "font-medium text-fg" : r.isBaseline ? "text-fg-subtle" : "text-fg-muted",
+                  ]}
+                >
+                  {r.label}
+                  {r.isBaseline && (
+                    <span class="ml-2 font-mono text-2xs text-fg-subtle">trivial</span>
+                  )}
+                </span>
+                <span class="font-mono text-xs tabular-nums text-fg-muted" data-numeric>
+                  {r.value == null ? "—" : r.value.toFixed(3)}
+                  {hasCi && (
+                    <span class="ml-2 text-fg-subtle">
+                      {r.ci95![0]!.toFixed(3)}–{r.ci95![1]!.toFixed(3)}
+                    </span>
+                  )}
+                </span>
+              </div>
+
+              {/* The track. The band is the 95% interval; the notch is the estimate. */}
+              <div class="relative mt-2 h-2 rounded-full bg-line-subtle">
+                {hasCi && (
+                  <div
+                    class:list={[
+                      "absolute inset-y-0 rounded-full",
+                      r.highlight
+                        ? "bg-accent/70"
+                        : r.isBaseline
+                          ? "bg-fg-subtle/25"
+                          : "bg-fg-muted/40",
+                    ]}
+                    style={`left:${left}%;width:${Math.max(right - left, 0.6)}%`}
+                  />
+                )}
+                {r.value != null && (
+                  <div
+                    class:list={[
+                      "absolute top-1/2 h-3.5 w-0.5 -translate-y-1/2 rounded-full",
+                      r.highlight ? "bg-accent" : r.isBaseline ? "bg-fg-subtle" : "bg-fg",
+                    ]}
+                    style={`left:${point}%`}
+                  />
+                )}
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    {/* Axis. Without it the bars are decoration. */}
+    <div class="mt-7 border-t border-line-subtle pt-3">
+      <div class="flex justify-between font-mono text-2xs tabular-nums text-fg-subtle">
+        {ticks.map((t) => <span data-numeric>{t.toFixed(2)}</span>)}
+      </div>
+      <p class="mt-1 font-mono text-2xs tracking-[0.14em] text-fg-subtle uppercase">
+        {axisLabel}
+      </p>
+    </div>
+  </div>
+
+  {caption && <figcaption class="mt-4 text-sm text-fg-muted">{caption}</figcaption>}
+</figure>

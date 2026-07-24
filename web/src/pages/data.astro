@@ -16,10 +16,9 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
 import KeyFacts from "@/components/shell/KeyFacts.astro";
 import NextDepth from "@/components/shell/NextDepth.astro";
-import ReportSections from "@/components/evidence/ReportSections.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
 import LightCurve from "@/scientific/LightCurve";
 import coverage from "@/generated/data/coverage.json";
-import dictionary from "@/generated/data/pipeline/dictionary.json";
 
 const { days, table, unit } = coverage.data;
 
@@ -72,11 +71,10 @@ const calHeight = 7 * (CELL + GAP);
   <main id="main" class="mx-auto max-w-5xl px-6 pb-32">
     <div class="section-tight flow">
       <p class="eyebrow">Canonical dataset</p>
-      <h1 class="display-1 mt-5">Every observed minute.</h1>
-      <p class="lede mt-6">
-        Gaps are shown as gaps. Nothing is interpolated, and a day the instrument did not
-        observe is not drawn.
-      </p>
+      <h1 class="verdict mt-7">
+        {days.length.toLocaleString("en-US")} days.<br />Every observed minute.
+      </h1>
+      <p class="lede mt-8">Gaps are shown as gaps. Nothing is interpolated.</p>
     </div>
 
     <KeyFacts
@@ -148,13 +146,19 @@ const calHeight = 7 * (CELL + GAP);
       </div>
     </section>
 
-    {/* Schema */}
-    <section class="section flow" aria-labelledby="schema-heading">
-      <h2 id="schema-heading" class="display-3">
-        Table schemas
-      </h2>
-      <ReportSections sections={dictionary.data.sections} limit={3} />
-      <p class="mt-6 font-mono text-2xs break-all text-fg-subtle">{dictionary.data.source}</p>
+    <section class="section-tight flow">
+      <div class="flex flex-wrap gap-3">
+        <LearnMore
+          href="/data/schema/"
+          label="Table schemas"
+          note="Every column, type and meaning"
+        />
+        <LearnMore
+          href="/pipeline/"
+          label="How the data was made"
+          note="Raw archive products to validated evidence"
+        />
+      </div>
     </section>
     <NextDepth />
   </main>
