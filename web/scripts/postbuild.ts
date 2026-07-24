@@ -159,19 +159,47 @@ function syncVercelHeaders(resolvedHeaders: string): void {
   }
   void directives;
 
-  const vercelPath = join(WEB_ROOT, "vercel.json");
-  const config = {
+  // Two configs, because either Vercel Root Directory setting must work.
+  //
+  //   web/vercel.json   used when Root Directory = "web" (the correct setup).
+  //   <repo>/vercel.json used when Root Directory is the repository root.
+  //
+  // The second exists because the repository root carries requirements.txt for the
+  // science pipeline, and Vercel auto-detects that as a PYTHON project: it tries to
+  // resolve netcdf4/numpy and the build dies before Astro is ever reached. The website
+  // has nothing to do with those dependencies. Declaring an explicit installCommand and
+  // buildCommand overrides the Python detection and points the build into web/.
+  //
+  // Vercel reads only the config at its Root Directory, so the two never both apply.
+  const written: string[] = [];
+
+  const emit = (path: string, config: unknown): void => {
+    const next = `${JSON.stringify(config, null, 2)}\n`;
+    const previous = existsSync(path) ? readFileSync(path, "utf8") : "";
+    if (previous !== next) {
+      writeFileSync(path, next);
+      written.push(path);
+    }
+  };
+
+  emit(join(WEB_ROOT, "vercel.json"), {
     $schema: "https://openapi.vercel.sh/vercel.json",
     framework: "astro",
     headers: routes,
-  };
-  const next = `${JSON.stringify(config, null, 2)}\n`;
-  const previous = existsSync(vercelPath) ? readFileSync(vercelPath, "utf8") : "";
+  });
 
-  if (previous !== next) {
-    writeFileSync(vercelPath, next);
+  emit(join(WEB_ROOT, "..", "vercel.json"), {
+    $schema: "https://openapi.vercel.sh/vercel.json",
+    framework: null,
+    installCommand: "npm --prefix web install",
+    buildCommand: "npm --prefix web run build",
+    outputDirectory: "web/dist",
+    headers: routes,
+  });
+
+  if (written.length > 0) {
     console.warn(
-      "postbuild: vercel.json headers regenerated — COMMIT IT before deploying, or Vercel will serve a stale CSP.",
+      "postbuild: vercel.json regenerated — COMMIT IT before deploying, or Vercel will serve a stale CSP.",
     );
   }
 }
