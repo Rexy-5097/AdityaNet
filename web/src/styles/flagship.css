@@ -435,6 +435,47 @@
   .nav-menu[open] > .nav-menu__panel { animation: reveal-rise 240ms var(--ease-out-soft) both; }
 }
 
+/* KeyFacts values are fluid, because the row mixes short numbers ("424") with long
+   strings ("2024-02-01 — 2026-06-15"). A fixed metric size made the long ones wrap into
+   very tall cards on a phone. */
+.keyfact-value {
+  font-size: clamp(1.25rem, 5vw, 1.75rem);
+  overflow-wrap: anywhere;
+}
+
+/* The wordmark is the way home and measured 22px tall — below the 44px target floor. */
+.site-header .nav-link:first-child {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/*
+ * LANDSCAPE PHONES. A 100svh hero is correct in portrait and absurd at 375px tall: the
+ * headline, lede and both buttons cannot coexist in that band, so the section is allowed
+ * to grow to its content instead of being pinned to the viewport.
+ */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero-viewport { min-height: auto !important; padding-block: 3.5rem 4.5rem; }
+  .ambient-video--disc { top: 50%; width: min(70vw, 90vh); height: min(70vw, 90vh); }
+
+  /* The fixed label sits where the call-to-action lands when the viewport is only 375px
+     tall — measured collision between the buttons and the watermark strip. It still shows
+     at rest, so P8 is satisfied while the footage is the subject, but it retires almost
+     immediately on scroll instead of sitting on top of the content being read. */
+  .ambient-watermark { animation-range: 0 18vh !important; }
+}
+
+/*
+ * ULTRAWIDE. max-w-6xl alone leaves the composition stranded in the middle of a 1920+
+ * display with the footage running to both edges. Widening the reading column keeps the
+ * type in proportion to the frame rather than shrinking into it.
+ */
+@media (min-width: 1728px) {
+  :root { --rhythm: clamp(5.5rem, 10vh, 9rem); }
+  .ambient-video--disc.ambient-video--right { right: -6vw; width: min(88vh, 1000px); height: min(88vh, 1000px); }
+}
+
 /* Chips — metadata that is worth showing but not worth a row of its own. Replaces
    definition lists whose only job was to name a version or a date. */
 .chip {

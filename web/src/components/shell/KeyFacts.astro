@@ -50,11 +50,11 @@ const columnClass = COLUMNS[Math.min(Math.max(facts.length, 1), 4)] ?? "lg:grid-
 >
   {
     facts.map((f) => (
-      <div class="bg-canvas/70 px-6 py-7 backdrop-blur-xl">
+      <div class="bg-canvas/70 px-5 py-5 backdrop-blur-xl sm:px-6 sm:py-7">
         <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">{f.label}</dt>
         <dd
           class:list={[
-            "mt-3 font-mono text-metric leading-none tabular-nums",
+            "keyfact-value mt-3 font-mono leading-none tabular-nums",
             f.emphasis ? "text-fg" : "text-fg-muted",
           ]}
           data-numeric
