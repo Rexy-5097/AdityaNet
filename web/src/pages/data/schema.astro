@@ -1,0 +1,42 @@
+---
+/**
+ * Data · Schemas — the documentation surface.
+ *
+ * Column-by-column table definitions, moved off the Data story surface. A schema is
+ * reference material: nobody scans it, they look things up in it. Keeping it here lets
+ * /data communicate coverage visually while this page stays exhaustive.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import PageHeader from "@/components/shell/PageHeader.astro";
+import ReportSections from "@/components/evidence/ReportSections.astro";
+import dictionary from "@/generated/data/pipeline/dictionary.json";
+---
+
+<BaseLayout
+  title="Data · Schemas — AdityaNet"
+  description="Column-level schemas for every canonical table in the AdityaNet dataset."
+>
+  <AmbientBackdrop
+    src="/video/sun-ambient-304.mp4"
+    poster="/video/sun-ambient-304-poster.jpg"
+    shape="disc"
+    align="right"
+  />
+
+  <main id="main" class="mx-auto max-w-4xl px-6 pb-32">
+    <div class="section-tight flow">
+      <PageHeader
+        eyebrow="Data · schemas"
+        title="Table schemas"
+        lede="Every column in the canonical tables, with its type and meaning."
+      />
+      <p class="mt-8"><a href="/data/" class="link">← Back to the data</a></p>
+    </div>
+
+    <section class="section flow">
+      <ReportSections sections={dictionary.data.sections} />
+      <p class="mt-8 font-mono text-2xs break-all text-fg-subtle">{dictionary.data.source}</p>
+    </section>
+  </main>
+</BaseLayout>

@@ -301,6 +301,44 @@
 .nav-link:focus-visible::after,
 .nav-link[aria-current="page"]::after { transform: scaleX(1); }
 
+/* The story -> documentation seam. Reads as a destination, not a footnote. */
+.learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1.25rem;
+  border: 1px solid var(--color-line-subtle);
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--color-surface) 38%, transparent);
+  backdrop-filter: blur(12px);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 260ms var(--ease-out-soft),
+    background-color 260ms var(--ease-out-soft),
+    transform 260ms var(--ease-out-soft);
+}
+.learn-more:hover {
+  border-color: var(--color-line);
+  background: color-mix(in oklab, var(--color-surface) 62%, transparent);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .learn-more:hover { transform: translateY(-2px); }
+}
+.learn-more__body { display: flex; flex-direction: column; gap: 0.15rem; }
+.learn-more__label { font-size: var(--text-sm); font-weight: 500; color: var(--color-fg); }
+.learn-more__note { font-size: var(--text-2xs); color: var(--color-fg-subtle); }
+
+/* A statement rendered at the scale of a claim. Used once per story surface. */
+.verdict {
+  font-size: clamp(2.4rem, 6.4vw, 5rem);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-wrap: balance;
+  text-shadow: 0 2px 30px rgb(0 0 0 / 0.5);
+}
+
 /* Chips — metadata that is worth showing but not worth a row of its own. Replaces
    definition lists whose only job was to name a version or a date. */
 .chip {

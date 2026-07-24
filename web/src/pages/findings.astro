@@ -1,92 +1,50 @@
 ---
 /**
- * Findings — the scientific conclusions, including the negative result.
+ * Findings — the STORY surface.
  *
- * The headline of this project is that machine learning provides no operational benefit
- * over a threshold detector for the evaluated tasks. That is presented first, at full
- * weight, in the same treatment any positive result would receive. A layout that
- * visually de-emphasised an inconvenient finding would be dishonest regardless of what
- * the text said.
+ * Editorial split: this page states what was found and shows why it is believable. The
+ * paper — full benchmark tables for every task, the adjudicated verdicts verbatim, the
+ * frozen evaluation protocol, the ablation report — lives at /findings/method.
  *
- * DIVISION OF SOURCES. Numbers come from benchmark_results.json, where every cell is
- * traceable. Verdicts — "statistically indistinguishable", "significantly worse" — are
- * rendered verbatim from the prose reports, because they are adjudications made under a
- * protocol frozen before any model was fit. Recomputing them here would let the site
- * disagree with the paper it publishes.
+ * The split is only honest because the detail is still published in full, one click away,
+ * at a citable URL. Brevity here is editing, not omission.
  *
- * FLAGSHIP PASS. Presentation only — no claim, number or source on this page changed.
- * The page now uses the shared PageHeader/Section rhythm so it reads as the same product
- * as the opening scene: mono eyebrows, light display headings, generous vertical rhythm,
- * and CSS-only scroll reveals that cost zero bytes of JavaScript.
+ * The central claim is a VISUAL claim: the models' confidence intervals overlap the
+ * threshold baseline's, so none is distinguishable from it. Drawing the intervals lets a
+ * visitor see that in about a second, where the table asked them to compare sixteen
+ * decimals. The numbers stay printed beside every bar.
+ *
+ * Nothing here is computed by this page. Every figure is read from the same benchmark
+ * artifact the tables at /findings/method render, so the summary cannot drift from the
+ * evidence it summarises.
  */
-import { marked } from "marked";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
-import KeyFacts from "@/components/shell/KeyFacts.astro";
-import PageHeader from "@/components/shell/PageHeader.astro";
-import Section from "@/components/shell/Section.astro";
+import CompareBars from "@/components/editorial/CompareBars.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
 import NextDepth from "@/components/shell/NextDepth.astro";
-import CIBar from "@/components/evidence/CIBar.astro";
 import benchmark from "@/generated/data/findings/benchmark.json";
-import conclusions from "@/generated/data/findings/conclusions.json";
-import comparison from "@/generated/data/findings/comparison.json";
-import protocol from "@/generated/data/findings/protocol.json";
-import ablationReport from "@/generated/data/findings/ablation.json";
 
-marked.setOptions({ gfm: true, breaks: false });
+const { tasks, ablation, meta } = benchmark.data;
 
-const { tasks, ablation, meta, sources } = benchmark.data;
+// The headline task. Its rows drive the comparison graphic.
+const headline = tasks[0]!;
 
-// Shared ROC-AUC domain so bars are comparable down the column. Trivial baselines sit
-// at 0.5 by construction, so the domain starts there rather than at zero.
+// Trivial baselines sit at 0.5 by construction, so the axis starts just below it.
 const DOMAIN: readonly [number, number] = [0.45, 1.0];
 
-const conclusionLead = await marked.parse(conclusions.data.lead);
-const verdictSection = comparison.data.sections.find((s) =>
-  s.heading.toLowerCase().includes("overall"),
-);
-const verdictHtml = verdictSection ? await marked.parse(verdictSection.body) : "";
-const protocolSections = await Promise.all(
-  protocol.data.sections.slice(0, 6).map(async (s) => ({
-    heading: s.heading,
-    html: await marked.parse(s.body),
-  })),
-);
-const ablationVerdict = ablationReport.data.sections.find((s) =>
-  s.heading.toLowerCase().includes("spectral"),
-);
-const ablationHtml = ablationVerdict ? await marked.parse(ablationVerdict.body) : "";
-
-const fmt = (v: number | null, digits: number) => (v === null ? "—" : v.toFixed(digits));
-
-// Headline figures for the at-a-glance row. Read from the same artifact rows the tables
-// below render, so the summary cannot drift from the evidence it summarises.
-const headlineTask = tasks[0];
-const thresholdRow = headlineTask?.rows.find((r) => r.label.toLowerCase().includes("threshold"));
-const bestMlRow = headlineTask?.rows
-  .filter((r) => !r.is_baseline && !r.label.toLowerCase().includes("threshold"))
-  .reduce<(typeof headlineTask.rows)[number] | undefined>(
-    (best, r) => ((r.roc_auc ?? 0) > (best?.roc_auc ?? 0) ? r : best),
-    undefined,
-  );
-
-/**
- * The at-a-glance row must not be able to mislead a visitor who only scans it.
- *
- * The best ML model posts a HIGHER point estimate than the threshold baseline
- * (0.966 vs 0.954), so showing the two figures alone would imply machine learning won —
- * the exact opposite of this page's adjudicated conclusion. Their 95% intervals overlap,
- * which is why the verdict is "no gain", so the intervals are shown alongside the point
- * estimates and the overlap is stated in words. A summary that contradicts the evidence
- * beneath it would be worse than no summary.
- */
-const ci = (r?: { roc_auc_ci95?: readonly number[] | null }): string =>
-  r?.roc_auc_ci95 ? `95% CI ${r.roc_auc_ci95[0]!.toFixed(3)}–${r.roc_auc_ci95[1]!.toFixed(3)}` : "";
+const bars = headline.rows.map((r) => ({
+  label: r.label,
+  value: r.roc_auc,
+  ci95: r.roc_auc_ci95,
+  isBaseline: r.is_baseline,
+  highlight: r.label.toLowerCase().includes("threshold"),
+}));
 ---
 
 <BaseLayout
   title="Findings — AdityaNet"
-  description="Scientific conclusions from the Aditya-L1 X-ray archive, including the negative result that machine learning adds no operational benefit over a threshold detector."
+  description="Machine learning provided no operational benefit over a simple threshold detector on the Aditya-L1 X-ray archive. The negative result, published in full."
 >
   <AmbientBackdrop
     src="/video/space-galaxies.mp4"
@@ -96,172 +54,88 @@ const ci = (r?: { roc_auc_ci95?: readonly number[] | null }): string =>
   />
 
   <main id="main" class="mx-auto max-w-5xl px-6 pb-32">
-    <div class="section-tight flow">
-      <PageHeader
-        eyebrow="Scientific conclusions"
-        title="Machine learning did not help."
-        lede="A simple threshold on the SoLEXS count rate is the strongest non-trivial detector we found. We are publishing that."
-      />
-    </div>
-
-    {/* The headline comparison, read straight from the benchmark artifact. */}
-    <KeyFacts
-      facts={[
-        {
-          label: "Threshold baseline",
-          value: fmt(thresholdRow?.roc_auc ?? null, 3),
-          note: `ROC-AUC · ${ci(thresholdRow)}`,
-          emphasis: true,
-        },
-        {
-          label: "Best ML model",
-          value: fmt(bestMlRow?.roc_auc ?? null, 3),
-          note: `${bestMlRow?.label ?? "—"} · ${ci(bestMlRow)}`,
-        },
-        { label: "Verdict", value: "no gain", note: "the intervals overlap" },
-        { label: "Spectral bands", value: `+${ablation.delta_bands!.toFixed(4)}`, note: "Δ ROC-AUC · a confirmed null" },
-      ]}
-    />
-
-    <div class="doc measure flow mt-[var(--rhythm)]" set:html={conclusionLead} />
-
-    {/* Benchmark tables — one per task */}
-    {
-      tasks.map((task) => (
-        <Section id={`task-${task.slug}`} eyebrow="Benchmark" title={task.label} ruled>
-          <p class="font-mono text-2xs text-fg-subtle tabular-nums" data-numeric>
-            train {task.n_train.toLocaleString("en-US")} · val{" "}
-            {task.n_val.toLocaleString("en-US")} · test {task.n_test.toLocaleString("en-US")} minutes
-            · test positives {(task.test_positive_rate! * 100).toFixed(2)}%
-          </p>
-
-          {/* Scrolls inside its own container; the page body never scrolls sideways. */}
-          <div class="mt-6 overflow-x-auto rounded-[10px] border border-line-subtle">
-            <table class="table-scan w-full border-collapse text-sm">
-              <caption class="sr-only">
-                {task.label}: ROC-AUC and event recall with 95% confidence intervals, and
-                false event runs, for eight models.
-              </caption>
-              <thead>
-                <tr class="border-b border-line-subtle bg-surface text-left">
-                  <th scope="col" class="px-5 py-3 text-2xs font-medium tracking-[0.12em] text-fg-muted uppercase">Model</th>
-                  <th scope="col" class="px-5 py-3 text-2xs font-medium tracking-[0.12em] text-fg-muted uppercase">ROC-AUC · 95% CI</th>
-                  <th scope="col" class="px-5 py-3 text-2xs font-medium tracking-[0.12em] text-fg-muted uppercase">Event recall · 95% CI</th>
-                  <th scope="col" class="px-5 py-3 text-right text-2xs font-medium tracking-[0.12em] text-fg-muted uppercase">False runs</th>
-                </tr>
-              </thead>
-              <tbody>
-                {task.rows.map((row) => (
-                  <tr class="border-b border-line-subtle last:border-0">
-                    <th scope="row" class="px-5 py-3.5 text-left font-medium whitespace-nowrap">
-                      {row.label}
-                      {row.is_baseline && (
-                        <span class="ml-2 font-mono text-2xs font-normal text-fg-subtle">
-                          trivial
-                        </span>
-                      )}
-                    </th>
-                    <td class="px-5 py-3.5">
-                      {row.roc_auc !== null && row.roc_auc_ci95 ? (
-                        <CIBar
-                          value={row.roc_auc}
-                          ci95={row.roc_auc_ci95 as [number, number]}
-                          domainMin={DOMAIN[0]}
-                          domainMax={DOMAIN[1]}
-                        />
-                      ) : (
-                        <span class="font-mono text-sm tabular-nums" data-numeric>
-                          {fmt(row.roc_auc, 3)}
-                        </span>
-                      )}
-                    </td>
-                    <td class="px-5 py-3.5">
-                      {row.event_recall !== null && row.event_recall_ci95 ? (
-                        <CIBar
-                          value={row.event_recall}
-                          ci95={row.event_recall_ci95 as [number, number]}
-                          domainMin={0}
-                          domainMax={1}
-                        />
-                      ) : (
-                        <span class="font-mono text-sm tabular-nums" data-numeric>
-                          {fmt(row.event_recall, 3)}
-                        </span>
-                      )}
-                    </td>
-                    <td class="px-5 py-3.5 text-right font-mono tabular-nums" data-numeric>
-                      {row.false_event_runs?.toLocaleString("en-US") ?? "—"}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p class="mt-4 font-mono text-2xs break-all text-fg-subtle">{sources.benchmark}</p>
-        </Section>
-      ))
-    }
-
-    {/* Adjudicated verdicts, verbatim */}
-    <Section id="verdict" eyebrow="Adjudication" title="Overall verdict" major ruled>
-      <p class="lede -mt-2 mb-8">
-        Rendered verbatim from the comparison report. These are adjudications made under a
-        protocol frozen before any model was fit, not classifications this page computes.
+    {/* 1 — the verdict, at the scale of a claim */}
+    <section class="section flow">
+      <p class="eyebrow">Scientific conclusions</p>
+      <h1 class="verdict mt-7">Machine learning did not improve detection.</h1>
+      <p class="lede mt-8">
+        A simple threshold on the SoLEXS count rate matched every model we tried.
       </p>
-      <div class="doc measure" set:html={verdictHtml} />
-    </Section>
+    </section>
 
-    {/* Spectral ablation — the null result, at full weight */}
-    <Section id="ablation" eyebrow="Null result" title="Spectral resolution: a confirmed null" ruled>
-      <dl class="reveal-stagger grid gap-4 sm:grid-cols-3">
-        <div class="card p-5">
-          <dt class="text-2xs tracking-[0.14em] text-fg-muted uppercase">T1 only</dt>
-          <dd class="mt-2 font-mono text-metric tabular-nums" data-numeric>
-            {ablation.t1_only!.toFixed(4)}
-          </dd>
-        </div>
-        <div class="card p-5">
-          <dt class="text-2xs tracking-[0.14em] text-fg-muted uppercase">+ spectral bands</dt>
-          <dd class="mt-2 font-mono text-metric tabular-nums" data-numeric>
-            {ablation.t1_bands!.toFixed(4)}
-          </dd>
-        </div>
-        <div class="card p-5">
-          <dt class="text-2xs tracking-[0.14em] text-fg-muted uppercase">Δ ROC-AUC</dt>
-          <dd class="mt-2 font-mono text-metric tabular-nums text-open" data-numeric>
-            +{ablation.delta_bands!.toFixed(4)}
-          </dd>
-        </div>
-      </dl>
+    {/* 2 — the comparison. The overlap IS the finding. */}
+    <section class="section flow" aria-labelledby="compare-h">
+      <h2 id="compare-h" class="display-3">Every model, against the simple detector</h2>
+      <p class="lede mt-4">{headline.label} · higher is better</p>
 
-      <div class="doc measure mt-10" set:html={ablationHtml} />
-      <p class="mt-4 font-mono text-2xs break-all text-fg-subtle">{sources.ablation}</p>
-    </Section>
-
-    {/* Protocol */}
-    <Section id="protocol" eyebrow="Method" title="Evaluation protocol" ruled>
-      <p class="lede -mt-2">
-        Frozen before any model was fit. Every choice below is justified by a measurement
-        on the dataset, not by convention.
-      </p>
-      <p class="mt-4 font-mono text-2xs text-fg-subtle">
-        seed {meta.seed} · test from {meta.test_start} · {meta.effective_n_note}
-      </p>
-
-      <div class="reveal-stagger mt-12 grid gap-10">
-        {
-          protocolSections.map((s) => (
-            <div>
-              <h3 class="display-3" set:html={marked.parseInline(s.heading)} />
-              <div class="doc measure mt-3" set:html={s.html} />
-            </div>
-          ))
-        }
+      <div class="mt-9">
+        <CompareBars
+          rows={bars}
+          domain={DOMAIN}
+          axisLabel="ROC-AUC · bars show the 95% confidence interval"
+          caption="The intervals overlap. No model separates itself from the threshold, which is why the verdict is no gain rather than a ranking."
+        />
       </div>
+    </section>
 
-      <p class="mt-8 font-mono text-2xs break-all text-fg-subtle">{protocol.data.source}</p>
-    </Section>
+    {/* 3 — why it should be believed */}
+    <section class="section flow" aria-labelledby="evidence-h">
+      <h2 id="evidence-h" class="display-3">Why this result holds</h2>
+
+      <div class="reveal-stagger mt-9 grid gap-4 md:grid-cols-3">
+        <div class="glass p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+            Decided in advance
+          </p>
+          <p class="mt-4 font-mono text-metric leading-none text-fg" data-numeric>
+            seed {meta.seed}
+          </p>
+          <p class="mt-3 text-sm leading-relaxed text-fg-muted">
+            The protocol was frozen before any model was fit.
+          </p>
+        </div>
+
+        <div class="glass p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+            Extra spectral bands
+          </p>
+          <p class="mt-4 font-mono text-metric leading-none text-open" data-numeric>
+            +{ablation.delta_bands!.toFixed(4)}
+          </p>
+          <p class="mt-3 text-sm leading-relaxed text-fg-muted">
+            Δ ROC-AUC from added spectral resolution. A confirmed null.
+          </p>
+        </div>
+
+        <div class="glass p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+            Held-out test
+          </p>
+          <p class="mt-4 font-mono text-metric leading-none text-fg" data-numeric>
+            {headline.n_test.toLocaleString("en-US")}
+          </p>
+          <p class="mt-3 text-sm leading-relaxed text-fg-muted">
+            Minutes from {meta.test_start} onward, never seen in training.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* 4 — the door to the paper */}
+    <section class="section-tight flow">
+      <div class="flex flex-wrap gap-3">
+        <LearnMore
+          href="/findings/method/"
+          label="Read the full method"
+          note="Benchmark tables, adjudicated verdicts, evaluation protocol"
+        />
+        <LearnMore
+          href="/validation/"
+          label="See how it was checked"
+          note="Six contradictions, each ruled on"
+        />
+      </div>
+    </section>
 
     <NextDepth />
   </main>

@@ -10,11 +10,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
 import KeyFacts from "@/components/shell/KeyFacts.astro";
 import NextDepth from "@/components/shell/NextDepth.astro";
-import ReportSections from "@/components/evidence/ReportSections.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
 import build from "@/generated/data/build/index.json";
-import reproducibility from "@/generated/data/build/reproducibility.json";
 
-const { identity, environment, tables, frozen_at, sources } = build.data;
+const { identity, tables, frozen_at } = build.data;
 
 const totalBytes = tables.reduce((sum, t) => sum + t.bytes, 0);
 const formatBytes = (bytes: number) => {
@@ -116,85 +115,91 @@ const formatBytes = (bytes: number) => {
       </dl>
     </section>
 
-    {/* Table inventory */}
-    <section class="section flow" aria-labelledby="tables-heading">
-      <h2 id="tables-heading" class="display-3">Table inventory</h2>
-      <p class="lede mt-4">
-        Each digest covers that table's full file set — verify table by table, not only
-        in aggregate.
-      </p>
+    {/* What the project is made of — four cards, no prose. */}
+    <section class="section flow" aria-labelledby="stack-h">
+      <h2 id="stack-h" class="display-3">What it is made of</h2>
 
-      <div class="mt-5 overflow-x-auto rounded-md border border-line-subtle">
-        <table class="table-scan w-full border-collapse text-sm">
-          <caption class="sr-only">
-            Canonical table inventory with file counts, sizes, and SHA-256 digests.
-          </caption>
-          <thead>
-            <tr class="border-b border-line-subtle bg-surface text-left">
-              <th scope="col" class="px-4 py-2.5 text-2xs font-medium tracking-wide text-fg-muted uppercase">Table</th>
-              <th scope="col" class="px-4 py-2.5 text-2xs font-medium tracking-wide text-fg-muted uppercase">Name</th>
-              <th scope="col" class="px-4 py-2.5 text-right text-2xs font-medium tracking-wide text-fg-muted uppercase">Files</th>
-              <th scope="col" class="px-4 py-2.5 text-right text-2xs font-medium tracking-wide text-fg-muted uppercase">Size</th>
-              <th scope="col" class="px-4 py-2.5 text-2xs font-medium tracking-wide text-fg-muted uppercase">SHA-256</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              tables.map((t) => (
-                <tr class="border-b border-line-subtle last:border-0">
-                  <th scope="row" class="px-4 py-2.5 text-left font-mono">{t.key}</th>
-                  <td class="px-4 py-2.5 font-mono text-fg-muted">{t.name}</td>
-                  <td class="px-4 py-2.5 text-right font-mono tabular-nums" data-numeric>
-                    {t.n_files.toLocaleString("en-US")}
-                  </td>
-                  <td class="px-4 py-2.5 text-right font-mono tabular-nums" data-numeric>
-                    {formatBytes(t.bytes)}
-                  </td>
-                  <td class="px-4 py-2.5 font-mono text-2xs text-fg-subtle" data-numeric>
-                    {t.table_hash.slice(0, 12)}…
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+      <div class="reveal-stagger mt-9 grid gap-4 md:grid-cols-2">
+        <div class="glass p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Science</p>
+          <p class="mt-3 text-md text-fg">Frozen dataset, pre-registered protocol</p>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            <li class="chip">SoLEXS</li>
+            <li class="chip">HEL1OS</li>
+            <li class="chip">Level-1 FITS</li>
+            <li class="chip">Parquet</li>
+          </ul>
+        </div>
+
+        <div class="glass p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Engineering</p>
+          <p class="mt-3 text-md text-fg">Fail-loud parsing, contract-checked</p>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            <li class="chip">Python</li>
+            <li class="chip">Alembic</li>
+            <li class="chip">SHA-256</li>
+            <li class="chip">Pytest</li>
+          </ul>
+        </div>
+
+        <div class="glass p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Frontend</p>
+          <p class="mt-3 text-md text-fg">Static islands, evidence ships 0&nbsp;KB JS</p>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            <li class="chip">Astro</li>
+            <li class="chip">React</li>
+            <li class="chip">GSAP</li>
+            <li class="chip">Lenis</li>
+          </ul>
+        </div>
+
+        <div class="glass p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Infrastructure</p>
+          <p class="mt-3 text-md text-fg">Reproducible build, budget-gated CI</p>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            <li class="chip">GitHub Actions</li>
+            <li class="chip">Static hosting</li>
+            <li class="chip">Strict CSP</li>
+          </ul>
+        </div>
       </div>
-
-      <p class="mt-3 font-mono text-2xs text-fg-subtle tabular-nums" data-numeric>
-        {tables.length} tables · {formatBytes(totalBytes)} total
-      </p>
     </section>
 
-    {/* Environment */}
-    <section class="section flow" aria-labelledby="env-heading">
-      <h2 id="env-heading" class="display-3">Environment</h2>
-      <p class="mt-2 max-w-2xl text-sm text-fg-muted">
-        Pinned. The dependency set is frozen in a lockfile because an unpinned numeric
-        library silently changed results in this project once already.
-      </p>
-      <dl class="mt-5 space-y-2 card p-5 text-sm">
-        {
-          Object.entries(environment).map(([key, value]) => (
-            <div class="flex flex-wrap gap-x-4">
-              <dt class="w-44 shrink-0 text-fg-muted">{key}</dt>
-              <dd class="font-mono break-all">{String(value)}</dd>
-            </div>
-          ))
-        }
-      </dl>
-      <p class="mt-3 font-mono text-2xs break-all text-fg-subtle">{sources.lockfile}</p>
+    {/* The pipeline, as a diagram rather than a paragraph. */}
+    <section class="section flow" aria-labelledby="arch-h">
+      <h2 id="arch-h" class="display-3">Archive to evidence</h2>
+      <ol class="reveal-stagger mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" role="list">
+        {[
+          { n: "01", t: "ISSDC archive", d: "Raw Level-1 products, as published" },
+          { n: "02", t: "Parse & validate", d: "Twenty fail-loud rules; no silent coercion" },
+          { n: "03", t: "Freeze", d: "Digested, versioned, immutable" },
+          { n: "04", t: "Publish", d: "Every figure traceable to an artifact" },
+        ].map((step) => (
+          <li class="glass p-6">
+            <p class="font-mono text-2xs tracking-[0.18em] text-eyebrow">{step.n}</p>
+            <p class="mt-4 text-md text-fg">{step.t}</p>
+            <p class="mt-2 text-sm leading-relaxed text-fg-muted">{step.d}</p>
+          </li>
+        ))}
+      </ol>
     </section>
 
-    {/* Reproducibility record */}
-    <section class="section flow" aria-labelledby="repro-heading">
-      <h2 id="repro-heading" class="display-3">
-        Reproducibility record
-      </h2>
-      <ReportSections sections={reproducibility.data.sections} />
-      <p class="mt-6 font-mono text-2xs break-all text-fg-subtle">
-        {reproducibility.data.source}
-      </p>
+    {/* The door to the reproduction record. */}
+    <section class="section-tight flow">
+      <div class="flex flex-wrap gap-3">
+        <LearnMore
+          href="/build/reproduce/"
+          label="The reproduction record"
+          note="Per-table digests, pinned environment, rebuild result"
+        />
+        <LearnMore
+          href="/pipeline/"
+          label="How the pipeline works"
+          note="Stage by stage, with what each produced"
+        />
+      </div>
     </section>
+
     <NextDepth />
   </main>
 </BaseLayout>
