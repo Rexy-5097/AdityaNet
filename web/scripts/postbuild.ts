@@ -197,13 +197,17 @@ function syncVercelHeaders(resolvedHeaders: string): void {
     headers: routes,
   });
 
-  // Render blueprint. `runtime: static` is the important line: it tells Render this is a
-  // static site, so it never inspects requirements.txt at the repository root and cannot
-  // repeat the Python dependency resolution that broke the first Vercel build.
+  // Render blueprint.
   //
-  // Paths are deliberately repo-root-relative rather than using `rootDir`, because
-  // Render's docs describe staticPublishPath as relative to the repo root while its
-  // monorepo guide implies relative to rootDir. Avoiding rootDir removes the ambiguity.
+  // `rootDir: web` is the load-bearing line, and `runtime: static` alone was NOT enough.
+  // Scoped to the repository root, Render detected requirements.txt and began compiling
+  // pandas from source under Python 3.14 before Astro ever ran — the same trap that broke
+  // the Vercel build, on a different host. Render's docs are explicit that "files outside
+  // your service's root directory are not available to the service at build time", so
+  // rootDir hides the Python project entirely rather than working around its detection.
+  //
+  // With rootDir set, buildCommand AND staticPublishPath are both relative to it, so the
+  // command needs no --dir and the publish path is ./dist.
   //
   // Render's header syntax is flat (path/name/value), unlike Vercel's grouped form, so the
   // same header set is flattened here.
@@ -223,8 +227,9 @@ function syncVercelHeaders(resolvedHeaders: string): void {
     "  - type: web",
     "    name: adityanet",
     "    runtime: static",
-    "    buildCommand: npm i -g pnpm@10.28.2 && pnpm --dir web install --frozen-lockfile && pnpm --dir web run build",
-    "    staticPublishPath: ./web/dist",
+    "    rootDir: web",
+    "    buildCommand: npm i -g pnpm@10.28.2 && pnpm install --frozen-lockfile && pnpm run build",
+    "    staticPublishPath: ./dist",
     "    headers:",
     ...renderHeaders.flatMap((h) => [
       `      - path: ${h.path}`,

@@ -5,8 +5,9 @@ services:
   - type: web
     name: adityanet
     runtime: static
-    buildCommand: npm i -g pnpm@10.28.2 && pnpm --dir web install --frozen-lockfile && pnpm --dir web run build
-    staticPublishPath: ./web/dist
+    rootDir: web
+    buildCommand: npm i -g pnpm@10.28.2 && pnpm install --frozen-lockfile && pnpm run build
+    staticPublishPath: ./dist
     headers:
       - path: /*
         name: Content-Security-Policy
