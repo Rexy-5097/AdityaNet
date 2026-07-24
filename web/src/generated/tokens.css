@@ -6,8 +6,8 @@
 
 @theme {
   /* Typography — families */
-  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", monospace;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
 
   /* Typography — interface scale (§5.1.3, 13px base) */
   --text-2xs: 0.625rem;
