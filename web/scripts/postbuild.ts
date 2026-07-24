@@ -24,6 +24,7 @@ import { createHash } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
+const WEB_ROOT = join(fileURLToPath(new URL("..", import.meta.url)));
 const DIST = join(dirname(fileURLToPath(import.meta.url)), "..", "dist");
 
 /** Names that are operating-system metadata and never deployable content. */
@@ -114,8 +115,93 @@ function injectScriptHashes(): number {
   // an explanatory comment, and a non-global replace silently patched the comment while
   // leaving the live directive untouched. The gate reported success; the policy was
   // unchanged. Found in Sprint 3.
-  writeFileSync(headersPath, headers.replaceAll("__SCRIPT_HASHES__", hashes.join(" ")));
+  const resolved = headers.replaceAll("__SCRIPT_HASHES__", hashes.join(" "));
+  writeFileSync(headersPath, resolved);
+
+  syncVercelHeaders(resolved);
   return hashes.length;
+}
+
+/**
+ * Keep vercel.json's headers identical to dist/_headers.
+ *
+ * `_headers` is Cloudflare Pages syntax. Vercel ignores that file completely, so a
+ * deployment there would silently serve the site with NO Content-Security-Policy and no
+ * transport security — and, because `script-src` is hash-based rather than
+ * 'unsafe-inline', a stale hash list is worse than none: the browser blocks Astro's island
+ * bootstrap and the interactive surfaces die.
+ *
+ * vercel.json is read by Vercel BEFORE the build runs, so the hashes cannot be injected at
+ * deploy time; they have to be committed. This regenerates the file from the same resolved
+ * header text that produced _headers, so the two can never disagree, and reports when it
+ * changed so the result gets committed before deploying.
+ */
+function syncVercelHeaders(resolvedHeaders: string): void {
+  const directives: Record<string, string>[] = [];
+  let current: { source: string; headers: Record<string, string>[] } | null = null;
+  const routes: { source: string; headers: { key: string; value: string }[] }[] = [];
+
+  for (const line of resolvedHeaders.split("\n")) {
+    if (line.trim().length === 0 || line.trimStart().startsWith("#")) continue;
+    if (!line.startsWith(" ") && !line.startsWith("\t")) {
+      // A path pattern. Cloudflare's "/*" means "every route"; Vercel wants "/(.*)".
+      const source = line.trim() === "/*" ? "/(.*)" : line.trim().replace("/*", "/(.*)");
+      current = { source, headers: [] };
+      routes.push({ source, headers: [] });
+      continue;
+    }
+    const separator = line.indexOf(":");
+    if (separator === -1 || current === null) continue;
+    routes[routes.length - 1]!.headers.push({
+      key: line.slice(0, separator).trim(),
+      value: line.slice(separator + 1).trim(),
+    });
+  }
+  void directives;
+
+  // Two configs, because either Vercel Root Directory setting must work.
+  //
+  //   web/vercel.json   used when Root Directory = "web" (the correct setup).
+  //   <repo>/vercel.json used when Root Directory is the repository root.
+  //
+  // The second exists because the repository root carries requirements.txt for the
+  // science pipeline, and Vercel auto-detects that as a PYTHON project: it tries to
+  // resolve netcdf4/numpy and the build dies before Astro is ever reached. The website
+  // has nothing to do with those dependencies. Declaring an explicit installCommand and
+  // buildCommand overrides the Python detection and points the build into web/.
+  //
+  // Vercel reads only the config at its Root Directory, so the two never both apply.
+  const written: string[] = [];
+
+  const emit = (path: string, config: unknown): void => {
+    const next = `${JSON.stringify(config, null, 2)}\n`;
+    const previous = existsSync(path) ? readFileSync(path, "utf8") : "";
+    if (previous !== next) {
+      writeFileSync(path, next);
+      written.push(path);
+    }
+  };
+
+  emit(join(WEB_ROOT, "vercel.json"), {
+    $schema: "https://openapi.vercel.sh/vercel.json",
+    framework: "astro",
+    headers: routes,
+  });
+
+  emit(join(WEB_ROOT, "..", "vercel.json"), {
+    $schema: "https://openapi.vercel.sh/vercel.json",
+    framework: null,
+    installCommand: "npm --prefix web install",
+    buildCommand: "npm --prefix web run build",
+    outputDirectory: "web/dist",
+    headers: routes,
+  });
+
+  if (written.length > 0) {
+    console.warn(
+      "postbuild: vercel.json regenerated — COMMIT IT before deploying, or Vercel will serve a stale CSP.",
+    );
+  }
 }
 
 // Order matters: hash injection WRITES dist/_headers, and on a non-HFS+ volume every
