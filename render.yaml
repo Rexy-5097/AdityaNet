@@ -5,7 +5,7 @@ services:
   - type: web
     name: adityanet
     runtime: static
-    buildCommand: npm --prefix web install && npm --prefix web run build
+    buildCommand: npm i -g pnpm@10.28.2 && pnpm --dir web install --frozen-lockfile && pnpm --dir web run build
     staticPublishPath: ./web/dist
     headers:
       - path: /*

@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "AdityaNet Web Platform — independent research platform over the public Aditya-L1 X-ray archive.",
+  "description": "AdityaNet Web Platform \u2014 independent research platform over the public Aditya-L1 X-ray archive.",
   "license": "MIT",
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=22.12.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -56,5 +56,6 @@
     "typescript": "^5.6.0",
     "typescript-eslint": "^8.0.0",
     "vitest": "^4.1.10"
-  }
+  },
+  "packageManager": "pnpm@10.28.2"
 }

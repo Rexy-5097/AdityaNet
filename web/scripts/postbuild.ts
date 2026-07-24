@@ -191,8 +191,8 @@ function syncVercelHeaders(resolvedHeaders: string): void {
   emit(join(WEB_ROOT, "..", "vercel.json"), {
     $schema: "https://openapi.vercel.sh/vercel.json",
     framework: null,
-    installCommand: "npm --prefix web install",
-    buildCommand: "npm --prefix web run build",
+    installCommand: "npm i -g pnpm@10.28.2 && pnpm --dir web install --frozen-lockfile",
+    buildCommand: "pnpm --dir web run build",
     outputDirectory: "web/dist",
     headers: routes,
   });
@@ -223,7 +223,7 @@ function syncVercelHeaders(resolvedHeaders: string): void {
     "  - type: web",
     "    name: adityanet",
     "    runtime: static",
-    "    buildCommand: npm --prefix web install && npm --prefix web run build",
+    "    buildCommand: npm i -g pnpm@10.28.2 && pnpm --dir web install --frozen-lockfile && pnpm --dir web run build",
     "    staticPublishPath: ./web/dist",
     "    headers:",
     ...renderHeaders.flatMap((h) => [
