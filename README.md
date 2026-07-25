@@ -356,37 +356,24 @@ Documentation surfaces (`/findings/method`, `/data/schema`, `/build/reproduce`) 
 
 ```text
 AdityaNet/
-├── web/                     # THE PRODUCT — Astro platform, deployed (root dir for hosting)
-│   ├── src/
-│   │   ├── pages/           # 18 routes — story + documentation surfaces
-│   │   ├── components/      # shell/ · evidence/ · editorial/
-│   │   ├── experience/v2/   # pure derive(t) timeline + camera (unit-tested)
-│   │   ├── generated/       # derived JSON + design tokens (build inputs)
-│   │   └── scientific/      # LightCurve island
+├── web/                     # THE PRODUCT — Astro platform, deployed
+│   ├── src/pages/           # 18 routes — story + documentation surfaces
+│   ├── src/components/      # shell/ · evidence/ · editorial/
+│   ├── src/experience/v2/   # pure derive(t) timeline + camera (unit-tested)
+│   ├── src/generated/       # derived JSON + design tokens (build inputs)
 │   ├── scripts/             # derive · generate · check (budget) · postbuild · screenshots
-│   ├── public/video/        # public-domain NASA/SVS footage (watermarked in-app)
-│   └── tokens/              # design-token source
+│   └── public/video/        # public-domain NASA/SVS footage (watermarked in-app)
 │
 ├── research/                # THE SCIENCE — Python pipeline that produced the dataset
 │   ├── app/                 # parsers, resolution engine, ML services
 │   ├── data_pipeline/       # archive ingestion + per-file checksums
-│   ├── scripts/             # experiments, ablations, audits, CI runner
-│   ├── tests/               # pytest suite
-│   ├── validation/          # validation-suite records
-│   └── reports/             # machine-readable run outputs
+│   ├── scripts/ tests/      # experiments, ablations, audits · pytest suite
+│   └── validation/ reports/ # validation records · machine-readable run outputs
 │
-├── artifacts/               # FROZEN OUTPUTS — the source of truth for every rendered number
-│
-├── docs/
-│   ├── adr/                 # architecture decision records (0001–0006)
-│   ├── architecture.md · methodology.md · deployment.md
-│   ├── reproducibility.md · design-system.md
-│   ├── reports/             # scientific validation + evidence reports
-│   └── web/                 # product spec, experience bible, integration plan
-│
-├── .github/workflows/       # web.yml (Astro gates) · ci.yml (Python gates)
-├── render.yaml · vercel.json    # generated host configs (CSP-synced)
-└── README · LICENSE · CITATION.cff · CHANGELOG · CONTRIBUTING · CODE_OF_CONDUCT · SECURITY
+├── artifacts/               # FROZEN OUTPUTS — source of truth for every rendered number
+├── docs/                    # ADRs, methodology, architecture, deployment, reports
+├── .github/                 # CI workflows · contributing · security · templates
+└── README · LICENSE · CITATION.cff · render.yaml
 ```
 
 **Three top‑level concerns, deliberately separated.** `web/` is the deployed product.
@@ -509,15 +496,15 @@ Full detail: [`docs/design-system.md`](docs/design-system.md) and [`docs/web/EXP
 
 ## Contributing
 
-Contributions are welcome. Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) first — the non‑negotiable rule is that **the quality gates are the contract**: no number is hand‑typed, evidence must trace to an artifact, and the CI budget / consistency gates must pass. Development uses feature branches and conventional‑style commits; see the guide for the workflow and PR checklist.
+Contributions are welcome. Please read [`CONTRIBUTING.md`](.github/CONTRIBUTING.md) first — the non‑negotiable rule is that **the quality gates are the contract**: no number is hand‑typed, evidence must trace to an artifact, and the CI budget / consistency gates must pass. Development uses feature branches and conventional‑style commits; see the guide for the workflow and PR checklist.
 
-By participating you agree to the [Code of Conduct](CODE_OF_CONDUCT.md). Security issues: see [`SECURITY.md`](SECURITY.md).
+By participating you agree to the [Code of Conduct](.github/CODE_OF_CONDUCT.md). Security issues: see [`SECURITY.md`](.github/SECURITY.md).
 
 ---
 
 ## Citation
 
-If you reference AdityaNet or its negative result, please cite it. Machine‑readable metadata is in [`CITATION.cff`](CITATION.cff).
+If you reference AdityaNet or its negative result, please cite it. Machine‑readable metadata is in [`CITATION.cff`](CITATION.cff); release history in [`docs/CHANGELOG.md`](docs/CHANGELOG.md).
 
 **BibTeX**
 

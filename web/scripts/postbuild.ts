@@ -188,14 +188,11 @@ function syncVercelHeaders(resolvedHeaders: string): void {
     headers: routes,
   });
 
-  emit(join(WEB_ROOT, "..", "vercel.json"), {
-    $schema: "https://openapi.vercel.sh/vercel.json",
-    framework: null,
-    installCommand: "npm i -g pnpm@10.28.2 && pnpm --dir web install --frozen-lockfile",
-    buildCommand: "pnpm --dir web run build",
-    outputDirectory: "web/dist",
-    headers: routes,
-  });
+  // NOTE: no repo-root vercel.json is emitted. Render is the deployment target and reads
+  // render.yaml at the root; a second root config was dead weight in the top-level tree,
+  // which is the first thing a reader judges. A Vercel import must therefore set Root
+  // Directory to `web`, where web/vercel.json above already carries the identical headers.
+
 
   // Render blueprint.
   //

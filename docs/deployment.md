@@ -63,9 +63,10 @@ how the ignored‑source bug hid.
 
 ## Alternate: Vercel
 
-`vercel.json` (repo root) and `web/vercel.json` are both generated, so a Vercel import works
-whether the Root Directory is set to the repo root or to `web/`. The root config declares an
-explicit `installCommand` / `buildCommand` that override framework auto‑detection.
+`web/vercel.json` is generated with the same headers as `render.yaml`. A Vercel import must
+set **Root Directory to `web`** — no repo-root config is emitted, deliberately: a second
+deploy file at the top level was dead weight in the tree, and pointing Vercel at `web/` is
+the correct setup anyway (it also sidesteps the Python auto-detection described above).
 
 ## Served headers
 
