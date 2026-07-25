@@ -1,0 +1,149 @@
+---
+/**
+ * A line chart rendered as static SVG at build time.
+ *
+ * Deliberately not a charting island: these figures never change after the build, so
+ * shipping a runtime charting library to draw a fixed polyline would cost kilobytes of
+ * JavaScript on an evidence surface for no interactivity the reader gains. The curve
+ * geometry is computed by scripts/derive_metrics.py from the committed prediction arrays;
+ * this component only maps it to a path.
+ *
+ * Honesty: the axes are always drawn from an explicit domain and labelled, and the
+ * diagonal reference (a coin flip for ROC, the base rate for PR) is shown, so a curve
+ * cannot flatter itself through a cropped or unlabelled axis.
+ */
+interface Series {
+  readonly label: string;
+  readonly points: readonly (readonly number[])[];
+  /** Highlighted series get the accent; the rest are muted. */
+  readonly emphasis?: boolean;
+  readonly value?: string;
+}
+
+interface Props {
+  series: readonly Series[];
+  xLabel: string;
+  yLabel: string;
+  /** Diagonal for ROC; horizontal base-rate line for PR. */
+  reference?: "diagonal" | { y: number; label: string } | null;
+  caption?: string;
+  title: string;
+}
+
+const { series, xLabel, yLabel, reference = null, caption, title } = Astro.props;
+
+// Fixed viewBox; the SVG scales to its container. Padding leaves room for tick labels.
+const W = 420;
+const H = 300;
+const P = { t: 14, r: 14, b: 42, l: 46 };
+const iw = W - P.l - P.r;
+const ih = H - P.t - P.b;
+
+const sx = (x: number): number => P.l + x * iw;
+const sy = (y: number): number => P.t + (1 - y) * ih;
+
+const path = (pts: readonly (readonly number[])[]): string =>
+  pts
+    .map((p, i) => `${i === 0 ? "M" : "L"}${sx(p[0]!).toFixed(2)},${sy(p[1]!).toFixed(2)}`)
+    .join(" ");
+
+const ticks = [0, 0.25, 0.5, 0.75, 1];
+const refY = reference && typeof reference === "object" ? reference.y : null;
+---
+
+<figure class="flow-parallax">
+  <div class="glass p-5 sm:p-6">
+    <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">{title}</p>
+
+    <svg
+      viewBox={`0 0 ${W} ${H}`}
+      class="mt-4 block w-full"
+      role="img"
+      aria-label={`${title}. ${xLabel} against ${yLabel}. ${series.map((s) => `${s.label}${s.value ? `, ${s.value}` : ""}`).join("; ")}.`}
+    >
+      {/* Grid */}
+      {
+        ticks.map((t) => (
+          <>
+            <line x1={sx(t)} y1={P.t} x2={sx(t)} y2={P.t + ih} stroke="currentColor" class="text-line-subtle" stroke-width="1" />
+            <line x1={P.l} y1={sy(t)} x2={P.l + iw} y2={sy(t)} stroke="currentColor" class="text-line-subtle" stroke-width="1" />
+          </>
+        ))
+      }
+
+      {/* Reference: a coin flip (ROC) or the base rate (PR) */}
+      {
+        reference === "diagonal" && (
+          <line
+            x1={sx(0)} y1={sy(0)} x2={sx(1)} y2={sy(1)}
+            stroke="currentColor" class="text-fg-subtle" stroke-width="1" stroke-dasharray="3 3"
+          />
+        )
+      }
+      {
+        refY !== null && (
+          <line
+            x1={sx(0)} y1={sy(refY)} x2={sx(1)} y2={sy(refY)}
+            stroke="currentColor" class="text-fg-subtle" stroke-width="1" stroke-dasharray="3 3"
+          />
+        )
+      }
+
+      {/* Series */}
+      {
+        series.map((s) => (
+          <path
+            d={path(s.points)}
+            fill="none"
+            stroke="currentColor"
+            class={s.emphasis ? "text-accent" : "text-fg-muted"}
+            stroke-width={s.emphasis ? 2.1 : 1.5}
+            stroke-linejoin="round"
+            stroke-linecap="round"
+          />
+        ))
+      }
+
+      {/* Axis ticks */}
+      {
+        ticks.map((t) => (
+          <>
+            <text x={sx(t)} y={P.t + ih + 16} text-anchor="middle" class="fill-current text-fg-subtle" style="font-size:9px;font-family:var(--font-mono)">
+              {t.toFixed(2)}
+            </text>
+            <text x={P.l - 8} y={sy(t) + 3} text-anchor="end" class="fill-current text-fg-subtle" style="font-size:9px;font-family:var(--font-mono)">
+              {t.toFixed(2)}
+            </text>
+          </>
+        ))
+      }
+
+      <text x={P.l + iw / 2} y={H - 6} text-anchor="middle" class="fill-current text-fg-subtle" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-family:var(--font-mono)">
+        {xLabel}
+      </text>
+      <text x={12} y={P.t + ih / 2} text-anchor="middle" transform={`rotate(-90 12 ${P.t + ih / 2})`} class="fill-current text-fg-subtle" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-family:var(--font-mono)">
+        {yLabel}
+      </text>
+    </svg>
+
+    {/* Legend doubles as the numeric readout, so the figure is never the only source. */}
+    <ul class="mt-4 flex flex-wrap gap-x-5 gap-y-2 border-t border-line-subtle pt-3">
+      {
+        series.map((s) => (
+          <li class="flex items-center gap-2">
+            <span
+              class:list={["inline-block h-0.5 w-5 rounded-full", s.emphasis ? "bg-accent" : "bg-fg-muted"]}
+              aria-hidden="true"
+            />
+            <span class="text-sm text-fg-muted">{s.label}</span>
+            {s.value && (
+              <span class="font-mono text-xs tabular-nums text-fg" data-numeric>{s.value}</span>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  {caption && <figcaption class="mt-3 text-sm leading-relaxed text-fg-muted">{caption}</figcaption>}
+</figure>

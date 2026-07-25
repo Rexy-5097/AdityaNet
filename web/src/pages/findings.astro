@@ -57,9 +57,11 @@ const bars = headline.rows.map((r) => ({
     {/* 1 — the verdict, at the scale of a claim */}
     <section class="section flow">
       <p class="eyebrow">Scientific conclusions</p>
-      <h1 class="verdict mt-7">Machine learning did not improve detection.</h1>
+      <h1 class="verdict mt-7">A threshold beat the models where it counts.</h1>
       <p class="lede mt-8">
-        A simple threshold on the SoLEXS count rate matched every model we tried.
+        Machine learning ranks individual minutes better — but it detects no more flares,
+        and it raises about five times as many false alarms. A one-line detector on the
+        SoLEXS count rate remains the operational recommendation.
       </p>
     </section>
 
@@ -73,7 +75,7 @@ const bars = headline.rows.map((r) => ({
           rows={bars}
           domain={DOMAIN}
           axisLabel="ROC-AUC · bars show the 95% confidence interval"
-          caption="The intervals overlap. No model separates itself from the threshold, which is why the verdict is no gain rather than a ranking."
+          caption="On ROC-AUC the intervals overlap: no model separates itself from the threshold. That is the basis for the verdict — but ROC-AUC is not the whole story at a 1.2% base rate, which is why the validation page reports precision, recall and the false-alarm cost alongside it."
         />
       </div>
     </section>
@@ -81,6 +83,10 @@ const bars = headline.rows.map((r) => ({
     {/* 3 — why it should be believed */}
     <section class="section flow" aria-labelledby="evidence-h">
       <h2 id="evidence-h" class="display-3">Why this result holds</h2>
+      <p class="lede mt-4">
+        The comparison is decided on the metric that matters operationally — how many real
+        flares are caught, and at what alarm cost — not on the metric that flatters a model.
+      </p>
 
       <div class="reveal-stagger mt-9 grid gap-4 md:grid-cols-3">
         <div class="glass p-6">
@@ -124,6 +130,11 @@ const bars = headline.rows.map((r) => ({
     {/* 4 — the door to the paper */}
     <section class="section-tight flow">
       <div class="flex flex-wrap gap-3">
+        <LearnMore
+          href="/findings/validation/"
+          label="See the proof"
+          note="ROC, PR, calibration, confusion, error analysis"
+        />
         <LearnMore
           href="/findings/method/"
           label="Read the full method"
