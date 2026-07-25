@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use AdityaNet or reference its results, please cite it as below."
+title: "AdityaNet: A Verifiable Research Platform over the Aditya-L1 Solar X-Ray Archive"
+abstract: >-
+  A static research platform over a frozen, digest-addressed dataset derived from the
+  Aditya-L1 SoLEXS and HEL1OS X-ray instruments. Every rendered figure resolves to a
+  committed artifact and is re-verified against source in CI. The platform publishes a
+  reproducible negative result: on the evaluated M/X-class flare detection tasks, machine
+  learning provides no operational benefit over a single threshold on the SoLEXS count
+  rate, and a spectral-resolution ablation is a confirmed null.
+type: software
+authors:
+  - family-names: Tripathy
+    given-names: Soumyadeb
+repository-code: "https://github.com/Rexy-5097/AdityaNet"
+url: "https://adityanet-re1t.onrender.com"
+license: MIT
+version: "0.9.0"
+date-released: "2026-07-25"
+keywords:
+  - Aditya-L1
+  - SoLEXS
+  - HEL1OS
+  - solar flares
+  - space weather
+  - reproducibility
+  - negative result
+  - X-ray astronomy
+identifiers:
+  - type: other
+    value: "AdityaNet_v2_dataset_r1 (digest 43fd0e22)"
+    description: "Frozen dataset version and short digest evaluated in this work."

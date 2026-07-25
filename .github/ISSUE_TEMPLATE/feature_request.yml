@@ -1,0 +1,52 @@
+name: Feature request
+description: Propose an improvement to the platform.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Proposals are welcome. Please keep in mind the project's constraints: evidence
+        surfaces ship ~0 KB JavaScript, no external origins are permitted, and every
+        displayed number must resolve to a committed artifact.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What is missing or hard today? Describe the need, not just a solution.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Website — a story / evidence surface
+        - Website — the landing experience
+        - Scientific — dataset / benchmark / methodology
+        - Build / CI / tooling
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraint check
+      description: >
+        How does this respect the 0 KB evidence budget, the no-external-origins CSP, and the
+        no-hand-typed-numbers rule? If it cannot, explain why the trade-off is worth it.
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and discussions for this idea.
+          required: true

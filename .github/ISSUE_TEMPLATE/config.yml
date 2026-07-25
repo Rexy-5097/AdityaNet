@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/Rexy-5097/AdityaNet/security/advisories/new
+    about: Report security issues privately, never as a public issue. See SECURITY.md.
+  - name: Live site
+    url: https://adityanet-re1t.onrender.com
+    about: Browse the deployed platform before filing an issue.
