@@ -1,0 +1,70 @@
+name: Bug report
+description: Report a defect in the website, build, or deployment.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. For **security** issues do not use this form — see
+        [SECURITY.md](../blob/main/SECURITY.md). For issues with a **scientific value**
+        being wrong, please note the artifact and JSON pointer it should come from.
+  - type: input
+    id: url
+    attributes:
+      label: Affected URL or route
+      placeholder: "e.g. /findings/ or https://adityanet-re1t.onrender.com/data/"
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: A clear description of the defect.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to …
+        2. Scroll to …
+        3. Observe …
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Website — rendering / layout
+        - Website — responsive / mobile
+        - Website — a displayed value looks wrong
+        - Build / CI / quality gate
+        - Deployment / hosting
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: "Browser + version, OS, viewport size / device."
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and this is not a duplicate.
+          required: true
+        - label: This is not a security vulnerability (those go through SECURITY.md).
+          required: true
