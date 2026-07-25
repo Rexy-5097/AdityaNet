@@ -14,7 +14,7 @@ import pytest
 from app.v2.models.metadata import FailLoud
 from app.v2.resolution.version_engine import (RULE_DURATION,
                                               RULE_PROCESSING_DATE, RULE_VERSION,
-                                              CoverageMap, OrbitCandidate,
+                                              OrbitCandidate,
                                               assert_no_duplicate_minutes,
                                               build_coverage_map,
                                               resolve_candidates,

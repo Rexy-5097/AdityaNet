@@ -20,7 +20,7 @@ from app.v2.models.metadata import FailLoud
 from app.v2.parsers.solexs_gti import SolexsGtiParser
 from app.v2.parsers.solexs_lc import SolexsLcParser
 from app.v2.parsers.solexs_pi import SolexsPiParser
-from app.v2.resolution.version_engine import CoverageMap, OrbitCandidate, build_coverage_map
+from app.v2.resolution.version_engine import OrbitCandidate, build_coverage_map
 
 B = ("data/aditya_l1/real_l1_v1/solexs/AL1_SLX_L1_20240514_v1.0/"
      "AL1_SLX_L1_20240514_v1.0/SDD2/AL1_SOLEXS_20240514_SDD2_L1")

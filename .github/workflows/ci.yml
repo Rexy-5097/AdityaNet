@@ -18,8 +18,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install ruff pytest numpy pandas scikit-learn scipy
+      # pyarrow is pandas' parquet engine. Without it the dataset-manifest tests
+      # (build, verify, tamper detection) fail on an ImportError rather than on their
+      # own assertions — and those are precisely the integrity checks this project
+      # cannot afford to leave unrun. It is a small wheel, unlike torch/astropy below.
+      - run: pip install ruff pytest numpy pandas scikit-learn scipy pyarrow
       - name: Lint (error-level rules, new V4 code scope)
         run: ruff check --select E9,F app/services/ml/policy.py app/services/ml/features_v4 app/services/ml/dataset_v4 tests
+      # `-k` deselects tests AFTER collection, so every file under tests/ is still
+      # imported. Six files import heavy optional dependencies this runner deliberately
+      # does not install — tests/v2/** needs astropy (and archive data excluded from
+      # git), tests/test_model_f3.py needs torch — so collection aborted the whole job
+      # before a single test ran. They are outside this data-independent subset and are
+      # covered by scripts/ci/run_ci.sh locally; ignoring the paths keeps the hosted
+      # gate honest and inside its wall-time budget.
       - name: Unit tests (data-independent subset)
-        run: pytest tests/ -q -k "framework or features_v4 or dataset_v4 or episodes"
+        run: pytest tests/ -q -k "framework or features_v4 or dataset_v4 or episodes" --ignore=tests/v2 --ignore=tests/test_model_f3.py
