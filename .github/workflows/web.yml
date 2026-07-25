@@ -22,12 +22,20 @@
 
 name: web
 
+
+# GATE RELIABILITY — why `push` to main carries no path filter.
+#
+# GitHub truncates the file list it evaluates for `paths:` on very large diffs. A
+# 3,231-file restructure changed two files under web/ and this workflow did not run:
+# the gate was skipped silently, which is the one failure mode a gate must not have.
+# Pull requests keep the filter (their diffs are small and fast feedback is worth it);
+# pushes to main always run. The job takes well under a minute.
 on:
   push:
     branches: [main]
-    paths: ["web/**", "artifacts/**", ".github/workflows/web.yml"]
   pull_request:
     paths: ["web/**", "artifacts/**", ".github/workflows/web.yml"]
+  workflow_dispatch:
 
 defaults:
   run:

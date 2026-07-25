@@ -5,13 +5,21 @@
 # (policy artifact validation, AgentOS validator) require repository data files
 # excluded from git (*.parquet/*.pkl) and run locally via scripts/ci/run_ci.sh.
 name: ci
+
+# GATE RELIABILITY — why `push` to main carries no path filter.
+#
+# GitHub truncates the file list it evaluates for `paths:` on very large diffs. A
+# 3,231-file restructure changed two files under web/ and this workflow did not run:
+# the gate was skipped silently, which is the one failure mode a gate must not have.
+# Pull requests keep the filter (their diffs are small and fast feedback is worth it);
+# pushes to main always run. The job takes well under a minute.
 on:
   push:
     branches: [main]
-    paths: ["research/**", ".github/workflows/ci.yml"]
   pull_request:
     branches: [main]
     paths: ["research/**", ".github/workflows/ci.yml"]
+  workflow_dispatch:
 
 # The Python science pipeline lives under research/. Running from there keeps the
 # `from app.v2...` imports resolvable without a package install or PYTHONPATH hack.
