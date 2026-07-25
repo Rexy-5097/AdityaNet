@@ -1,19 +1,33 @@
 # CI for the AdityaNet web platform. Spec §13.3.
 #
-# Three gates in Sprint 0. The `e2e` gate is added in the sprint that ships the
+# Three gates run in parallel. The `e2e` gate is added in the sprint that ships the
 # first persona journey — a gate with zero tests is not a gate, it is a slow no-op.
 #
 # Target wall time is under 12 minutes (§13.3): a pipeline slower than that gets
 # bypassed, and a bypassed gate is not a gate.
+#
+# TOOLCHAIN RESOLUTION — the reason each setup step names an explicit file.
+#
+# `defaults.run.working-directory` applies ONLY to `run:` steps, never to `uses:`
+# steps. Every action below therefore executes at the REPOSITORY ROOT, where this
+# project has no package.json — the web app lives in web/. Left implicit,
+# pnpm/action-setup found no `packageManager` field and failed the job before a
+# single gate ran:
+#
+#     Error: No pnpm version is specified.
+#
+# So the pnpm version is read from web/package.json (`packageManager`), and Node is
+# read from web/.node-version — the SAME file the Render deploy reads, so CI cannot
+# pass on a Node version that production does not use.
 
 name: web
 
 on:
   push:
     branches: [main]
-    paths: ["web/**", ".github/workflows/web.yml"]
+    paths: ["web/**", "artifacts/**", ".github/workflows/web.yml"]
   pull_request:
-    paths: ["web/**", ".github/workflows/web.yml"]
+    paths: ["web/**", "artifacts/**", ".github/workflows/web.yml"]
 
 defaults:
   run:
@@ -26,9 +40,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: web/package.json
       - uses: actions/setup-node@v4
         with:
-          node-version-file: web/.nvmrc
+          node-version-file: web/.node-version
           cache: pnpm
           cache-dependency-path: web/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
@@ -39,24 +55,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: web/package.json
       - uses: actions/setup-node@v4
         with:
-          node-version-file: web/.nvmrc
+          node-version-file: web/.node-version
           cache: pnpm
           cache-dependency-path: web/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
 
   budget:
-    # Performance and accessibility budgets are measured against real build output,
-    # so this gate must build first (§11.6).
+    # Performance, accessibility, and evidence-consistency budgets are measured
+    # against real build output, so this gate must build first (§11.6). It also
+    # re-reads the committed artifacts under artifacts/ — which is why this
+    # workflow triggers on changes there as well as under web/.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: web/package.json
       - uses: actions/setup-node@v4
         with:
-          node-version-file: web/.nvmrc
+          node-version-file: web/.node-version
           cache: pnpm
           cache-dependency-path: web/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile

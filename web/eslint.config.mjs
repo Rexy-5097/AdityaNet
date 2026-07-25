@@ -130,4 +130,30 @@ export default tseslint.config(
     files: ["scripts/**/*.ts"],
     rules: { "no-console": "off" },
   },
+
+  /*
+   * Node CLI scripts that also drive a browser.
+   *
+   * screenshots.mjs is a hybrid: the module body runs in Node, but the callbacks passed
+   * to Playwright's `addInitScript` / `evaluate` are serialised and executed inside the
+   * PAGE. Both global sets are therefore legitimately present in one file, and declaring
+   * them is describing reality rather than silencing a rule — an undeclared global here
+   * is still an error.
+   */
+  {
+    files: ["scripts/**/*.mjs"],
+    languageOptions: {
+      globals: {
+        // Node
+        console: "readonly",
+        process: "readonly",
+        URL: "readonly",
+        // Page context (inside addInitScript / evaluate callbacks)
+        document: "readonly",
+        window: "readonly",
+        MutationObserver: "readonly",
+      },
+    },
+    rules: { "no-console": "off" },
+  },
 );

@@ -48,10 +48,15 @@ const ticks = [lo, lo + (hi - lo) / 2, hi];
     <ul class="space-y-5">
       {
         rows.map((r) => {
-          const hasCi = r.ci95 != null && r.value != null;
-          const left = hasCi ? clamp(pct(r.ci95![0]!)) : 0;
-          const right = hasCi ? clamp(pct(r.ci95![1]!)) : 0;
-          const point = r.value != null ? clamp(pct(r.value)) : 0;
+          // `ci95` is optional AND nullable, so collapse both absent forms to null once.
+          // This keeps the strict-equality rule satisfiable without loosening the check:
+          // a bare `!== null` would silently treat `undefined` as a present interval.
+          const ci = r.ci95 ?? null;
+          const value = r.value ?? null;
+          const hasCi = ci !== null && value !== null;
+          const left = hasCi ? clamp(pct(ci[0]!)) : 0;
+          const right = hasCi ? clamp(pct(ci[1]!)) : 0;
+          const point = value !== null ? clamp(pct(value)) : 0;
           return (
             <li>
               <div class="flex items-baseline justify-between gap-4">
@@ -67,10 +72,10 @@ const ticks = [lo, lo + (hi - lo) / 2, hi];
                   )}
                 </span>
                 <span class="font-mono text-xs tabular-nums text-fg-muted" data-numeric>
-                  {r.value == null ? "—" : r.value.toFixed(3)}
+                  {value === null ? "—" : value.toFixed(3)}
                   {hasCi && (
                     <span class="ml-2 text-fg-subtle">
-                      {r.ci95![0]!.toFixed(3)}–{r.ci95![1]!.toFixed(3)}
+                      {ci![0]!.toFixed(3)}–{ci![1]!.toFixed(3)}
                     </span>
                   )}
                 </span>
@@ -91,7 +96,7 @@ const ticks = [lo, lo + (hi - lo) / 2, hi];
                     style={`left:${left}%;width:${Math.max(right - left, 0.6)}%`}
                   />
                 )}
-                {r.value != null && (
+                {value !== null && (
                   <div
                     class:list={[
                       "absolute top-1/2 h-3.5 w-0.5 -translate-y-1/2 rounded-full",
