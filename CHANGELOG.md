@@ -6,6 +6,20 @@ All notable changes to this project are documented here. The format is based on
 
 ## [Unreleased]
 
+### Changed
+- **Repository restructured into three top-level concerns**: `web/` (the deployed
+  product), `research/` (the Python pipeline that produced the dataset), and
+  `artifacts/` (the frozen boundary both sides agree on). Root entries went from 101
+  to 17.
+
+### Removed
+- Tooling scaffolding and process artifacts that documented an agent's activity rather
+  than the project: AgentOS harness directories, "certificate"/status reports of file
+  moves and git initialisation, one-off sprint verification scripts, and 187 tracked
+  files under `scratch/`. All remain in git history and in the
+  `v0.9.0-flagship-checkpoint` tag.
+- `prototype/crossing/` — superseded by `web/src/experience/v2/`.
+
 ### Added
 - Complete repository documentation overhaul: flagship README, `docs/` set
   (architecture, methodology, deployment, reproducibility, design‑system), community and

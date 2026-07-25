@@ -8,8 +8,17 @@ name: ci
 on:
   push:
     branches: [main]
+    paths: ["research/**", ".github/workflows/ci.yml"]
   pull_request:
     branches: [main]
+    paths: ["research/**", ".github/workflows/ci.yml"]
+
+# The Python science pipeline lives under research/. Running from there keeps the
+# `from app.v2...` imports resolvable without a package install or PYTHONPATH hack.
+defaults:
+  run:
+    working-directory: research
+
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest

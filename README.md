@@ -356,37 +356,44 @@ Documentation surfaces (`/findings/method`, `/data/schema`, `/build/reproduce`) 
 
 ```text
 AdityaNet/
-├── web/                          # The Astro platform (deployment root)
+├── web/                     # THE PRODUCT — Astro platform, deployed (root dir for hosting)
 │   ├── src/
-│   │   ├── pages/                # 18 routes — story + documentation surfaces
-│   │   ├── components/           # shell/ · evidence/ · editorial/
-│   │   ├── experience/v2/        # pure derive(t) timeline + camera (unit-tested)
-│   │   ├── generated/            # derived JSON + design tokens (build inputs)
-│   │   ├── layouts/ · styles/    # BaseLayout, flagship design language
-│   │   └── scientific/           # LightCurve island
-│   ├── scripts/                  # generate · check (budget) · postbuild · screenshots
-│   ├── public/video/             # public-domain NASA/SVS footage (watermarked in-app)
-│   ├── tokens/                   # design-token source (JSON)
-│   ├── astro.config.mjs · vitest.config.ts
-│   └── vercel.json               # generated host config (CSP-synced)
+│   │   ├── pages/           # 18 routes — story + documentation surfaces
+│   │   ├── components/      # shell/ · evidence/ · editorial/
+│   │   ├── experience/v2/   # pure derive(t) timeline + camera (unit-tested)
+│   │   ├── generated/       # derived JSON + design tokens (build inputs)
+│   │   └── scientific/      # LightCurve island
+│   ├── scripts/             # derive · generate · check (budget) · postbuild · screenshots
+│   ├── public/video/        # public-domain NASA/SVS footage (watermarked in-app)
+│   └── tokens/              # design-token source
+│
+├── research/                # THE SCIENCE — Python pipeline that produced the dataset
+│   ├── app/                 # parsers, resolution engine, ML services
+│   ├── data_pipeline/       # archive ingestion + per-file checksums
+│   ├── scripts/             # experiments, ablations, audits, CI runner
+│   ├── tests/               # pytest suite
+│   ├── validation/          # validation-suite records
+│   └── reports/             # machine-readable run outputs
+│
+├── artifacts/               # FROZEN OUTPUTS — the source of truth for every rendered number
+│
 ├── docs/
-│   ├── adr/                      # architecture decision records (0001–0006)
+│   ├── adr/                 # architecture decision records (0001–0006)
 │   ├── architecture.md · methodology.md · deployment.md
 │   ├── reproducibility.md · design-system.md
-│   ├── ENGINEERING_JOURNAL.md · ISSUE_LOG.md
-│   └── web/                      # product spec, experience bible, integration plan
-├── artifacts/                    # frozen scientific outputs (benchmark, manifests)
-├── .github/
-│   ├── workflows/                # web.yml · ci.yml
-│   ├── ISSUE_TEMPLATE/
-│   └── PULL_REQUEST_TEMPLATE.md
-├── render.yaml                   # generated host config (CSP-synced)
-├── CITATION.cff · CHANGELOG.md · CONTRIBUTING.md
-├── CODE_OF_CONDUCT.md · SECURITY.md · LICENSE
-└── README.md
+│   ├── reports/             # scientific validation + evidence reports
+│   └── web/                 # product spec, experience bible, integration plan
+│
+├── .github/workflows/       # web.yml (Astro gates) · ci.yml (Python gates)
+├── render.yaml · vercel.json    # generated host configs (CSP-synced)
+└── README · LICENSE · CITATION.cff · CHANGELOG · CONTRIBUTING · CODE_OF_CONDUCT · SECURITY
 ```
 
-> **Note.** This repository also contains an earlier server‑oriented data‑pipeline prototype at the root (Python). The **current, deployed product is `web/`**; the README, CI, and deployment configs all target it.
+**Three top‑level concerns, deliberately separated.** `web/` is the deployed product.
+`research/` is the Python pipeline that produced the dataset — kept because the result is
+only credible if the code that generated it is inspectable. `artifacts/` is the frozen
+boundary between them: `research/` writes it, `web/` reads it, and CI verifies the two
+agree.
 
 ---
 

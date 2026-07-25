@@ -171,7 +171,7 @@ function render(): string {
 const MEASUREMENTS_IN = join(WEB_ROOT, "src/generated/data/measurements.json");
 const MEASUREMENTS_OUT = join(WEB_ROOT, "src/generated/measurements.ts");
 
-/** Mirrors the record emitted by scripts/web/derive.py. */
+/** Mirrors the record emitted by scripts/derive.py. */
 interface MeasurementRecord {
   value: number;
   precision: number;
@@ -201,7 +201,7 @@ function renderMeasurements(): string {
   const keys = Object.keys(raw).sort();
 
   if (keys.length === 0) {
-    throw new Error("measurements.json is empty. Run scripts/web/derive.py first.");
+    throw new Error("measurements.json is empty. Run web/scripts/derive.py first.");
   }
 
   return [

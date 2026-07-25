@@ -144,3 +144,14 @@ data/aditya_l1/real_l1_v1/
 
 # M-VII canonical build outputs (regenerable via scripts/v2/phase05/build_canonical.py)
 artifacts/v2/phase05/canonical/
+
+# ----- Repository hygiene -----
+# These entered the tree once and made it unreadable: 187 files of throwaway analysis
+# under scratch/, run logs at the root, and generated "certificate"/status reports from
+# tooling. The repository should contain the product, the science, and the record of how
+# they were built — nothing that is merely evidence that a task once ran.
+scratch/
+*.log
+*_CERTIFICATE.md
+REPOSITORY_HEALTH.md
+BUILD_INFO.md
