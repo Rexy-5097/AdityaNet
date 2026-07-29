@@ -12,12 +12,11 @@ id in `skipped`, and reports them in the profile. Explicit + logged is not silen
 Archive-wide TERMINATION on violations is Milestone VIII's job (A-8/A-9/A-11/A-12).
 """
 import glob, json, os, re, sys, time
-from collections import Counter, defaultdict
+from collections import Counter
 
 sys.path.insert(0, "/Volumes/T7 Shield/Projects/AI/AdityaNet")
 os.chdir("/Volumes/T7 Shield/Projects/AI/AdityaNet")
 
-import numpy as np
 import pandas as pd
 
 from app.v2.builders.canonical import (build_T1, build_T2, build_T3, build_T4,

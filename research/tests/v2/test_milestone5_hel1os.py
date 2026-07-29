@@ -4,7 +4,6 @@ Milestone V self-tests: HEL1OS parser family (contract §2.5–§2.9, amended r4
 Orbit files are NOT merged here — merging is Milestone VI (§4).
 """
 import glob
-import os
 
 import numpy as np
 import pandas as pd
@@ -21,8 +20,27 @@ from app.v2.utils.timeseries import chronological_sort, inversion_stats
 
 ORBIT = ("data/aditya_l1/real_l1_v1/hel1os/"
          "HLS_20251208_000008_43178sec_lev1_V111")
-real_only = pytest.mark.skipif(not os.path.isdir(ORBIT),
-                               reason="real archive not extracted")
+
+
+def _orbit_extracted() -> bool:
+    """True only when the orbit's FITS products are actually on disk.
+
+    NOT `os.path.isdir(ORBIT)`. Two `aux/cztdis/*.txt` pixel maps inside this orbit are
+    tracked in git while the FITS products (21 GB) are not, so the directory exists in
+    every clean checkout and the directory test passes where the data does not exist.
+    Fourteen `test_real_*` cases then ran without their inputs and failed on a missing
+    file — which is why this whole suite was excluded from CI with `--ignore=tests/v2`
+    rather than fixed.
+
+    Guarding on the products themselves means the suite runs fully where the archive is
+    present and skips honestly where it is not, so it can gate merges either way.
+    """
+    return bool([p for p in glob.glob(f"{ORBIT}/**/*.fits", recursive=True)
+                 if "/._" not in p])
+
+
+real_only = pytest.mark.skipif(not _orbit_extracted(),
+                               reason="real HEL1OS orbit archive not extracted")
 
 
 def F(pat):
