@@ -180,6 +180,46 @@ def test_deferred_citation_resolves_when_clause_delivered(tmp_path: Path):
     assert gate.main() == 0
 
 
+# ── Navigational documents are ID-exempt, NOT check-exempt ──────────────────────
+#
+# Issue #2 requires a README in every directory, including adr/ and standards/. Those files
+# carry no citable ID and no front matter. Lifting the ID requirement for them is correct;
+# lifting the citation requirement would be weakening the gate to make a test pass, so these
+# tests pin the distinction.
+
+def test_navigational_document_needs_no_front_matter(tmp_path: Path):
+    gate = load_gate(tmp_path)
+    write_adr(tmp_path, "ADR-0001")
+    (tmp_path / "adr" / "README.md").write_text("# adr\n\nWhat may enter this directory.\n")
+    (tmp_path / "adr" / "index.md").write_text("# Index\n\n- ADR-0001\n")
+    assert gate.main() == 0
+
+
+def test_navigational_document_citations_are_still_checked(tmp_path: Path):
+    """A README citing a decision that does not exist is the same defect as an ADR doing so."""
+    gate = load_gate(tmp_path)
+    write_adr(tmp_path, "ADR-0001")
+    (tmp_path / "adr" / "README.md").write_text("# adr\n\nGoverned by ADR-0099.\n")
+    assert gate.main() == 1
+
+
+def test_navigational_document_links_are_still_checked(tmp_path: Path):
+    gate = load_gate(tmp_path)
+    write_adr(tmp_path, "ADR-0001")
+    (tmp_path / "adr" / "README.md").write_text("# adr\n\nSee [nothing](ADR-0404.md).\n")
+    assert gate.main() == 1
+
+
+def test_navigational_document_is_not_indexed_as_an_id(tmp_path: Path):
+    """Two READMEs in different directories must not collide as duplicate IDs."""
+    gate = load_gate(tmp_path)
+    write_adr(tmp_path, "ADR-0001")
+    (tmp_path / "adr" / "README.md").write_text("# adr\n")
+    (tmp_path / "standards").mkdir(parents=True)
+    (tmp_path / "standards" / "README.md").write_text("# standards\n")
+    assert gate.main() == 0
+
+
 # ── The real corpus ─────────────────────────────────────────────────────────────
 
 def test_real_constitution_passes():
