@@ -574,3 +574,5 @@ Solar and space footage is public‑domain imagery from **NASA / NASA's Scientif
 - The open‑source projects this platform is composed from — **Astro**, **React**, **Three.js** and the React Three Fiber ecosystem, **GSAP**, **Lenis**, **uPlot**, **Tailwind CSS**, **Vitest**, and **IBM Plex** via Fontsource.
 
 > **Affiliation firewall.** AdityaNet is an independent research project. It is **not** affiliated with, endorsed by, or operated by ISRO, NASA, or any space agency. It is built on publicly available archive data.
+
+<!-- protection probe, not for merge -->
