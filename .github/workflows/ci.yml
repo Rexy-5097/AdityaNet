@@ -49,15 +49,39 @@ jobs:
       # (build, verify, tamper detection) fail on an ImportError rather than on their
       # own assertions — and those are precisely the integrity checks this project
       # cannot afford to leave unrun. It is a small wheel, unlike torch/astropy below.
-      - run: pip install ruff pytest numpy pandas scikit-learn scipy pyarrow
-      - name: Lint (error-level rules, new V4 code scope)
-        run: ruff check --select E9,F app/services/ml/policy.py app/services/ml/features_v4 app/services/ml/dataset_v4 tests
-      # `-k` deselects tests AFTER collection, so every file under tests/ is still
-      # imported. Six files import heavy optional dependencies this runner deliberately
-      # does not install — tests/v2/** needs astropy (and archive data excluded from
-      # git), tests/test_model_f3.py needs torch — so collection aborted the whole job
-      # before a single test ran. They are outside this data-independent subset and are
-      # covered by scripts/ci/run_ci.sh locally; ignoring the paths keeps the hosted
-      # gate honest and inside its wall-time budget.
-      - name: Unit tests (data-independent subset)
+      # pyarrow is pandas' parquet engine; astropy is the FITS reader the v2 parsers are
+      # built on. astropy was previously omitted, which was half the reason tests/v2 was
+      # excluded from this job — see the v2 step below.
+      - run: pip install ruff pytest numpy pandas scikit-learn scipy pyarrow astropy
+
+      - name: Lint (error-level rules, v2 pipeline + V4 code scope)
+        run: >
+          ruff check --select E9,F
+          app/v2 scripts/v2
+          app/services/ml/policy.py app/services/ml/features_v4 app/services/ml/dataset_v4
+          tests
+
+      # THE CURRENT PIPELINE'S OWN TESTS. This is the canonical v2 parser/builder suite —
+      # the code that produces the frozen dataset every published figure derives from.
+      #
+      # It was previously excluded with `--ignore=tests/v2` for two stated reasons, both
+      # now fixed rather than worked around:
+      #
+      #   1. astropy was not installed. It is now (above).
+      #   2. Fourteen `test_real_*` cases failed without the 21 GB HEL1OS archive, which
+      #      is not in git. The cause was a guard bug, not a data problem: the skip
+      #      condition tested `os.path.isdir(ORBIT)`, and two `aux/cztdis/*.txt` pixel
+      #      maps inside that orbit ARE tracked — so the directory exists in every clean
+      #      checkout while the FITS products do not, the guard passed, and the tests ran
+      #      without their inputs. The guard now checks for the FITS products themselves.
+      #
+      # Result: 188 pass where the archive is present, 131 pass / 57 skip where it is not.
+      # Skips are reported (-rs) so a silently-growing skip set stays visible.
+      - name: Unit tests (v2 pipeline — current code)
+        run: pytest tests/v2 -q -rs
+
+      # `-k` deselects AFTER collection, so every file under tests/ is still imported.
+      # tests/test_model_f3.py needs torch, which this runner deliberately does not
+      # install, so its path stays ignored to keep collection from aborting the job.
+      - name: Unit tests (v1-era data-independent subset)
         run: pytest tests/ -q -k "framework or features_v4 or dataset_v4 or episodes" --ignore=tests/v2 --ignore=tests/test_model_f3.py

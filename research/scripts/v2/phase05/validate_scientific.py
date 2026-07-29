@@ -214,7 +214,6 @@ def c003():
     # measure per-second Σ(340 PI) vs .lc COUNTS on a temporally spread sample,
     # plus the best-fit scalar and whether a fixed band-range reproduces the LC.
     from app.v2.parsers.solexs_pi import SolexsPiParser
-    sample = []
     days = list(solexs_days())
     idx = np.linspace(0, len(days) - 1, 12).astype(int)      # 12 spread days
     per_day = []
@@ -263,7 +262,6 @@ def c003():
     }
     # evidence-only verdict
     stable_band = len(set(bands)) <= 3
-    band_hist = dict(Counter(bands))
     R["C003"]["evidence_summary"] = (
         f"Σ(340 PI) exceeds LC on ~{np.mean([d['sum_gt_lc_pct'] for d in per_day]):.0f}% "
         f"of seconds every day; median ratio {np.median(rm):.2f} "
