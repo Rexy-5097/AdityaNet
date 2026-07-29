@@ -77,3 +77,22 @@ jobs:
       # while still reporting green (STD-12).
       - name: Architecture and gate self-tests
         run: pytest tests/architecture -q -rs
+
+  # Unit tests live beside the code they test (TIS `tests/` README), so they are not under
+  # tests/. Without this job they would never execute — which is the defect that left 188
+  # tests gating nothing in this repository's own history. Added when the first production
+  # component landed; reported as EPD-004, a gap in the Engineering Plan rather than a
+  # change to any gate.
+  unit:
+    name: unit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pytest
+
+      - name: Unit tests beside their code
+        run: pytest kernel -q -rs
