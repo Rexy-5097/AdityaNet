@@ -1,0 +1,79 @@
+# Constitution gates — Architecture Freeze v1.0
+#
+# Wires the gates delivered by Issues #1-#4 into CI. It adds no gate and changes no gate
+# behaviour: each job invokes a program exactly as implemented and reports its exit code.
+#
+# TWO JOBS, NOT ONE.
+#
+# TIS §16.5 lists `links` and `architecture` as separate gates, and they fail for unrelated
+# reasons — a dangling citation is not the same defect as a forbidden directory name.
+# Merging them would report one red X for two causes, and the first failure would mask the
+# second. Separate jobs also mean branch protection can require each by name.
+#
+# GATE RELIABILITY — why neither trigger carries a `paths:` filter.
+#
+# ADR-0020 and STD-07: a gate that does not run must fail, not pass. GitHub reports a
+# required check that was never triggered as "Expected — waiting for status to be reported",
+# which never resolves, so an untriggered required check blocks the merge rather than
+# silently allowing it. That is the behaviour we want, and a path filter would defeat it in
+# the other direction — a PR touching only `adr/` would skip the very gate that validates
+# `adr/`.
+#
+# This repository has already been bitten twice by filtered gates: GitHub truncates the file
+# list it evaluates for `paths:` on large diffs, and a 3,231-file restructure skipped the web
+# gate entirely. Both `ci.yml` and `web.yml` run unfiltered for the same reason.
+#
+# The two jobs together finish in seconds. There is no cost worth optimising here, and
+# STD-20 forbids optimising without a measurement in any case.
+
+name: constitution
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Both gates resolve paths from the repository root. `ci.yml` pins its working directory to
+# research/; these must not inherit that.
+defaults:
+  run:
+    working-directory: .
+
+jobs:
+  links:
+    name: links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # No dependency installation. tools/gates/links.py imports only the standard library,
+      # deliberately: it is the gate that must be able to run before anything is installed,
+      # and a gate that cannot execute is a failure rather than a skip.
+      - name: Constitution link integrity
+        run: python tools/gates/links.py
+
+  architecture:
+    name: architecture
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pytest
+
+      # Includes the deliberate-violation tests for every gate. This is what makes the
+      # fail-closed property continuously verified rather than demonstrated once: if a gate
+      # is ever weakened so that it stops rejecting a violation, the test that expects the
+      # rejection fails here.
+      #
+      # -rs reports skips. A silently growing skip set is how a suite stops testing anything
+      # while still reporting green (STD-12).
+      - name: Architecture and gate self-tests
+        run: pytest tests/architecture -q -rs
