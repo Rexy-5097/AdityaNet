@@ -476,6 +476,109 @@
   .ambient-video--disc.ambient-video--right { right: -6vw; width: min(88vh, 1000px); height: min(88vh, 1000px); }
 }
 
+/* ---------------------------------------------------------------------------
+ * Flow diagrams — pipelines, architecture, the research journey
+ *
+ * HTML + CSS rather than a diagramming library: zero JavaScript, inherits the site's
+ * type and colour, and the connectors rotate from horizontal to vertical on a narrow
+ * screen instead of overflowing a fixed-width canvas.
+ * ------------------------------------------------------------------------- */
+
+.flow-diagram { display: grid; gap: 0; list-style: none; }
+.flow-diagram--col { grid-template-columns: 1fr; }
+.flow-diagram--row { grid-template-columns: 1fr; }
+
+@media (min-width: 900px) {
+  .flow-diagram--row { grid-auto-flow: column; grid-auto-columns: 1fr; }
+}
+
+.flow-diagram__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2.25rem;
+}
+@media (min-width: 900px) {
+  .flow-diagram--row .flow-diagram__item { padding-bottom: 0; padding-right: 2.25rem; }
+}
+
+.flow-diagram__card {
+  height: 100%;
+  padding: 1.15rem 1.25rem;
+  border-radius: 12px;
+}
+.flow-diagram__card--on {
+  border-color: color-mix(in oklab, var(--color-accent) 45%, transparent);
+  background: color-mix(in oklab, var(--color-accent) 8%, var(--color-surface) 55%);
+}
+
+.flow-diagram__n {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.18em;
+  color: var(--color-eyebrow);
+}
+.flow-diagram__title { margin-top: 0.6rem; font-size: var(--text-md); color: var(--color-fg); }
+.flow-diagram__detail {
+  margin-top: 0.4rem;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--color-fg-muted);
+}
+/* What leaves the stage. The arrow is the point of a pipeline diagram. */
+.flow-diagram__produces {
+  margin-top: 0.7rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--color-line-subtle);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--color-fg-subtle);
+  overflow-wrap: anywhere;
+}
+
+/* Connector: a line with an arrowhead, drawn between cards. */
+.flow-diagram__link {
+  position: absolute;
+  left: 50%;
+  bottom: 0.75rem;
+  width: 1px;
+  height: 1.1rem;
+  transform: translateX(-50%);
+  background: var(--color-line);
+}
+.flow-diagram__link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 5px;
+  height: 5px;
+  border-right: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  transform: translateX(-50%) rotate(45deg);
+}
+@media (min-width: 900px) {
+  .flow-diagram--row .flow-diagram__link {
+    left: auto; right: 0.75rem; bottom: auto; top: 50%;
+    width: 1.1rem; height: 1px; transform: translateY(-50%);
+  }
+  .flow-diagram--row .flow-diagram__link::after {
+    left: auto; right: -1px; bottom: auto; top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+/* Feature-importance bars. Signed values (a logistic coefficient can be negative) are
+   drawn from a centre line so direction is visible, not just magnitude. */
+.fbar { display: grid; grid-template-columns: 10rem 1fr auto; gap: 0.75rem; align-items: center; }
+@media (max-width: 640px) { .fbar { grid-template-columns: 7.5rem 1fr auto; gap: 0.5rem; } }
+.fbar__name { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--color-fg-muted); overflow-wrap: anywhere; }
+.fbar__track { position: relative; height: 0.5rem; border-radius: 999px; background: var(--color-line-subtle); }
+.fbar__fill { position: absolute; top: 0; bottom: 0; border-radius: 999px; background: var(--color-accent); opacity: 0.75; }
+.fbar__fill--neg { background: var(--color-fg-muted); opacity: 0.5; }
+.fbar__zero { position: absolute; top: -2px; bottom: -2px; width: 1px; background: var(--color-line-strong); }
+.fbar__val { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--color-fg); font-variant-numeric: tabular-nums; }
+
 /* Chips — metadata that is worth showing but not worth a row of its own. Replaces
    definition lists whose only job was to name a version or a date. */
 .chip {
@@ -866,3 +969,108 @@
   ::view-transition-old(page-content),
   ::view-transition-new(page-content) { animation: none; }
 }
+
+/* ── The page contract ─────────────────────────────────────────────────────────
+   Three questions every surface answers before it asks to be believed. Deliberately
+   quiet: a hairline box, mono labels, no accent fill. It is a masthead, not a callout —
+   if it competed with the page's opening claim it would be read as decoration and
+   skipped, which is the one thing it must not be. */
+.page-contract {
+  border-block: 1px solid var(--color-line-subtle);
+  padding-block: 1.6rem;
+}
+
+.page-contract__grid {
+  display: grid;
+  gap: 1.6rem 2.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 860px) {
+  .page-contract__grid { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+}
+
+.page-contract__q {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-fg-subtle);
+}
+
+.page-contract__a {
+  margin-top: 0.65rem;
+  font-size: var(--text-sm);
+  line-height: 1.65;
+  color: var(--color-fg-muted);
+  max-width: 44ch;
+}
+
+.page-contract__links {
+  margin-top: 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+}
+
+.page-contract__path {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--color-fg-subtle);
+  overflow-wrap: anywhere;
+}
+
+/* ── The resource index ────────────────────────────────────────────────────────
+   The descent is a reading order; this is a lookup table. Rendering it in the footer of
+   every page is what stops the secondary surfaces from being orphans reachable only by
+   whoever happened to link them. */
+.resource-index { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+
+@media (min-width: 760px) {
+  .resource-index { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+}
+
+.resource-index__group {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-fg-subtle);
+}
+
+.resource-index ul { margin-top: 0.9rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
+.resource-index a {
+  display: block;
+  color: var(--color-fg);
+  font-size: var(--text-sm);
+  text-decoration: none;
+}
+
+.resource-index a:hover { color: var(--color-accent); }
+.resource-index a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; border-radius: 3px; }
+
+.resource-index__summary {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: var(--text-2xs);
+  line-height: 1.55;
+  color: var(--color-fg-subtle);
+}
+
+/* ── Evidence chain ────────────────────────────────────────────────────────────
+   Claim -> figure -> metric -> artifact -> source -> commit, rendered as one row per
+   link so the chain reads as a sequence rather than a table of unrelated columns. */
+.chain { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.55rem; }
+
+.chain__step {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--color-fg-muted);
+  overflow-wrap: anywhere;
+}
+
+.chain__sep { color: var(--color-fg-subtle); font-size: var(--text-2xs); }
+.chain__step--strong { color: var(--color-fg); }

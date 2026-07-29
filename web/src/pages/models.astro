@@ -1,0 +1,177 @@
+---
+/**
+ * Model cards — index.
+ *
+ * Eight detectors were benchmarked and all eight get a card, including the four that
+ * exist only to be beaten. Publishing cards for the trivial references is not padding:
+ * the majority classifier's card is the shortest argument on this site for why accuracy
+ * is the wrong metric here, and persistence's card is why no forecasting number on this
+ * platform is reported without it.
+ *
+ * Every number is read from generated/data/findings/models.json, derived from
+ * artifacts/v2/ml/benchmark_results.json. The prose is in lib/data/model-cards.ts and
+ * contains no figures at all, so the two cannot drift.
+ *
+ * Zero JavaScript.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import PageHeader from "@/components/shell/PageHeader.astro";
+import PageContract from "@/components/shell/PageContract.astro";
+import Section from "@/components/shell/Section.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
+import models from "@/generated/data/findings/models.json";
+import { MODEL_COPY } from "@/lib/data/model-cards";
+
+const d = models.data;
+const nowcast = d.tasks[0]!;
+
+// Candidates before references. The order is the argument: the recommendation first,
+// then the learned models that failed to displace it, then the rulers.
+const ORDER = [
+  "threshold_rate", "lightgbm", "random_forest", "logistic",
+  "persistence", "climatology", "majority", "random",
+];
+
+const rows = ORDER.map((key) => {
+  const m = nowcast.models.find((x) => x.key === key)!;
+  return { key, m, copy: MODEL_COPY[key]! };
+});
+
+const fmt = (v: number | null, d = 3): string =>
+  typeof v === "number" && Number.isFinite(v) ? v.toFixed(d) : "—";
+---
+
+<BaseLayout
+  title="Model cards — AdityaNet"
+  description="A model card for every detector in the Aditya-L1 flare benchmark: intended use, inputs, training protocol, evaluation, failure modes and limitations."
+>
+  <AmbientBackdrop
+    src="/video/space-galaxies.mp4"
+    poster="/video/space-galaxies-poster.jpg"
+    shape="frame"
+    align="right"
+  />
+
+  <main id="main" class="mx-auto max-w-5xl px-6 pb-32">
+    <div class="section-tight flow">
+      <PageHeader
+        eyebrow="Evidence · model cards"
+        title="Every detector, documented"
+        lede={`Eight models were evaluated on the same frozen split under a protocol fixed before any of them was fitted. Each has a card stating what it is for, what it must not be used for, and how it fails.`}
+      />
+    </div>
+
+    <PageContract
+      what="A model card for each of the eight detectors in the flare benchmark — four candidate detectors and four trivial reference points."
+      trust="Every metric on these cards is read at build time from the committed benchmark artifact. The descriptive text is kept in a separate module that contains no numbers, so a figure cannot survive in prose after the artifact behind it changes."
+      verify={[
+        { href: "/validation/", label: "The validation evidence", note: "ROC, PR, calibration, error analysis" },
+        { href: "/findings/method/", label: "Evaluation protocol", note: "artifacts/v2/ml/EVALUATION_PROTOCOL.md" },
+        { href: "/evidence/", label: "Evidence traceability", note: "claim → artifact → commit" },
+        { href: "/archive/", label: "The benchmark payload", note: "findings/models.json" },
+      ]}
+    />
+
+    <Section
+      id="protocol"
+      eyebrow="Shared protocol"
+      title="What every card was measured under"
+    >
+      <p class="lede">
+        The cards differ in what the model does. They do not differ in how it was judged.
+      </p>
+
+      <dl class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="glass p-5">
+          <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Seed</dt>
+          <dd class="mt-3 font-mono text-lg text-fg" data-numeric>{d.seed}</dd>
+          <dd class="mt-2 text-sm leading-relaxed text-fg-muted">Fixed before fitting.</dd>
+        </div>
+        <div class="glass p-5">
+          <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Test start</dt>
+          <dd class="mt-3 font-mono text-lg text-fg" data-numeric>{d.test_start.slice(0, 10)}</dd>
+          <dd class="mt-2 text-sm leading-relaxed text-fg-muted">Chronological, never shuffled.</dd>
+        </div>
+        <div class="glass p-5">
+          <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Held-out minutes</dt>
+          <dd class="mt-3 font-mono text-lg text-fg" data-numeric>{nowcast.n_test.toLocaleString("en-US")}</dd>
+          <dd class="mt-2 text-sm leading-relaxed text-fg-muted">Training: {nowcast.n_train.toLocaleString("en-US")}.</dd>
+        </div>
+        <div class="glass p-5">
+          <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Base rate</dt>
+          <dd class="mt-3 font-mono text-lg text-fg" data-numeric>
+            {(nowcast.test_positive_rate! * 100).toFixed(2)}%
+          </dd>
+          <dd class="mt-2 text-sm leading-relaxed text-fg-muted">Why PR-AUC, not accuracy.</dd>
+        </div>
+      </dl>
+
+      <p class="mt-8 max-w-measure text-sm leading-relaxed text-fg-muted">
+        <span class="text-fg">Effective sample size.</span> {d.effective_n_note}. The row count is
+        not the sample size — flares last many minutes, so the minutes are not independent.
+        Confidence intervals are computed by bootstrapping whole days, which is the unit that
+        can be treated as exchangeable.
+      </p>
+    </Section>
+
+    <Section id="cards" eyebrow="The cards" title="Eight models" major ruled>
+      <div class="grid gap-4 md:grid-cols-2">
+        {
+          rows.map(({ key, m, copy }) => (
+            <a href={`/models/${key}/`} class="card card-link p-6">
+              <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+                {copy.reference ? "Reference point" : "Candidate detector"}
+              </p>
+              <p class="mt-3 text-lg font-semibold tracking-tight text-fg">{copy.name}</p>
+              <p class="mt-2 text-sm leading-relaxed text-fg-muted">{copy.mechanism}</p>
+
+              <dl class="mt-5 grid grid-cols-3 gap-3 border-t border-line-subtle pt-4">
+                <div>
+                  <dt class="font-mono text-2xs text-fg-subtle">ROC-AUC</dt>
+                  <dd class="mt-1 font-mono text-sm tabular-nums text-fg" data-numeric>{fmt(m.minute.roc_auc)}</dd>
+                </div>
+                <div>
+                  <dt class="font-mono text-2xs text-fg-subtle">PR-AUC</dt>
+                  <dd class="mt-1 font-mono text-sm tabular-nums text-fg" data-numeric>{fmt(m.minute.pr_auc)}</dd>
+                </div>
+                <div>
+                  <dt class="font-mono text-2xs text-fg-subtle">False runs</dt>
+                  <dd class="mt-1 font-mono text-sm tabular-nums text-fg" data-numeric>
+                    {m.event.false_event_runs.toLocaleString("en-US")}
+                  </dd>
+                </div>
+              </dl>
+
+              <p class="mt-4 font-mono text-2xs text-fg-subtle">Read the card →</p>
+            </a>
+          ))
+        }
+      </div>
+    </Section>
+
+    <Section id="attribution" eyebrow="What the models used" title="Feature attribution" ruled>
+      <p class="lede">
+        Three models, three different accounts of which of the fourteen features mattered —
+        and none of them a physical explanation.
+      </p>
+      <p class="mt-6 max-w-measure text-sm leading-relaxed text-fg-muted">
+        Attributions are shown on each model's own card, in their own units: signed
+        coefficients for the linear model, unsigned importances for the two tree ensembles.
+        They are not plotted on a shared axis, because they do not measure the same thing.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <LearnMore href="/models/lightgbm/" label="LightGBM attribution" note="Gain-based importance, 14 features" />
+        <LearnMore href="/models/logistic/" label="Logistic coefficients" note="Signed, including the negatives" />
+      </div>
+    </Section>
+
+    <Section id="next" ruled>
+      <div class="flex flex-wrap gap-3">
+        <LearnMore href="/validation/" label="See the proof" note="Curves, calibration, error analysis" />
+        <LearnMore href="/data/card/" label="The dataset card" note="What the data can and cannot support" />
+        <LearnMore href="/journey/" label="How this was reached" note="The investigation, in order" />
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

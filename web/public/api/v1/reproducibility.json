@@ -1,0 +1,313 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-29T13:34:18.458169+00:00",
+  "source_commit": "99af630",
+  "data": {
+    "environment": {
+      "lockfile": "artifacts/v2/phase05/requirements.lock",
+      "recorded_sha256": "6899e001b1c4d64a5aec01b3ee1d2cfce2a3ff38ab64f827a75ab9d55fd13d3f",
+      "current_sha256": "8187301ecffc0bac6ae2ff97b9e0cb6791d20fdaf8afd31614a1d7cb6ea80320",
+      "matches": false,
+      "build_commit": "be0b7e5114db41e24f592f6483fa643d98586d02",
+      "build_commit_short": "be0b7e5",
+      "sha256_at_build_commit": "6899e001b1c4d64a5aec01b3ee1d2cfce2a3ff38ab64f827a75ab9d55fd13d3f",
+      "explained": true,
+      "n_packages_at_freeze": 92,
+      "n_packages_now": 99,
+      "packages_added_after_freeze": [
+        {
+          "name": "cloudpickle",
+          "version": "3.1.2"
+        },
+        {
+          "name": "lightgbm",
+          "version": "4.6.0"
+        },
+        {
+          "name": "llvmlite",
+          "version": "0.48.0"
+        },
+        {
+          "name": "numba",
+          "version": "0.66.0"
+        },
+        {
+          "name": "shap",
+          "version": "0.52.0"
+        },
+        {
+          "name": "slicer",
+          "version": "0.0.8"
+        },
+        {
+          "name": "tqdm",
+          "version": "4.69.0"
+        }
+      ],
+      "history": [
+        {
+          "commit": "9efad0c",
+          "subject": "Milestone XI: baseline benchmark \u2014 ML provides NO operational value beyond a threshold"
+        },
+        {
+          "commit": "be0b7e5",
+          "subject": "Milestone VIII COMPLETE: all assumptions discharged, CONTRADICTION-003 resolved"
+        }
+      ],
+      "python_version": "3.12.12",
+      "platform": "macOS-26.5.2-arm64-arm-64bit"
+    },
+    "determinism": {
+      "source": "artifacts/v2/phase05/reproducibility_check.json",
+      "n_days_sampled": 12,
+      "n_days_compared": 12,
+      "content_matches": 24,
+      "byte_matches": 24,
+      "all_match": true,
+      "tables_checked": [
+        "T1",
+        "T2"
+      ],
+      "checked_utc": "2026-07-18T08:23:38.499056+00:00",
+      "rebuild_environment": {
+        "python": "3.12.12",
+        "numpy": "1.26.4",
+        "pandas": "2.2.2"
+      },
+      "per_day": [
+        {
+          "date": "20240201",
+          "rebuild_s": 0.61,
+          "T1": {
+            "content_match": true,
+            "content_hash": "9fef8a4417bc2850",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          },
+          "T2": {
+            "content_match": true,
+            "content_hash": "98d4f737eef46fdc",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          }
+        },
+        {
+          "date": "20240310",
+          "rebuild_s": 0.43,
+          "T1": {
+            "content_match": true,
+            "content_hash": "2c2016342fb90722",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          },
+          "T2": {
+            "content_match": true,
+            "content_hash": "dce3e92077fd0351",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          }
+        },
+        {
+          "date": "20240420",
+          "rebuild_s": 0.44,
+          "T1": {
+            "content_match": true,
+            "content_hash": "abb0035a8e0e4991",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          },
+          "T2": {
+            "content_match": true,
+            "content_hash": "a6388d5339766de8",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          }
+        },
+        {
+          "date": "20240531",
+          "rebuild_s": 0.43,
+          "T1": {
+            "content_match": true,
+            "content_hash": "fc8e0e65dfb33652",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          },
+          "T2": {
+            "content_match": true,
+            "content_hash": "9362e7cda719a704",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          }
+        },
+        {
+          "date": "20250809",
+          "rebuild_s": 0.43,
+          "T1": {
+            "content_match": true,
+            "content_hash": "c8f4097f9527d343",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          },
+          "T2": {
+            "content_match": true,
+            "content_hash": "0630b16093404791",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          }
+        },
+        {
+          "date": "20250930",
+          "rebuild_s": 0.41,
+          "T1": {
+            "content_match": true,
+            "content_hash": "7ae2c9b633319d1f",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          },
+          "T2": {
+            "content_match": true,
+            "content_hash": "5427e9e5be474157",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          }
+        },
+        {
+          "date": "20251112",
+          "rebuild_s": 0.42,
+          "T1": {
+            "content_match": true,
+            "content_hash": "9352625afa5b96b0",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          },
+          "T2": {
+            "content_match": true,
+            "content_hash": "6cdc19b66e52b19c",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          }
+        },
+        {
+          "date": "20251223",
+          "rebuild_s": 0.41,
+          "T1": {
+            "content_match": true,
+            "content_hash": "d12da3bea070eb57",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          },
+          "T2": {
+            "content_match": true,
+            "content_hash": "db965c3f02c4114f",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          }
+        },
+        {
+          "date": "20260201",
+          "rebuild_s": 0.37,
+          "T1": {
+            "content_match": true,
+            "content_hash": "d8d58c11da3795d1",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          },
+          "T2": {
+            "content_match": true,
+            "content_hash": "b4d0a33f9ae5113e",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          }
+        },
+        {
+          "date": "20260315",
+          "rebuild_s": 0.38,
+          "T1": {
+            "content_match": true,
+            "content_hash": "1e0466260a9130d1",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          },
+          "T2": {
+            "content_match": true,
+            "content_hash": "b6cef9458563455c",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          }
+        },
+        {
+          "date": "20260504",
+          "rebuild_s": 0.39,
+          "T1": {
+            "content_match": true,
+            "content_hash": "90ee9989e55020ac",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          },
+          "T2": {
+            "content_match": true,
+            "content_hash": "e280daa30ae0b273",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          }
+        },
+        {
+          "date": "20260615",
+          "rebuild_s": 0.39,
+          "T1": {
+            "content_match": true,
+            "content_hash": "8de2c26eb9a6dba5",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          },
+          "T2": {
+            "content_match": true,
+            "content_hash": "7c8e4a9b1d7f7299",
+            "byte_match": true,
+            "rows_new": 1440,
+            "rows_frozen": 1440
+          }
+        }
+      ]
+    },
+    "integrity": {
+      "n_files": 1985,
+      "n_files_with_digest": 1985,
+      "dataset_hash": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+      "provenance_hash": "7282b7c34fbd6c2eae7dfca6757f46cdc497b88a9b6312089715479e67be8498",
+      "total_bytes": 596917461,
+      "n_tables": 7
+    },
+    "container": {
+      "status": "pending-verification",
+      "dockerfile": "research/Dockerfile",
+      "compose": "research/compose.yaml",
+      "statement": "The Docker configuration has been authored and statically validated but has not yet been executed in a real container runtime."
+    }
+  }
+}

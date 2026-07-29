@@ -1,0 +1,59 @@
+---
+/**
+ * A staged flow, rendered as connected cards.
+ *
+ * Used for the scientific pipeline, the system architecture, the validation chain and the
+ * research journey. Built from HTML and CSS rather than a diagramming library so it costs
+ * no JavaScript, reflows properly on a phone (the connectors rotate from horizontal to
+ * vertical), and inherits the site's type and colour rather than shipping a second visual
+ * language.
+ *
+ * Each stage carries what it PRODUCES, not just what it is called — a diagram that only
+ * names its boxes explains nothing a heading could not.
+ */
+interface Stage {
+  readonly n?: string;
+  readonly title: string;
+  readonly detail?: string;
+  /** What leaves this stage — the artifact, file or output the next stage consumes. */
+  readonly produces?: string;
+  /** Marks the stage where the argument turns. */
+  readonly emphasis?: boolean;
+  readonly href?: string;
+}
+
+interface Props {
+  stages: readonly Stage[];
+  /** "row" reads left-to-right on wide screens; "column" always stacks. */
+  direction?: "row" | "column";
+  caption?: string;
+}
+
+const { stages, direction = "row", caption } = Astro.props;
+const isRow = direction === "row";
+---
+
+<figure class="flow-parallax">
+  <ol class:list={["flow-diagram", isRow ? "flow-diagram--row" : "flow-diagram--col"]}>
+    {
+      stages.map((s, i) => (
+        <li class="flow-diagram__item">
+          <div class:list={["flow-diagram__card glass", s.emphasis && "flow-diagram__card--on"]}>
+            {s.n && <p class="flow-diagram__n">{s.n}</p>}
+            <p class="flow-diagram__title">
+              {s.href ? <a href={s.href} class="link">{s.title}</a> : s.title}
+            </p>
+            {s.detail && <p class="flow-diagram__detail">{s.detail}</p>}
+            {s.produces && (
+              <p class="flow-diagram__produces">
+                <span aria-hidden="true">→</span> {s.produces}
+              </p>
+            )}
+          </div>
+          {i < stages.length - 1 && <span class="flow-diagram__link" aria-hidden="true" />}
+        </li>
+      ))
+    }
+  </ol>
+  {caption && <figcaption class="mt-4 text-sm leading-relaxed text-fg-muted">{caption}</figcaption>}
+</figure>

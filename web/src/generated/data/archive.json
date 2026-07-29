@@ -1,0 +1,267 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-29T13:34:18.518084+00:00",
+  "source_commit": "99af630",
+  "data": {
+    "entries": [
+      {
+        "path": "build/index.json",
+        "url": "/api/v1/build/index.json",
+        "bytes": 3012,
+        "sha256": "407d4a4d3e8b28f8d28bfe2c6f6724ba088aa581c623e6dc0814ba0a9480d52b",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "build/manifest.json",
+        "url": "/api/v1/build/manifest.json",
+        "bytes": 6334,
+        "sha256": "e78c5d0c77f3cb1907e85f02c48038f5fd3481961d8411f2b368d8aebb54612f",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "build/reproducibility.json",
+        "url": "/api/v1/build/reproducibility.json",
+        "bytes": 5932,
+        "sha256": "43976af711206bc28763912ed6d89b102ee7c3d826a30e976ac0baf2d8030229",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "coverage.json",
+        "url": "/api/v1/coverage.json",
+        "bytes": 62281,
+        "sha256": "8f5853551dc9f17a177b2d674a690d2f12ba64e372ab631e34ed4da56f1bb46c",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "dataset/card.json",
+        "url": "/api/v1/dataset/card.json",
+        "bytes": 34082,
+        "sha256": "929d2315d1cea220b22eca8feb0e8b2578f738935feaa35f3946d58a9ce2596a",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "findings/ablation.json",
+        "url": "/api/v1/findings/ablation.json",
+        "bytes": 5533,
+        "sha256": "9f7134235b07e10444190ece5e65956fab1610ce89fca22d8c0c10a53067ace8",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "findings/benchmark.json",
+        "url": "/api/v1/findings/benchmark.json",
+        "bytes": 11445,
+        "sha256": "083e484c779e9bf7eb67c9111de9c1048b91b8e8a8cf5702115d8b9a6c93f6c3",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "findings/comparison.json",
+        "url": "/api/v1/findings/comparison.json",
+        "bytes": 6021,
+        "sha256": "785aac00b16945fd808b97d0069163e40eb089c0904f936954922f995891c61e",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "findings/conclusions.json",
+        "url": "/api/v1/findings/conclusions.json",
+        "bytes": 8208,
+        "sha256": "0255529340798bacebb6a0c166a0e501f14914a4c9df990978f5c6291e7939f5",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "findings/limitations.json",
+        "url": "/api/v1/findings/limitations.json",
+        "bytes": 12013,
+        "sha256": "eba206246e3f69b0f7f933d5d5b577749ea20debd3119b5255caae8572e34498",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "findings/metrics.json",
+        "url": "/api/v1/findings/metrics.json",
+        "bytes": 68499,
+        "sha256": "862a1d429899084ed0d09b5bb21d534482706dca50774274a7eb187ac14d5dec",
+        "api_version": null,
+        "dataset_version": null,
+        "source_commit": null
+      },
+      {
+        "path": "findings/models.json",
+        "url": "/api/v1/findings/models.json",
+        "bytes": 25456,
+        "sha256": "b541b2b05ef79f11a276dfb09fc5d1612879e0343526ef3a065e5a41316f2372",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "findings/protocol.json",
+        "url": "/api/v1/findings/protocol.json",
+        "bytes": 6615,
+        "sha256": "e0fb2243ad7f3e898fe532d4530bbb6ee95ffc75bd281e11cbf618cf0adbec57",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "measurements.json",
+        "url": "/api/v1/measurements.json",
+        "bytes": 2478,
+        "sha256": "dc3bcaf6a30f548a5319e9d95651064093ea9f7e8839a220e1a9f8073bc731a1",
+        "api_version": null,
+        "dataset_version": null,
+        "source_commit": null
+      },
+      {
+        "path": "overview.json",
+        "url": "/api/v1/overview.json",
+        "bytes": 1156,
+        "sha256": "8250630b70a57aa3ab4e2e0cacf8ad215fa464242b3fb5d0fa9519a8338abca3",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "pipeline/dictionary.json",
+        "url": "/api/v1/pipeline/dictionary.json",
+        "bytes": 13367,
+        "sha256": "4e36b5cffc2291528ba3de0594cb79b00efdf1f6f359a6e7f6cc5fe3581e798b",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "pipeline/profile.json",
+        "url": "/api/v1/pipeline/profile.json",
+        "bytes": 5615,
+        "sha256": "d6aff7cfbbf077e9f0166eee08b288e155358031e8221cc013f8e3ccb67c10b5",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "pipeline/quality.json",
+        "url": "/api/v1/pipeline/quality.json",
+        "bytes": 6439,
+        "sha256": "38625f7675c8a549e726c89ffda5eb9a85f8742f1580d147e9b64738f62ad24c",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "reproducibility.json",
+        "url": "/api/v1/reproducibility.json",
+        "bytes": 8942,
+        "sha256": "fb5fff557ae3b6403fdf8ebbeaa543ff863c02a28b5191fd28b51456ec58d00e",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "star-timeline.json",
+        "url": "/api/v1/star-timeline.json",
+        "bytes": 12782,
+        "sha256": "8e4aa2073cbdd8f17a23c5454d573735fb7b7f6bb3ffdab6523f949b7fcc990b",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "traceability.json",
+        "url": "/api/v1/traceability.json",
+        "bytes": 3688,
+        "sha256": "7a4429268fd72c74d5052a8a7de0517980a8b9ceeba3e981e6db8ec303255418",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "validation/contradiction-001.json",
+        "url": "/api/v1/validation/contradiction-001.json",
+        "bytes": 7616,
+        "sha256": "d47f47f14892add6652534e8c2f3d2e065d101cede1d494078191b8230946b42",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "validation/contradiction-002.json",
+        "url": "/api/v1/validation/contradiction-002.json",
+        "bytes": 8487,
+        "sha256": "bb5aa9c86b6f3af124be389ba7c69e4ad60556ec957acc27e99754b306bd0ad9",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "validation/contradiction-003.json",
+        "url": "/api/v1/validation/contradiction-003.json",
+        "bytes": 8443,
+        "sha256": "065057d650bd649328a6c529b7d5e76e5b5f9fc4a05ae8a44ada4d005f4ef59a",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "validation/contradiction-004.json",
+        "url": "/api/v1/validation/contradiction-004.json",
+        "bytes": 10908,
+        "sha256": "d52c82d41d01fcdef36ae479f7d19583279144638bcb0fd5318bbe77d0430b17",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "validation/contradiction-005.json",
+        "url": "/api/v1/validation/contradiction-005.json",
+        "bytes": 10292,
+        "sha256": "067077aa01279e53406b549393a51fe701328802fd780a55152786f6dd7e3ce1",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "validation/contradiction-006.json",
+        "url": "/api/v1/validation/contradiction-006.json",
+        "bytes": 8686,
+        "sha256": "56b785c5a0d4f1ee6fc6ebafb347900e052ef2f09481c14fc6bfdcdd0e075535",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      },
+      {
+        "path": "validation/index.json",
+        "url": "/api/v1/validation/index.json",
+        "bytes": 3161,
+        "sha256": "e4026a699e49c85fc1d7cf99fe66e1fb9db0ba7a954a8a41204c88f9d29db0f1",
+        "api_version": "v1",
+        "dataset_version": "AdityaNet_v2_dataset_r1",
+        "source_commit": "99af630"
+      }
+    ],
+    "n_entries": 28,
+    "total_bytes": 367491,
+    "base_path": "src/generated/data",
+    "base_url": "/api/v1"
+  }
+}

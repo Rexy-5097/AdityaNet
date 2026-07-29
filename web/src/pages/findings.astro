@@ -19,6 +19,7 @@
  * evidence it summarises.
  */
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageContract from "@/components/shell/PageContract.astro";
 import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
 import CompareBars from "@/components/editorial/CompareBars.astro";
 import LearnMore from "@/components/editorial/LearnMore.astro";
@@ -64,6 +65,18 @@ const bars = headline.rows.map((r) => ({
         SoLEXS count rate remains the operational recommendation.
       </p>
     </section>
+
+    <PageContract
+      what="The scientific conclusions of the project, stated at the scale of a claim — including the result that says machine learning did not help."
+      trust="Every figure on this page is read from the same committed benchmark artifact that the full method tables render from, so the summary cannot drift from the evidence it summarises."
+      verify={[
+        { href: "/validation/", label: "The proof", note: "Curves, calibration, error analysis" },
+        { href: "/evidence/", label: "Trace these claims", note: "Claim → artifact → commit" },
+        { href: "/journey/", label: "How this was reached", note: "The investigation, in order" },
+        { href: "/models/", label: "Every model that was tried", note: "Eight cards" },
+      ]}
+    />
+
 
     {/* 2 — the comparison. The overlap IS the finding. */}
     <section class="section flow" aria-labelledby="compare-h">
@@ -131,7 +144,7 @@ const bars = headline.rows.map((r) => ({
     <section class="section-tight flow">
       <div class="flex flex-wrap gap-3">
         <LearnMore
-          href="/findings/validation/"
+          href="/validation/"
           label="See the proof"
           note="ROC, PR, calibration, confusion, error analysis"
         />
@@ -141,7 +154,7 @@ const bars = headline.rows.map((r) => ({
           note="Benchmark tables, adjudicated verdicts, evaluation protocol"
         />
         <LearnMore
-          href="/validation/"
+          href="/engineering/provenance/"
           label="See how it was checked"
           note="Six contradictions, each ruled on"
         />

@@ -1,0 +1,44 @@
+---
+/**
+ * The reference layer, rendered in the footer of every page.
+ *
+ * The descent (Overview -> Build) is a reading order and belongs in the header. These
+ * surfaces are not rungs on it — a reviewer checking a model's failure modes is looking
+ * something up, not descending. Putting them in the header would imply an eleven-step
+ * journey nobody takes; leaving them out entirely would orphan them behind whatever page
+ * happened to link them. A grouped footer index is the shape that matches how they are
+ * actually used.
+ *
+ * Rendered from RESOURCES, so a surface added to the journey module appears here without
+ * anyone remembering to add it.
+ */
+import { RESOURCES } from "./journey";
+
+const GROUPS = [
+  { key: "orientation", label: "Start here" },
+  { key: "evidence", label: "Evidence" },
+  { key: "engineering", label: "Engineering" },
+] as const;
+
+const path = Astro.url.pathname;
+---
+
+<nav class="resource-index" aria-label="Reference surfaces">
+  {
+    GROUPS.map((g) => (
+      <div>
+        <p class="resource-index__group">{g.label}</p>
+        <ul>
+          {RESOURCES.filter((r) => r.group === g.key).map((r) => (
+            <li>
+              <a href={r.href} aria-current={path.startsWith(r.href) ? "page" : undefined}>
+                {r.label}
+                <span class="resource-index__summary">{r.summary}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</nav>

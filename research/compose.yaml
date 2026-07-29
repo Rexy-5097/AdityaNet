@@ -1,0 +1,41 @@
+# One-command reproduction environment.
+#
+#   docker compose run --rm verify        # environment + dataset digest check
+#   docker compose run --rm shell         # interactive session in the pinned environment
+#
+# The raw ISSDC Level-1 archive is NOT included in this repository — it is large and not
+# redistributable here. Point ADITYANET_RAW at a local copy to run the full dataset
+# rebuild; without it, the committed artifacts under artifacts/ are still fully
+# inspectable and the benchmark comparison can be re-read.
+
+services:
+  verify:
+    build:
+      context: ..
+      dockerfile: research/Dockerfile
+    volumes:
+      # Optional: a local copy of the raw archive, read-only.
+      - ${ADITYANET_RAW:-./.empty}:/data:ro
+    command: >
+      python -c "
+      import json, pathlib, sys;
+      m = json.load(open('/adityanet/artifacts/v2/phase05/freeze_manifest.json'));
+      i = m['identity'];
+      print('python           ', sys.version.split()[0]);
+      print('dataset version  ', m.get('dataset_version', 'AdityaNet_v2_dataset_r1'));
+      print('dataset digest   ', i['dataset_hash']);
+      print('provenance digest', i['provenance_hash']);
+      print('parquet files    ', i['n_parquet_files']);
+      print();
+      print('Environment reproduces. Compare the digest above with the published value.');
+      "
+
+  shell:
+    build:
+      context: ..
+      dockerfile: research/Dockerfile
+    volumes:
+      - ${ADITYANET_RAW:-./.empty}:/data:ro
+    stdin_open: true
+    tty: true
+    command: ["/bin/bash"]

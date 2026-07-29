@@ -1,0 +1,68 @@
+---
+/**
+ * Feature attributions, drawn from a zero line.
+ *
+ * SIGNED vs UNSIGNED is the whole design. A logistic coefficient has a direction and a
+ * tree importance does not, and the common fix — plotting |value| so the three models
+ * share an axis — destroys the only interesting thing the linear model says, which is
+ * that several rolling means push the score DOWN. So signed series get a centre line and
+ * bars that grow both ways; unsigned series grow from the left edge. The `signed` prop
+ * is not styling, it is a claim about what the number means.
+ *
+ * Bars are scaled to the largest magnitude in the series, and every value is printed
+ * beside its bar, so the figure is a reading aid rather than the only source. No axis is
+ * cropped, because a cropped axis on an attribution plot is how a small effect is made
+ * to look decisive.
+ */
+interface Props {
+  values: Readonly<Record<string, number>>;
+  /** True when negative values are meaningful (a coefficient), false for importances. */
+  signed: boolean;
+  caption?: string;
+  /** Show only the strongest N. Omit to show all. */
+  limit?: number;
+}
+
+const { values, signed, caption, limit } = Astro.props;
+
+const entries = Object.entries(values)
+  .sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]))
+  .slice(0, limit ?? Infinity);
+
+const max = Math.max(...entries.map(([, v]) => Math.abs(v)), Number.EPSILON);
+
+/** Bar geometry as percentages of the track. Signed bars start at the midpoint. */
+const geometry = (v: number): { left: string; width: string } => {
+  const frac = (Math.abs(v) / max) * (signed ? 50 : 100);
+  return signed
+    ? { left: v < 0 ? `${50 - frac}%` : "50%", width: `${frac}%` }
+    : { left: "0%", width: `${frac}%` };
+};
+
+const decimals = signed ? 2 : 4;
+---
+
+<figure>
+  <ul class="flex flex-col gap-2.5">
+    {
+      entries.map(([name, v]) => {
+        const g = geometry(v);
+        return (
+          <li class="fbar">
+            <span class="fbar__name">{name}</span>
+            <span class="fbar__track">
+              {signed && <span class="fbar__zero" style="left:50%" aria-hidden="true" />}
+              <span
+                class:list={["fbar__fill", v < 0 && "fbar__fill--neg"]}
+                style={`left:${g.left};width:${g.width}`}
+                aria-hidden="true"
+              />
+            </span>
+            <span class="fbar__val">{v >= 0 && signed ? "+" : ""}{v.toFixed(decimals)}</span>
+          </li>
+        );
+      })
+    }
+  </ul>
+  {caption && <figcaption class="mt-4 text-sm leading-relaxed text-fg-muted">{caption}</figcaption>}
+</figure>

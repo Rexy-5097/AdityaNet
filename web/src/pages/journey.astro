@@ -1,0 +1,297 @@
+---
+/**
+ * The research journey.
+ *
+ * Every other surface presents the answer. This one presents the investigation, in the
+ * order it actually happened, including the two places where the result was not what the
+ * project expected.
+ *
+ * Written as a sequence of stages rather than a narrative essay, so a reader can enter at
+ * whichever step they doubt. Each stage states what was expected, what was found, and what
+ * changed as a result — and links to the surface where that step's evidence lives, so the
+ * story is navigable rather than merely readable.
+ *
+ * The numbers are interpolated from the generated payloads, not written into the prose.
+ * A story about a result is the easiest place for a stale figure to survive, because
+ * nobody re-checks a narrative.
+ *
+ * Zero JavaScript.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import PageHeader from "@/components/shell/PageHeader.astro";
+import PageContract from "@/components/shell/PageContract.astro";
+import Section from "@/components/shell/Section.astro";
+import FlowDiagram from "@/components/evidence/FlowDiagram.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
+import models from "@/generated/data/findings/models.json";
+import benchmark from "@/generated/data/findings/benchmark.json";
+import metrics from "@/generated/data/findings/metrics.json";
+import card from "@/generated/data/dataset/card.json";
+
+const nowcast = models.data.tasks[0]!;
+const threshold = nowcast.models.find((m) => m.key === "threshold_rate")!;
+const lgbm = nowcast.models.find((m) => m.key === "lightgbm")!;
+const bench = benchmark.data;
+const id = card.data.identity;
+
+const TASK = "M/X NOWCAST";
+const m = (metrics.tasks as Record<string, { calibration: { brier: number } }>)[TASK]!;
+
+const fmt = (v: number | null | undefined, dp = 3): string =>
+  typeof v === "number" && Number.isFinite(v) ? v.toFixed(dp) : "—";
+
+const alarmRatio = lgbm.event.false_event_runs / threshold.event.false_event_runs;
+
+const STAGES = [
+  {
+    n: "01",
+    title: "Research question",
+    expected: null,
+    body:
+      "Aditya-L1 publishes soft X-ray measurements from two payloads at one-minute cadence. " +
+      "Can a model trained on that archive detect solar flares better than the simplest rule " +
+      "an operator would write by hand?",
+    found:
+      "The question was fixed before the data was touched, along with the metrics that would " +
+      "answer it. That ordering is what makes the eventual negative result publishable rather " +
+      "than a story assembled after the fact.",
+    href: "/overview/",
+    hrefLabel: "What the project is",
+  },
+  {
+    n: "02",
+    title: "Initial hypothesis",
+    expected: "Machine learning would beat the threshold, and spectral features would be why.",
+    body:
+      "The reasoning was ordinary and, at the time, sound. A single count-rate threshold uses " +
+      "one number per minute and discards everything else — the shape of the rise, the recent " +
+      "variance, the spectral distribution. A learner with fourteen features and access to the " +
+      "spectrum should have had a great deal to work with.",
+    found: "Neither half of the hypothesis survived contact with the evaluation.",
+    href: "/models/",
+    hrefLabel: "The models that were tried",
+  },
+  {
+    n: "03",
+    title: "Dataset",
+    expected: null,
+    body:
+      `Two years of archive products were parsed onto a canonical one-minute grid: ` +
+      `${id.n_parquet_files.toLocaleString("en-US")} Parquet files across seven tables, ` +
+      `frozen at a single digest and never modified since. Missing minutes were left missing.`,
+    found:
+      "The limitations were written down before modelling, not after. Two of them decided the " +
+      "shape of everything that followed: the effective sample size is events rather than " +
+      "minutes, and no instrument response exists, so physical severity targets are " +
+      "unconstructible from this archive.",
+    href: "/data/card/#limitations",
+    hrefLabel: "The ten limitation clauses",
+  },
+  {
+    n: "04",
+    title: "Baseline",
+    expected: "A threshold would be a floor to clear.",
+    body:
+      `A single threshold on the SoLEXS count rate detected ` +
+      `${threshold.event.events_detected} of ${threshold.event.n_events} M/X events ` +
+      `(event recall ${fmt(threshold.event.event_recall)}) while raising ` +
+      `${threshold.event.false_event_runs} false alarm runs.`,
+    found:
+      "The baseline was not a floor. It was, and remained, the best operational detector in " +
+      "the study. Everything after this point is an attempt to displace it.",
+    href: "/models/threshold_rate/",
+    hrefLabel: "Threshold detector card",
+  },
+  {
+    n: "05",
+    title: "Machine learning",
+    expected: "Gradient boosting would win.",
+    body:
+      `Logistic regression, a random forest and LightGBM were fitted on the same fourteen ` +
+      `features under a protocol frozen in advance — seed ${models.data.seed}, chronological ` +
+      `split, no shuffling. LightGBM ranked minutes best of anything evaluated: ` +
+      `PR-AUC ${fmt(lgbm.minute.pr_auc)} against the threshold's ${fmt(threshold.minute.pr_auc)}.`,
+    found:
+      "On the ranking metric, the hypothesis looked confirmed. This is the point at which a " +
+      "less careful project would have published.",
+    href: "/models/lightgbm/",
+    hrefLabel: "LightGBM model card",
+  },
+  {
+    n: "06",
+    title: "Unexpected results",
+    expected: "Better ranking would mean better detection.",
+    body:
+      `It did not. LightGBM detected ${lgbm.event.events_detected} of ` +
+      `${lgbm.event.n_events} events against the threshold's ${threshold.event.events_detected} ` +
+      `— no more flares — and the confidence intervals on ROC-AUC overlapped the baseline's, ` +
+      `so no model was statistically distinguishable from it.`,
+    found:
+      "Ranking and detection came apart. At a base rate near one percent, being better at " +
+      "ordering minutes does not translate into catching more events, because the events were " +
+      "already at the top of both orderings.",
+    href: "/validation/#ranking",
+    hrefLabel: "ROC and PR curves",
+  },
+  {
+    n: "07",
+    title: "False alarm analysis",
+    expected: null,
+    body:
+      `Alarms were then counted as runs — contiguous blocks of predicted-positive minutes — ` +
+      `because that is what an operator responds to. LightGBM raised ` +
+      `${lgbm.event.false_event_runs.toLocaleString("en-US")} false runs against the ` +
+      `threshold's ${threshold.event.false_event_runs}: about ` +
+      `${alarmRatio.toFixed(0)} times as many, for no additional events detected.`,
+    found:
+      "This settled the question. The comparison is decided on the metric that matters " +
+      "operationally, and on that metric the learned models lose decisively.",
+    href: "/validation/#tradeoff",
+    hrefLabel: "The recall–burden trade-off",
+  },
+  {
+    n: "08",
+    title: "Calibration",
+    expected: null,
+    body:
+      `The remaining defence of a learned model is that its probabilities are useful even if ` +
+      `its alarms are not. LightGBM's reliability diagram and Brier score (${fmt(m.calibration.brier, 4)}) ` +
+      `are published so that argument can be evaluated rather than asserted.`,
+    found:
+      "The threshold detector emits a physical rate, not a probability, so it has no " +
+      "reliability diagram at all. Where a comparison is impossible, no comparison is drawn.",
+    href: "/validation/#calibration",
+    hrefLabel: "The reliability diagram",
+  },
+  {
+    n: "09",
+    title: "Final scientific conclusion",
+    expected: null,
+    body:
+      `A one-line detector on the SoLEXS count rate remains the operational recommendation. ` +
+      `Machine learning ranks individual minutes better, detects no more flares, and raises ` +
+      `roughly ${alarmRatio.toFixed(0)}× the false alarms. Added spectral resolution changed ` +
+      `ROC-AUC by ${bench.ablation.delta_bands!.toFixed(4)} — a confirmed null.`,
+    found:
+      "The negative result is published at full weight, and the model that lost has the most " +
+      "detailed card on the site. A platform whose central claim is that its evidence is " +
+      "checkable earns that claim by publishing the finding a positive-result incentive would bury.",
+    href: "/findings/",
+    hrefLabel: "The findings",
+  },
+] as const;
+
+// `produces` is omitted rather than set to undefined: the project builds under
+// exactOptionalPropertyTypes, where an explicit undefined is not the same as an absent key.
+const SPINE = STAGES.map((s) => ({
+  n: s.n,
+  title: s.title,
+  ...(s.expected ? { produces: "expectation revised" } : {}),
+  emphasis: s.n === "06" || s.n === "07",
+  href: `#stage-${s.n}`,
+}));
+---
+
+<BaseLayout
+  title="Research journey — AdityaNet"
+  description="How AdityaNet reached its conclusions: the research question, the hypothesis that failed, the baseline that won, the false alarm analysis that settled it."
+>
+  <AmbientBackdrop
+    src="/video/space-galaxies.mp4"
+    poster="/video/space-galaxies-poster.jpg"
+    shape="frame"
+    align="left"
+  />
+
+  <main id="main" class="mx-auto max-w-4xl px-6 pb-32">
+    <div class="section-tight flow">
+      <PageHeader
+        eyebrow="Orientation · research journey"
+        title="The investigation, not just the answer"
+        lede="Nine stages, in the order they happened — including the two where the result was not what this project expected, and the point at which a less careful version of it would have published."
+      />
+    </div>
+
+    <PageContract
+      what="A chronological account of how the flare-detection question was asked, tested, and answered — with the hypothesis that failed left in."
+      trust="Every figure in this account is interpolated at build time from the same committed artifacts the evidence pages render from, so the story cannot keep repeating a number the benchmark no longer contains."
+      verify={[
+        { href: "/validation/", label: "The evidence for each stage", note: "Curves, calibration, error analysis" },
+        { href: "/evidence/", label: "Trace any claim here", note: "Claim → artifact → commit" },
+        { href: "/models/", label: "Every model that was tried", note: "Eight cards" },
+        { href: "/data/card/#limitations", label: "What the data cannot support", note: "L-1 … L-10" },
+      ]}
+    />
+
+    <Section id="spine" eyebrow="The shape" title="Nine stages">
+      <div class="mt-2">
+        <FlowDiagram
+          stages={SPINE}
+          direction="column"
+          caption="Stages 6 and 7 are where the argument turns. Everything before them is a hypothesis being tested; everything after is a conclusion being constrained."
+        />
+      </div>
+    </Section>
+
+    <Section id="stages" eyebrow="The account" title="What happened, in order" major ruled>
+      <ol class="mt-2 space-y-4">
+        {
+          STAGES.map((s) => (
+            <li id={`stage-${s.n}`} class="glass p-6 scroll-mt-24">
+              <div class="flex items-baseline gap-4">
+                <p class="font-mono text-2xs text-fg-subtle">{s.n}</p>
+                <h3 class="text-lg font-semibold tracking-tight text-fg">{s.title}</h3>
+              </div>
+
+              {s.expected && (
+                <p class="mt-5 max-w-measure border-l border-line-subtle pl-4 text-sm leading-relaxed text-fg-subtle">
+                  <span class="font-mono text-2xs tracking-[0.16em] uppercase">Expected · </span>
+                  {s.expected}
+                </p>
+              )}
+
+              <p class="mt-5 max-w-measure text-sm leading-relaxed text-fg-muted">{s.body}</p>
+              <p class="mt-4 max-w-measure text-sm leading-relaxed text-fg">{s.found}</p>
+
+              <p class="mt-5">
+                <a href={s.href} class="link font-mono text-2xs">{s.hrefLabel} →</a>
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+    </Section>
+
+    <Section id="honest" eyebrow="One more thing" title="What this account leaves in" ruled>
+      <div class="max-w-measure space-y-5 text-sm leading-relaxed text-fg-muted">
+        <p>
+          The hypothesis in stage 2 was wrong, and it is left in the record rather than
+          rewritten to match the outcome. So is stage 5, where the ranking metric made the
+          hypothesis look confirmed — that is a real moment in the investigation, and removing it
+          would make the eventual conclusion look more obvious than it was.
+        </p>
+        <p>
+          The same discipline applies elsewhere on this platform. Six times the implementation
+          contradicted the written specification; all six adjudications are published, including
+          the amendment that was declined and the one that remains open. A
+          <a href="/reproducibility/#lockfile" class="link"> digest mismatch</a> in the
+          environment record was traced rather than silenced, and the trace is published as a
+          case study.
+        </p>
+        <p>
+          None of that is decoration. A platform that only ever shows its successes gives a
+          reader no way to calibrate how much to believe it.
+        </p>
+      </div>
+    </Section>
+
+    <Section id="next" ruled>
+      <div class="flex flex-wrap gap-3">
+        <LearnMore href="/findings/" label="The conclusion" note="Stated at full weight" />
+        <LearnMore href="/engineering/provenance/" label="Six contradictions" note="Each one adjudicated in public" />
+        <LearnMore href="/start/" label="Where to go next" note="Five routes, one per visitor" />
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

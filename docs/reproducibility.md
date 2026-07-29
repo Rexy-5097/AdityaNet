@@ -95,3 +95,74 @@ The headline values to check:
 - Node ≥ 22.12, pnpm (pinned to `pnpm@10.28.2` via `packageManager`).
 - No network access is required to build the site — it reads only committed files.
 - The scientific derivation uses a pinned Python environment recorded on the Build surface.
+
+## Container image — pending verification
+
+`research/Dockerfile` and `research/compose.yaml` pin the base image by version, install
+only from `artifacts/v2/phase05/requirements.lock` after verifying the lockfile's digest,
+and set `PYTHONHASHSEED=0` with single‑threaded BLAS so determinism is not thread‑order
+dependent.
+
+> **The Docker configuration has been authored and statically validated but has not yet
+> been executed in a real container runtime.**
+
+No image has been built here, so no claim is made that it works. It is published in this
+state rather than withheld — an unbuilt Dockerfile that says so is useful to someone with a
+runtime, whereas a green checkmark on something nobody has executed would undermine every
+other claim on this page.
+
+## Case study — the lockfile digest that did not match
+
+The freeze manifest records a SHA‑256 for `requirements.lock`. **It does not match the file
+on disk.** Taken at face value, that is the worst thing this project could discover: the
+environment record disagreeing with the environment.
+
+It is not drift. The chain, computed at build time by `web/scripts/derive.py` and published
+at [`/reproducibility#lockfile`](https://adityanet-re1t.onrender.com/reproducibility/#lockfile):
+
+| Stage | What happened | Result |
+| --- | --- | --- |
+| Dataset freeze | Canonical dataset built and frozen at `be0b7e5` | `freeze_manifest.json` |
+| Frozen lockfile | Manifest records the digest of the environment used — 92 pinned packages | `6899e001…` |
+| Benchmark expansion | Months later the flare benchmark runs; it needs gradient boosting and SHAP | `benchmark_results.json` |
+| Additional dependencies | 7 packages appended to the *same* lockfile at `9efad0c` | 99 pinned packages |
+| Final runtime | The file now describes the benchmark environment, not the freeze environment | `8187301e…` |
+
+Re‑hashing the lockfile blob as it existed at `be0b7e5` reproduces the recorded digest
+exactly, and diffing the package sets names the seven additions
+(`lightgbm`, `shap`, `numba`, `llvmlite`, `cloudpickle`, `slicer`, `tqdm`). One lockfile
+served two environments at two points in history, and only the first was hashed.
+
+**Why this is expected.** A lockfile is a living description of a working environment; a
+manifest digest is a dated claim about one moment. They diverge the first time a project
+does something new with the same data — for a research repository, the normal path.
+
+**Why provenance mattered.** Without the recorded build commit, the only available reading
+of a digest mismatch is that the environment record is untrustworthy, and the honest
+response would have been to withdraw the reproducibility claim. Because the manifest
+records `be0b7e5`, the question was answerable by computation. The system produced a
+correct alarm and then produced its own explanation.
+
+**What was not done.** The manifest was not quietly re‑hashed to make the mismatch go away.
+It records what the *dataset* was built with, which is the question it exists to answer. An
+integrity system whose alarms are silenced to keep a page green is decorative.
+
+## Reproducibility metrics
+
+Published at [`/reproducibility`](https://adityanet-re1t.onrender.com/reproducibility/) and
+derived from committed artifacts. Deliberately **not** throughput, latency or scalability:
+this platform serves a frozen dataset from static files, so it has no ingestion loop and no
+query service to benchmark, and inventing those figures would discredit the page.
+
+| Metric | State | Measured value |
+| --- | --- | --- |
+| Environment reproducibility | Partial | 99 packages pinned; digest mismatch explained above |
+| Artifact integrity | Verified | 1,985 / 1,985 files carry their own SHA‑256 |
+| Dataset provenance | Verified | Row‑level source attribution (`src_file` + `src_sha256`) |
+| Build determinism | Partial | 24 / 24 comparisons byte‑identical, over a 12‑day sample |
+| Validation coverage | Partial | 5 of 6 contradictions closed; the open one published as open |
+| Evidence traceability | Verified | Every governed measurement resolves to artifact, pointer, digest, commit |
+
+Two of the six report as partial, and one component reports as pending verification. That
+is the point: the value of this page is entirely that it can be trusted about its own
+limits.

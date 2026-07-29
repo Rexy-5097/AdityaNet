@@ -7,6 +7,7 @@
  * /data communicate coverage visually while this page stays exhaustive.
  */
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageContract from "@/components/shell/PageContract.astro";
 import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
 import PageHeader from "@/components/shell/PageHeader.astro";
 import ReportSections from "@/components/evidence/ReportSections.astro";
@@ -33,6 +34,18 @@ import dictionary from "@/generated/data/pipeline/dictionary.json";
       />
       <p class="mt-8"><a href="/data/" class="link">← Back to the data</a></p>
     </div>
+
+    <PageContract
+      what="The schema of every canonical table: each column, its type, its units and what a missing value means."
+      trust="Carried verbatim from the frozen data dictionary written at the dataset freeze, not restated in the site's own words."
+      verify={[
+        { href: "/data/card/", label: "The dataset card", note: "Provenance and limitations" },
+        { href: "/pipeline/", label: "How the tables were built", note: "Stage by stage" },
+        { href: "/build/", label: "Per-table digests", note: "The bytes behind the schema" },
+        { href: "/archive/", label: "The raw payload", note: "Digest-addressed JSON" },
+      ]}
+    />
+
 
     <section class="section flow">
       <ReportSections sections={dictionary.data.sections} />

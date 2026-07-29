@@ -1,0 +1,295 @@
+---
+/**
+ * Architecture.
+ *
+ * Six diagrams, each answering a different reader's question: how the science becomes
+ * data, how the data becomes a number on screen, how a wrong number is caught, how the
+ * repository is laid out, how it ships, and how a visitor moves through it.
+ *
+ * Every stage names an actual file. A boxes-and-arrows diagram whose boxes are nouns
+ * ("Processing", "Storage") explains nothing that the section heading did not; a diagram
+ * whose boxes are paths is a map someone can follow into the repository. The stages here
+ * are all real paths, and every one of them is checked by the build.
+ *
+ * Diagrams are HTML and CSS, not a rendering library — this surface ships no JavaScript,
+ * and the connectors rotate from horizontal to vertical on a narrow screen rather than
+ * scrolling an SVG sideways.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import PageHeader from "@/components/shell/PageHeader.astro";
+import PageContract from "@/components/shell/PageContract.astro";
+import Section from "@/components/shell/Section.astro";
+import FlowDiagram from "@/components/evidence/FlowDiagram.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
+import archive from "@/generated/data/archive.json";
+import trace from "@/generated/data/traceability.json";
+import card from "@/generated/data/dataset/card.json";
+
+const nPayloads = archive.data.n_entries;
+const nMeasurements = trace.data.n_measurements;
+const nFiles = card.data.identity.n_parquet_files;
+
+const SCIENTIFIC = [
+  {
+    n: "1",
+    title: "ISSDC archive",
+    detail: "Public Aditya-L1 products for SoLEXS and HEL1OS, downloaded as published.",
+    produces: ".lc · .pi · .gti · housekeeping",
+  },
+  {
+    n: "2",
+    title: "Parse",
+    detail: "Archive products read under a written parser specification, with two PHA channel families reconciled.",
+    produces: "per-file records + source digests",
+  },
+  {
+    n: "3",
+    title: "Canonicalise",
+    detail: "Everything resampled onto a 1-minute UTC grid. Missing stays missing — never imputed.",
+    produces: "7 canonical tables",
+    href: "/data/card/#tables",
+  },
+  {
+    n: "4",
+    title: "Freeze",
+    detail: `Every one of the ${nFiles.toLocaleString("en-US")} files hashed, rolled up to one dataset digest.`,
+    produces: "freeze_manifest.json",
+    emphasis: true,
+  },
+  {
+    n: "5",
+    title: "Benchmark",
+    detail: "Eight detectors on a frozen chronological split under a protocol fixed in advance.",
+    produces: "benchmark_results.json",
+    href: "/models/",
+  },
+];
+
+const DATA_FLOW = [
+  {
+    n: "1",
+    title: "Committed artifacts",
+    detail: "JSON written by the science pipeline. Read-only from here on.",
+    produces: "artifacts/v2/**",
+  },
+  {
+    n: "2",
+    title: "derive.py",
+    detail: "Resolves each displayed quantity to an RFC-6901 pointer inside the artifact that produced it, and re-verifies the input digests after writing.",
+    produces: "generated/data/**",
+  },
+  {
+    n: "3",
+    title: "derive_metrics.py",
+    detail: "Computes curve geometry from the 21 MB prediction arrays so the browser never sees them.",
+    produces: "findings/metrics.json",
+  },
+  {
+    n: "4",
+    title: "Astro build",
+    detail: "Pages import the JSON directly. Every rendered value carries its measurement key in the markup.",
+    produces: "static HTML",
+    emphasis: true,
+  },
+  {
+    n: "5",
+    title: "postbuild.ts",
+    detail: "Hashes every inline script and writes the host-native header config.",
+    produces: "render.yaml · vercel.json",
+  },
+];
+
+const VALIDATION_CHAIN = [
+  {
+    n: "1",
+    title: "generate --check",
+    detail: "Regenerates design tokens into memory and diffs against disk. A hand-edited generated file cannot land.",
+    produces: "pass / fail",
+  },
+  {
+    n: "2",
+    title: "astro check · tsc",
+    detail: "TypeScript at strictest, including unchecked index access and exact optional properties.",
+    produces: "pass / fail",
+  },
+  {
+    n: "3",
+    title: "eslint boundaries",
+    detail: "The architecture graph is a lint rule: the artistic and evidence domains cannot import each other.",
+    produces: "pass / fail",
+  },
+  {
+    n: "4",
+    title: "pnpm budget",
+    detail: `Re-reads the artifacts from disk and compares them against every rendered value in the built HTML. ${nMeasurements} measurements checked.`,
+    produces: "evidence consistency",
+    emphasis: true,
+    href: "/evidence/",
+  },
+  {
+    n: "5",
+    title: "per-route byte budget",
+    detail: "Fails the build if an evidence route grows a JavaScript payload.",
+    produces: "0 KB JS on evidence surfaces",
+  },
+];
+
+const DEPLOYMENT = [
+  { n: "1", title: "Push to main", detail: "No path filter — GitHub truncates path lists on large diffs, so a gate could be skipped silently.", produces: "CI run" },
+  { n: "2", title: "GitHub Actions", detail: "Two workflows: the Python pipeline, and the web verify + build.", produces: "green or red" },
+  { n: "3", title: "Render build", detail: "pnpm install from the committed lockfile, then astro build with the root set to web/.", produces: "dist/" },
+  { n: "4", title: "Static hosting", detail: "Plain files. No server runtime, no database, no origin the page can reach at runtime.", produces: "the live site", emphasis: true },
+];
+
+const USER_JOURNEY = [
+  { n: "0", title: "The scene", detail: "A held shot, labelled as illustrative. Nothing here is evidence and it says so.", produces: "an impression", href: "/" },
+  { n: "1", title: "Overview", detail: "What the project is and why it exists.", produces: "orientation", href: "/overview/" },
+  { n: "2", title: "Validation", detail: "The evidence, before the claim that rests on it.", produces: "grounds for trust", href: "/validation/", emphasis: true },
+  { n: "3", title: "Findings", detail: "The conclusion, including the negative result.", produces: "the claim", href: "/findings/" },
+  { n: "4", title: "Pipeline · Data", detail: "The machinery, then the measurements themselves.", produces: "the raw record", href: "/pipeline/" },
+  { n: "5", title: "Build", detail: "The digest and the commands to rebuild all of it.", produces: "your own copy", href: "/build/" },
+];
+
+const LAYOUT = [
+  { path: "web/", what: "The Astro site. Pages compose; they never implement.", href: "/archive/" },
+  { path: "web/scripts/", what: "The four sanctioned generators: derive.py, derive_metrics.py, generate.ts, check.ts." },
+  { path: "web/src/generated/", what: `${nPayloads} JSON payloads plus the typed measurement map. Never hand-edited.`, href: "/archive/" },
+  { path: "research/", what: "The Python science pipeline, its tests, and the container configuration.", href: "/reproducibility/#container" },
+  { path: "artifacts/", what: "The frozen scientific record. Read-only to everything else in the repository." },
+  { path: "docs/", what: "Written specifications, deployment notes and the architecture record." },
+  { path: ".github/", what: "The gates. Both workflows run unconditionally on push to main." },
+];
+---
+
+<BaseLayout
+  title="Architecture — AdityaNet"
+  description="System architecture, scientific pipeline, data flow, validation chain, deployment and repository layout for AdityaNet, drawn end to end."
+>
+  <AmbientBackdrop
+    src="/video/space-galaxies.mp4"
+    poster="/video/space-galaxies-poster.jpg"
+    shape="frame"
+    align="right"
+  />
+
+  <main id="main" class="mx-auto max-w-5xl px-6 pb-32">
+    <div class="section-tight flow">
+      <PageHeader
+        eyebrow="Engineering · architecture"
+        title="Archive to rendered number"
+        lede="Six views of the same system. Every stage names a real path in the repository, because a diagram whose boxes are abstract nouns explains nothing its heading did not."
+      />
+    </div>
+
+    <PageContract
+      what="The system drawn end to end: how archive products become a frozen dataset, how that dataset becomes a number on screen, and what stops a wrong number reaching the page."
+      trust="Every stage below corresponds to a file that exists in the repository and runs in CI. The counts in the diagrams are read from the generated payloads rather than written into the captions."
+      verify={[
+        { href: "/pipeline/", label: "The pipeline surface", note: "Stage reports, verbatim" },
+        { href: "/reproducibility/", label: "Reproducibility metrics", note: "What has actually been executed" },
+        { href: "/archive/", label: "Every published payload", note: `${nPayloads} JSON files` },
+        { href: "/evidence/", label: "Evidence traceability", note: "The gate, and what it checks" },
+      ]}
+    />
+
+    <Section id="scientific" eyebrow="View 1" title="The scientific pipeline">
+      <p class="lede">Archive products in, a frozen benchmark out.</p>
+      <div class="mt-9">
+        <FlowDiagram
+          stages={SCIENTIFIC}
+          direction="row"
+          caption="The freeze is the hinge. Everything upstream of it can be re-run; everything downstream is addressed by the digest it produces, which is why a figure on this site can be tied to a specific set of bytes."
+        />
+      </div>
+    </Section>
+
+    <Section id="data-flow" eyebrow="View 2" title="Data flow into the page" ruled>
+      <p class="lede">
+        The narrow bridge between the science and the website — and the reason no number on
+        this site is typed by a person.
+      </p>
+      <div class="mt-9">
+        <FlowDiagram
+          stages={DATA_FLOW}
+          direction="row"
+          caption="derive.py is the only path from artifacts to the web layer, and it is read-only: inputs are opened O_RDONLY and re-hashed after the run to prove nothing was modified. A developer cannot type a measured value into a page — they reference a measurement, and the reference must resolve."
+        />
+      </div>
+    </Section>
+
+    <Section id="validation" eyebrow="View 3" title="The validation chain" ruled>
+      <p class="lede">Five gates, all of which run on every push to main.</p>
+      <div class="mt-9">
+        <FlowDiagram
+          stages={VALIDATION_CHAIN}
+          direction="row"
+          caption="The fourth gate is the one that matters most: it re-reads the committed artifacts from disk and compares them against the values actually present in the built HTML. A figure that drifts from its source does not render incorrectly — it fails the build."
+        />
+      </div>
+    </Section>
+
+    <Section id="deployment" eyebrow="View 4" title="Deployment" ruled>
+      <p class="lede">Static files, and nothing else.</p>
+      <div class="mt-9">
+        <FlowDiagram
+          stages={DEPLOYMENT}
+          direction="row"
+          caption="There is no application server, no database and no runtime dependency on any external origin — which is what allows the served Content-Security-Policy to forbid external origins outright rather than allow-listing them."
+        />
+      </div>
+    </Section>
+
+    <Section id="repository" eyebrow="View 5" title="Repository layout" ruled>
+      <p class="lede">Seven top-level concerns, each with one owner.</p>
+      <ul class="mt-9 space-y-px overflow-hidden rounded-md border border-line-subtle">
+        {
+          LAYOUT.map((l) => (
+            <li class="bg-surface p-5 sm:flex sm:items-baseline sm:gap-6">
+              <p class="font-mono text-sm whitespace-nowrap text-fg">{l.path}</p>
+              <p class="mt-2 text-sm leading-relaxed text-fg-muted sm:mt-0">
+                {l.what}
+                {l.href && (
+                  <>
+                    {" "}
+                    <a href={l.href} class="link">See it →</a>
+                  </>
+                )}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-6 max-w-measure text-sm leading-relaxed text-fg-muted">
+        The direction of dependency is enforced, not merely intended:
+        <span class="font-mono text-fg"> artifacts/</span> is read-only to everything,
+        <span class="font-mono text-fg"> web/src/generated/</span> is written only by the
+        generators, and the artistic and evidence domains inside the site are forbidden by lint
+        from importing each other — so a total failure of the opening scene cannot affect a
+        single evidence surface.
+      </p>
+    </Section>
+
+    <Section id="journey" eyebrow="View 6" title="How a visitor moves through it" ruled>
+      <p class="lede">
+        The site is not a set of pages. It is one descent, from an impression you cannot
+        verify to the command that reproduces it.
+      </p>
+      <div class="mt-9">
+        <FlowDiagram
+          stages={USER_JOURNEY}
+          direction="column"
+          caption="Validation sits before Findings deliberately. The platform's central claim is that its evidence is checkable, and putting the proof ahead of the conclusion is the strongest available way to say so."
+        />
+      </div>
+    </Section>
+
+    <Section id="next" ruled>
+      <div class="flex flex-wrap gap-3">
+        <LearnMore href="/reproducibility/" label="What has actually been run" note="Six metrics, two of them partial" />
+        <LearnMore href="/archive/" label="Fetch the payloads" note={`${nPayloads} JSON files, digest-addressed`} />
+        <LearnMore href="/start/" label="Where to start" note="Five routes, one per visitor" />
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

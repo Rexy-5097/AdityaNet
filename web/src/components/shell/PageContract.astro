@@ -1,0 +1,63 @@
+---
+/**
+ * The contract every surface owes its reader: what this is, why it can be trusted,
+ * and where it can be checked.
+ *
+ * Written as a COMPONENT rather than a house style so the obligation is structural. A
+ * convention that each page is supposed to follow is a convention each page eventually
+ * stops following; a component with three required props cannot be half-filled, and a
+ * page that omits it is visibly missing a block rather than quietly missing a duty.
+ *
+ * `verify` is a list of links, not prose, for the same reason: "the data is available"
+ * is a claim, and a URL is a check. Every entry must resolve to a surface, an artifact
+ * path, or a source file that exists in the repository.
+ *
+ * Placed at the TOP of a surface, not the bottom. A reader deciding whether to trust a
+ * page should not have to read it first.
+ */
+interface VerifyLink {
+  readonly href: string;
+  readonly label: string;
+  /** Path shown in mono — an artifact, a script, a route. */
+  readonly note?: string;
+}
+
+interface Props {
+  /** One sentence. What the reader is looking at. */
+  what: string;
+  /** One or two sentences. What makes this checkable rather than asserted. */
+  trust: string;
+  /** Where to go to check it. At least one; more is better. */
+  verify: readonly VerifyLink[];
+}
+
+const { what, trust, verify } = Astro.props;
+---
+
+<section class="page-contract reveal" aria-label="What this page is and how to verify it">
+  <div class="page-contract__grid">
+    <div>
+      <p class="page-contract__q">What is this?</p>
+      <p class="page-contract__a">{what}</p>
+    </div>
+    <div>
+      <p class="page-contract__q">Why should I trust it?</p>
+      <p class="page-contract__a">{trust}</p>
+    </div>
+    <div>
+      <p class="page-contract__q">Where can I verify it?</p>
+      <ul class="page-contract__links">
+        {
+          verify.map((v) => (
+            <li>
+              <a href={v.href} class="link">
+                {v.label}
+              </a>
+              {v.note && <span class="page-contract__path">{v.note}</span>}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

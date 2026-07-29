@@ -43,7 +43,7 @@ export const DESCENT: readonly Depth[] = [
     label: "Validation",
     state: "Trust",
     invitation:
-      "Six times, execution falsified the specification. See how each was ruled on before believing anything that follows.",
+      "ROC, precision-recall, calibration and error analysis, computed from 192,541 held-out predictions. See the evidence before believing the claim.",
     domain: "B",
   },
   {
@@ -77,6 +77,83 @@ export const DESCENT: readonly Depth[] = [
     invitation:
       "The end of the descent is not another page. It is the digest and the commands to rebuild all of this yourself.",
     domain: "B",
+  },
+];
+
+/**
+ * Secondary surfaces — the reference layer beneath the descent.
+ *
+ * These are not depths. The descent is a reading order: you go down it once, and each
+ * rung changes what you believe. A reviewer arriving at "why should I trust the model?"
+ * is not at a depth — they are looking something up, and a linear spine is the wrong
+ * shape for that. So these live in one flat, grouped index reachable from every page.
+ *
+ * Kept in this file rather than in the footer that renders it, because the footer is
+ * not the only consumer: /start routes each audience into a subset of these, and the
+ * evidence chain links into them by href. One list, three readers, no drift.
+ */
+export interface Resource {
+  readonly href: string;
+  readonly label: string;
+  /** One line, in the reader's terms, of what the surface answers. */
+  readonly summary: string;
+  readonly group: "evidence" | "engineering" | "orientation";
+}
+
+export const RESOURCES: readonly Resource[] = [
+  {
+    href: "/journey/",
+    label: "Research journey",
+    summary: "The investigation in order — question, hypothesis, baseline, the result nobody wanted.",
+    group: "orientation",
+  },
+  {
+    href: "/start/",
+    label: "Where to start",
+    summary: "Five routes through the platform, one per kind of visitor.",
+    group: "orientation",
+  },
+  {
+    href: "/models/",
+    label: "Model cards",
+    summary: "Every detector benchmarked: intended use, evaluation, failure modes, limitations.",
+    group: "evidence",
+  },
+  {
+    href: "/data/card/",
+    label: "Dataset card",
+    summary: "Seven tables, their coverage, their known biases, and what they cannot support.",
+    group: "evidence",
+  },
+  {
+    href: "/evidence/",
+    label: "Evidence traceability",
+    summary: "Every headline claim, traced to the artifact bytes and commit behind it.",
+    group: "evidence",
+  },
+  {
+    href: "/architecture/",
+    label: "Architecture",
+    summary: "How the archive becomes a rendered number, drawn end to end.",
+    group: "engineering",
+  },
+  {
+    href: "/reproducibility/",
+    label: "Reproducibility",
+    summary: "Environment, digests, determinism — and what remains unverified.",
+    group: "engineering",
+  },
+  {
+    href: "/engineering/provenance/",
+    label: "Engineering record",
+    summary: "Six times execution falsified the specification, and how each was ruled on.",
+    group: "engineering",
+  },
+  {
+    href: "/archive/",
+    label: "Static archive",
+    summary: "Every published payload, addressable and downloadable as JSON.",
+    group: "engineering",
   },
 ];
 

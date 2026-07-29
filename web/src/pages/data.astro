@@ -13,6 +13,7 @@
  * partial days are rendered at their true coverage rather than rounded up.
  */
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageContract from "@/components/shell/PageContract.astro";
 import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
 import KeyFacts from "@/components/shell/KeyFacts.astro";
 import NextDepth from "@/components/shell/NextDepth.astro";
@@ -76,6 +77,18 @@ const calHeight = 7 * (CELL + GAP);
       </h1>
       <p class="lede mt-8">Gaps are shown as gaps. Nothing is interpolated.</p>
     </div>
+
+    <PageContract
+      what="The canonical measurements themselves — one light curve per SoLEXS observation day, drawn from the frozen dataset."
+      trust="Each day is rendered from a payload derived read-only from the frozen Parquet tables, with missing minutes carried through as missing rather than filled."
+      verify={[
+        { href: "/data/card/", label: "The dataset card", note: "Coverage, variables, known biases" },
+        { href: "/data/schema/", label: "Column definitions", note: "Types and missing-value semantics" },
+        { href: "/build/", label: "Per-file digests", note: "Every file, hashed" },
+        { href: "/archive/", label: "Fetch a day as JSON", note: "/api/v1/days/" },
+      ]}
+    />
+
 
     <KeyFacts
       facts={[

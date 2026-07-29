@@ -130,7 +130,7 @@ The mobile experience is designed for the screen, not shrunk to fit it — navig
 - **SoLEXS** — Solar Low Energy X‑ray Spectrometer.
 - **HEL1OS** — High Energy L1 Orbiting X‑ray Spectrometer.
 
-**Data.** A frozen, versioned dataset (`AdityaNet_v2_dataset_r1`, digest `43fd0e22…`) derived from the SoLEXS and HEL1OS Level‑1 products, organised into **7 canonical tables** across **1,985 files** (**569.3 MiB**), spanning **2024‑02‑01 → 2026‑06‑17 (UTC)**. Provenance is published in full on the [Build](https://adityanet-re1t.onrender.com/build/reproduce/) surface, and every adjudicated deviation from spec is on [Validation](https://adityanet-re1t.onrender.com/validation/).
+**Data.** A frozen, versioned dataset (`AdityaNet_v2_dataset_r1`, digest `43fd0e22…`) derived from the SoLEXS and HEL1OS Level‑1 products, organised into **7 canonical tables** across **1,985 files** (**569.3 MiB**), spanning **2024‑02‑01 → 2026‑06‑17 (UTC)**. Provenance is published in full on the [Build](https://adityanet-re1t.onrender.com/build/reproduce/) surface, and every adjudicated deviation from spec is on the [engineering record](https://adityanet-re1t.onrender.com/engineering/provenance/).
 
 **Research question.** *Does machine learning provide measurable operational value beyond strong classical baselines* for M/X‑class flare **nowcast** (is a flare in progress now?) and **30‑minute prediction**, on this dataset?
 
@@ -303,13 +303,46 @@ More diagrams (component relationships, documentation map) are in [`docs/archite
 | --- | --- | --- |
 | **Landing** (`/`) | The film | A scroll‑scrubbed public‑domain SDO sequence driven by a pure `derive(t)` timeline. Sets the register: illustration, honestly labelled. |
 | **Overview** (`/overview`) | Impression | The AdityaNet identity, the dataset chip, and six headline measurements — each a click from its source artifact. |
-| **Validation** (`/validation`) | Trust | Six times the implementation falsified the written spec. Each is measured, adjudicated, and folded into a versioned contract — shown *before* the findings. |
+| **Validation** (`/validation`) | Trust | ROC and precision–recall curves, calibration, confusion matrices, the threshold trade‑off and a per‑day error analysis — computed from 192,541 held‑out predictions, and shown *before* the findings. |
 | **Findings** (`/findings`) | Claim | The verdict at claim scale, a confidence‑interval comparison graphic, and evidence cards. The full method is one click away. |
 | **Pipeline** (`/pipeline`) | Machinery | Raw archive products → validated evidence, stage by stage. |
 | **Data** (`/data`) | Measurement | A coverage calendar over the whole archive and an interactive per‑day SoLEXS light curve. |
 | **Build** (`/build`) | Reproduction | Capability cards, per‑table digests, the pinned environment, and the byte‑identical rebuild record. |
 
 Documentation surfaces (`/findings/method`, `/data/schema`, `/build/reproduce`) carry the exhaustive detail, so the story surfaces stay scannable.
+
+### The reference layer
+
+The descent above is a reading order. These surfaces are a lookup table, reachable from the footer of every page.
+
+| Surface | What it answers |
+| --- | --- |
+| [`/start`](https://adityanet-re1t.onrender.com/start/) | Five routes through the platform — researcher, student, engineer, reviewer, judge — and a plain list of what the platform *cannot* do. |
+| [`/journey`](https://adityanet-re1t.onrender.com/journey/) | The investigation in nine stages, including the hypothesis that failed and the point at which a less careful project would have published. |
+| [`/models`](https://adityanet-re1t.onrender.com/models/) | A model card per detector — all eight, including the four trivial references: intended use, inputs, training protocol, evaluation, feature attribution, failure modes, limitation clauses. |
+| [`/data/card`](https://adityanet-re1t.onrender.com/data/card/) | The dataset card: identity, coverage, the seven tables, every column, the archive's known defects, and ten limitation clauses stating what the data cannot support. |
+| [`/evidence`](https://adityanet-re1t.onrender.com/evidence/) | Evidence traceability — six headline claims walked through claim → figure → metric → artifact → source file → commit → documentation, plus the full governed measurement index. |
+| [`/reproducibility`](https://adityanet-re1t.onrender.com/reproducibility/) | Six reproducibility metrics, two of which report as partial or pending verification, and the lockfile‑digest case study. |
+| [`/architecture`](https://adityanet-re1t.onrender.com/architecture/) | Six views of the system: scientific pipeline, data flow, validation chain, deployment, repository layout, user journey. |
+| [`/engineering/provenance`](https://adityanet-re1t.onrender.com/engineering/provenance/) | The engineering record: six times the implementation falsified the written specification, each adjudicated in public. |
+| [`/archive`](https://adityanet-re1t.onrender.com/archive/) | Every published payload as a fetchable, digest‑addressed JSON file under `/api/v1/`. A static archive — explicitly **not** a query API. |
+
+Every surface answers the same three questions in its masthead — *What is this? Why should I trust it? Where can I verify it?* — enforced by a component with three required props rather than by convention.
+
+### Reproducibility metrics
+
+Deliberately not throughput, latency or scalability: this site serves a frozen dataset from static files, so it has no ingestion loop and no query service to benchmark, and inventing those numbers on a page about verifiability would discredit the page.
+
+| Metric | State | Measured value |
+| --- | --- | --- |
+| Environment reproducibility | Partial | 99 packages pinned; the manifest digest mismatch is explained by computation, not assertion |
+| Artifact integrity | Verified | 1,985 / 1,985 files carry their own SHA‑256 |
+| Dataset provenance | Verified | Row‑level source attribution — provenance is a column, not a document |
+| Build determinism | Partial | 24 / 24 comparisons byte‑identical, over a 12‑day sample |
+| Validation coverage | Partial | 5 of 6 contradictions closed; the open one is published as open |
+| Evidence traceability | Verified | Every governed measurement resolves to an artifact, pointer, digest and commit |
+
+**The container image has never been built or executed.** It is labelled *pending verification* on the site and here: the Docker configuration has been authored and statically validated but has not yet been executed in a real container runtime.
 
 ---
 
@@ -444,7 +477,7 @@ The build fails unless all of the following hold — discipline is enforced by t
 | **Measurement literals** | No numeric literal may masquerade as a measurement in a template. |
 | ESLint import boundaries | Architectural layering (evidence code cannot import experience code, etc.). |
 
-The **[Validation](https://adityanet-re1t.onrender.com/validation/)** surface publishes the six times the implementation contradicted the specification, each with the ruling that resolved it — the audit trail behind the trust claim. See also [`docs/ISSUE_LOG.md`](docs/ISSUE_LOG.md).
+The **[engineering record](https://adityanet-re1t.onrender.com/engineering/provenance/)** publishes the six times the implementation contradicted the specification, each with the ruling that resolved it — the audit trail behind the trust claim. Scientific validation is a separate surface at [`/validation`](https://adityanet-re1t.onrender.com/validation/); the two are deliberately not conflated. See also [`docs/ISSUE_LOG.md`](docs/ISSUE_LOG.md).
 
 ---
 
@@ -457,6 +490,7 @@ Measured from the production build (`pnpm --dir web budget`):
 | `/` (landing scene) | 107.0 KB | 450 KB | 4 |
 | `/data` (light‑curve island) | 58.4 KB | 260 KB | 5 |
 | `/overview` · `/findings` · `/pipeline` · `/build` · `/validation` | **0.0 KB** | — | 0 |
+| `/models` · `/data/card` · `/evidence` · `/reproducibility` · `/architecture` · `/archive` · `/journey` · `/start` · `/engineering/provenance` | **0.0 KB** | — | 0 |
 
 **Strategy.** JavaScript is spent only where interaction is real. The landing scene (scroll‑scrubbed video + WebGL compositing) and the `/data` light curve are the only islands; every evidence surface is static HTML with CSS‑only scroll choreography (`animation-timeline`). Hashed assets are served `immutable`; the ambient videos are transcoded, audio‑stripped loops (largest 6.3 MB, lazy). The CSP forbids external origins, so there is no third‑party script or font tax.
 
@@ -481,7 +515,8 @@ Full detail: [`docs/design-system.md`](docs/design-system.md) and [`docs/web/EXP
 **Near term**
 - [ ] Capture a controlled Lighthouse run against the live URL and publish the report.
 - [ ] Real‑device testing pass (iOS Safari `svh` / toolbar behaviour, touch on the light curve).
-- [ ] Apply the story / documentation split to `/validation` and `/pipeline`.
+- [ ] Build and execute the container image, replacing its *pending verification* label with a measured result.
+- [ ] Extend the governed measurement set beyond the six headline figures to the documentation surfaces.
 
 **Medium term**
 - [ ] Expand the benchmark to additional flare classes and prediction horizons.

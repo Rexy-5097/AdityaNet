@@ -1,0 +1,403 @@
+---
+/**
+ * Reproducibility.
+ *
+ * The metrics on this page are deliberately NOT throughput, latency or scalability. This
+ * platform serves a frozen dataset from static files; it has no ingestion loop and no
+ * query service, so an ingestion rate would have to be invented, and an invented number
+ * on a page about verifiability would discredit the page and everything it vouches for.
+ * What is measured instead is what a reviewer of a research artifact actually needs:
+ * whether the environment is pinned, whether the bytes are addressed, whether a rebuild
+ * lands in the same place, and whether every published figure traces back to a source.
+ *
+ * Two entries report as UNVERIFIED, on purpose:
+ *   - the container image has been authored but never built or executed here;
+ *   - the rebuild check covers a 12-day sample, not the full archive.
+ * Both say so in the metric itself rather than in a footnote, because the value of this
+ * page is entirely that it can be trusted about its own limits.
+ *
+ * The lockfile case study is computed at build time by scripts/derive.py — the digests,
+ * the package diff and the commit history are all read from git, so a reader can rerun
+ * the argument rather than take it.
+ *
+ * Zero JavaScript.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import PageHeader from "@/components/shell/PageHeader.astro";
+import PageContract from "@/components/shell/PageContract.astro";
+import Section from "@/components/shell/Section.astro";
+import FlowDiagram from "@/components/evidence/FlowDiagram.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
+import repro from "@/generated/data/reproducibility.json";
+import trace from "@/generated/data/traceability.json";
+import validation from "@/generated/data/validation/index.json";
+
+const d = repro.data;
+const env = d.environment;
+const det = d.determinism;
+const integ = d.integrity;
+const container = d.container;
+
+const t = trace.data;
+const v = validation.data;
+
+/**
+ * The six metrics. `state` drives the badge and is one of three values only:
+ *   verified   — something was executed and the result is recorded in an artifact
+ *   partial    — executed, but over a sample rather than the whole population
+ *   unverified — authored but never run
+ * There is deliberately no fourth, softer state.
+ */
+const METRICS = [
+  {
+    id: "environment",
+    name: "Environment reproducibility",
+    state: env.explained ? "partial" : "unverified",
+    value: `${env.n_packages_now} packages pinned`,
+    detail:
+      `Python ${env.python_version} on ${env.platform}, with every dependency pinned to an ` +
+      `exact version in a committed lockfile. The manifest's recorded digest does not match ` +
+      `the file today — that discrepancy is explained in full below, and the explanation is ` +
+      `computed rather than asserted.`,
+    href: "#lockfile",
+  },
+  {
+    id: "integrity",
+    name: "Artifact integrity",
+    state: integ.n_files_with_digest === integ.n_files ? "verified" : "partial",
+    value: `${integ.n_files_with_digest.toLocaleString("en-US")} / ${integ.n_files.toLocaleString("en-US")} files digested`,
+    detail:
+      `Every Parquet file in the freeze carries its own SHA-256 in the manifest, and the ` +
+      `${integ.n_tables} tables roll up to a single dataset digest. A changed byte anywhere ` +
+      `changes the digest that this site prints in its header.`,
+    href: "/build/",
+  },
+  {
+    id: "provenance",
+    name: "Dataset provenance",
+    state: "verified",
+    value: "row-level source attribution",
+    detail:
+      `Every row in every table carries the path and SHA-256 of the archive file it was ` +
+      `parsed from, joinable to the provenance manifest table. Provenance is a column, not ` +
+      `a document — so it cannot be lost, and it cannot disagree with the data.`,
+    href: "/data/card/#identity",
+  },
+  {
+    id: "determinism",
+    name: "Build determinism",
+    state: "partial",
+    value: `${det.byte_matches} / ${det.content_matches} comparisons byte-identical`,
+    detail:
+      `${det.n_days_compared} days were rebuilt from the source archive and compared against ` +
+      `the frozen output across ${det.tables_checked.join(" and ")}. Every comparison matched ` +
+      `both in content and byte-for-byte. This is a sample, not the full ${integ.n_files.toLocaleString("en-US")}-file archive.`,
+    href: "#determinism",
+  },
+  {
+    id: "coverage",
+    name: "Validation coverage",
+    state: v.open_count === 0 ? "verified" : "partial",
+    value: `${v.closed_count} of ${v.closed_count + v.open_count} contradictions closed`,
+    detail:
+      `Every recorded disagreement between the written specification and the implementation ` +
+      `is adjudicated in public, including the declined amendments. ` +
+      (v.open_count > 0
+        ? `${v.open_count} remains open and is published as open.`
+        : `None remain open.`),
+    href: "/engineering/provenance/",
+  },
+  {
+    id: "traceability",
+    name: "Evidence traceability",
+    state: "verified",
+    value: `${t.n_measurements} measurements, ${t.n_artifacts} artifacts`,
+    detail:
+      `Every measured quantity rendered on this site resolves to a JSON pointer inside a ` +
+      `committed artifact, with the digest of the exact bytes read and the commit that ` +
+      `produced them. A CI gate re-reads the artifacts and fails the build on any drift.`,
+    href: "/evidence/",
+  },
+] as const;
+
+const BADGE: Record<string, { label: string; cls: string }> = {
+  verified: { label: "Verified", cls: "text-open" },
+  partial: { label: "Partial", cls: "text-fg" },
+  unverified: { label: "Pending verification", cls: "text-fg-muted" },
+};
+
+// The case study, as a flow. Each stage names what it produced, because the whole point
+// is that the artifacts are what carry the explanation.
+const LOCKFILE_FLOW = [
+  {
+    n: "1",
+    title: "Dataset freeze",
+    detail: `The canonical dataset is built and frozen at commit ${env.build_commit_short}.`,
+    produces: "freeze_manifest.json",
+  },
+  {
+    n: "2",
+    title: "Frozen lockfile",
+    detail: `The manifest records the digest of the environment used: ${env.n_packages_at_freeze} pinned packages.`,
+    produces: `sha256 ${(env.recorded_sha256 ?? "").slice(0, 12)}…`,
+  },
+  {
+    n: "3",
+    title: "Benchmark expansion",
+    detail: "Months later, the flare benchmark is run. It needs gradient boosting and SHAP.",
+    produces: "benchmark_results.json",
+  },
+  {
+    n: "4",
+    title: "Additional dependencies",
+    detail: `${env.packages_added_after_freeze.length} packages are appended to the same lockfile.`,
+    produces: `${env.n_packages_now} pinned packages`,
+    emphasis: true,
+  },
+  {
+    n: "5",
+    title: "Final runtime",
+    detail: "The lockfile on disk now describes the benchmark environment, not the freeze environment.",
+    produces: `sha256 ${env.current_sha256.slice(0, 12)}…`,
+  },
+];
+---
+
+<BaseLayout
+  title="Reproducibility — AdityaNet"
+  description="Environment, artifact digests, dataset provenance, build determinism, validation coverage and evidence traceability for AdityaNet — including what has not been verified."
+>
+  <AmbientBackdrop
+    src="/video/space-galaxies.mp4"
+    poster="/video/space-galaxies-poster.jpg"
+    shape="frame"
+    align="left"
+  />
+
+  <main id="main" class="mx-auto max-w-5xl px-6 pb-32">
+    <div class="section-tight flow">
+      <PageHeader
+        eyebrow="Engineering · reproducibility"
+        title="What can be re-run, and what cannot"
+        lede="Six properties, each backed by something that was actually executed — and each stating plainly where it stops. Two of the six are not fully verified, and say so."
+      />
+    </div>
+
+    <PageContract
+      what="A reproducibility record for the dataset, the environment and the published evidence: what is pinned, what is digested, what was re-run, and what has never been executed."
+      trust="Every figure here is read from a committed artifact or computed from the repository's own git history at build time. Where something has not been run, the metric reports it as unverified rather than omitting it."
+      verify={[
+        { href: "/build/reproduce/", label: "The rebuild commands", note: "Run it yourself" },
+        { href: "/engineering/provenance/", label: "The engineering record", note: "Adjudicated contradictions" },
+        { href: "/evidence/", label: "Evidence traceability", note: "Every claim, to its bytes" },
+        { href: "/archive/", label: "The raw payload", note: "reproducibility.json" },
+      ]}
+    />
+
+    <Section id="metrics" eyebrow="Section 1" title="Six reproducibility metrics">
+      <p class="lede">
+        Not throughput, not latency. This site serves a frozen dataset from static files —
+        it has no ingestion loop and no query service to benchmark, so those numbers would
+        have to be invented.
+      </p>
+
+      <div class="mt-9 grid gap-4 md:grid-cols-2">
+        {
+          METRICS.map((m) => (
+            <div class="glass p-6">
+              <div class="flex items-baseline justify-between gap-4">
+                <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">{m.name}</p>
+                <p class:list={["font-mono text-2xs whitespace-nowrap", BADGE[m.state]!.cls]}>
+                  {BADGE[m.state]!.label}
+                </p>
+              </div>
+              <p class="mt-4 font-mono text-md text-fg" data-numeric>{m.value}</p>
+              <p class="mt-3 text-sm leading-relaxed text-fg-muted">{m.detail}</p>
+              <p class="mt-4">
+                <a href={m.href} class="link font-mono text-2xs">Check it →</a>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </Section>
+
+    <Section id="lockfile" eyebrow="Section 2" title="Case study: the lockfile digest that did not match" major ruled>
+      <p class="lede">
+        The environment record and the environment on disk disagreed. That is the worst
+        thing an integrity system can report — so it was traced rather than silenced.
+      </p>
+
+      <div class="mt-9 grid gap-4 sm:grid-cols-3">
+        <div class="glass p-5">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Recorded in manifest</p>
+          <p class="mt-3 font-mono text-xs break-all text-fg">{env.recorded_sha256}</p>
+        </div>
+        <div class="glass p-5">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">The file today</p>
+          <p class="mt-3 font-mono text-xs break-all text-fg">{env.current_sha256}</p>
+        </div>
+        <div class="glass p-5">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+            The file at {env.build_commit_short}
+          </p>
+          <p class="mt-3 font-mono text-xs break-all text-open">{env.sha256_at_build_commit}</p>
+        </div>
+      </div>
+
+      <p class="mt-8 max-w-measure text-sm leading-relaxed text-fg-muted">
+        <span class="text-fg">The resolution.</span> The recorded digest is not stale and it is
+        not wrong. It is the digest of the lockfile <em>as it existed at the dataset freeze
+        commit</em>, and re-hashing that blob out of git reproduces it exactly. What changed
+        afterwards was the file, not the record.
+      </p>
+
+      <div class="mt-10">
+        <FlowDiagram
+          stages={LOCKFILE_FLOW}
+          direction="row"
+          caption="One lockfile served two environments at two points in history, and only the first was hashed. Each digest above is recomputed at build time from the repository, so this chain can be re-run rather than believed."
+        />
+      </div>
+
+      <div class="mt-12 grid gap-8 md:grid-cols-2">
+        <div>
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+            The {env.packages_added_after_freeze.length} packages added after the freeze
+          </p>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            {
+              env.packages_added_after_freeze.map((p) => (
+                <li class="chip chip-key">
+                  <span class="font-mono text-2xs">{p.name}=={p.version}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="mt-5 max-w-measure text-sm leading-relaxed text-fg-muted">
+            Gradient boosting, SHAP and their transitive dependencies — exactly the tools the
+            benchmark needed and the dataset build did not. The package set grew from
+            <span class="font-mono text-fg" data-numeric> {env.n_packages_at_freeze}</span> to
+            <span class="font-mono text-fg" data-numeric> {env.n_packages_now}</span>.
+          </p>
+        </div>
+
+        <div>
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+            The lockfile's entire history
+          </p>
+          <ol class="mt-4 space-y-4">
+            {
+              env.history.map((h) => (
+                <li class="border-l border-line-subtle pl-4">
+                  <p class="font-mono text-2xs text-fg">{h.commit}</p>
+                  <p class="mt-1 text-sm leading-relaxed text-fg-muted">{h.subject}</p>
+                </li>
+              ))
+            }
+          </ol>
+          <p class="mt-5 max-w-measure text-sm leading-relaxed text-fg-muted">
+            Two commits, and the second explains the mismatch entirely.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-12 max-w-measure space-y-5 text-sm leading-relaxed text-fg-muted">
+        <p>
+          <span class="text-fg">Why this is expected.</span> A lockfile is a living description
+          of a working environment; a manifest digest is a dated claim about one moment. The two
+          diverge the first time a project does something new with the same data — which for a
+          research repository is not an edge case, it is the normal path.
+        </p>
+        <p>
+          <span class="text-fg">Why provenance mattered.</span> Without the recorded commit, the
+          only available reading of a digest mismatch is that the environment record is untrustworthy,
+          and the honest response would have been to withdraw the reproducibility claim. Because the
+          manifest records
+          <span class="font-mono text-fg"> {env.build_commit_short}</span>, the question was
+          answerable: re-hash the blob at that commit, diff the package sets, read the two commit
+          subjects. The system produced a correct alarm and then produced its own explanation.
+        </p>
+        <p>
+          <span class="text-fg">What was not done.</span> The manifest was not quietly re-hashed to
+          make the mismatch disappear. It records what the dataset was built with, which is the
+          question it exists to answer; the benchmark environment is a different question, answered
+          here. An integrity system whose alarms are silenced to keep a page green is decorative.
+        </p>
+      </div>
+    </Section>
+
+    <Section id="determinism" eyebrow="Section 3" title="Build determinism" ruled>
+      <p class="lede">
+        {det.n_days_compared} days rebuilt from the source archive, compared against the frozen
+        output. Every comparison matched byte for byte.
+      </p>
+
+      <dl class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="glass p-5">
+          <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Days rebuilt</dt>
+          <dd class="mt-3 font-mono text-lg text-fg" data-numeric>{det.n_days_compared}</dd>
+        </div>
+        <div class="glass p-5">
+          <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Content matches</dt>
+          <dd class="mt-3 font-mono text-lg text-open" data-numeric>{det.content_matches}</dd>
+        </div>
+        <div class="glass p-5">
+          <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Byte matches</dt>
+          <dd class="mt-3 font-mono text-lg text-open" data-numeric>{det.byte_matches}</dd>
+        </div>
+        <div class="glass p-5">
+          <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Tables covered</dt>
+          <dd class="mt-3 font-mono text-lg text-fg">{det.tables_checked.join(", ")}</dd>
+        </div>
+      </dl>
+
+      <p class="mt-8 max-w-measure text-sm leading-relaxed text-fg-muted">
+        <span class="text-fg">The limit of this claim.</span> This is a
+        {" "}{det.n_days_compared}-day sample across {det.tables_checked.length} of
+        {" "}{integ.n_tables} tables, not the full
+        {" "}{integ.n_files.toLocaleString("en-US")}-file archive. Byte-identical Parquet output
+        is a strong signal — it means row order, dtypes, compression and metadata all landed
+        identically — but it was demonstrated on a sample and is reported as such. The rebuild ran
+        under Python {det.rebuild_environment.python}, numpy {det.rebuild_environment.numpy},
+        pandas {det.rebuild_environment.pandas}.
+      </p>
+    </Section>
+
+    <Section id="container" eyebrow="Section 4" title="Container image" ruled>
+      <div class="glass p-6">
+        <div class="flex flex-wrap items-baseline justify-between gap-4">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+            Status
+          </p>
+          <p class="font-mono text-2xs text-fg-muted">Pending verification</p>
+        </div>
+        <p class="mt-4 max-w-measure text-sm leading-relaxed text-fg">
+          {container.statement}
+        </p>
+        <p class="mt-5 max-w-measure text-sm leading-relaxed text-fg-muted">
+          The configuration lives at
+          <span class="font-mono text-2xs text-fg"> {container.dockerfile}</span> and
+          <span class="font-mono text-2xs text-fg"> {container.compose}</span>. It pins the base
+          image by version, installs only from the committed lockfile after verifying the
+          lockfile's digest, and sets the hash seed and thread counts that determinism depends on.
+          None of that has been observed to work, because no image has been built here.
+        </p>
+        <p class="mt-5 max-w-measure text-sm leading-relaxed text-fg-muted">
+          It is published in this state rather than withheld: an unbuilt Dockerfile that says so
+          is useful to someone with a container runtime, and a green checkmark next to something
+          nobody has executed would undermine the five metrics above it.
+        </p>
+      </div>
+    </Section>
+
+    <Section id="next" ruled>
+      <div class="flex flex-wrap gap-3">
+        <LearnMore href="/build/reproduce/" label="Reproduce the dataset" note="The commands, and the digest to check against" />
+        <LearnMore href="/evidence/" label="Trace any claim" note="Claim → figure → artifact → commit" />
+        <LearnMore href="/architecture/" label="How the pipeline fits together" note="Archive to rendered number" />
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

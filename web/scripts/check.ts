@@ -16,7 +16,7 @@
 
 import { readFileSync, existsSync, statSync, readdirSync } from "node:fs";
 import { gzipSync } from "node:zlib";
-import { join, dirname, relative } from "node:path";
+import { join, dirname, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { contrastRatio } from "./lib/contrast";
 
@@ -34,12 +34,38 @@ const JS_BUDGETS_BYTES: ReadonlyArray<{ route: string; html: string; budget: num
   // in Sprint 3; until then it is a static page and is held to the evidence budget.
   { route: "/", html: "index.html", budget: 450 * 1024 },
   { route: "/validation", html: "validation/index.html", budget: 15 * 1024 },
-  { route: "/validation/001", html: "validation/contradiction-001/index.html", budget: 15 * 1024 },
-  { route: "/validation/003", html: "validation/contradiction-003/index.html", budget: 15 * 1024 },
   { route: "/findings", html: "findings/index.html", budget: 120 * 1024 },
   { route: "/pipeline", html: "pipeline/index.html", budget: 200 * 1024 },
   { route: "/data", html: "data/index.html", budget: 260 * 1024 },
   { route: "/build", html: "build/index.html", budget: 20 * 1024 },
+
+  // The engineering record. Renamed from /validation/* when /validation became the
+  // scientific validation surface; the old entries pointed at HTML that is no longer
+  // emitted, which this gate caught rather than silently skipping.
+  { route: "/engineering/provenance", html: "engineering/provenance/index.html", budget: 15 * 1024 },
+  {
+    route: "/engineering/provenance/001",
+    html: "engineering/provenance/contradiction-001/index.html",
+    budget: 15 * 1024,
+  },
+  {
+    route: "/engineering/provenance/003",
+    html: "engineering/provenance/contradiction-003/index.html",
+    budget: 15 * 1024,
+  },
+
+  // The reference layer. All static HTML — every one of these is held to the evidence
+  // budget rather than a comfortable one, because a documentation surface that starts
+  // shipping JavaScript is a documentation surface nobody noticed changing.
+  { route: "/models", html: "models/index.html", budget: 15 * 1024 },
+  { route: "/models/lightgbm", html: "models/lightgbm/index.html", budget: 15 * 1024 },
+  { route: "/data/card", html: "data/card/index.html", budget: 15 * 1024 },
+  { route: "/reproducibility", html: "reproducibility/index.html", budget: 15 * 1024 },
+  { route: "/architecture", html: "architecture/index.html", budget: 15 * 1024 },
+  { route: "/archive", html: "archive/index.html", budget: 15 * 1024 },
+  { route: "/evidence", html: "evidence/index.html", budget: 15 * 1024 },
+  { route: "/journey", html: "journey/index.html", budget: 15 * 1024 },
+  { route: "/start", html: "start/index.html", budget: 15 * 1024 },
 ];
 
 const failures: string[] = [];
@@ -614,6 +640,62 @@ function checkMeasurementLiterals(): void {
   }
 }
 
+// ─── 7. Internal link integrity ──────────────────────────────────────────────
+
+/**
+ * Every internal href must resolve to something the build actually emitted.
+ *
+ * Added after a route rename (/validation/* to /engineering/provenance/*) left sixteen
+ * dead links between the contradiction pages. Nothing caught it: the pages type-checked,
+ * built, and passed every other gate, because a wrong href is a perfectly valid string.
+ *
+ * On a platform whose entire argument is "follow this and check it for yourself", a link
+ * that goes nowhere is not a cosmetic defect — it is the argument failing. So it fails
+ * the build.
+ *
+ * External URLs, mailto, fragments and data URIs are out of scope: this gate is about
+ * self-consistency, and reaching the network to check a third party would make the build
+ * non-deterministic.
+ */
+function checkInternalLinks(htmlFiles: readonly string[]): void {
+  const pages = new Set(
+    htmlFiles.map((f) => ("/" + relative(OUT_DIR, f).split(sep).join("/")).replace(/\/index\.html$/, "/")),
+  );
+
+  // Non-HTML deliverables — JSON payloads, videos, fonts — are linked too.
+  const assets = new Set<string>();
+  const walk = (directory: string): void => {
+    for (const entry of readdirSync(directory, { withFileTypes: true })) {
+      const path = join(directory, entry.name);
+      if (entry.isDirectory()) walk(path);
+      else assets.add("/" + relative(OUT_DIR, path).split(sep).join("/"));
+    }
+  };
+  if (existsSync(OUT_DIR)) walk(OUT_DIR);
+
+  let checked = 0;
+  const broken = new Set<string>();
+
+  for (const file of htmlFiles) {
+    const from = ("/" + relative(OUT_DIR, file).split(sep).join("/")).replace(/\/index\.html$/, "/");
+    for (const match of readFileSync(file, "utf8").matchAll(/href="([^"]+)"/g)) {
+      const href = match[1]!;
+      if (/^(?:https?:|mailto:|data:|#)/.test(href)) continue;
+      const target = href.split("#")[0]!.split("?")[0]!;
+      if (target === "") continue;
+      checked += 1;
+      if (!pages.has(target) && !assets.has(target)) {
+        broken.add(`internal link: ${href} on ${from} resolves to nothing in the build output`);
+      }
+    }
+  }
+
+  for (const message of broken) fail(message);
+  if (broken.size === 0) {
+    notes.push(`  internal links: ${checked} href(s) resolve across ${htmlFiles.length} page(s)`);
+  }
+}
+
 // ─── Run ─────────────────────────────────────────────────────────────────────
 
 function builtHtmlFiles(): string[] {
@@ -636,6 +718,7 @@ checkRouteBudgets();
 checkDistHygiene();
 checkEvidenceConsistency();
 checkBannedLexicon(builtHtmlFiles());
+checkInternalLinks(builtHtmlFiles());
 checkMeasurementLiterals();
 
 if (notes.length > 0) {

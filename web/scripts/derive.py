@@ -438,6 +438,320 @@ def derive_contradictions() -> list[dict[str, Any]]:
     return records
 
 
+def derive_model_cards(benchmark: dict[str, Any]) -> dict[str, Any]:
+    """One card per detector, per task, from the benchmark artifact alone.
+
+    A model card is mostly prose — intended use, failure modes, ethical considerations —
+    and prose belongs in the page, where an editor can read it. What belongs HERE is the
+    part a person must not type: the metrics, the confusion matrix, the confidence
+    intervals, and the feature attributions. The page supplies the sentences; this
+    supplies every number in them.
+
+    Feature attributions are carried as *signed* values for the logistic model and
+    unsigned for the tree ensembles, because that is what they are. Taking |coef| to make
+    the three comparable would erase the only interesting thing the logistic model says —
+    that several rolling means push the score DOWN.
+    """
+    meta = benchmark["meta"]
+    tasks: list[dict[str, Any]] = []
+
+    for task_name, task in benchmark.items():
+        if task_name == "meta":
+            continue
+        models = []
+        for key, result in task["results"].items():
+            minute = result["minute"]
+            event = result["event"]
+            boot = result.get("bootstrap", {})
+            models.append(
+                {
+                    "key": key,
+                    "label": MODEL_LABELS.get(key, key),
+                    "is_baseline": key in BASELINE_MODELS,
+                    "threshold": finite(result.get("threshold")),
+                    "minute": {k: finite(minute.get(k)) for k in (
+                        "roc_auc", "pr_auc", "precision", "recall", "f1",
+                        "balanced_acc", "mcc", "brier", "false_alarm_rate", "miss_rate",
+                    )},
+                    "confusion": minute["confusion"],
+                    "event": {
+                        "n_events": event["n_events"],
+                        "events_detected": event["events_detected"],
+                        "event_recall": finite(event["event_recall"]),
+                        "n_pred_runs": event["n_pred_runs"],
+                        "false_event_runs": event["false_event_runs"],
+                    },
+                    "ci95": {
+                        "roc_auc": boot.get("roc_auc_ci95"),
+                        "event_recall": boot.get("event_recall_ci95"),
+                    },
+                }
+            )
+
+        tasks.append(
+            {
+                "task": task_name,
+                "slug": task_name.lower().replace("/", "-").replace(" ", "-"),
+                "n_train": task["n_train"],
+                "n_val": task["n_val"],
+                "n_test": task["n_test"],
+                "test_positive_rate": finite(task["test_positive_rate"]),
+                "models": models,
+                "attribution": task.get("interpretability", {}),
+            }
+        )
+
+    return {
+        "tasks": tasks,
+        "features": meta["features"],
+        "seed": meta["seed"],
+        "test_start": meta["test_start"],
+        "val_fraction": meta["val_fraction"],
+        "effective_n_note": meta["effective_n_note"],
+        "generated_utc": meta["generated_utc"],
+        "source": BENCHMARK_RESULTS.as_posix(),
+    }
+
+
+def lockfile_packages(text: str) -> dict[str, str]:
+    """Parse a pip lockfile into {package: version}, ignoring comments and blanks."""
+    out: dict[str, str] = {}
+    for line in text.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        name, _, version = line.partition("==")
+        out[name.strip().lower()] = version.strip()
+    return out
+
+
+def git_blob(commit: str, relative: Path) -> str | None:
+    """Read a file as it existed at a commit, or None if it was not there.
+
+    Used to settle a provenance question empirically rather than by assertion: the
+    environment record and the environment on disk disagree, and the only way to know
+    whether that is drift or history is to go and look at the history.
+    """
+    result = subprocess.run(
+        ["git", "-C", str(REPO_ROOT), "show", f"{commit}:{relative.as_posix()}"],
+        capture_output=True, text=True,
+    )
+    return result.stdout if result.returncode == 0 else None
+
+
+def derive_environment_provenance(manifest: dict[str, Any]) -> dict[str, Any]:
+    """The lockfile-checksum case study, computed rather than recounted.
+
+    THE FINDING. The freeze manifest records a SHA-256 for `requirements.lock`. That
+    digest does not match the file on disk. Taken at face value that is the worst thing
+    this project could discover — the environment record disagreeing with the environment.
+
+    THE RESOLUTION. It is not drift. The manifest was written at the dataset freeze
+    commit and is *correct for that commit*. The benchmark, run later, needed gradient
+    boosting and SHAP, and appending them to the lockfile changed its bytes. One lockfile
+    served two environments at two points in history, and only the first was hashed.
+
+    This function proves that by re-hashing the blob as it existed at the recorded build
+    commit and diffing the package sets, so the explanation on the site is a computation
+    a reader can rerun, not a story they have to accept. The mismatch is deliberately NOT
+    suppressed: an integrity system whose alarms are silenced is decorative.
+    """
+    rel = PHASE05 / "requirements.lock"
+    env = manifest.get("environment", {})
+    recorded = env.get("lockfile_sha256")
+    build_commit = manifest["identity"]["build_commit"]
+
+    current_text = (REPO_ROOT / rel).read_text()
+    current_sha = hashlib.sha256(current_text.encode()).hexdigest()
+
+    frozen_text = git_blob(build_commit, rel)
+    frozen_sha = hashlib.sha256(frozen_text.encode()).hexdigest() if frozen_text else None
+
+    current_pkgs = lockfile_packages(current_text)
+    frozen_pkgs = lockfile_packages(frozen_text) if frozen_text else {}
+    added = sorted(set(current_pkgs) - set(frozen_pkgs))
+
+    # The commit that introduced the additions — the second half of the explanation.
+    log = subprocess.run(
+        ["git", "-C", str(REPO_ROOT), "log", "--format=%h%x1f%s", "--follow", "--", rel.as_posix()],
+        capture_output=True, text=True, check=True,
+    ).stdout.strip().splitlines()
+    history = [
+        {"commit": c.split("\x1f")[0], "subject": c.split("\x1f")[1]}
+        for c in log if "\x1f" in c
+    ]
+
+    return {
+        "lockfile": rel.as_posix(),
+        "recorded_sha256": recorded,
+        "current_sha256": current_sha,
+        "matches": recorded == current_sha,
+        "build_commit": build_commit,
+        "build_commit_short": manifest["identity"]["build_commit_short"],
+        "sha256_at_build_commit": frozen_sha,
+        "explained": frozen_sha is not None and frozen_sha == recorded,
+        "n_packages_at_freeze": len(frozen_pkgs),
+        "n_packages_now": len(current_pkgs),
+        "packages_added_after_freeze": [
+            {"name": name, "version": current_pkgs[name]} for name in added
+        ],
+        "history": history,
+        "python_version": env.get("python_version"),
+        "platform": env.get("platform"),
+    }
+
+
+def derive_reproducibility(manifest: dict[str, Any], out_dir: Path) -> dict[str, Any]:
+    """The six reproducibility metrics, each backed by something that was actually run.
+
+    Every entry carries a `measured` flag. Where a property has NOT been executed — the
+    container image is authored but has never been built — the metric says so instead of
+    quietly reporting the part that was checked. A reproducibility page that overstates
+    itself is worse than no reproducibility page, because it is the one page whose whole
+    value is that it can be trusted about its own limits.
+    """
+    check, _ = read_artifact(PHASE05 / "reproducibility_check.json")
+    identity = manifest["identity"]
+
+    content = check["content_identity"]
+    n_days = check["n_compared"]
+    byte = check["byte_identity"]
+    # `all_match` is a bool sitting in the same dict as the per-table counts, and in
+    # Python `bool` IS an `int` — an isinstance check alone silently added 1 to the
+    # total. Counting a summary flag as a comparison would have inflated a published
+    # integrity number, which is precisely the class of error this platform exists to
+    # make impossible, so the exclusion is explicit.
+    def count_matches(d: dict[str, Any]) -> int:
+        return sum(v for v in d.values() if isinstance(v, int) and not isinstance(v, bool))
+
+    n_byte_matches = count_matches(byte)
+    n_content_matches = count_matches(content)
+
+    # Artifact integrity: every file in the freeze carries its own digest.
+    n_files_with_digest = sum(
+        1 for t in manifest["tables"].values() for f in t.get("files", []) if f.get("sha256")
+    )
+    n_files_total = sum(len(t.get("files", [])) for t in manifest["tables"].values())
+
+    return {
+        "environment": derive_environment_provenance(manifest),
+        "determinism": {
+            "source": (PHASE05 / "reproducibility_check.json").as_posix(),
+            "n_days_sampled": check["n_sampled"],
+            "n_days_compared": n_days,
+            "content_matches": n_content_matches,
+            "byte_matches": n_byte_matches,
+            "all_match": content.get("all_match", False),
+            "tables_checked": [k for k in content if k != "all_match"],
+            "checked_utc": check["generated_utc"],
+            "rebuild_environment": check["environment"],
+            "per_day": check["per_day"],
+        },
+        "integrity": {
+            "n_files": n_files_total,
+            "n_files_with_digest": n_files_with_digest,
+            "dataset_hash": identity["dataset_hash"],
+            "provenance_hash": identity["provenance_hash"],
+            "total_bytes": identity["total_bytes"],
+            "n_tables": len(manifest["tables"]),
+        },
+        "container": {
+            # DECISION: not "works". The image has never been built in this environment,
+            # so the only honest state is authored-but-unexecuted. See /reproducibility.
+            "status": "pending-verification",
+            "dockerfile": "research/Dockerfile",
+            "compose": "research/compose.yaml",
+            "statement": (
+                "The Docker configuration has been authored and statically validated but "
+                "has not yet been executed in a real container runtime."
+            ),
+        },
+    }
+
+
+def derive_traceability(measurements: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    """The claim -> artifact chain, one row per rendered quantity.
+
+    This is a projection of the measurement set that already governs the site, not a
+    second list maintained alongside it. That matters: a traceability index that could
+    drift from the thing it indexes would be documentation, and documentation is exactly
+    what this project refuses to substitute for evidence. Because it is derived, a
+    measurement cannot exist without appearing here.
+    """
+    by_artifact: dict[str, int] = {}
+    for m in measurements.values():
+        by_artifact[m["artifact"]] = by_artifact.get(m["artifact"], 0) + 1
+
+    return {
+        "n_measurements": len(measurements),
+        "n_artifacts": len(by_artifact),
+        "by_artifact": [
+            {"artifact": a, "n_measurements": n} for a, n in sorted(by_artifact.items())
+        ],
+        "links": [
+            {
+                "key": key,
+                "label": m["label"],
+                "value": m["value"],
+                "precision": m["precision"],
+                "unit": m.get("unit"),
+                "n": m.get("n"),
+                "ci95": m.get("ci95"),
+                "artifact": m["artifact"],
+                "pointer": m["pointer"],
+                "sha256": m["sha256"],
+                "commit": m["commit"],
+            }
+            for key, m in sorted(measurements.items())
+        ],
+    }
+
+
+def derive_archive_index(out_dir: Path, publish_dir: Path) -> list[dict[str, Any]]:
+    """Publish every payload as a fetchable file, and inventory what was published.
+
+    This is the honest form of "an archive for researchers" on a static host: not a query
+    service, but a stable, versioned, digest-addressed set of files that can be fetched,
+    diffed and cited. There is no server here to interpret a query, and calling it an API
+    would imply one.
+
+    The COPY matters as much as the index. Payloads under src/generated/ are compiled into
+    the pages and never served, so an index of them alone would advertise URLs that 404 —
+    a listing of things a reader cannot actually retrieve is worse than no listing. Each
+    file is therefore written into public/, and the digest recorded here is the digest of
+    the bytes that will be served.
+    """
+    entries: list[dict[str, Any]] = []
+    for path in sorted(out_dir.rglob("*.json")):
+        rel = path.relative_to(out_dir).as_posix()
+        # The index cannot contain itself, and the copy on disk is last run's. Both are
+        # handled by the caller, which publishes the index once it has been written.
+        if path.name.startswith("._") or rel == "archive.json":
+            continue
+        raw = path.read_bytes()
+        try:
+            doc = json.loads(raw)
+        except json.JSONDecodeError:
+            continue
+
+        target = publish_dir / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(raw)
+
+        entries.append(
+            {
+                "path": rel,
+                "url": f"/api/{API_VERSION}/{rel}",
+                "bytes": len(raw),
+                "sha256": hashlib.sha256(raw).hexdigest(),
+                "api_version": doc.get("api_version"),
+                "dataset_version": doc.get("dataset_version"),
+                "source_commit": doc.get("source_commit"),
+            }
+        )
+    return entries
+
+
 def derive_star_timeline() -> tuple[list[list[Any]], dict[str, float]]:
     """Per-day activity for the experience layer's star.
 
@@ -694,6 +1008,18 @@ def derive(out_dir: Path) -> None:
         )
     print(f"derive: findings + {len(reports)} reports -> {findings_dir}")
 
+    # Model cards. Numbers only — the prose lives in the page, where it can be edited
+    # by someone reading it, and where it cannot silently become a number.
+    (findings_dir / "models.json").write_text(
+        json.dumps(
+            envelope(derive_model_cards(benchmark), dataset_version=dataset_version,
+                     dataset_hash=dataset_hash, commit=commit),
+            indent=2, allow_nan=False,
+        )
+        + "\n"
+    )
+    print(f"derive: model cards -> {findings_dir}/models.json")
+
     # Build surface: table inventory with per-table digests, plus the reproduction and
     # environment reports rendered verbatim.
     build_dir = out_dir / "build"
@@ -783,6 +1109,79 @@ def derive(out_dir: Path) -> None:
                        indent=2, allow_nan=False) + "\n"
         )
     print(f"derive: pipeline surface -> {pipeline_dir}")
+
+    # Dataset card. The manifest supplies scale and digests; the dictionary and the
+    # limitations report supply the columns and the caveats, carried verbatim so the
+    # card cannot soften a caveat on its way to the screen.
+    card_dir = out_dir / "dataset"
+    card_dir.mkdir(parents=True, exist_ok=True)
+    (card_dir / "card.json").write_text(
+        json.dumps(
+            envelope(
+                {
+                    "identity": identity,
+                    "environment": manifest.get("environment", {}),
+                    "frozen_at": manifest["frozen_at_utc"],
+                    "tables": tables,
+                    "dictionary": parse_report(PHASE05 / "DATA_DICTIONARY.md"),
+                    "limitations": parse_report(ML / "DATASET_LIMITATIONS_FOR_ML.md"),
+                    "quality": parse_report(PHASE05 / "ARCHIVE_QUALITY_REPORT.md"),
+                },
+                dataset_version=dataset_version, dataset_hash=dataset_hash, commit=commit,
+            ),
+            indent=2, allow_nan=False,
+        )
+        + "\n"
+    )
+    print(f"derive: dataset card -> {card_dir}/card.json")
+
+    # Reproducibility, including the lockfile-digest case study.
+    repro = derive_reproducibility(manifest, out_dir)
+    (out_dir / "reproducibility.json").write_text(
+        json.dumps(
+            envelope(repro, dataset_version=dataset_version, dataset_hash=dataset_hash,
+                     commit=commit),
+            indent=2, allow_nan=False,
+        )
+        + "\n"
+    )
+    env_state = "explained" if repro["environment"]["explained"] else "UNEXPLAINED"
+    print(f"derive: reproducibility -> lockfile digest mismatch {env_state}")
+
+    # Evidence traceability: a projection of the measurement set, not a parallel list.
+    (out_dir / "traceability.json").write_text(
+        json.dumps(
+            envelope(derive_traceability(measurements.to_json()),
+                     dataset_version=dataset_version, dataset_hash=dataset_hash, commit=commit),
+            indent=2, allow_nan=False,
+        )
+        + "\n"
+    )
+
+    # Archive index LAST: it inventories what the run emitted, so it must run after
+    # everything else has been written. It excludes itself for the same reason a digest
+    # cannot contain itself.
+    publish_dir = REPO_ROOT / f"web/public/api/{API_VERSION}"
+    archive = derive_archive_index(out_dir, publish_dir)
+    (out_dir / "archive.json").write_text(
+        json.dumps(
+            envelope(
+                {
+                    "entries": archive,
+                    "n_entries": len(archive),
+                    "total_bytes": sum(e["bytes"] for e in archive),
+                    "base_path": "src/generated/data",
+                    "base_url": f"/api/{API_VERSION}",
+                },
+                dataset_version=dataset_version, dataset_hash=dataset_hash, commit=commit,
+            ),
+            indent=2, allow_nan=False,
+        )
+        + "\n"
+    )
+    # The index is itself a payload, so it is served alongside the files it lists.
+    (publish_dir / "archive.json").write_bytes((out_dir / "archive.json").read_bytes())
+    print(f"derive: archive index -> {len(archive)} payloads published to {publish_dir}")
 
     print(f"derive: {len(contradictions)} contradictions "
           f"({sum(1 for c in index if c['state'] == 'OPEN')} open) -> {validation_dir}")

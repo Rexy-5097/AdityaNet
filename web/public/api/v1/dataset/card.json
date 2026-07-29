@@ -1,0 +1,212 @@
+{
+  "api_version": "v1",
+  "dataset_version": "AdityaNet_v2_dataset_r1",
+  "dataset_sha256": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+  "generated_at": "2026-07-29T13:34:17.770281+00:00",
+  "source_commit": "99af630",
+  "data": {
+    "identity": {
+      "dataset_hash": "43fd0e228b28ae6bc7e468c3acf68722768bd62b73798eb6631e9e6233b71ed9",
+      "provenance_hash": "7282b7c34fbd6c2eae7dfca6757f46cdc497b88a9b6312089715479e67be8498",
+      "total_bytes": 596917461,
+      "n_parquet_files": 1985,
+      "build_commit": "be0b7e5114db41e24f592f6483fa643d98586d02",
+      "build_commit_short": "be0b7e5",
+      "specification_revision": "r6",
+      "parser_revision": "M-V/r5 (family DETCHANS) + r6-consistent",
+      "builder_revision": "M-VII/r5 + T3 long-form (r6)",
+      "validation_revision": "M-VIII",
+      "archive_span": "2024-02-01 .. 2026-06-17 (UTC)"
+    },
+    "environment": {
+      "python_version": "3.12.12",
+      "platform": "macOS-26.5.2-arm64-arm-64bit",
+      "lockfile": "artifacts/v2/phase05/requirements.lock",
+      "lockfile_sha256": "6899e001b1c4d64a5aec01b3ee1d2cfce2a3ff38ab64f827a75ab9d55fd13d3f"
+    },
+    "frozen_at": "2026-07-18T08:22:44.103343+00:00",
+    "tables": [
+      {
+        "key": "T1",
+        "name": "solexs_lc_1min",
+        "n_files": 424,
+        "table_hash": "5e6d95be2b4359d0f044bb1f591a8767ea67c9c524d99bfa93591465d42ba63d",
+        "bytes": 14061207
+      },
+      {
+        "key": "T2",
+        "name": "solexs_spec_1min",
+        "n_files": 424,
+        "table_hash": "4124d5ee4f598b12b7a2d55c78919e74a1356fdde938f652fdf9b42c447f324f",
+        "bytes": 87134148
+      },
+      {
+        "key": "T3",
+        "name": "hel1os_lc_1min",
+        "n_files": 373,
+        "table_hash": "d814d3ad4c2edcfca13eb186aa212a978e5dab542e8f39cc6277a0b45eaa1056",
+        "bytes": 61014309
+      },
+      {
+        "key": "T4",
+        "name": "hel1os_hk_1min",
+        "n_files": 389,
+        "table_hash": "fdb005c60811f51aaf980307caeabc924f1e9162bf4d06e3e8d1ab10b3e9c67c",
+        "bytes": 19169311
+      },
+      {
+        "key": "T5",
+        "name": "hel1os_spec_1min",
+        "n_files": 373,
+        "table_hash": "ff7f5a90a1a3a7286c4be519c1dd6628722bed4e4d90380dd26abf256d889941",
+        "bytes": 415202374
+      },
+      {
+        "key": "T6",
+        "name": "gti_intervals",
+        "n_files": 1,
+        "table_hash": "5930fe126f49e96f9a6f94b5d30cc8a80f63248a8fc579625c9bb1137ff8ca9c",
+        "bytes": 95397
+      },
+      {
+        "key": "T7",
+        "name": "provenance_manifest",
+        "n_files": 1,
+        "table_hash": "12c2b6d073b99dc0c3577fbe3d2f292c70666ce5c74274fa9dd0b45ed9a04d02",
+        "bytes": 240715
+      }
+    ],
+    "dictionary": {
+      "title": "Data Dictionary \u2014 `AdityaNet_v2_dataset_r1`",
+      "date": "2026-07-18",
+      "lead": "Every column of every canonical table. **No scientific interpretation** \u2014 field definitions, units, derivations, and missing-value semantics only.\n\n**Universal conventions**\n\n| Convention | Rule |\n|---|---|\n| Time | All timestamps `datetime64[ns, UTC]`, timezone-aware, minute-aligned (T1\u2013T5) |\n| Missing | **NaN only.** Never imputed, filled, interpolated, or dropped. Zero is a valid measurement, never \"missing\" |\n| Quality flags | `q_*` are boolean, **True = problem** |\n| Aggregation | Minute statistics are over **finite observations only**; one NaN never voids a minute; a minute with no finite observation is NaN |\n| Provenance | Every row carries `src_file` + `src_sha256`; joins to T7 |\n| Channels | **Ordinal indices, not energies.** No RMF/ARF exists in the archive; no keV mapping is possible or provided |\n\n---",
+      "sections": [
+        {
+          "heading": "T1 \u2014 `solexs_lc_1min` (610,560 rows \u00b7 424 files)",
+          "body": "One row per minute of a SoLEXS observing day. Source: `.lc` (light curve) + `.gti`, SDD2.\n\n| Column | Type | Units | Source / derivation | Allowed values | Missing semantics |\n|---|---|---|---|---|---|\n| `timestamp` | datetime64[ns,UTC] | \u2014 | minute index of the observation day | 1,440/day, monotonic, unique | never missing |\n| `counts_total` | float64 | counts | \u03a3 of `.lc COUNTS` over **finite** seconds in the minute | \u2265 0 | NaN \u27fa no finite second (`q_no_data`) |\n| `live_time_s` | float64 | s | GTI-covered seconds in the minute (**inclusive** endpoints, `STOP\u2212START+1`) | 0 \u2026 60 | never missing; 0 = fully excluded |\n| `rate_total` | float64 | counts/s | `counts_total / live_time_s` | \u2265 0 | NaN where `live_time_s == 0` \u2014 **not imputed** |\n| `gti_fraction` | float64 | \u2014 | `live_time_s / 60` | 0.0 \u2026 1.0 | never missing |\n| `n_seconds_present` | int16 | count | number of **finite** `.lc` seconds in the minute | 0 \u2026 60 | never missing |\n| `q_no_data` | bool | \u2014 | `n_seconds_present == 0` | True/False | flag |\n| `q_partial` | bool | \u2014 | `0 < gti_fraction < 1` | True/False | flag |\n| `detector` | category | \u2014 | SoLEXS detector | `SDD2` only | never missing |\n| `src_file` | object | \u2014 | source `.lc` path | \u2014 | never missing |\n| `src_sha256` | object | \u2014 | SHA-256 of the source archive (Phase 0.5.1 manifest) | 64 hex | never missing |\n| `archive_version` | object | \u2014 | ISSDC archive variant | `v1.0`, `v1.1` | never missing |\n\n> `counts_total` (light curve) is **band-limited** and is **not** \u03a3(T2 `counts`) \u2014 see `SCIENTIFIC_FINDINGS.md` F-1. The two are carried independently; neither is derived from the other."
+        },
+        {
+          "heading": "T2 \u2014 `solexs_spec_1min` (610,560 rows \u00b7 424 files)",
+          "body": "One row per minute; the full SoLEXS spectrum. Source: `.pi` (OGIP Type II PHA) + `.gti`, SDD2.\n\n| Column | Type | Units | Source / derivation | Allowed values | Missing semantics |\n|---|---|---|---|---|---|\n| `timestamp` | datetime64[ns,UTC] | \u2014 | minute index | 1,440/day | never missing |\n| `counts` | object \u2192 **array[340]** float64 | counts | per-channel \u03a3 over **finite** seconds in the minute | \u2265 0 per channel | NaN per channel where no finite second |\n| `live_time_s` | float64 | s | GTI-covered seconds (inclusive) | 0 \u2026 60 | never missing |\n| `gti_fraction` | float64 | \u2014 | `live_time_s / 60` | 0.0 \u2026 1.0 | never missing |\n| `n_seconds_present` | int16 | count | finite spectra contributing | 0 \u2026 60 | never missing |\n| `q_no_data` | bool | \u2014 | no finite spectrum in the minute | True/False | flag |\n| `q_partial` | bool | \u2014 | partial GTI coverage | True/False | flag |\n| `detector` | category | \u2014 | SoLEXS detector | `SDD2` | never missing |\n| `chantype` | category | \u2014 | channel type from `CHANTYPE` | `PI` | never missing |\n| `src_file`, `src_sha256`, `archive_version` | object | \u2014 | provenance | \u2014 | never missing |\n\n**Channel axis:** `counts[i]` is PI channel `i`, `i \u2208 [0, 339]` \u2014 an **ordinal** index. **No `channel_energy_keV` column exists, by design:** the archive contains no response matrix, so no channel\u2192energy mapping is possible. Do not assume linearity in energy."
+        },
+        {
+          "heading": "T3 \u2014 `hel1os_lc_1min` (1,027,773 rows \u00b7 373 files)",
+          "body": "**LONG form (spec r6): one row per (minute, detector)**, keyed uniquely by that pair. Source: HEL1OS `lightcurve_*.fits`, ownership from the Version Resolution Engine.\n\n| Column | Type | Units | Source / derivation | Allowed values | Missing semantics |\n|---|---|---|---|---|---|\n| `timestamp` | datetime64[ns,UTC] | \u2014 | minute index | \u2014 | never missing |\n| `detector` | object | \u2014 | the detector this row describes | `CZT1`,`CZT2`,`CDTE1`,`CDTE2` | never missing |\n| `{det}_{lo}_{hi}_rate` | float64 | **counts/s** | mean of `CTR` over the minute's samples | \u2265 0 | **NaN when `{det}` \u2260 this row's `detector`** (structural) |\n| `{det}_{lo}_{hi}_stat_err` | float64 | counts/s | mean of `STAT_ERR` | \u2265 0 | as above |\n| `{det}_{lo}_{hi}_n_samples` | float64 | count | samples contributing to the minute | \u2265 1 | as above |\n| `orbit_id` | object | \u2014 | owning orbit (version-resolved) | `HLS_\u2026_V###` | never missing |\n| `orbit_version` | object | \u2014 | orbit product version | `V111`,`V211`,`V112`,`V311` | never missing |\n| `src_file`, `src_sha256`, `archive_version` | object | \u2014 | provenance | \u2014 | never missing |\n\n**Band columns present** (edges parsed from `EXTNAME`, allowlist-validated):\n- **CZT1/CZT2:** `20_40`, `40_60`, `60_80`, `80_150`, `18_160` (keV)\n- **CDTE1/CDTE2:** `5_20`, `20_30`, `30_40`, `40_60`, `1p8_90` (keV; `1p8` = 1.8)\n\n> **Structural NaN:** because the table is long-form, each row populates only its own detector's band columns; the other three detectors' columns are NaN **by construction, not by missing data**. Filter by `detector` before using band columns. A wide view may be derived, but the canonical form is long (spec r6) because ownership is per (minute, detector)."
+        },
+        {
+          "heading": "T4 \u2014 `hel1os_hk_1min` (277,054 rows \u00b7 389 files)",
+          "body": "One row per minute of HEL1OS housekeeping. Source: `aux/hk.fits`.\n\n| Column | Type | Units | Derivation | Notes |\n|---|---|---|---|---|\n| `timestamp` | datetime64[ns,UTC] | \u2014 | minute index | never missing |\n| `czt1temp`, `czt2temp`, `cdte1temp`, `cdte2temp` | float64 | \u00b0C | minute **mean** | detector temperatures |\n| `czthvmon`, `cdtehvmon` | float64 | V | minute **mean** | high-voltage monitors |\n| `czt1ctr`, `czt2ctr`, `cdte1ctr`, `cdte2ctr` | float64 | counts/s | minute **mean** | per-detector rate monitors |\n| `czt1enth` | float64 | keV | minute **mean** | energy threshold |\n| `cdte1enerthr`, `cdte2enerthr` | float64 | *(undeclared)* | minute **mean** | energy thresholds; unit not declared in the archive |\n| `cdte1pilectr`, `cdte2pilectr` | float64 | count | minute **max** | pile-up counters |\n| `czt1satctr1`, `czt2satctr1` | float64 | count | minute **max** | saturation counters |\n| `czt1hotpixcnt`, `czt2hotpixcnt` | float64 | count | minute **max** | hot-pixel counters |\n| `sunradeg`, `sundecdeg` | float64 | degrees | minute **mean** | Sun pointing |\n| `fehkstat` | float64 | \u2014 | minute **mean** | front-end housekeeping status word |\n| `suninfov` | bool | \u2014 | minute **min** (conservative: True only if **every** sample is True) | Sun-in-field-of-view |\n| `n_samples` | int64 | count | HK records in the minute | \u2265 1 |\n| `orbit_id`, `src_file`, `src_sha256`, `archive_version` | object | \u2014 | provenance | never missing |\n\n> **Ordering:** the parser preserves **archive (telemetry-arrival) order** and never sorts. Source records contain sub-second out-of-order steps (`SCIENTIFIC_FINDINGS.md` F-3). All aggregations used here are order-independent. A consumer needing chronological order must call `app.v2.utils.timeseries.chronological_sort()` explicitly."
+        },
+        {
+          "heading": "T5 \u2014 `hel1os_spec_1min` (1,026,816 rows \u00b7 373 files)",
+          "body": "One row per (minute, detector); HEL1OS spectra. Source: `hel1os_*_spectra_*.fits`.\n\n| Column | Type | Units | Derivation | Allowed values | Missing semantics |\n|---|---|---|---|---|---|\n| `timestamp` | datetime64[ns,UTC] | \u2014 | minute index | \u2014 | never missing |\n| `detector` | object | \u2014 | spectra detector | `CZT1`,`CZT2`,`CDTE1`,`CDTE2` | never missing |\n| `counts` | object \u2192 **array[`detchans`]** float64 | counts | per-channel \u03a3 over finite spectra in the minute | \u2265 0 | NaN per channel where absent |\n| `stat_err` | object \u2192 array[`detchans`] float64 | counts | per-channel \u03a3 of `STAT_ERR` | \u2265 0 | as above |\n| `live_time_s` | float64 | s | \u03a3 `EXPOSURE` of contributing spectra | \u2265 0 | never missing |\n| `n_spectra` | int64 | count | spectra contributing to the minute | \u2265 1 | never missing |\n| `chantype` | category | \u2014 | from `CHANTYPE` | `PHA` | never missing |\n| **`detchans`** | int16 | count | channel-space size \u2014 **carried explicitly (r5)** | **341** (CZT) or **511** (CdTe) | never missing |\n| `orbit_id`, `src_file`, `src_sha256`, `archive_version` | object | \u2014 | provenance | \u2014 | never missing |\n\n> **Three incommensurable channel spaces** (F-4): SoLEXS PI **340**, HEL1OS CZT PHA **341**, HEL1OS CdTe PHA **511**. **Never concatenate `counts` arrays across families or instruments** \u2014 always filter by `detchans`/`detector` first. Channel indices are ordinal; no response matrix exists."
+        },
+        {
+          "heading": "T6 \u2014 `gti_intervals` (2,130 rows \u00b7 1 file)",
+          "body": "Long-form good-time intervals, one row per interval.\n\n| Column | Type | Units | Derivation | Notes |\n|---|---|---|---|---|\n| `instrument` | object | \u2014 | source instrument | `solexs` |\n| `detector` | object | \u2014 | detector | `SDD2` (SDD1 contributes no intervals \u2014 F-12 inactive) |\n| `start_utc` | datetime64[ns,UTC] | \u2014 | interval start | **inclusive** |\n| `stop_utc` | datetime64[ns,UTC] | \u2014 | interval stop | **inclusive** |\n| `duration_s` | float64 | s | `stop \u2212 start + 1` (**inclusive** convention) | > 0 always |\n| `src_file`, `src_sha256` | object | \u2014 | provenance | never missing |\n\n> A GTI-excluded second **may** carry a finite count (spec r5). The invariant is one-directional: `NaN(counts) \u21d2 GTI-excluded`. The excess is unexplained (A-14 / F-2)."
+        },
+        {
+          "heading": "T7 \u2014 `provenance_manifest` (5,199 rows \u00b7 1 file)",
+          "body": "One row per parsed source file. Every canonical row traces here via `src_file`.\n\n| Column | Type | Derivation | Notes |\n|---|---|---|---|\n| `src_file` | object | source path | join key; unique with (`product`,`detector`) |\n| `src_sha256` | object | archive SHA-256 (Phase 0.5.1 manifest) | 64 hex |\n| `instrument` | object | `solexs` / `hel1os` | \u2014 |\n| `detector` | object | e.g. `SDD1`,`SDD2`,`CZT1`,`CDTE2` | `None` for whole-orbit products |\n| `product` | object | `lc`,`pi`,`gti`,`hk`,`spectra`,`lightcurve`,`events` | \u2014 |\n| `archive_version` | object | `v1.0`,`v1.1`,`V111`,\u2026 | \u2014 |\n| `obs_date` | object | `YYYYMMDD` | \u2014 |\n| `orbit_id` | object | HEL1OS orbit, else `None` | \u2014 |\n| `creator` | object | producing pipeline, from the FITS header | e.g. `solexs_pipeline-1.4` |\n| `processing_date` | object | header `DATE` | `None` for HEL1OS (no `DATE` header) |\n| `rows_in` / `rows_out` | int64 | source rows / emitted rows | `0/0` legal for F-12 inactive detectors |\n| `parser_version` | object | parser identity | `v2-0.5.2` |\n| **`parsed_at_utc`** | object | **build wall-clock time** | **the one non-reproducible field** \u2014 excluded from content hashes |\n| `time_epoch_resolution` | object | resolved time convention | `unix_seconds` (SoLEXS) / `relative_seconds` (HEL1OS spectra) / `mjd_days` |\n| `assumptions_applied` | object \u2192 array[str] | assumptions recorded at parse | audit trail |\n\n---"
+        },
+        {
+          "heading": "Provenance behaviour (all tables)",
+          "body": "1. Every canonical row carries `src_file` + `src_sha256`; **no row lacks provenance** (verified: 0 orphans, 0 duplicates, 0 missing).\n2. `src_sha256` is the **archive** SHA-256 from the Phase 0.5.1 manifest \u2014 it pins the input, not the output.\n3. HEL1OS tables additionally carry `orbit_id`, resolved by the Version Resolution Engine per (minute, detector). Two detectors in the same minute may legitimately have different `orbit_id`s at orbit boundaries.\n4. Provenance columns are **not** measurements; they must not be used as features."
+        }
+      ],
+      "source": "artifacts/v2/phase05/DATA_DICTIONARY.md"
+    },
+    "limitations": {
+      "title": "Dataset Limitations for ML \u2014 `AdityaNet_v2_dataset_r1`",
+      "date": "2026-07-18",
+      "lead": "How the frozen dataset constrains **model choice**, **evaluation**, **loss functions**, **validation strategy**, and **achievable scientific claims**. Each limitation is stated with the measurement behind it and the concrete constraint it imposes.\n\n---",
+      "sections": [
+        {
+          "heading": "L-1 \u2014 The effective sample size is 581, not 564,160",
+          "body": "**Measurement.** 564,160 usable minutes contain **581 independent M/X events** (4,065 \u2265C; **47** X-class; **179** M/X on combined days).\n\n**Constrains model choice.** Model capacity must be sized to ~581 events, not to half a million rows. A model with thousands of effective parameters will fit event-specific noise. **Recommendation: \u2264 ~15 features and a low-capacity learner for the first benchmark**; deep sequence models only if Stage 3 evidence justifies them.\n\n**Constrains evaluation.** Minute-level metrics overstate confidence by roughly 564,160/581 \u2248 **970\u00d7**. **All metrics must be event-level**, with confidence intervals from a block bootstrap over events. Reporting minute-level AUC as the headline would be a statistical error, not a stylistic choice.\n\n**Constrains claims.** Any subgroup smaller than ~50 events cannot support a quantitative claim. This rules out standalone X-class conclusions (47 events; ~15\u201320 in a test split, where one event moves recall by ~5 points)."
+        },
+        {
+          "heading": "L-2 \u2014 Forecast skill is horizon-flat: it is activity-state persistence, not precursor detection",
+          "body": "**Measurement.** Prediction AUC on **quiet minutes only** (in-progress flares excluded): 30 min **0.8119**, 60 min 0.8023, 120 min 0.7951, 360 min **0.7884**. A **12\u00d7 horizon change costs 0.024 AUC**.\n\n**Constrains claims \u2014 severely.** Genuine precursor information must decay with horizon. Near-flat skill across 30 min to 6 h is the signature of a slowly varying activity state that persists for days. **A raw forecasting AUC of ~0.80 must never be reported as flare-prediction skill.** It must be reported as *improvement over a persistence baseline*, with the skill-vs-horizon curve published alongside.\n\n**Constrains validation.** Persistence and climatology baselines are **mandatory**, not optional \u2014 without them the number is uninterpretable. This is v1's forecast-vs-persistence finding reproduced on real data, now with the mechanism identified.\n\n**Constrains loss functions.** Optimising a horizon-agnostic loss will find the persistence solution, because that is where the gradient is. If precursor detection is the goal, the objective must explicitly reward *short*-horizon discrimination over long \u2014 otherwise the model will correctly learn \"the Sun is active\" and the result will be misread."
+        },
+        {
+          "heading": "L-3 \u2014 No instrument response: physical severity targets are unconstructible",
+          "body": "**Measurement.** No RMF/ARF anywhere in the archive. Channels are ordinal. The light curve is a band-limited integral of the spectrum with LC/\u03a3(PI) ratio varying **1.76\u201320.4** (F-1).\n\n**Constrains model choice.** No regression target in physical units (W/m\u00b2, GOES class as a continuous quantity) can be built or validated. **Calibrated severity regression is excluded** \u2014 this is a data limitation no architecture resolves.\n\n**Constrains claims.** Permitted: \"the model ranks events by observed intensity,\" \"the model classifies against GOES-defined labels.\" **Not permitted:** \"the model estimates GOES flux,\" \"the model measures plasma temperature,\" or any statement in keV.\n\n**Constrains features.** No physically-calibrated spectral feature (temperature, emission measure, spectral index) is derivable. Spectral features are ordinal-channel statistics only."
+        },
+        {
+          "heading": "L-4 \u2014 The combined-instrument arm is 171 days",
+          "body": "**Measurement.** SoLEXS-only: **424 days, 581 M/X events**. Combined SoLEXS+HEL1OS: **171 days (2025-12-07 \u2192 2026-06-15), 179 M/X events, 13 X-class**.\n\n**Constrains validation.** A chronological split within 171 days leaves a test period of ~2 months \u2014 too short for a stable estimate and containing no activity-phase diversity.\n\n**Constrains claims.** Combined-instrument results cannot be generalised beyond a single ~6-month solar-maximum window. **The ISRO brief's combined requirement is best served by an ablation on the shared window**, not by a primary benchmark, since only a matched-window comparison attributes a difference to the instrument rather than the epoch."
+        },
+        {
+          "heading": "L-5 \u2014 Spectral features carry little marginal information; hardness ratios carry none for prediction",
+          "body": "**Measurement** (55,710 minutes, 40 days): band sums add **\u2264 0.012 AUC** over the total rate (hard 0.8911 vs total 0.8794). Hardness ratios: **\u22120.030** for nowcast, and **0.5075 \u2014 indistinguishable from random \u2014 for 60-min prediction**.\n\n**Constrains features.** Elaborate spectral engineering is **not** justified in advance. Hardness-ratio features for prediction are directly refuted. The 340-channel spectrum must earn inclusion through a measured ablation.\n\n**Constrains claims.** Until the Stage-4 ablation runs, **no claim may be made that spectral resolution improves flare detection or prediction**. The univariate evidence points the other way.\n\n*Scope of this limitation:* it establishes that simple band-sums and ratios add little. It does not prove the full 340-dim spectrum is uninformative under a multivariate model \u2014 which is exactly why the ablation exists."
+        },
+        {
+          "heading": "L-6 \u2014 Class imbalance and its interaction with event scarcity",
+          "body": "**Measurement.** Base rates: M/X nowcast **2.37 %**, M/X \u226460 min **4.58 %**, \u2265C nowcast 12.25 %, \u2265C \u226460 min 29.93 %.\n\n**Constrains loss functions.** At 2.4 % positives, unweighted accuracy is meaningless and plain cross-entropy under-weights positives. Class weighting or focal loss is appropriate \u2014 **but** with 581 events, aggressive re-weighting increases variance on the rare class. **Recommendation: mild class weighting, and select on a threshold-free ranking metric (AUC/AP) rather than on accuracy.**\n\n**Constrains evaluation.** Report the **precision\u2013recall frontier**, not a single operating point. v1's most important operational lesson was that a fixed false-alarm budget can bury a working detector; the frontier makes the trade-off visible instead of pre-judged."
+        },
+        {
+          "heading": "L-7 \u2014 Missingness must be masked, never imputed",
+          "body": "**Measurement.** T1 `counts_total` NaN on **4.20 %** of minutes; `rate_total` non-finite on **7.6 %**; every NaN flagged (`q_no_data`, `q_partial`). T3's 75 % NaN is **structural** (long form), not missing data.\n\n**Constrains model choice.** Architectures requiring dense complete input need an explicit **mask channel**; imputation is prohibited by dataset policy and would fabricate observations. If an architecture cannot accept masks, prefer a different architecture rather than imputing.\n\n**Constrains evaluation.** The dropped-window fraction is an experimental parameter and must be reported \u2014 dropping differs systematically between quiet and active periods, so silently dropping could bias the base rate."
+        },
+        {
+          "heading": "L-8 \u2014 GTI semantics are not fully characterised",
+          "body": "**Measurement.** On **70 of 414 days**, GTI excludes seconds that nevertheless carry finite counts \u2014 **266,919 s** total, up to 43,199 s in one day, concentrated (top-10 days = 80.2 %). Mechanism unknown (A-14 / F-2).\n\n**Constrains features.** `live_time_s` and `gti_fraction` are usable as observability covariates but **their exact semantics are open**. Do not build a physical rate normalisation that depends on GTI meaning more than \"seconds the archive marks good.\"\n\n**Constrains claims.** Exposure-normalised quantities carry an unquantified systematic on those 70 days. Any result sensitive to exposure normalisation should be checked with and without them."
+        },
+        {
+          "heading": "L-9 \u2014 Labels are exogenous and instrument-mismatched",
+          "body": "**Measurement.** All labels come from the GOES catalogue, defined on **GOES 1\u20138 \u00c5 flux**. SoLEXS has no cross-calibration to that scale. v1 measured C-class detection at 0.244 recall versus 0.909 for M \u2014 i.e. many catalogued C flares are below SoLEXS's effective sensitivity.\n\n**Constrains claims.** A \"missed\" flare may be a **genuinely unobservable** one, not a model failure. Recall against the GOES catalogue conflates model performance with instrument sensitivity. **Report per-class recall with event counts always attached**, and treat \u2265C results as sensitivity-limited.\n\n**Constrains loss functions.** Training on \u2265C labels injects label noise concentrated in the positive class \u2014 the most damaging kind. **Recommendation: train the primary benchmark on M/X labels** (0.954 vs 0.800 univariate AUC quantifies the difference) and use \u2265C as a robustness check."
+        },
+        {
+          "heading": "L-10 \u2014 Single detector, single solar-cycle phase",
+          "body": "**Measurement.** SoLEXS science is **SDD2 only** (SDD1 F-12 inactive across 426 GTI files). The span sits near solar maximum; M/X events per quarter range from **3** (2025Q2) to **181** (2024Q2).\n\n**Constrains validation.** No detector-redundancy check is possible for SoLEXS. The 60\u00d7 quarterly variation means a naive chronological split can produce train/test periods with wildly different base rates \u2014 the split must be chosen with event counts in view (hence the recommended 2024Q1\u20132025Q4 / 2026Q1\u2013Q2 split, ~423 / ~155 events).\n\n**Constrains claims.** **No cross-cycle generalisation claim is supportable.** Results apply to a solar-maximum regime observed by one detector.\n\n---"
+        },
+        {
+          "heading": "Summary \u2014 what can and cannot be claimed",
+          "body": "**Supportable with this dataset**\n- M/X flare **nowcast/detection** performance, event-level, with CIs \u2014 the signal is strong and verified (AUC 0.954 from one raw column).\n- **Improvement over persistence** for short-horizon prediction, *if* demonstrated against the mandatory baselines.\n- **Ablation results**: does spectral resolution help? does HEL1OS help? \u2014 as measured deltas with CIs.\n- **Operational characterisation**: recall, false-alarm attribution, latency, the full frontier.\n\n**Not supportable**\n- Calibrated flux or severity regression (**no RMF**).\n- Raw forecasting AUC presented as precursor skill (**horizon-flat**).\n- Standalone X-class conclusions (**47 events**).\n- Cross-cycle or multi-detector generalisation (**one phase, one detector**).\n- Any claim in keV or physical spectral units (**ordinal channels only**).\n\n**The through-line:** this dataset's strength is *detection*, and its strength there is genuine and large. Its forecasting signal is real but is an activity-state effect, and its severity axis is physically unavailable. A programme that leads with detection, controls forecasting against persistence, and treats spectra and HEL1OS as measured ablations will produce defensible results. One that leads with forecasting AUC or severity regression will produce claims this dataset cannot support."
+        }
+      ],
+      "source": "artifacts/v2/ml/DATASET_LIMITATIONS_FOR_ML.md"
+    },
+    "quality": {
+      "title": "Archive Quality Report",
+      "date": "2026-07-18",
+      "lead": "**Complete inventory of every archive anomaly discovered during AdityaNet v2, Phase 0.5.** Counts, affected products, governing rule ids, and disposition. **No interpretation.** Each disposition is the ruling already recorded in the cited contradiction or contract revision.\n\nSource of record: `canonical_build_stats.json` (the authoritative archive-wide build), `version_resolution_log.json`, and the Phase 0.5.1 manifest.\n\n---",
+      "sections": [
+        {
+          "heading": "1. Summary",
+          "body": "| Anomaly class | Rule | Count | Products affected | Disposition |\n|---|---|---|---|---|\n| GTI interval `STOP \u2264 START` | F-19 | **12** | SoLEXS daily archives | Archive defect (CONTRADICTION-005 Defect C) \u2014 excluded, logged |\n| Duplicate HK `mjd` timestamp | F-16 | **2** | HEL1OS orbits | Archive defect (CONTRADICTION-006 Defect B) \u2014 excluded, logged |\n| Inactive detector (empty GTI) | F-12 | **426** | SoLEXS SDD1 GTI files | Legal state, not an error \u2014 SDD1 is GTI-only, SDD2 carries science |\n| HK time inversions (jitter) | \u2014 | see A-12 | HEL1OS orbits | Characterised in `MILESTONE_VIII_VALIDATION_REPORT.md` (A-12) |\n| Two PHA channel families | F-07\u2192resolved | 0 (resolved) | HEL1OS CZT/CdTe | Contract corrected (CONTRADICTION-005 Defect A, r5) \u2014 0 residual failures |\n| AppleDouble `._*` sidecars | F-18 | (excluded) | filesystem artifacts | exFAT/macOS artifacts, never data \u2014 excluded by allowlist |\n\n**Total products excluded from the canonical dataset: 14** (12 SoLEXS + 2 HEL1OS), of 436 + 391 = 827 available. Coverage: SoLEXS **424/436**, HEL1OS **389/391**."
+        },
+        {
+          "heading": "2. F-19 \u2014 SoLEXS GTI `STOP \u2264 START` (12 archives)",
+          "body": "A GTI interval whose stop time is at or before its start time. `STOP \u2264 START` is not a convention question; it is an internal inconsistency in the archived GTI table. F-19 terminates on parse.\n\n**Affected (all SoLEXS daily archives):**\n`AL1_SLX_L1_20240422_v1.0`, `20240501`, `20250729`, `20251205`, `20260406`, `20260407`, `20260408`, `20260409`, `20260411`, `20260413`, `20260414`, `20260415`.\n\n**Disposition:** archive defect. Excluded from the canonical dataset, individually logged. No amendment (F-19 behaves as designed). Note the temporal clustering (8 of 12 in April 2026) \u2014 recorded as an observation, not interpreted."
+        },
+        {
+          "heading": "3. F-16 \u2014 Duplicate HK `mjd` (2 orbits)",
+          "body": "Two housekeeping rows sharing an identical `mjd` timestamp. \u00a72.8 (r4) requires HK `mjd` to be unique; a duplicate terminates via F-16.\n\n**Affected (HEL1OS orbits):**\n- `HLS_20260201_120005_43198sec_lev1_V111` \u2014 2 duplicated values (of 63,298 rows)\n- `HLS_20260202_000005_43183sec_lev1_V111` \u2014 1 duplicated value\n\n**Disposition:** archive defect (CONTRADICTION-006 Defect B, owner ruled **not approved** for amendment \u2014 F-16 continues to terminate). Excluded, logged. 389 of 391 orbits have fully unique HK `mjd`."
+        },
+        {
+          "heading": "4. F-12 \u2014 Inactive detectors (426 GTI files)",
+          "body": "A GTI table with zero rows (`NAXIS2 = 0`), which the contract treats as a **legal** inactive-detector state, not an error (the single deliberately non-terminating rule). `OBSERVED`: SoLEXS SDD1 supplies GTI only (no `.lc`/`.pi`), and its GTI is empty across the archive; SDD2 carries all science.\n\n**Count:** 426 F-12 detections among 850 parsed SoLEXS GTI files (SDD1 across the built days). **Disposition:** expected structural property of the SoLEXS archive; not a defect."
+        },
+        {
+          "heading": "5. Two PHA channel families (resolved, 0 residual)",
+          "body": "`OBSERVED` during the archive-wide build: HEL1OS has two detector families with different PHA channel counts \u2014 **CZT = 341, CdTe = 511**. The r0 contract asserted a single `DETCHANS = 341`, which blocked all 391 orbits at F-07.\n\n**Disposition:** contract corrected (CONTRADICTION-005 Defect A \u2192 spec r5: per-family allowlist; F-11 restated over three incommensurable channel spaces \u2014 SoLEXS PI 340, HEL1OS CZT PHA 341, HEL1OS CdTe PHA 511). After the fix: **0 F-07 DETCHANS failures** archive-wide. Not an archive defect \u2014 an archive property the contract now encodes."
+        },
+        {
+          "heading": "6. AppleDouble sidecars (`._*`)",
+          "body": "macOS writes `._<name>` metadata sidecars on the exFAT volume. These are filesystem artifacts, never instrument data. F-18 (allowlist + `._*` guard) excludes them. **Disposition:** not data; excluded structurally. *(Note: the withdrawn \"10 F-01 unreadable days\" figure from CONTRADICTION-005 originated in an ad-hoc scan that globbed these sidecars; the authoritative build has no F-01 skips.)*"
+        },
+        {
+          "heading": "7. Lost / unavailable dates (not defects of parsed data)",
+          "body": "From Phase 0.5.1: exactly **one** genuinely lost SoLEXS date (`2023-12-13`, an interrupted download in `downloads/corrupted/`), and the HEL1OS archive begins only **2025-12-07** (combined SoLEXS+HEL1OS coverage = 179 days). These are **acquisition gaps**, not quality defects of the data on hand; carried to Phase 0.5.3."
+        },
+        {
+          "heading": "8. Disposition ledger",
+          "body": "| Product(s) | Rule | Permanent disposition |\n|---|---|---|\n| 12 SoLEXS F-19 archives (\u00a72) | F-19 | **Archive defect** \u2014 permanently excluded |\n| 2 HEL1OS F-16 orbits (\u00a73) | F-16 | **Archive defect** \u2014 permanently excluded |\n| 426 SDD1 empty GTIs (\u00a74) | F-12 | **Legal inactive** \u2014 not excluded, not a defect |\n| CZT/CdTe channel counts (\u00a75) | F-07\u2192r5 | **Archive property** \u2014 contract corrected, 0 residual |\n| `._*` sidecars (\u00a76) | F-18 | **Not data** \u2014 structurally excluded |\n| 2023-12-13, pre-2025-12 HEL1OS (\u00a77) | \u2014 | **Acquisition gap** \u2014 Phase 0.5.3 |\n\nThese are the permanent archive findings of Phase 0.5."
+        }
+      ],
+      "source": "artifacts/v2/phase05/ARCHIVE_QUALITY_REPORT.md"
+    }
+  }
+}

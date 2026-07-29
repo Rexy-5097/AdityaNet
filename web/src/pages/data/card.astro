@@ -1,0 +1,251 @@
+---
+/**
+ * Dataset card.
+ *
+ * The standard dataset-card sections, filled from the freeze manifest and three frozen
+ * reports. The limitations section is the reason this page exists: it publishes ten
+ * clauses stating what the data cannot support, verbatim, including the two that
+ * constrain the project's own headline result.
+ *
+ * Prose is carried through unmodified from DATA_DICTIONARY.md,
+ * DATASET_LIMITATIONS_FOR_ML.md and ARCHIVE_QUALITY_REPORT.md. The card never
+ * paraphrases a caveat — a summarised limitation is a weakened limitation, and the
+ * summary is exactly where the weakening would be invisible.
+ *
+ * Zero JavaScript.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import PageHeader from "@/components/shell/PageHeader.astro";
+import PageContract from "@/components/shell/PageContract.astro";
+import Section from "@/components/shell/Section.astro";
+import ReportSections from "@/components/evidence/ReportSections.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
+import card from "@/generated/data/dataset/card.json";
+
+const d = card.data;
+const id = d.identity;
+
+const gb = (bytes: number): string => (bytes / 1e9).toFixed(2);
+const mb = (bytes: number): string => (bytes / 1e6).toFixed(1);
+
+// The instrument each table came from, and what one row of it is. Structural facts about
+// the schema, not measurements — the counts beside them are all read from the manifest.
+const TABLE_META: Record<string, { instrument: string; grain: string }> = {
+  T1: { instrument: "SoLEXS", grain: "One minute of light-curve counts and live time" },
+  T2: { instrument: "SoLEXS", grain: "One minute of full spectrum, by ordinal channel" },
+  T3: { instrument: "HEL1OS", grain: "One minute of light-curve counts" },
+  T4: { instrument: "HEL1OS", grain: "One minute of housekeeping telemetry" },
+  T5: { instrument: "HEL1OS", grain: "One minute of full spectrum, by ordinal channel" },
+  T6: { instrument: "Both", grain: "One good-time interval" },
+  T7: { instrument: "Both", grain: "One source archive file and its digest" },
+};
+
+const [spanStart, spanEnd] = id.archive_span.split(" .. ");
+---
+
+<BaseLayout
+  title="Dataset card — AdityaNet"
+  description="Dataset card for AdityaNet_v2_dataset_r1: source, coverage, seven tables, variables, missing-data semantics, known biases, preprocessing, licensing and provenance."
+>
+  <AmbientBackdrop
+    src="/video/space-galaxies.mp4"
+    poster="/video/space-galaxies-poster.jpg"
+    shape="frame"
+    align="left"
+  />
+
+  <main id="main" class="mx-auto max-w-5xl px-6 pb-32">
+    <div class="section-tight flow">
+      <p class="font-mono text-2xs text-fg-subtle">
+        <a href="/data/" class="link">Data</a><span aria-hidden="true"> / </span>card
+      </p>
+      <PageHeader
+        eyebrow="Evidence · dataset card"
+        title={d.identity.dataset_hash ? "The canonical dataset" : "Dataset card"}
+        lede={`${card.data.tables.length} tables built from the public ISSDC Aditya-L1 archive, frozen at a single digest and never modified since. This card states what is in it, how it was made, and what it cannot support.`}
+      />
+    </div>
+
+    <PageContract
+      what={`A dataset card for ${card.dataset_version} — the frozen, digest-addressed dataset behind every figure on this site.`}
+      trust="Scale, coverage and digests are read from the freeze manifest committed alongside the data. The variables, quality findings and limitations are carried verbatim from three frozen reports; nothing on this page is a paraphrase."
+      verify={[
+        { href: "/build/", label: "Per-table digests", note: "Every one of the files, hashed" },
+        { href: "/reproducibility/", label: "Rebuild determinism", note: "Byte-identical rebuild check" },
+        { href: "/data/schema/", label: "The schema", note: "Column types and semantics" },
+        { href: "/archive/", label: "The raw payload", note: "dataset/card.json" },
+      ]}
+    />
+
+    <Section id="identity" eyebrow="Section 1" title="Identity and provenance">
+      <dl class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="glass p-5">
+          <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Version</dt>
+          <dd class="mt-3 font-mono text-sm break-all text-fg">{card.dataset_version}</dd>
+        </div>
+        <div class="glass p-5">
+          <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Dataset digest</dt>
+          <dd class="mt-3 font-mono text-sm break-all text-fg">{id.dataset_hash.slice(0, 24)}…</dd>
+        </div>
+        <div class="glass p-5">
+          <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Files</dt>
+          <dd class="mt-3 font-mono text-lg text-fg" data-numeric>{id.n_parquet_files.toLocaleString("en-US")}</dd>
+          <dd class="mt-2 text-xs text-fg-subtle">{gb(id.total_bytes)} GB of Parquet</dd>
+        </div>
+        <div class="glass p-5">
+          <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Frozen at</dt>
+          <dd class="mt-3 font-mono text-sm text-fg">{d.frozen_at.slice(0, 10)}</dd>
+          <dd class="mt-2 text-xs text-fg-subtle">commit {id.build_commit_short}</dd>
+        </div>
+      </dl>
+
+      <div class="mt-9 grid gap-8 md:grid-cols-2">
+        <div class="max-w-measure space-y-5 text-sm leading-relaxed text-fg-muted">
+          <p>
+            <span class="text-fg">Source.</span> The public Aditya-L1 archive published by
+            ISSDC, for the SoLEXS and HEL1OS soft X-ray payloads. No private, embargoed or
+            simulated data is included, and no external catalogue is merged into the tables.
+          </p>
+          <p>
+            <span class="text-fg">Collection.</span> Archive products were parsed to a canonical
+            minute grid under a written parser specification, revision
+            <span class="font-mono text-fg"> {id.parser_revision}</span>. Every row carries the
+            path and SHA-256 of the archive file it came from, so any value can be traced back to
+            the byte range that produced it.
+          </p>
+          <p>
+            <span class="text-fg">Licensing.</span> The underlying archive products are ISSDC's
+            and are subject to ISSDC's terms; this project redistributes derived tables and the
+            code that builds them. AdityaNet is an independent project and is not affiliated with
+            or endorsed by ISRO or any space agency.
+          </p>
+        </div>
+        <div class="max-w-measure space-y-5 text-sm leading-relaxed text-fg-muted">
+          <p>
+            <span class="text-fg">Temporal coverage.</span>
+            <span class="font-mono text-fg" data-numeric> {spanStart}</span> to
+            <span class="font-mono text-fg" data-numeric> {spanEnd}</span> UTC. Coverage is not
+            continuous: an instrument day exists only where the archive published one, and days
+            differ between the two payloads.
+          </p>
+          <p>
+            <span class="text-fg">Spatial coverage.</span> None, in the usual sense. Aditya-L1
+            observes from the Sun–Earth L1 point; these are full-disc integrated measurements with
+            no spatial resolution, so no pixel, region or active-region attribution is possible.
+          </p>
+          <p>
+            <span class="text-fg">Version history.</span> One release. The dataset was frozen once,
+            at the digest above, and has not been revised. Every change since then is to code, not
+            to data — which is what makes the digest a usable citation.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    <Section id="tables" eyebrow="Section 2" title="The seven tables" ruled>
+      <p class="lede">What each table is, how much of it there is, and its digest.</p>
+
+      <div class="mt-9 overflow-x-auto">
+        <table class="table-scan w-full text-sm">
+          <thead>
+            <tr class="border-b border-line">
+              <th scope="col" class="py-2 pr-4 text-left font-medium text-fg-muted">Table</th>
+              <th scope="col" class="py-2 pr-4 text-left font-medium text-fg-muted">Instrument</th>
+              <th scope="col" class="py-2 pr-4 text-left font-medium text-fg-muted">One row is</th>
+              <th scope="col" class="py-2 pr-4 text-right font-medium text-fg-muted">Files</th>
+              <th scope="col" class="py-2 pr-4 text-right font-medium text-fg-muted">Size</th>
+              <th scope="col" class="py-2 text-left font-medium text-fg-muted">Digest</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              d.tables.map((t) => (
+                <tr class="border-b border-line-subtle">
+                  <th scope="row" class="py-2.5 pr-4 text-left font-normal">
+                    <span class="font-mono text-2xs text-fg-subtle">{t.key}</span>
+                    <span class="ml-2 font-mono text-xs text-fg">{t.name}</span>
+                  </th>
+                  <td class="py-2.5 pr-4 text-fg-muted">{TABLE_META[t.key]?.instrument ?? "—"}</td>
+                  <td class="py-2.5 pr-4 text-xs text-fg-subtle">{TABLE_META[t.key]?.grain ?? "—"}</td>
+                  <td class="py-2.5 pr-4 text-right font-mono tabular-nums text-fg" data-numeric>
+                    {t.n_files.toLocaleString("en-US")}
+                  </td>
+                  <td class="py-2.5 pr-4 text-right font-mono tabular-nums text-fg-muted" data-numeric>
+                    {mb(t.bytes)} MB
+                  </td>
+                  <td class="py-2.5 font-mono text-2xs break-all text-fg-subtle">
+                    {t.table_hash.slice(0, 16)}…
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-6 max-w-measure text-sm leading-relaxed text-fg-muted">
+        The file counts differ by design, not by accident. SoLEXS published
+        <span class="font-mono text-fg" data-numeric> {d.tables[0]!.n_files}</span> observation days
+        while HEL1OS published
+        <span class="font-mono text-fg" data-numeric> {d.tables[2]!.n_files}</span> — a distinction
+        prose routinely blurs into "the archive", and one that decides how many days can support a
+        combined-instrument claim.
+      </p>
+    </Section>
+
+    <Section id="variables" eyebrow="Section 3" title="Variables and missing-data semantics" ruled>
+      <p class="lede">
+        Every column of every table, verbatim from the frozen data dictionary.
+      </p>
+      <p class="mt-6 max-w-measure text-sm leading-relaxed text-fg-muted">
+        Two conventions govern the whole dataset and are worth reading before the tables:
+        missing values are <span class="text-fg">NaN and never imputed</span> — zero is a valid
+        measurement, never a stand-in for absence — and spectral channels are
+        <span class="text-fg"> ordinal indices, not energies</span>, because no instrument response
+        exists in the archive and no keV mapping is therefore possible.
+      </p>
+      <div class="doc-scope mt-4">
+        <ReportSections sections={d.dictionary.sections} />
+      </div>
+    </Section>
+
+    <Section id="quality" eyebrow="Section 4" title="Known defects in the source archive" ruled>
+      <p class="lede">
+        What was wrong with the archive products, and what was done about each.
+      </p>
+      <p class="mt-6 max-w-measure text-sm leading-relaxed text-fg-muted">
+        These are published rather than silently repaired. A pipeline that quietly fixes its
+        inputs produces a dataset nobody can audit, and the disposition ledger below is what
+        allows someone to disagree with a decision rather than merely inherit it.
+      </p>
+      <div class="doc-scope mt-4">
+        <ReportSections sections={d.quality.sections} />
+      </div>
+    </Section>
+
+    <Section id="limitations" eyebrow="Section 5" title="Known biases and limitations" ruled major>
+      <p class="lede">
+        Ten clauses stating what this dataset cannot support — including two that constrain
+        this project's own headline result.
+      </p>
+      <p class="mt-6 max-w-measure text-sm leading-relaxed text-fg-muted">
+        Each clause states the measurement behind it and the constraint it imposes on model
+        choice, evaluation, or the claims that may be made. Model cards cite these clause IDs
+        directly rather than restating them, so there is exactly one copy of every caveat and no
+        opportunity for a softer second version to appear elsewhere on the site.
+      </p>
+      <div class="doc-scope mt-4">
+        <ReportSections sections={d.limitations.sections} />
+      </div>
+    </Section>
+
+    <Section id="next" ruled>
+      <div class="flex flex-wrap gap-3">
+        <LearnMore href="/models/" label="Model cards" note="Which clauses bind which model" />
+        <LearnMore href="/reproducibility/" label="Rebuild it" note="Environment, digests, determinism" />
+        <LearnMore href="/data/" label="Look at a day" note="Any of the observation days, directly" />
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

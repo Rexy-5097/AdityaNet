@@ -8,6 +8,7 @@
  * story surface at /build stays scannable.
  */
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageContract from "@/components/shell/PageContract.astro";
 import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
 import NextDepth from "@/components/shell/NextDepth.astro";
 import ReportSections from "@/components/evidence/ReportSections.astro";
@@ -49,6 +50,18 @@ const formatBytes = (bytes: number) => {
       </p>
       <p class="mt-8"><a href="/build/" class="link">← Back to the build</a></p>
     </div>
+
+    <PageContract
+      what="The reproduction record: per-table digests, the pinned environment, and the result of rebuilding the dataset from the source archive."
+      trust="The rebuild was executed and its output compared against the frozen tables. Where the check covers a sample rather than the whole archive, the reproducibility page says so."
+      verify={[
+        { href: "/reproducibility/", label: "The six reproducibility metrics", note: "Two of them partial" },
+        { href: "/reproducibility/#lockfile", label: "The lockfile case study", note: "A digest mismatch, traced" },
+        { href: "/architecture/", label: "How the pipeline fits together", note: "Archive to rendered number" },
+        { href: "/archive/", label: "The raw payloads", note: "Digest-addressed JSON" },
+      ]}
+    />
+
 
 
     {/* Identity */}

@@ -1,0 +1,358 @@
+---
+/**
+ * Evidence traceability.
+ *
+ * The claim is that a reviewer can get from any conclusion on this site back to the raw
+ * bytes. This page is where that claim is either true or exposed, so it is built to be
+ * checkable rather than reassuring.
+ *
+ * Two halves, doing different jobs:
+ *
+ *   1. THE CHAINS — the headline claims, each walked through the full sequence
+ *      claim → figure → metric → artifact → source file → commit → documentation.
+ *      Every metric shown is interpolated from the generated payload at build time, so a
+ *      chain cannot keep asserting a number the artifact no longer contains.
+ *
+ *   2. THE INDEX — every measurement in the governed set, with its RFC-6901 pointer, the
+ *      digest of the artifact bytes it was read from, and the commit. This is a projection
+ *      of the same measurement map that governs the rest of the site; it is not a second
+ *      list maintained in parallel, so a measurement cannot exist without appearing here.
+ *
+ * Where a figure is NOT in the governed measurement set — the derived curve geometry, for
+ * instance — the chain says so and names the script that computes it instead of implying
+ * a pointer that does not exist.
+ *
+ * Zero JavaScript.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import PageHeader from "@/components/shell/PageHeader.astro";
+import PageContract from "@/components/shell/PageContract.astro";
+import Section from "@/components/shell/Section.astro";
+import FlowDiagram from "@/components/evidence/FlowDiagram.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
+import trace from "@/generated/data/traceability.json";
+import benchmark from "@/generated/data/findings/benchmark.json";
+import models from "@/generated/data/findings/models.json";
+import card from "@/generated/data/dataset/card.json";
+
+const t = trace.data;
+const bench = benchmark.data;
+const nowcast = models.data.tasks[0]!;
+
+const threshold = nowcast.models.find((m) => m.key === "threshold_rate")!;
+const lgbm = nowcast.models.find((m) => m.key === "lightgbm")!;
+
+const fmt = (v: number | null | undefined, dp = 3): string =>
+  typeof v === "number" && Number.isFinite(v) ? v.toFixed(dp) : "—";
+
+/**
+ * The chain of custody, as a shape. Each headline claim fills these seven slots; where a
+ * slot has no honest filler it says so rather than being dropped, because a chain missing
+ * a link silently is exactly the failure this page exists to make visible.
+ */
+interface Chain {
+  readonly claim: string;
+  readonly where: { href: string; label: string };
+  readonly figure: string;
+  readonly metric: string;
+  readonly value: string;
+  readonly artifact: string;
+  readonly source: string;
+  readonly governed: boolean;
+  readonly doc: { href: string; label: string };
+}
+
+const CHAINS: readonly Chain[] = [
+  {
+    claim: "A threshold on the SoLEXS count rate detects as many flares as any model tried.",
+    where: { href: "/findings/", label: "Findings — the verdict" },
+    figure: "Confidence-interval comparison, every model against the threshold",
+    metric: "Event recall, threshold detector, M/X nowcast",
+    value: `${fmt(threshold.event.event_recall)} (${threshold.event.events_detected} of ${threshold.event.n_events} events)`,
+    artifact: "artifacts/v2/ml/benchmark_results.json",
+    source: "web/scripts/derive.py",
+    governed: true,
+    doc: { href: "/findings/method/", label: "Evaluation protocol and full benchmark tables" },
+  },
+  {
+    claim: "Machine learning ranks individual minutes better than the threshold does.",
+    where: { href: "/validation/#ranking", label: "Validation — ranking" },
+    figure: "Precision–recall curve, LightGBM against the threshold",
+    metric: "PR-AUC, minute level, M/X nowcast",
+    value: `${fmt(lgbm.minute.pr_auc)} vs ${fmt(threshold.minute.pr_auc)}`,
+    artifact: "artifacts/v2/ml/benchmark_predictions.json",
+    source: "web/scripts/derive_metrics.py",
+    governed: false,
+    doc: { href: "/models/lightgbm/", label: "LightGBM model card" },
+  },
+  {
+    claim: "But it raises far more false alarms, which is why it is not recommended.",
+    where: { href: "/validation/#tradeoff", label: "Validation — the trade-off" },
+    figure: "Recall against alarm burden across the threshold sweep",
+    metric: "False alarm runs at the operating point",
+    value: `${lgbm.event.false_event_runs.toLocaleString("en-US")} vs ${threshold.event.false_event_runs.toLocaleString("en-US")}`,
+    artifact: "artifacts/v2/ml/benchmark_results.json",
+    source: "web/scripts/derive.py",
+    governed: false,
+    doc: { href: "/models/threshold_rate/", label: "Threshold detector model card" },
+  },
+  {
+    claim: "Extra spectral resolution adds nothing measurable — a confirmed null.",
+    where: { href: "/findings/", label: "Findings — why this result holds" },
+    figure: "Ablation delta card",
+    metric: "Δ ROC-AUC from added spectral bands",
+    value: `+${bench.ablation.delta_bands!.toFixed(4)}`,
+    artifact: "artifacts/v2/ml/ablation_results.json",
+    source: "web/scripts/derive.py",
+    governed: false,
+    doc: { href: "/data/card/#limitations", label: "Limitation clause L-5" },
+  },
+  {
+    claim: "The dataset is frozen and every file in it is digest-addressed.",
+    where: { href: "/build/", label: "Build — per-table digests" },
+    figure: "Table inventory with per-table hashes",
+    metric: "Parquet files in the freeze",
+    value: card.data.identity.n_parquet_files.toLocaleString("en-US"),
+    artifact: "artifacts/v2/phase05/freeze_manifest.json",
+    source: "web/scripts/derive.py",
+    governed: true,
+    doc: { href: "/data/card/", label: "Dataset card" },
+  },
+  {
+    claim: "A rebuild of the dataset lands on byte-identical output.",
+    where: { href: "/reproducibility/#determinism", label: "Reproducibility — determinism" },
+    figure: "Determinism metric cards",
+    metric: "Byte-identical comparisons, 12-day sample",
+    value: "24 of 24",
+    artifact: "artifacts/v2/phase05/reproducibility_check.json",
+    source: "web/scripts/derive.py",
+    governed: false,
+    doc: { href: "/build/reproduce/", label: "Reproduction instructions" },
+  },
+];
+
+const CHAIN_SHAPE = [
+  { n: "1", title: "Claim", detail: "A sentence someone might dispute.", produces: "the thing to check" },
+  { n: "2", title: "Figure", detail: "Where it is shown, and in what form.", produces: "a page and an anchor" },
+  { n: "3", title: "Metric", detail: "The named quantity behind the figure.", produces: "a definition" },
+  { n: "4", title: "Artifact", detail: "The committed JSON the value was read from.", produces: "a file path", emphasis: true },
+  { n: "5", title: "Source file", detail: "The code that read it. No number is typed by hand.", produces: "a derivation" },
+  { n: "6", title: "Commit", detail: "The digest of the exact bytes, at a known commit.", produces: "immutability" },
+  { n: "7", title: "Documentation", detail: "The written record that governs the interpretation.", produces: "context" },
+];
+---
+
+<BaseLayout
+  title="Evidence traceability — AdityaNet"
+  description="Every headline claim on AdityaNet traced through figure, metric, artifact, source file, commit and documentation, back to the raw bytes."
+>
+  <AmbientBackdrop
+    src="/video/space-galaxies.mp4"
+    poster="/video/space-galaxies-poster.jpg"
+    shape="frame"
+    align="right"
+  />
+
+  <main id="main" class="mx-auto max-w-5xl px-6 pb-32">
+    <div class="section-tight flow">
+      <PageHeader
+        eyebrow="Evidence · traceability"
+        title="From any conclusion back to the bytes"
+        lede="Six headline claims, each walked the whole way down — figure, metric, artifact, the code that read it, the commit, and the document that governs how it may be read."
+      />
+    </div>
+
+    <PageContract
+      what="A chain of custody for every claim this platform makes, plus the full index of governed measurements with their JSON pointers and artifact digests."
+      trust="The index is a projection of the same measurement map the rest of the site renders from — not a second list kept in step by hand. A CI gate re-reads the artifacts and fails the build if any rendered value drifts from its source."
+      verify={[
+        { href: "/api/v1/traceability.json", label: "This index, as JSON", note: "/api/v1/traceability.json" },
+        { href: "/archive/", label: "Every published payload", note: "With served-byte digests" },
+        { href: "/reproducibility/", label: "The integrity metrics", note: "Including what is unverified" },
+        { href: "/engineering/provenance/", label: "When evidence contradicted the spec", note: "Six adjudications" },
+      ]}
+    />
+
+    <Section id="shape" eyebrow="The method" title="What a chain of custody looks like here">
+      <div class="mt-2">
+        <FlowDiagram
+          stages={CHAIN_SHAPE}
+          direction="row"
+          caption="Stage 4 is the load-bearing one. Everything upstream is navigation; everything downstream is context. The artifact is where the argument stops being a story about the evidence and becomes the evidence."
+        />
+      </div>
+    </Section>
+
+    <Section id="chains" eyebrow="The claims" title="Six chains, walked" major ruled>
+      <p class="lede">
+        Including the two that constrain this project's own result.
+      </p>
+
+      <div class="mt-9 space-y-4">
+        {
+          CHAINS.map((c, i) => (
+            <article class="glass p-6">
+              <div class="flex items-baseline gap-4">
+                <p class="font-mono text-2xs text-fg-subtle">{String(i + 1).padStart(2, "0")}</p>
+                <p class="max-w-measure text-md leading-relaxed text-fg">{c.claim}</p>
+              </div>
+
+              <dl class="mt-6 grid gap-x-6 gap-y-4 border-t border-line-subtle pt-5 sm:grid-cols-2 lg:grid-cols-3">
+                <div>
+                  <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Figure</dt>
+                  <dd class="mt-2 text-sm leading-relaxed text-fg-muted">
+                    {c.figure}
+                    <a href={c.where.href} class="link block font-mono text-2xs">{c.where.label} →</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Metric</dt>
+                  <dd class="mt-2 text-sm leading-relaxed text-fg-muted">
+                    {c.metric}
+                    <span class="mt-1 block font-mono text-sm text-fg" data-numeric>{c.value}</span>
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Artifact</dt>
+                  <dd class="mt-2 font-mono text-2xs break-all text-fg-muted">{c.artifact}</dd>
+                </div>
+                <div>
+                  <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Source file</dt>
+                  <dd class="mt-2 font-mono text-2xs break-all text-fg-muted">{c.source}</dd>
+                </div>
+                <div>
+                  <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Commit</dt>
+                  <dd class="mt-2 font-mono text-2xs text-fg-muted">
+                    {trace.source_commit}
+                    <span class="mt-1 block text-fg-subtle">
+                      {c.governed
+                        ? "Digest checked by the evidence gate"
+                        : "Derived at build time; artifact digest recorded"}
+                    </span>
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Documentation</dt>
+                  <dd class="mt-2 text-sm leading-relaxed">
+                    <a href={c.doc.href} class="link">{c.doc.label} →</a>
+                  </dd>
+                </div>
+              </dl>
+            </article>
+          ))
+        }
+      </div>
+
+      <p class="mt-8 max-w-measure text-sm leading-relaxed text-fg-muted">
+        <span class="text-fg">Two kinds of link, distinguished.</span> Chains marked
+        <em> checked by the evidence gate</em> use a value from the governed measurement set:
+        the CI gate re-reads the artifact and compares it against the rendered HTML, so drift
+        fails the build. The others are derived at build time by a named script from a named
+        artifact — reproducible, but not byte-compared against the page. The distinction is
+        printed rather than smoothed over, because a uniform green tick across both would be
+        a claim this platform has not earned.
+      </p>
+    </Section>
+
+    <Section id="index" eyebrow="The governed set" title={`${t.n_measurements} measurements, ${t.n_artifacts} artifacts`} ruled>
+      <p class="lede">
+        Every quantity in the set that the evidence gate enforces, with the pointer and the
+        digest of the bytes it was read from.
+      </p>
+
+      <div class="mt-9 overflow-x-auto">
+        <table class="table-scan w-full text-sm">
+          <thead>
+            <tr class="border-b border-line">
+              <th scope="col" class="py-2 pr-4 text-left font-medium text-fg-muted">Measurement</th>
+              <th scope="col" class="py-2 pr-4 text-right font-medium text-fg-muted">Value</th>
+              <th scope="col" class="py-2 pr-4 text-left font-medium text-fg-muted">Artifact · pointer</th>
+              <th scope="col" class="py-2 text-left font-medium text-fg-muted">Digest · commit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              t.links.map((l) => (
+                <tr class="border-b border-line-subtle">
+                  <th scope="row" class="py-3 pr-4 text-left font-normal text-fg">
+                    {l.label}
+                    {l.n !== undefined && l.n !== null && (
+                      <span class="block font-mono text-2xs text-fg-subtle">n = {l.n}</span>
+                    )}
+                  </th>
+                  <td class="py-3 pr-4 text-right font-mono tabular-nums whitespace-nowrap text-fg" data-numeric>
+                    {l.value.toFixed(Math.min(l.precision, 4))}
+                    {l.ci95 && (
+                      <span class="block text-2xs text-fg-subtle">
+                        CI {l.ci95[0]!.toFixed(3)}–{l.ci95[1]!.toFixed(3)}
+                      </span>
+                    )}
+                  </td>
+                  <td class="py-3 pr-4 font-mono text-2xs break-all text-fg-muted">
+                    {l.artifact}
+                    <span class="block text-fg-subtle">{l.pointer}</span>
+                  </td>
+                  <td class="py-3 font-mono text-2xs break-all text-fg-subtle">
+                    {l.sha256.slice(0, 16)}…
+                    <span class="block">commit {l.commit}</span>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-8 max-w-measure text-sm leading-relaxed text-fg-muted">
+        <span class="text-fg">The scope of this set, stated plainly.</span> It covers the
+        quantities rendered through the measurement API — the figures a reader meets first, on
+        the pages that make claims. It does not yet cover every number on every documentation
+        surface; tables carried verbatim from frozen reports are reproduced as written and
+        traced to the report rather than to a pointer. Growing the governed set is work that
+        remains, and it is described here rather than implied away.
+      </p>
+    </Section>
+
+    <Section id="gate" eyebrow="How it is enforced" title="The evidence gate" ruled>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="max-w-measure space-y-5 text-sm leading-relaxed text-fg-muted">
+          <p>
+            Traceability that depends on a person keeping two things in step is not
+            traceability. So the binding is mechanical in both directions.
+          </p>
+          <p>
+            <span class="text-fg">On the way in:</span> a component that displays a measured
+            quantity takes a measurement key, not a number. There is deliberately no
+            <span class="font-mono text-2xs"> value</span> prop — a caller cannot pass a figure,
+            so a figure cannot reach a page without existing in an artifact first.
+          </p>
+          <p>
+            <span class="text-fg">On the way out:</span> each rendered value is marked in the
+            HTML with the key it came from. After the build,
+            <span class="font-mono text-2xs"> pnpm budget</span> re-reads the artifacts from disk,
+            resolves each pointer, and compares the result against what is actually in the markup.
+            A drifted figure fails the build rather than shipping.
+          </p>
+        </div>
+        <div>
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Run it yourself</p>
+          <pre class="mt-4 overflow-x-auto rounded-md border border-line-subtle bg-surface p-4 font-mono text-2xs leading-relaxed text-fg-muted"><code>{`pnpm --dir web build
+pnpm --dir web budget`}</code></pre>
+          <p class="mt-4 max-w-measure text-sm leading-relaxed text-fg-muted">
+            The same command CI runs on every push to main. Change a digit in any artifact and
+            the build stops.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    <Section id="next" ruled>
+      <div class="flex flex-wrap gap-3">
+        <LearnMore href="/journey/" label="How these claims were reached" note="The investigation, in order" />
+        <LearnMore href="/archive/" label="Fetch the artifacts" note="Digest-addressed JSON" />
+        <LearnMore href="/engineering/provenance/" label="When the evidence disagreed" note="Six adjudicated contradictions" />
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

@@ -17,6 +17,7 @@
  */
 import { marked } from "marked";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageContract from "@/components/shell/PageContract.astro";
 import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
 import PageHeader from "@/components/shell/PageHeader.astro";
 import Section from "@/components/shell/Section.astro";
@@ -79,6 +80,18 @@ const fmt = (v: number | null, digits: number) => (v === null ? "—" : v.toFixe
         <a href="/findings/" class="link">← Back to the finding</a>
       </p>
     </div>
+
+    <PageContract
+      what="The full method behind the finding: benchmark tables for every task, the adjudicated verdicts verbatim, and the evaluation protocol."
+      trust="The protocol was frozen before any model was fitted, and the tables are rendered from the committed benchmark artifact rather than transcribed."
+      verify={[
+        { href: "/validation/", label: "The validation evidence", note: "Computed from held-out predictions" },
+        { href: "/models/", label: "Per-model cards", note: "Intended use and failure modes" },
+        { href: "/evidence/", label: "Evidence traceability", note: "Claim → artifact → commit" },
+        { href: "/archive/", label: "The raw payloads", note: "Digest-addressed JSON" },
+      ]}
+    />
+
 
     
     <div class="doc measure flow mt-[var(--rhythm)]" set:html={conclusionLead} />

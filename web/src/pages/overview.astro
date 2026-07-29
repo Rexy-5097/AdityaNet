@@ -17,6 +17,7 @@
  * footage via AmbientBackdrop and must not be removed.
  */
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageContract from "@/components/shell/PageContract.astro";
 import MetricCard from "@/components/evidence/MetricCard.astro";
 import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
 import overview from "@/generated/data/overview.json";
@@ -81,6 +82,17 @@ const POSTER = "/video/sun-ambient-304-poster.jpg";
       <span aria-hidden="true">·</span>
       <span>ARCHIVE {dataset.archive_span}</span>
     </div>
+
+    <PageContract
+      what="The front door of the archive: what AdityaNet is, what it publishes, and the headline measurements it stands behind."
+      trust="Every figure on this page renders through the measurement API — it takes a key, never a value — and a CI gate re-reads the artifacts and fails the build if a rendered number drifts from its source."
+      verify={[
+        { href: "/evidence/", label: "Evidence traceability", note: "Claim → artifact → commit" },
+        { href: "/start/", label: "Where to start", note: "Five routes, one per visitor" },
+        { href: "/journey/", label: "The research journey", note: "How the conclusions were reached" },
+        { href: "/archive/", label: "The published payloads", note: "Digest-addressed JSON" },
+      ]}
+    />
 
     <section class="section flow" aria-labelledby="measurements-heading">
       <p class="eyebrow">Evidence</p>

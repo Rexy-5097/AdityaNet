@@ -1,0 +1,216 @@
+---
+/**
+ * The static research archive.
+ *
+ * NOT an API, and the page says so in its first sentence. There is no server here: no
+ * query parameters, no filtering, no pagination, no rate limit, no endpoint that computes
+ * anything. Calling this a REST API would imply capabilities that do not exist, and a
+ * researcher who wrote a client against that implication would find out the hard way.
+ *
+ * What it IS, stated precisely: every payload the build produces, written to a stable
+ * versioned path, with the SHA-256 of the exact bytes served. That is enough to fetch,
+ * diff, cache and cite — which covers most of what a reader actually wants from a
+ * research archive, honestly.
+ *
+ * Filtering is a native <details> grouping, not a search box. A search box implies a
+ * search backend; there are 28 payloads, and a grouped list is both more useful and more
+ * truthful than a text field that would have to be implemented in client JavaScript on a
+ * surface with a zero-JavaScript budget.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import PageHeader from "@/components/shell/PageHeader.astro";
+import PageContract from "@/components/shell/PageContract.astro";
+import Section from "@/components/shell/Section.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
+import archive from "@/generated/data/archive.json";
+import days from "@/generated/data/coverage.json";
+
+const d = archive.data;
+const nDays = days.data.days.length;
+
+const kb = (bytes: number): string =>
+  bytes >= 1e6 ? `${(bytes / 1e6).toFixed(1)} MB` : `${(bytes / 1024).toFixed(1)} KB`;
+
+// Grouped by leading path segment — the same grouping the generator uses on disk, so the
+// listing matches the directory a reader will actually clone.
+const GROUP_LABEL: Record<string, string> = {
+  "": "Top level",
+  findings: "Findings and benchmark",
+  validation: "Engineering record",
+  build: "Dataset build",
+  pipeline: "Pipeline reports",
+  dataset: "Dataset card",
+};
+
+const groups = new Map<string, typeof d.entries>();
+for (const e of d.entries) {
+  const key = e.path.includes("/") ? e.path.split("/")[0]! : "";
+  groups.set(key, [...(groups.get(key) ?? []), e]);
+}
+const ordered = [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+---
+
+<BaseLayout
+  title="Static archive — AdityaNet"
+  description="Every published AdityaNet payload as a fetchable, versioned, digest-addressed JSON file. A static archive, not a query API."
+>
+  <AmbientBackdrop
+    src="/video/space-galaxies.mp4"
+    poster="/video/space-galaxies-poster.jpg"
+    shape="frame"
+    align="left"
+  />
+
+  <main id="main" class="mx-auto max-w-5xl px-6 pb-32">
+    <div class="section-tight flow">
+      <PageHeader
+        eyebrow="Engineering · archive"
+        title="Every payload, fetchable"
+        lede={`The ${d.n_entries} JSON documents behind this site, served at stable paths with the digest of the exact bytes you will receive. Plus one file per observation day.`}
+      />
+    </div>
+
+    <PageContract
+      what={`A static, versioned archive of every payload the build produces — ${d.n_entries} documents plus ${nDays.toLocaleString("en-US")} per-day light curves.`}
+      trust="Each entry lists the SHA-256 of the bytes actually served, and each document carries its own dataset version, dataset digest and source commit in its envelope — so a file saved today can still be identified years from now without the URL it came from."
+      verify={[
+        { href: "/api/v1/archive.json", label: "This index, as JSON", note: "/api/v1/archive.json" },
+        { href: "/reproducibility/", label: "How integrity is checked", note: "Digests, determinism, traceability" },
+        { href: "/build/", label: "The dataset digests", note: "Per-table and per-file" },
+        { href: "/data/", label: "Browse an observation day", note: "The day payloads, rendered" },
+      ]}
+    />
+
+    <Section id="what" eyebrow="Read this first" title="This is not an API">
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="max-w-measure space-y-5 text-sm leading-relaxed text-fg-muted">
+          <p>
+            There is no server behind these files. No query parameters are interpreted, no
+            filtering or pagination is supported, nothing is computed on request, and there is
+            no endpoint that does not correspond to a file on disk. A client written against an
+            imagined query interface will not work, so the interface is described as what it is.
+          </p>
+          <p>
+            What you get instead: <span class="text-fg">stable paths</span> under
+            <span class="font-mono text-fg"> {d.base_url}/</span>,
+            <span class="text-fg"> immutable content</span> for a given dataset version, and the
+            <span class="text-fg"> digest of the bytes</span> so a download can be verified
+            without trusting the transport.
+          </p>
+        </div>
+
+        <div>
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+            Every document carries its own provenance
+          </p>
+          <pre class="mt-4 overflow-x-auto rounded-md border border-line-subtle bg-surface p-4 font-mono text-2xs leading-relaxed text-fg-muted"><code>{`{
+  "api_version": "${archive.api_version}",
+  "dataset_version": "${archive.dataset_version}",
+  "dataset_sha256": "${archive.dataset_sha256.slice(0, 16)}…",
+  "generated_at": "…",
+  "source_commit": "${archive.source_commit}",
+  "data": { … }
+}`}</code></pre>
+          <p class="mt-4 max-w-measure text-sm leading-relaxed text-fg-muted">
+            Provenance travels with the data rather than with the URL it was fetched from. A file
+            saved and reopened in three years still identifies which frozen dataset and which
+            commit produced it.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    <Section id="index" eyebrow="The archive" title={`${d.n_entries} payloads`} major ruled>
+      <p class="lede">
+        {kb(d.total_bytes)} in total, excluding the per-day light curves.
+      </p>
+
+      <div class="mt-9 space-y-8">
+        {
+          ordered.map(([key, entries]) => (
+            <div>
+              <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+                {GROUP_LABEL[key] ?? key}
+              </p>
+              <div class="mt-4 overflow-x-auto">
+                <table class="table-scan w-full text-sm">
+                  <thead>
+                    <tr class="border-b border-line">
+                      <th scope="col" class="py-2 pr-4 text-left font-medium text-fg-muted">Path</th>
+                      <th scope="col" class="py-2 pr-4 text-right font-medium text-fg-muted">Size</th>
+                      <th scope="col" class="py-2 text-left font-medium text-fg-muted">SHA-256</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {entries.map((e) => (
+                      <tr class="border-b border-line-subtle">
+                        <th scope="row" class="py-2.5 pr-4 text-left font-normal">
+                          <a href={e.url} class="link font-mono text-xs break-all">{e.path}</a>
+                        </th>
+                        <td class="py-2.5 pr-4 text-right font-mono tabular-nums whitespace-nowrap text-fg-muted" data-numeric>
+                          {kb(e.bytes)}
+                        </td>
+                        <td class="py-2.5 font-mono text-2xs break-all text-fg-subtle">
+                          {e.sha256.slice(0, 24)}…
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Section>
+
+    <Section id="days" eyebrow="Bulk" title="Per-day light curves" ruled>
+      <p class="lede">
+        One document per observation day, at
+        <span class="font-mono text-fg"> {d.base_url}/days/YYYY-MM-DD.json</span>.
+      </p>
+      <p class="mt-6 max-w-measure text-sm leading-relaxed text-fg-muted">
+        {nDays.toLocaleString("en-US")} days are published, indexed at
+        <a href="/api/v1/days/index.json" class="link font-mono text-xs"> {d.base_url}/days/index.json</a>.
+        Each day is a flat array of one value per minute, positionally indexed rather than keyed
+        by timestamp — the table is a complete minute grid covering the whole UTC day, so a
+        timestamp on every element would quadruple the payload to restate what position already says.
+      </p>
+      <p class="mt-6 max-w-measure text-sm leading-relaxed text-fg-muted">
+        Missing minutes are <span class="font-mono text-fg">null</span>, never zero and never
+        interpolated. Zero is a valid count rate.
+      </p>
+    </Section>
+
+    <Section id="citing" eyebrow="Using it" title="Citing and verifying" ruled>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div>
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Verify a download</p>
+          <pre class="mt-4 overflow-x-auto rounded-md border border-line-subtle bg-surface p-4 font-mono text-2xs leading-relaxed text-fg-muted"><code>{`curl -sO https://adityanet-re1t.onrender.com${d.base_url}/reproducibility.json
+openssl dgst -sha256 reproducibility.json
+# compare against the digest listed above`}</code></pre>
+        </div>
+        <div>
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Cite a result</p>
+          <p class="mt-4 max-w-measure text-sm leading-relaxed text-fg-muted">
+            Cite the dataset version and digest, not the URL: results here are tied to
+            <span class="font-mono text-fg"> {archive.dataset_version}</span> at
+            <span class="font-mono text-fg"> {archive.dataset_sha256.slice(0, 12)}…</span>, which
+            is stable regardless of where the files are hosted. The
+            <a href="/evidence/" class="link"> traceability index</a> maps each published figure
+            to the artifact and commit behind it.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    <Section id="next" ruled>
+      <div class="flex flex-wrap gap-3">
+        <LearnMore href="/evidence/" label="Trace a claim to its bytes" note="Claim → artifact → commit" />
+        <LearnMore href="/build/reproduce/" label="Rebuild the dataset" note="The commands, and the digest to check" />
+        <LearnMore href="/architecture/" label="How these files are produced" note="Data flow, end to end" />
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

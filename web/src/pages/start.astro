@@ -1,0 +1,274 @@
+---
+/**
+ * Where to start — audience documentation.
+ *
+ * Five readers arrive at this site wanting different things, and the descent is optimised
+ * for exactly one of them: someone reading it front to back. A reviewer with twenty
+ * minutes, a hackathon judge with five, and an engineer who wants to know how the CSP is
+ * generated are all badly served by "start at the top".
+ *
+ * So each route names what that reader is actually after, the order to read it in, and
+ * how long it takes. The time estimates are honest ranges for reading, not promises.
+ *
+ * This page also states what the platform does NOT support. An audience page that only
+ * lists capabilities sends people down paths that dead-end, which costs them more time
+ * than the page saved.
+ *
+ * Zero JavaScript.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import PageHeader from "@/components/shell/PageHeader.astro";
+import PageContract from "@/components/shell/PageContract.astro";
+import Section from "@/components/shell/Section.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
+import card from "@/generated/data/dataset/card.json";
+import archive from "@/generated/data/archive.json";
+
+const id = card.data.identity;
+const nPayloads = archive.data.n_entries;
+
+interface Route {
+  readonly who: string;
+  readonly want: string;
+  readonly minutes: string;
+  readonly steps: readonly { href: string; label: string; why: string }[];
+  readonly caveat: string;
+}
+
+const ROUTES: readonly Route[] = [
+  {
+    who: "Researcher",
+    want:
+      "To find out whether this archive can support a question of their own, and to get the " +
+      "data without rebuilding it.",
+    minutes: "20–30 min",
+    steps: [
+      { href: "/data/card/", label: "Dataset card", why: "Coverage, variables, and the missing-data semantics." },
+      { href: "/data/card/#limitations", label: "Limitation clauses L-1 … L-10", why: "Read these before designing anything. Two of them rule out whole classes of study." },
+      { href: "/findings/", label: "Findings", why: "What has already been tested, so the work is not repeated." },
+      { href: "/archive/", label: "Static archive", why: `${nPayloads} digest-addressed payloads, fetchable directly.` },
+      { href: "/build/reproduce/", label: "Reproduce the dataset", why: "The commands, and the digest to check the result against." },
+    ],
+    caveat:
+      "No instrument response exists in this archive, so calibrated flux and physical severity " +
+      "targets are unconstructible. If a question needs keV, this dataset cannot answer it.",
+  },
+  {
+    who: "Student",
+    want: "To understand what was done and why, without a background in solar physics.",
+    minutes: "15–20 min",
+    steps: [
+      { href: "/overview/", label: "Overview", why: "What the mission measures and what this project built on top of it." },
+      { href: "/journey/", label: "Research journey", why: "The investigation in order, including the hypothesis that failed." },
+      { href: "/findings/", label: "Findings", why: "The conclusion, in one line, with the comparison that supports it." },
+      { href: "/validation/", label: "Validation", why: "What ROC, precision-recall and calibration curves actually show." },
+      { href: "/models/majority/", label: "The majority classifier's card", why: "The shortest argument on this site for why accuracy is the wrong metric." },
+    ],
+    caveat:
+      "This is a detection study on one instrument in one phase of the solar cycle. It is not " +
+      "an introduction to solar physics, and nothing here is a space-weather forecast.",
+  },
+  {
+    who: "Software engineer",
+    want: "To see how the thing is built, and whether the engineering claims hold up.",
+    minutes: "20–30 min",
+    steps: [
+      { href: "/architecture/", label: "Architecture", why: "Six views: pipeline, data flow, gates, deployment, layout, journey." },
+      { href: "/evidence/#gate", label: "The evidence gate", why: "How a rendered figure is mechanically bound to an artifact." },
+      { href: "/reproducibility/", label: "Reproducibility metrics", why: "Including the two that report as partial or unverified." },
+      { href: "/reproducibility/#lockfile", label: "The lockfile case study", why: "A digest mismatch, traced instead of silenced." },
+      { href: "/archive/", label: "Static archive", why: "Why this is not called an API." },
+    ],
+    caveat:
+      "There is no backend. No server runtime, no database, no queue — so there are no " +
+      "throughput or latency numbers, and none are invented to fill the gap.",
+  },
+  {
+    who: "Scientific reviewer",
+    want: "To decide whether the central claim is supported, as quickly as possible.",
+    minutes: "10–15 min",
+    steps: [
+      { href: "/validation/", label: "Validation", why: "Curves, confusion, calibration and error analysis from 192,541 held-out predictions." },
+      { href: "/findings/method/", label: "Method", why: "The evaluation protocol, frozen before any model was fitted." },
+      { href: "/data/card/#limitations", label: "Limitations", why: "What the dataset cannot support, stated by the project itself." },
+      { href: "/evidence/", label: "Evidence traceability", why: "Every headline claim, traced to artifact bytes and commit." },
+      { href: "/engineering/provenance/", label: "Engineering record", why: "Six times the implementation contradicted the specification." },
+    ],
+    caveat:
+      "Confidence intervals come from a day-block bootstrap over an effective sample of events, " +
+      "not minutes. Minute-level intervals would be far too narrow, and the reason is published.",
+  },
+  {
+    who: "Hackathon judge",
+    want: "To see the strongest thing here in five minutes.",
+    minutes: "5 min",
+    steps: [
+      { href: "/findings/", label: "The verdict", why: "A negative result, published at full weight." },
+      { href: "/reproducibility/#lockfile", label: "The lockfile case study", why: "The integrity system catching a real problem, and explaining it." },
+      { href: "/evidence/", label: "Evidence traceability", why: "Claim → figure → metric → artifact → commit, for six claims." },
+      { href: "/engineering/provenance/", label: "The contradiction record", why: "Including the amendment that was declined and the one still open." },
+    ],
+    caveat:
+      "The opening scene is illustrative and watermarked as such. No image on this site is " +
+      "Aditya-L1 imagery, because the payloads produce spectra and light curves, not pictures.",
+  },
+];
+
+const NOT_SUPPORTED = [
+  {
+    // The site's lexicon gate forbids vocabulary that implies a live service, including in
+    // a sentence denying one — a scanner or a screenshot reads the phrase, not the negation.
+    what: "Current or continuously updated data",
+    why: `The dataset is frozen at ${id.dataset_hash.slice(0, 8)}… and spans ${id.archive_span}. Nothing updates, by design.`,
+  },
+  {
+    what: "Querying, filtering or aggregation on the server",
+    why: "There is no server. The archive is a set of static files with stable paths and digests.",
+  },
+  {
+    what: "Flare forecasting",
+    why: "Apparent forecast skill on this archive is horizon-flat, which is the signature of activity-state persistence rather than precursor detection. Clause L-2.",
+  },
+  {
+    what: "Physical severity or GOES-class prediction",
+    why: "No instrument response exists in the archive, so no keV mapping and no calibrated flux is possible. Clause L-3.",
+  },
+  {
+    what: "Spatially resolved analysis",
+    why: "These are full-disc integrated measurements from L1. There is no pixel and no active-region attribution.",
+  },
+  {
+    what: "Operational space-weather warnings",
+    why: "One detector, one instrument, one phase of the solar cycle. This is a research artifact and must never be presented as a warning service.",
+  },
+];
+---
+
+<BaseLayout
+  title="Where to start — AdityaNet"
+  description="Five routes through AdityaNet — for researchers, students, engineers, scientific reviewers and judges — and a plain statement of what the platform does not support."
+>
+  <AmbientBackdrop
+    src="/video/space-galaxies.mp4"
+    poster="/video/space-galaxies-poster.jpg"
+    shape="frame"
+    align="right"
+  />
+
+  <main id="main" class="mx-auto max-w-5xl px-6 pb-32">
+    <div class="section-tight flow">
+      <PageHeader
+        eyebrow="Orientation · who this is for"
+        title="Five ways in"
+        lede="The site is built as one descent, which is right for a reader going front to back and wrong for everyone else. Pick the route that matches what you came for."
+      />
+    </div>
+
+    <PageContract
+      what="A routing page: what each kind of visitor is likely to want, the order to read it in, and how long it takes."
+      trust="Every step links to a surface that exists and states its own evidence. The section at the bottom lists what this platform cannot do, so a route does not end in a dead end."
+      verify={[
+        { href: "/journey/", label: "How the conclusions were reached", note: "The investigation, in order" },
+        { href: "/evidence/", label: "Evidence traceability", note: "Claim → artifact → commit" },
+        { href: "/archive/", label: "The data itself", note: "Digest-addressed JSON" },
+        { href: "/reproducibility/", label: "What has been verified", note: "And what has not" },
+      ]}
+    />
+
+    <Section id="routes" eyebrow="Routes" title="Pick the one that fits">
+      <div class="space-y-4">
+        {
+          ROUTES.map((r) => (
+            <article class="glass p-6">
+              <div class="flex flex-wrap items-baseline justify-between gap-3">
+                <h2 class="text-lg font-semibold tracking-tight text-fg">{r.who}</h2>
+                <p class="font-mono text-2xs text-fg-subtle">{r.minutes}</p>
+              </div>
+              <p class="mt-3 max-w-measure text-sm leading-relaxed text-fg-muted">{r.want}</p>
+
+              <ol class="mt-6 space-y-3 border-t border-line-subtle pt-5">
+                {r.steps.map((s, i) => (
+                  <li class="flex gap-4">
+                    <span class="font-mono text-2xs text-fg-subtle" aria-hidden="true">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span>
+                      <a href={s.href} class="link text-sm">{s.label}</a>
+                      <span class="mt-0.5 block max-w-measure text-xs leading-relaxed text-fg-subtle">
+                        {s.why}
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+
+              <p class="mt-6 max-w-measure border-l border-line-subtle pl-4 text-xs leading-relaxed text-fg-subtle">
+                <span class="font-mono tracking-[0.16em] uppercase">Before you start · </span>
+                {r.caveat}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </Section>
+
+    <Section id="not-supported" eyebrow="Read this too" title="What this platform does not do" major ruled>
+      <p class="lede">
+        Six things a visitor might reasonably expect and will not find here.
+      </p>
+      <p class="mt-6 max-w-measure text-sm leading-relaxed text-fg-muted">
+        This list exists because an orientation page that only advertises capabilities sends
+        people down paths that dead-end, which costs them more time than the routing saved.
+      </p>
+
+      <ul class="mt-9 space-y-px overflow-hidden rounded-md border border-line-subtle">
+        {
+          NOT_SUPPORTED.map((n) => (
+            <li class="bg-surface p-5">
+              <p class="text-sm font-medium text-fg">{n.what}</p>
+              <p class="mt-2 max-w-measure text-sm leading-relaxed text-fg-muted">{n.why}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
+
+    <Section id="workflows" eyebrow="In practice" title="The workflows this actually supports" ruled>
+      <div class="grid gap-4 md:grid-cols-3">
+        <div class="glass p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Inspect</p>
+          <p class="mt-4 text-sm leading-relaxed text-fg-muted">
+            Open any of the {card.data.tables[0]!.n_files} SoLEXS observation days and look at the
+            light curve directly, with missing minutes shown as missing.
+          </p>
+          <p class="mt-4"><a href="/data/" class="link font-mono text-2xs">Browse the days →</a></p>
+        </div>
+        <div class="glass p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Verify</p>
+          <p class="mt-4 text-sm leading-relaxed text-fg-muted">
+            Take any figure on this site, follow it to the artifact and pointer it came from,
+            fetch those bytes, and check the digest yourself.
+          </p>
+          <p class="mt-4"><a href="/evidence/" class="link font-mono text-2xs">Trace a claim →</a></p>
+        </div>
+        <div class="glass p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Rebuild</p>
+          <p class="mt-4 text-sm leading-relaxed text-fg-muted">
+            Rebuild the canonical tables from the source archive and compare your output's
+            digest against the frozen one.
+          </p>
+          <p class="mt-4"><a href="/build/reproduce/" class="link font-mono text-2xs">Reproduce it →</a></p>
+        </div>
+      </div>
+    </Section>
+
+    <Section id="next" ruled>
+      <div class="flex flex-wrap gap-3">
+        <LearnMore href="/journey/" label="Start with the story" note="How the conclusions were reached" />
+        <LearnMore href="/validation/" label="Start with the evidence" note="Curves, calibration, error analysis" />
+        <LearnMore href="/architecture/" label="Start with the machine" note="Archive to rendered number" />
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,152 @@
+---
+/**
+ * Validation — the adjudication record.
+ *
+ * Six times, execution falsified the written specification. Each was measured, ruled
+ * on by the owner, and folded into a versioned contract. This surface publishes that
+ * record, including the amendments the owner refused.
+ *
+ * It sits at navigation position two — ahead of the data and the findings — because
+ * the platform's claim is that its evidence is checkable, and putting the method before
+ * the results is the strongest available way to say so. It carries the strictest
+ * performance budget on the site for the same reason: a reviewer's patience is the
+ * scarcest resource this project has.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageContract from "@/components/shell/PageContract.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import NextDepth from "@/components/shell/NextDepth.astro";
+import StatusBadge from "@/components/narrative/StatusBadge.astro";
+import index from "@/generated/data/validation/index.json";
+
+const { contradictions, open_count, closed_count, spec_revision } = index.data;
+
+const revisions = ["r1", "r2", "r3", "r4", "r5", "r6"].map((rev) => ({
+  rev,
+  forcedBy: contradictions.filter((c) => c.resolving_revision === rev),
+}));
+---
+
+<BaseLayout
+  title="Engineering provenance — AdityaNet"
+  description="The adjudication record: six contradictions where execution falsified the specification, each measured, ruled on, and folded into a versioned contract."
+>
+  <AmbientBackdrop
+    src="/video/space-moon.mp4"
+    poster="/video/space-moon-poster.jpg"
+    shape="disc"
+    align="right"
+  />
+
+  <main id="main" class="mx-auto max-w-4xl px-6 pb-32">
+    <p class="eyebrow">
+      Adjudication record
+    </p>
+    <h1 class="display-1 mt-5">Engineering provenance</h1>
+
+    <p class="mt-5 max-w-2xl text-md leading-relaxed text-fg-muted">
+      Six times, execution falsified the written specification. Each was measured,
+      adjudicated, and folded into a versioned contract. Nothing here is summarised —
+      every ruling below is the text the owner actually wrote.
+    </p>
+
+    <PageContract
+      what="The engineering record: every time the implementation contradicted the written specification, and how each was ruled on."
+      trust="Each ruling is reproduced as its author wrote it, parsed from the committed adjudication files. The declined amendment and the clause that remains open are published alongside the closed ones."
+      verify={[
+        { href: "/validation/", label: "The scientific validation", note: "A different surface, a different question" },
+        { href: "/reproducibility/", label: "Reproducibility metrics", note: "Validation coverage" },
+        { href: "/evidence/", label: "Evidence traceability", note: "Claim → artifact → commit" },
+        { href: "/archive/", label: "The raw payloads", note: "One JSON per contradiction" },
+      ]}
+    />
+
+
+    {/* Counts are structural facts about the record, not measured quantities. */}
+    <dl class="mt-10 grid grid-cols-3 gap-4">
+      <div class="card p-5">
+        <dt class="text-2xs tracking-wide text-fg-muted uppercase">Contradictions</dt>
+        <dd class="mt-1 font-mono text-xl tabular-nums">{contradictions.length}</dd>
+      </div>
+      <div class="card p-5">
+        <dt class="text-2xs tracking-wide text-fg-muted uppercase">Resolved</dt>
+        <dd class="mt-1 font-mono text-xl tabular-nums text-pass">{closed_count}</dd>
+      </div>
+      <div class="card p-5">
+        <dt class="text-2xs tracking-wide text-fg-muted uppercase">Still open</dt>
+        <dd class="mt-1 font-mono text-xl tabular-nums text-open">{open_count}</dd>
+      </div>
+    </dl>
+
+    <p class="mt-4 text-xs text-fg-subtle">
+      Contract at <span class="font-mono text-fg-muted">{spec_revision}</span>. An open
+      question is shown as open; it is not resolved by going unpublished.
+    </p>
+
+    <section class="section flow" aria-labelledby="ledger-heading">
+      <h2 id="ledger-heading" class="display-3">The record</h2>
+
+      <ol class="mt-6 space-y-3">
+        {
+          contradictions.map((c) => (
+            <li>
+              <a
+                href={`/engineering/provenance/${c.slug}/`}
+                class="group block card p-5 transition-colors hover:border-line-strong hover:bg-raised"
+              >
+                <div class="flex flex-wrap items-center gap-3">
+                  <span class="font-mono text-2xs text-fg-subtle">{c.id}</span>
+                  <StatusBadge state={c.state as "OPEN" | "CLOSED"} />
+                  {c.resolving_revision && (
+                    <span class="font-mono text-2xs text-fg-subtle">
+                      → spec {c.resolving_revision}
+                    </span>
+                  )}
+                  {c.declined_amendment && (
+                    <span class="font-mono text-2xs text-fg-subtle">
+                      · contains a declined amendment
+                    </span>
+                  )}
+                </div>
+
+                <p class="mt-3 text-base leading-snug">{c.title}</p>
+                <p class="mt-2 text-sm leading-relaxed text-fg-muted">{c.reason}</p>
+                <p class="mt-3 font-mono text-2xs break-all text-fg-subtle">{c.source}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section class="section flow" aria-labelledby="revisions-heading">
+      <h2 id="revisions-heading" class="display-3">
+        Contract evolution
+      </h2>
+      <p class="mt-2 max-w-2xl text-sm text-fg-muted">
+        Each revision was forced by a specific falsification. The contract did not drift;
+        it was amended, on the record, with a reason.
+      </p>
+
+      <ol class="mt-6 border-l border-line-subtle">
+        {
+          revisions.map(({ rev, forcedBy }) => (
+            <li class="relative pb-5 pl-6 last:pb-0">
+              <span
+                class="absolute top-1.5 -left-[3px] block h-1.5 w-1.5 rounded-full bg-line-strong"
+                aria-hidden="true"
+              />
+              <p class="font-mono text-xs">{rev}</p>
+              <p class="mt-1 text-sm text-fg-muted">
+                {forcedBy.length > 0
+                  ? forcedBy.map((c) => c.id).join(", ")
+                  : "No contradiction recorded against this revision."}
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+    <NextDepth />
+  </main>
+</BaseLayout>

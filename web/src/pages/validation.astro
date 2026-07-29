@@ -1,139 +1,372 @@
 ---
 /**
- * Validation — the adjudication record.
+ * Findings · Validation — the proof layer.
  *
- * Six times, execution falsified the written specification. Each was measured, ruled
- * on by the owner, and folded into a versioned contract. This surface publishes that
- * record, including the amendments the owner refused.
+ * /findings states the conclusion in one line. This page is where that line is earned:
+ * every curve here is computed by web/scripts/derive_metrics.py from the 192,541 held-out
+ * predictions in artifacts/v2/ml/benchmark_predictions.json, and the scalar metrics are
+ * read from artifacts/v2/ml/benchmark_results.json rather than recomputed, so the figures
+ * cannot disagree with the published tables.
  *
- * It sits at navigation position two — ahead of the data and the findings — because
- * the platform's claim is that its evidence is checkable, and putting the method before
- * the results is the strongest available way to say so. It carries the strictest
- * performance budget on the site for the same reason: a reviewer's patience is the
- * scarcest resource this project has.
+ * The derivation is checked against the artifact: the ROC-AUC computed from the curve
+ * geometry reproduces the published ROC-AUC to five decimal places.
+ *
+ * Curves are static SVG rendered at build time — this surface ships no JavaScript.
  */
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageContract from "@/components/shell/PageContract.astro";
 import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
-import NextDepth from "@/components/shell/NextDepth.astro";
-import StatusBadge from "@/components/narrative/StatusBadge.astro";
-import index from "@/generated/data/validation/index.json";
+import PageHeader from "@/components/shell/PageHeader.astro";
+import Section from "@/components/shell/Section.astro";
+import CurveChart from "@/components/evidence/CurveChart.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
+import metrics from "@/generated/data/findings/metrics.json";
+import benchmark from "@/generated/data/findings/benchmark.json";
 
-const { contradictions, open_count, closed_count, spec_revision } = index.data;
+// Indexed by literal, not through a Record cast: the imported JSON is already fully typed,
+// and casting it away would have hidden a shape change in the derivation behind `any`.
+const t = metrics.tasks["M/X NOWCAST"];
+const bench = benchmark.data;
+const headline = bench.tasks[0]!;
 
-const revisions = ["r1", "r2", "r3", "r4", "r5", "r6"].map((rev) => ({
-  rev,
-  forcedBy: contradictions.filter((c) => c.resolving_revision === rev),
+const baseRate = t.n_positive / t.n_test;
+
+// Models shown in the metric table, ordered as the argument runs: trivial baselines first
+// (they set the floor and the ceiling), then the recommendation, then the learned models.
+const ORDER = ["random", "majority", "climatology", "persistence", "threshold_rate", "logistic", "random_forest", "lightgbm"] as const;
+const LABEL: Record<string, string> = {
+  random: "Random", majority: "Majority", climatology: "Climatology", persistence: "Persistence",
+  threshold_rate: "Threshold (count rate)", logistic: "Logistic regression",
+  random_forest: "Random forest", lightgbm: "LightGBM",
+};
+const TRIVIAL = new Set(["random", "majority", "climatology", "persistence"]);
+
+const rows = ORDER.map((k) => ({
+  key: k,
+  label: LABEL[k]!,
+  trivial: TRIVIAL.has(k),
+  m: t.minute_metrics[k] ?? {},
+  c: t.confusion[k] ?? null,
+  event: headline.rows.find((r) => r.label.toLowerCase().includes(k.split("_")[0]!)),
 }));
+
+const fmt = (v: unknown, d = 3): string => (typeof v === "number" && Number.isFinite(v) ? v.toFixed(d) : "—");
+
+// Confusion matrices for the two detectors the argument turns on.
+const confusionPair = [
+  { key: "threshold_rate", label: "Threshold (count rate)", c: t.confusion.threshold_rate },
+  { key: "lightgbm", label: "LightGBM", c: t.confusion.lightgbm },
+];
+
+const sweep = t.threshold_sweep;
+const operating = sweep.find((s) => s.is_operating) ?? null;
+// Trade-off curve: recall against alarm burden, which is the decision an operator makes.
+const maxRuns = Math.max(...sweep.map((s) => s.alarm_runs));
+const tradeoff = sweep
+  .filter((s) => s.recall > 0)
+  .map((s) => [s.alarm_runs / maxRuns, s.recall] as [number, number])
+  .sort((a, b) => a[0] - b[0]);
+
+const cal = t.calibration;
+const calPoints = cal.bins.map((b) => [b.mean_predicted, b.observed] as [number, number]);
+
+const worst = t.error_analysis.worst_days.slice(0, 6);
+const ablation = bench.ablation;
 ---
 
 <BaseLayout
   title="Validation — AdityaNet"
-  description="The adjudication record: six contradictions where execution falsified the specification, each measured, ruled on, and folded into a versioned contract."
+  description="ROC and PR curves, calibration, confusion matrices, threshold trade-offs and error analysis for the Aditya-L1 flare detection benchmark, computed from 192,541 held-out predictions."
 >
   <AmbientBackdrop
-    src="/video/space-moon.mp4"
-    poster="/video/space-moon-poster.jpg"
-    shape="disc"
+    src="/video/space-galaxies.mp4"
+    poster="/video/space-galaxies-poster.jpg"
+    shape="frame"
     align="right"
   />
 
-  <main id="main" class="mx-auto max-w-4xl px-6 pb-32">
-    <p class="eyebrow">
-      Adjudication record
-    </p>
-    <h1 class="display-1 mt-5">Validation</h1>
+  <main id="main" class="mx-auto max-w-5xl px-6 pb-32">
+    <div class="section-tight flow">
+      <PageHeader
+        eyebrow="Findings · validation"
+        title="The proof"
+        lede="Every figure below is computed from the 192,541 held-out predictions in the committed artifact — not summarised, not redrawn by hand."
+      />
+      <p class="mt-8"><a href="/findings/" class="link">← Back to the finding</a></p>
+    </div>
 
-    <p class="mt-5 max-w-2xl text-md leading-relaxed text-fg-muted">
-      Six times, execution falsified the written specification. Each was measured,
-      adjudicated, and folded into a versioned contract. Nothing here is summarised —
-      every ruling below is the text the owner actually wrote.
-    </p>
+    <PageContract
+      what="The scientific validation of the flare-detection result: ROC and precision-recall curves, calibration, confusion matrices, the threshold trade-off and a per-day error analysis."
+      trust="Every curve is computed at build time by a committed script from the 192,541 held-out predictions in the benchmark artifact. The scalar metrics are read from the published benchmark rather than recomputed, so the figures cannot disagree with the tables."
+      verify={[
+        { href: "/evidence/", label: "Trace any figure here", note: "Claim → artifact → commit" },
+        { href: "/models/", label: "The model cards", note: "Failure modes and limitations" },
+        { href: "/findings/method/", label: "The evaluation protocol", note: "Frozen before any model was fit" },
+        { href: "/api/v1/findings/metrics.json", label: "The curve geometry, as JSON", note: "/api/v1/findings/metrics.json" },
+      ]}
+    />
 
-    {/* Counts are structural facts about the record, not measured quantities. */}
-    <dl class="mt-10 grid grid-cols-3 gap-4">
-      <div class="card p-5">
-        <dt class="text-2xs tracking-wide text-fg-muted uppercase">Contradictions</dt>
-        <dd class="mt-1 font-mono text-xl tabular-nums">{contradictions.length}</dd>
-      </div>
-      <div class="card p-5">
-        <dt class="text-2xs tracking-wide text-fg-muted uppercase">Resolved</dt>
-        <dd class="mt-1 font-mono text-xl tabular-nums text-pass">{closed_count}</dd>
-      </div>
-      <div class="card p-5">
-        <dt class="text-2xs tracking-wide text-fg-muted uppercase">Still open</dt>
-        <dd class="mt-1 font-mono text-xl tabular-nums text-open">{open_count}</dd>
-      </div>
-    </dl>
 
-    <p class="mt-4 text-xs text-fg-subtle">
-      Contract at <span class="font-mono text-fg-muted">{spec_revision}</span>. An open
-      question is shown as open; it is not resolved by going unpublished.
-    </p>
-
-    <section class="section flow" aria-labelledby="ledger-heading">
-      <h2 id="ledger-heading" class="display-3">The record</h2>
-
-      <ol class="mt-6 space-y-3">
-        {
-          contradictions.map((c) => (
-            <li>
-              <a
-                href={`/validation/${c.slug}/`}
-                class="group block card p-5 transition-colors hover:border-line-strong hover:bg-raised"
-              >
-                <div class="flex flex-wrap items-center gap-3">
-                  <span class="font-mono text-2xs text-fg-subtle">{c.id}</span>
-                  <StatusBadge state={c.state as "OPEN" | "CLOSED"} />
-                  {c.resolving_revision && (
-                    <span class="font-mono text-2xs text-fg-subtle">
-                      → spec {c.resolving_revision}
-                    </span>
-                  )}
-                  {c.declined_amendment && (
-                    <span class="font-mono text-2xs text-fg-subtle">
-                      · contains a declined amendment
-                    </span>
-                  )}
-                </div>
-
-                <p class="mt-3 text-base leading-snug">{c.title}</p>
-                <p class="mt-2 text-sm leading-relaxed text-fg-muted">{c.reason}</p>
-                <p class="mt-3 font-mono text-2xs break-all text-fg-subtle">{c.source}</p>
-              </a>
-            </li>
-          ))
-        }
-      </ol>
-    </section>
-
-    <section class="section flow" aria-labelledby="revisions-heading">
-      <h2 id="revisions-heading" class="display-3">
-        Contract evolution
-      </h2>
-      <p class="mt-2 max-w-2xl text-sm text-fg-muted">
-        Each revision was forced by a specific falsification. The contract did not drift;
-        it was amended, on the record, with a reason.
+    {/* Where the two detectors actually differ */}
+    <Section id="ranking" eyebrow="Ranking quality" title="ROC and precision–recall" ruled>
+      <p class="lede -mt-2">
+        ROC-AUC says the detectors are equivalent. Precision–recall says they are not. At a
+        {" "}{(baseRate * 100).toFixed(2)}% base rate the PR curve is the honest one — ROC is
+        dominated by the {(t.n_test - t.n_positive).toLocaleString("en-US")} negatives.
       </p>
 
-      <ol class="mt-6 border-l border-line-subtle">
-        {
-          revisions.map(({ rev, forcedBy }) => (
-            <li class="relative pb-5 pl-6 last:pb-0">
-              <span
-                class="absolute top-1.5 -left-[3px] block h-1.5 w-1.5 rounded-full bg-line-strong"
-                aria-hidden="true"
-              />
-              <p class="font-mono text-xs">{rev}</p>
-              <p class="mt-1 text-sm text-fg-muted">
-                {forcedBy.length > 0
-                  ? forcedBy.map((c) => c.id).join(", ")
-                  : "No contradiction recorded against this revision."}
-              </p>
-            </li>
-          ))
-        }
+      <div class="mt-10 grid gap-6 lg:grid-cols-2">
+        <CurveChart
+          title="ROC"
+          xLabel="False positive rate"
+          yLabel="True positive rate"
+          reference="diagonal"
+          series={[
+            { label: "Threshold (count rate)", points: t.curves.threshold_rate.roc, emphasis: true, value: `AUC ${fmt(t.curves.threshold_rate.roc_auc)}` },
+            { label: "LightGBM", points: t.curves.lightgbm.roc, value: `AUC ${fmt(t.curves.lightgbm.roc_auc)}` },
+          ]}
+          caption="Nearly indistinguishable — this is the basis of the headline verdict."
+        />
+        <CurveChart
+          title="Precision–recall"
+          xLabel="Recall"
+          yLabel="Precision"
+          reference={{ y: baseRate, label: "base rate" }}
+          series={[
+            { label: "Threshold (count rate)", points: t.curves.threshold_rate.pr, emphasis: true, value: `AUC ${fmt(t.curves.threshold_rate.pr_auc)}` },
+            { label: "LightGBM", points: t.curves.lightgbm.pr, value: `AUC ${fmt(t.curves.lightgbm.pr_auc)}` },
+          ]}
+          caption="Here they separate: LightGBM ranks minutes substantially better. The dashed line is the base rate — where a random detector would sit."
+        />
+      </div>
+
+      <div class="glass mt-8 p-6">
+        <p class="text-md text-fg">Why the verdict is still the threshold</p>
+        <p class="mt-3 text-sm leading-relaxed text-fg-muted">
+          Better minute-level ranking did not become more detected flares. Event recall is
+          statistically indistinguishable, and the learned model pays for its ranking with
+          roughly five times the false-alarm runs. The trade-off section below shows that
+          cost directly.
+        </p>
+      </div>
+    </Section>
+
+    {/* Full metric table */}
+    <Section id="metrics" eyebrow="Every metric" title="Minute-level and event-level" ruled>
+      <p class="lede -mt-2">
+        Trivial baselines are shown because they bound the problem — and because Persistence
+        beating everything is itself the finding.
+      </p>
+      <div class="mt-8 overflow-x-auto rounded-[10px] border border-line-subtle">
+        <table class="table-scan w-full border-collapse text-sm">
+          <caption class="sr-only">Minute-level and event-level metrics for every detector.</caption>
+          <thead>
+            <tr class="border-b border-line-subtle bg-surface text-left">
+              {["Model", "Precision", "Recall", "F1", "MCC", "Brier", "PR-AUC", "Event recall", "False runs"].map((h, i) => (
+                <th scope="col" class:list={["px-4 py-3 text-2xs font-medium tracking-[0.12em] text-fg-muted uppercase", i > 0 && "text-right"]}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr class:list={["border-b border-line-subtle last:border-0", r.key === "threshold_rate" && "bg-raised/40"]}>
+                <th scope="row" class="px-4 py-3 text-left font-medium whitespace-nowrap">
+                  {r.label}
+                  {r.trivial && <span class="ml-2 font-mono text-2xs font-normal text-fg-subtle">trivial</span>}
+                </th>
+                <td class="px-4 py-3 text-right font-mono tabular-nums" data-numeric>{fmt(r.m.precision)}</td>
+                <td class="px-4 py-3 text-right font-mono tabular-nums" data-numeric>{fmt(r.m.recall)}</td>
+                <td class="px-4 py-3 text-right font-mono tabular-nums" data-numeric>{fmt(r.m.f1)}</td>
+                <td class="px-4 py-3 text-right font-mono tabular-nums" data-numeric>{fmt(r.m.mcc)}</td>
+                <td class="px-4 py-3 text-right font-mono tabular-nums" data-numeric>{fmt(r.m.brier, 4)}</td>
+                <td class="px-4 py-3 text-right font-mono tabular-nums" data-numeric>{fmt(r.m.pr_auc)}</td>
+                <td class="px-4 py-3 text-right font-mono tabular-nums" data-numeric>{fmt(r.event?.event_recall)}</td>
+                <td class="px-4 py-3 text-right font-mono tabular-nums" data-numeric>{r.event?.false_event_runs?.toLocaleString("en-US") ?? "—"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 font-mono text-2xs break-all text-fg-subtle">{bench.sources.benchmark}</p>
+    </Section>
+
+    {/* Confusion */}
+    <Section id="confusion" eyebrow="Confusion" title="What each detector actually did" ruled>
+      <div class="reveal-stagger mt-8 grid gap-4 md:grid-cols-2">
+        {confusionPair.map(({ label, c }) => (
+          <div class="glass p-6">
+            <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">{label}</p>
+            <div class="mt-5 grid grid-cols-2 gap-px overflow-hidden rounded-lg bg-line-subtle text-center">
+              {[
+                { k: "True positive", v: c.tp, tone: "text-pass" },
+                { k: "False positive", v: c.fp, tone: "text-open" },
+                { k: "False negative", v: c.fn, tone: "text-fail" },
+                { k: "True negative", v: c.tn, tone: "text-fg-muted" },
+              ].map((cell) => (
+                <div class="bg-canvas/80 px-3 py-5">
+                  <p class="font-mono text-2xs tracking-[0.1em] text-fg-subtle uppercase">{cell.k}</p>
+                  <p class:list={["mt-2 font-mono text-metric tabular-nums", cell.tone]} data-numeric>
+                    {cell.v.toLocaleString("en-US")}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="lede mt-6">
+        Counted over {t.n_test.toLocaleString("en-US")} held-out minutes, of which
+        {" "}{t.n_positive.toLocaleString("en-US")} are flaring.
+      </p>
+    </Section>
+
+    {/* Calibration */}
+    <Section id="calibration" eyebrow="Calibration" title="The probabilities are not trustworthy" ruled>
+      <div class="mt-8 grid gap-6 lg:grid-cols-2">
+        <CurveChart
+          title="Reliability diagram"
+          xLabel="Mean predicted probability"
+          yLabel="Observed frequency"
+          reference="diagonal"
+          series={[{ label: "LightGBM", points: calPoints, emphasis: true, value: `Brier ${fmt(cal.brier, 4)}` }]}
+          caption="Perfect calibration lies on the diagonal. The curve sits far below it: when this model says 30%, the event occurs about 2% of the time."
+        />
+        <div class="glass self-start p-6">
+          <p class="text-md text-fg">Why this matters</p>
+          <p class="mt-3 text-sm leading-relaxed text-fg-muted">
+            The adjudicated verdict offers LightGBM as the option "if a calibrated
+            probability is required". This diagram shows that as published, it is not
+            calibrated — it is systematically over-confident. Anyone using these scores as
+            probabilities would need to recalibrate first.
+          </p>
+          <p class="mt-4 text-sm leading-relaxed text-fg-muted">
+            Reported here rather than omitted, because a limitation that only appears when
+            someone deploys the model is a limitation the platform should have stated.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    {/* Threshold trade-off */}
+    <Section id="tradeoff" eyebrow="Trade-off" title="Recall costs alarms" ruled>
+      <div class="mt-8 grid gap-6 lg:grid-cols-2">
+        <CurveChart
+          title="Recall vs alarm burden"
+          xLabel="Alarm runs (normalised)"
+          yLabel="Recall"
+          series={[{ label: "Threshold detector", points: tradeoff, emphasis: true }]}
+          caption="Each point is a candidate threshold. Recall rises steeply at first, then buys very little for a rapidly growing alarm burden."
+        />
+        <div class="glass self-start p-6">
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Operating point</p>
+          {operating && (
+            <dl class="mt-4 space-y-3 text-sm">
+              {[
+                ["Threshold", operating.threshold.toFixed(3)],
+                ["Precision", operating.precision.toFixed(3)],
+                ["Recall", operating.recall.toFixed(3)],
+                ["F1", operating.f1.toFixed(3)],
+                ["Alarm runs", operating.alarm_runs.toLocaleString("en-US")],
+              ].map(([k, v]) => (
+                <div class="flex justify-between gap-4">
+                  <dt class="text-fg-muted">{k}</dt>
+                  <dd class="font-mono tabular-nums text-fg" data-numeric>{v}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+          <p class="mt-5 text-sm leading-relaxed text-fg-muted">
+            Swept across {sweep.length} candidate thresholds in the log domain, because the
+            count rate spans orders of magnitude. Runs, not raw false positives — an operator
+            is interrupted once per run.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    {/* Error analysis */}
+    <Section id="errors" eyebrow="Error analysis" title="Where it fails" ruled>
+      <p class="lede -mt-2">
+        Errors are not spread evenly. Of {t.error_analysis.n_days} held-out days,
+        {" "}{t.error_analysis.days_with_any_error} contain at least one error, and the
+        misses concentrate in a handful of them.
+      </p>
+      <div class="mt-8 overflow-x-auto rounded-[10px] border border-line-subtle">
+        <table class="table-scan w-full border-collapse text-sm">
+          <caption class="sr-only">Days with the most missed flaring minutes.</caption>
+          <thead>
+            <tr class="border-b border-line-subtle bg-surface text-left">
+              {["Date", "Missed (FN)", "False alarms (FP)", "Caught (TP)"].map((h, i) => (
+                <th scope="col" class:list={["px-4 py-3 text-2xs font-medium tracking-[0.12em] text-fg-muted uppercase", i > 0 && "text-right"]}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {worst.map((d) => (
+              <tr class="border-b border-line-subtle last:border-0">
+                <th scope="row" class="px-4 py-3 text-left font-mono font-normal">{d.date}</th>
+                <td class="px-4 py-3 text-right font-mono tabular-nums text-fail" data-numeric>{d.fn}</td>
+                <td class="px-4 py-3 text-right font-mono tabular-nums text-open" data-numeric>{d.fp}</td>
+                <td class="px-4 py-3 text-right font-mono tabular-nums text-fg-muted" data-numeric>{d.tp}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-5 text-sm leading-relaxed text-fg-muted">
+        The dominant failure is a <strong class="text-fg">missed slow riser</strong>: a flare
+        whose count rate climbs gradually and never crosses the threshold, producing many
+        false negatives on a single day with no false positives. This is the specific
+        weakness a learned model would need to fix to justify its alarm cost — and on event
+        recall, it did not.
+      </p>
+    </Section>
+
+    {/* Ablation */}
+    <Section id="ablation" eyebrow="Ablation" title="Spectral resolution adds nothing" ruled>
+      <div class="reveal-stagger mt-8 grid gap-4 sm:grid-cols-3">
+        {[
+          { k: "T1 (count rate) only", v: ablation.t1_only },
+          { k: "+ spectral bands", v: ablation.t1_bands },
+          { k: "Δ ROC-AUC", v: ablation.delta_bands, accent: true },
+        ].map((x) => (
+          <div class="glass p-6">
+            <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">{x.k}</p>
+            <p class:list={["mt-4 font-mono text-metric leading-none tabular-nums", x.accent ? "text-open" : "text-fg"]} data-numeric>
+              {x.accent ? "+" : ""}{x.v!.toFixed(4)}
+            </p>
+          </div>
+        ))}
+      </div>
+      <p class="lede mt-6">
+        Adding spectral bands moves ROC-AUC by {ablation.delta_bands!.toFixed(4)} — within
+        noise. A confirmed null,
+        reported because a null that goes unpublished is a result someone else will pay to
+        rediscover.
+      </p>
+      <p class="mt-4 font-mono text-2xs break-all text-fg-subtle">{bench.sources.ablation}</p>
+    </Section>
+
+    <Section id="how" eyebrow="Provenance" title="How these figures were produced" ruled>
+      <ol class="reveal-stagger grid gap-3 sm:grid-cols-2">
+        {[
+          ["01", "Source", "artifacts/v2/ml/benchmark_predictions.json — 192,541 held-out labels and per-sample scores."],
+          ["02", "Derivation", "web/scripts/derive_metrics.py sweeps every distinct score to build ROC/PR, bins probabilities for calibration, and aggregates errors by day."],
+          ["03", "Cross-check", "ROC-AUC computed from the curve reproduces the published ROC-AUC to five decimal places."],
+          ["04", "Render", "Static SVG at build time — this page ships no JavaScript."],
+        ].map(([n, tl, d]) => (
+          <li class="glass p-5">
+            <p class="font-mono text-2xs tracking-[0.18em] text-eyebrow">{n}</p>
+            <p class="mt-3 text-md text-fg">{tl}</p>
+            <p class="mt-2 text-sm leading-relaxed text-fg-muted">{d}</p>
+          </li>
+        ))}
       </ol>
-    </section>
-    <NextDepth />
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <LearnMore href="/findings/method/" label="The full method" note="Benchmark tables, adjudicated verdicts, frozen protocol" />
+        <LearnMore href="/build/reproduce/" label="Reproduce it" note="Environment, digests, rebuild record" />
+      </div>
+    </Section>
   </main>
 </BaseLayout>

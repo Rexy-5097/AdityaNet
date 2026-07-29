@@ -24,15 +24,22 @@ import "@fontsource/ibm-plex-mono/latin-400.css";
 import "@fontsource/ibm-plex-mono/latin-500.css";
 import "@/styles/global.css";
 import Header from "@/components/shell/Header.astro";
+import ResourceIndex from "@/components/shell/ResourceIndex.astro";
 
 interface Props {
   title: string;
   description: string;
   /** Full-bleed surfaces (the landing scene) reach the top edge under the fixed header. */
   bleed?: boolean;
+  /**
+   * The landing scene suppresses the reference index. It is a single held shot with one
+   * instruction — scroll — and a nine-link directory under it would answer a question the
+   * viewer has not yet been given a reason to ask.
+   */
+  index?: boolean;
 }
 
-const { title, description, bleed = false } = Astro.props;
+const { title, description, bleed = false, index = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -75,9 +82,11 @@ const { title, description, bleed = false } = Astro.props;
       The affiliation firewall. This appears on every route, not only the entry page.
       The cost of under-claiming is zero; the cost of over-claiming is the project.
     */}
-    <footer class="mx-auto max-w-2xl px-6 pt-8 pb-20 text-xs leading-relaxed text-fg-muted">
+    <footer class="mx-auto max-w-5xl px-6 pt-8 pb-20 text-xs leading-relaxed text-fg-muted">
       <hr class="rule mb-8" />
-      <p>
+      {index && <ResourceIndex />}
+      {index && <hr class="rule my-8" />}
+      <p class="max-w-2xl">
         AdityaNet is an independent research project. It is not affiliated with,
         endorsed by, or operated by ISRO or any space agency. It is built on publicly
         available Aditya-L1 archive data from ISSDC.

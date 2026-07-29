@@ -49,7 +49,7 @@ const next = position < ordered.length - 1 ? ordered[position + 1] : null;
 <BaseLayout title={`${doc.id} — AdityaNet`} description={doc.reason}>
   <main id="main" class="mx-auto max-w-3xl px-6 pt-12 pb-24">
     <nav aria-label="Breadcrumb" class="text-xs">
-      <a href="/validation/" class="text-fg-muted transition-colors hover:text-fg">
+      <a href="/engineering/provenance/" class="text-fg-muted transition-colors hover:text-fg">
         ← Adjudication record
       </a>
     </nav>
@@ -109,7 +109,7 @@ const next = position < ordered.length - 1 ? ordered[position + 1] : null;
       <nav class="mt-6 flex justify-between gap-4 text-sm" aria-label="Adjacent records">
         {
           previous ? (
-            <a href={`/validation/${previous.slug}/`} class="text-fg-muted transition-colors hover:text-fg">
+            <a href={`/engineering/provenance/${previous.slug}/`} class="text-fg-muted transition-colors hover:text-fg">
               ← {previous.id}
             </a>
           ) : (
@@ -118,7 +118,7 @@ const next = position < ordered.length - 1 ? ordered[position + 1] : null;
         }
         {
           next ? (
-            <a href={`/validation/${next.slug}/`} class="text-fg-muted transition-colors hover:text-fg">
+            <a href={`/engineering/provenance/${next.slug}/`} class="text-fg-muted transition-colors hover:text-fg">
               {next.id} →
             </a>
           ) : (

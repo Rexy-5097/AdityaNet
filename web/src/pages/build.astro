@@ -7,6 +7,7 @@
  * the pinned environment, and the record of a byte-identical rebuild.
  */
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageContract from "@/components/shell/PageContract.astro";
 import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
 import KeyFacts from "@/components/shell/KeyFacts.astro";
 import NextDepth from "@/components/shell/NextDepth.astro";
@@ -47,6 +48,18 @@ const formatBytes = (bytes: number) => {
         A reproducibility claim without an executable path is marketing. This is the path.
       </p>
     </div>
+
+    <PageContract
+      what="The build surface: what the dataset is made of, the digest of every table, and the commands to rebuild it."
+      trust="The digests are read from the freeze manifest committed alongside the data, and a sampled rebuild has been checked byte-for-byte against the frozen output."
+      verify={[
+        { href: "/reproducibility/", label: "Reproducibility metrics", note: "Including what is unverified" },
+        { href: "/build/reproduce/", label: "The reproduction record", note: "Environment and rebuild result" },
+        { href: "/data/card/", label: "The dataset card", note: "Coverage and limitations" },
+        { href: "/archive/", label: "Fetch the payloads", note: "Digest-addressed JSON" },
+      ]}
+    />
+
 
     <KeyFacts
       facts={[

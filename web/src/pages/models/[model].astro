@@ -1,0 +1,315 @@
+---
+/**
+ * One model card.
+ *
+ * The sections are the standard model-card sections, in the standard order, because a
+ * reviewer should be able to find failure modes in the same place on every card without
+ * reading the page first. Where a section would be empty it still appears, saying so —
+ * "no limitations recorded" is information, and a silently omitted heading is not.
+ *
+ * The limitation clauses are rendered as links into the dataset card rather than as
+ * restated summaries. Restating L-1 here would create a second copy of a caveat that can
+ * drift from the first, which is the failure mode this platform is built to refuse.
+ *
+ * Zero JavaScript.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AmbientBackdrop from "@/components/shell/AmbientBackdrop.astro";
+import PageHeader from "@/components/shell/PageHeader.astro";
+import PageContract from "@/components/shell/PageContract.astro";
+import Section from "@/components/shell/Section.astro";
+import FeatureBars from "@/components/evidence/FeatureBars.astro";
+import LearnMore from "@/components/editorial/LearnMore.astro";
+import models from "@/generated/data/findings/models.json";
+import { MODEL_COPY } from "@/lib/data/model-cards";
+
+export function getStaticPaths() {
+  return Object.keys(MODEL_COPY).map((model) => ({ params: { model } }));
+}
+
+const { model } = Astro.params;
+const copy = MODEL_COPY[model!]!;
+const d = models.data;
+
+// The same model, evaluated on both tasks. Both are shown: a card that reported only the
+// task where the model did better would be a brochure.
+const perTask = d.tasks.map((t) => ({
+  task: t.task,
+  n_test: t.n_test,
+  base_rate: t.test_positive_rate,
+  m: t.models.find((x) => x.key === model)!,
+}));
+
+const nowcast = perTask[0]!;
+const c = nowcast.m.confusion;
+
+// Attribution exists only for the three fitted models, and only in its own units.
+const ATTRIBUTION: Record<string, { key: string; signed: boolean; note: string }> = {
+  logistic: {
+    key: "logistic_coef",
+    signed: true,
+    note: "Signed coefficients on standardised features. A negative value means the feature pushes the score down once the others are held fixed — which, given how strongly these features correlate, is a statement about the fit and not about the Sun.",
+  },
+  random_forest: {
+    key: "random_forest_importance",
+    signed: false,
+    note: "Mean impurity decrease, normalised to sum to one. Unsigned by construction, and known to favour continuous features with many split points.",
+  },
+  lightgbm: {
+    key: "lightgbm_importance",
+    signed: false,
+    note: "Split-based importance, normalised to sum to one. It records where the trees chose to split, not how much each feature changed a prediction.",
+  },
+};
+
+const attribution = ATTRIBUTION[model!];
+const attributionValues = attribution
+  ? ((d.tasks[0]!.attribution as Record<string, Record<string, number>>)[attribution.key] ?? null)
+  : null;
+
+const fmt = (v: number | null | undefined, dp = 3): string =>
+  typeof v === "number" && Number.isFinite(v) ? v.toFixed(dp) : "—";
+
+const METRICS = [
+  { label: "ROC-AUC", key: "roc_auc", note: "Ranking quality across all thresholds" },
+  { label: "PR-AUC", key: "pr_auc", note: "The informative curve at a low base rate" },
+  { label: "Precision", key: "precision", note: "Of the minutes flagged, how many were flares" },
+  { label: "Recall", key: "recall", note: "Of the flare minutes, how many were flagged" },
+  { label: "F1", key: "f1", note: "Harmonic mean of the two above" },
+  { label: "MCC", key: "mcc", note: "Correlation, robust to imbalance" },
+  { label: "Brier", key: "brier", note: "Probability accuracy; undefined for hard classifiers" },
+  { label: "Balanced accuracy", key: "balanced_acc", note: "Mean of the two class recalls" },
+] as const;
+---
+
+<BaseLayout
+  title={`${copy.name} — model card — AdityaNet`}
+  description={`Model card for ${copy.name}: ${copy.mechanism} Intended use, inputs, training protocol, evaluation, failure modes and limitations.`}
+>
+  <AmbientBackdrop
+    src="/video/space-galaxies.mp4"
+    poster="/video/space-galaxies-poster.jpg"
+    shape="frame"
+    align="right"
+  />
+
+  <main id="main" class="mx-auto max-w-4xl px-6 pb-32">
+    <div class="section-tight flow">
+      <p class="font-mono text-2xs text-fg-subtle">
+        <a href="/models/" class="link">Model cards</a>
+        <span aria-hidden="true"> / </span>{model}
+      </p>
+      <PageHeader
+        eyebrow={copy.reference ? "Model card · reference point" : "Model card · candidate detector"}
+        title={copy.name}
+        lede={copy.mechanism}
+      />
+    </div>
+
+    <PageContract
+      what={`A model card for ${copy.name}, one of eight detectors evaluated on the frozen Aditya-L1 flare benchmark.`}
+      trust="Every figure below is read at build time from the committed benchmark artifact; none is transcribed. The judgements are traceable to the written evaluation protocol and the dataset limitations record."
+      verify={[
+        { href: "/validation/", label: "The validation evidence", note: "Computed from 192,541 held-out predictions" },
+        { href: "/data/card/", label: "Dataset limitations", note: "L-1 … L-10" },
+        { href: "/evidence/", label: "Evidence traceability", note: "claim → artifact → commit" },
+        { href: "/archive/", label: "The raw payload", note: "findings/models.json" },
+      ]}
+    />
+
+    <Section id="use" eyebrow="Section 1" title="Purpose and intended use">
+      <div class="flow max-w-measure space-y-6 text-sm leading-relaxed text-fg-muted">
+        <p><span class="text-fg">Why it is in the benchmark.</span> {copy.purpose}</p>
+        <p><span class="text-fg">Intended use.</span> {copy.intendedUse}</p>
+        <p><span class="text-fg">Out of scope.</span> {copy.outOfScope}</p>
+      </div>
+    </Section>
+
+    <Section id="io" eyebrow="Section 2" title="Inputs, outputs, training" ruled>
+      <div class="flow max-w-measure space-y-6 text-sm leading-relaxed text-fg-muted">
+        <p><span class="text-fg">Inputs.</span> {copy.inputs}</p>
+        <p><span class="text-fg">Outputs.</span> {copy.outputs}</p>
+        <p><span class="text-fg">Training protocol.</span> {copy.training}</p>
+        {
+          nowcast.m.threshold !== null && (
+            <p>
+              <span class="text-fg">Operating point.</span> Decision threshold
+              <span class="font-mono text-fg" data-numeric> {nowcast.m.threshold.toFixed(4)}</span>,
+              selected on the training period and then frozen.
+            </p>
+          )
+        }
+      </div>
+    </Section>
+
+    <Section id="evaluation" eyebrow="Section 3" title="Evaluation" ruled>
+      <p class="lede">Both tasks, both reported.</p>
+
+      {
+        perTask.map((t) => (
+          <div class="mt-9">
+            <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+              {t.task} · {t.n_test.toLocaleString("en-US")} held-out minutes · base rate{" "}
+              <span data-numeric>{((t.base_rate ?? 0) * 100).toFixed(2)}%</span>
+            </p>
+
+            <div class="mt-5 overflow-x-auto">
+              <table class="table-scan w-full text-sm">
+                <thead>
+                  <tr class="border-b border-line">
+                    <th scope="col" class="py-2 pr-4 text-left font-medium text-fg-muted">Metric</th>
+                    <th scope="col" class="py-2 pr-4 text-right font-medium text-fg-muted">Value</th>
+                    <th scope="col" class="py-2 text-left font-medium text-fg-muted">What it measures</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {METRICS.map((metric) => (
+                    <tr class="border-b border-line-subtle">
+                      <th scope="row" class="py-2 pr-4 text-left font-normal text-fg">{metric.label}</th>
+                      <td class="py-2 pr-4 text-right font-mono tabular-nums text-fg" data-numeric>
+                        {fmt(t.m.minute[metric.key])}
+                      </td>
+                      <td class="py-2 text-xs text-fg-subtle">{metric.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <dl class="mt-6 grid gap-4 sm:grid-cols-3">
+              <div class="glass p-5">
+                <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Events detected</dt>
+                <dd class="mt-3 font-mono text-lg text-fg" data-numeric>
+                  {t.m.event.events_detected} / {t.m.event.n_events}
+                </dd>
+                <dd class="mt-2 text-xs leading-relaxed text-fg-subtle">
+                  Event recall {fmt(t.m.event.event_recall)}
+                  {t.m.ci95.event_recall && (
+                    <> · 95% CI {fmt(t.m.ci95.event_recall[0], 3)}–{fmt(t.m.ci95.event_recall[1], 3)}</>
+                  )}
+                </dd>
+              </div>
+              <div class="glass p-5">
+                <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">False alarm runs</dt>
+                <dd class="mt-3 font-mono text-lg text-fg" data-numeric>
+                  {t.m.event.false_event_runs.toLocaleString("en-US")}
+                </dd>
+                <dd class="mt-2 text-xs leading-relaxed text-fg-subtle">
+                  Of {t.m.event.n_pred_runs.toLocaleString("en-US")} alarm runs raised. A run, not a
+                  minute — the unit an operator actually responds to.
+                </dd>
+              </div>
+              <div class="glass p-5">
+                <dt class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">ROC-AUC interval</dt>
+                <dd class="mt-3 font-mono text-lg text-fg" data-numeric>
+                  {t.m.ci95.roc_auc ? `${fmt(t.m.ci95.roc_auc[0])}–${fmt(t.m.ci95.roc_auc[1])}` : "—"}
+                </dd>
+                <dd class="mt-2 text-xs leading-relaxed text-fg-subtle">
+                  95%, day-block bootstrap.
+                </dd>
+              </div>
+            </dl>
+          </div>
+        ))
+      }
+
+      <div class="mt-10">
+        <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+          Confusion matrix · {nowcast.task}
+        </p>
+        <div class="mt-4 grid max-w-md grid-cols-2 gap-px overflow-hidden rounded-md border border-line-subtle bg-line-subtle">
+          {
+            [
+              { l: "True negative", v: c.tn }, { l: "False positive", v: c.fp },
+              { l: "False negative", v: c.fn }, { l: "True positive", v: c.tp },
+            ].map((cell) => (
+              <div class="bg-surface p-4">
+                <p class="font-mono text-2xs text-fg-subtle">{cell.l}</p>
+                <p class="mt-2 font-mono text-lg tabular-nums text-fg" data-numeric>
+                  {cell.v.toLocaleString("en-US")}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </Section>
+
+    {
+      attributionValues && attribution && (
+        <Section id="attribution" eyebrow="Section 4" title="Feature attribution" ruled>
+          <p class="lede">Which of the fourteen features the fit relied on.</p>
+          <div class="mt-9">
+            <FeatureBars
+              values={attributionValues}
+              signed={attribution.signed}
+              caption={attribution.note}
+            />
+          </div>
+          <p class="mt-6 max-w-measure text-sm leading-relaxed text-fg-muted">
+            Attribution is not explanation. These features are strongly collinear — four of
+            them are rolling means of the same series — so credit assigned to one is credit
+            withheld from another, and none of it constitutes a physical account of flare onset.
+          </p>
+        </Section>
+      )
+    }
+
+    <Section id="failure" eyebrow={attributionValues ? "Section 5" : "Section 4"} title="Strengths and failure modes" ruled>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div>
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Strengths</p>
+          <ul class="mt-4 space-y-3 text-sm leading-relaxed text-fg-muted">
+            {copy.strengths.map((s) => <li class="border-l border-line-subtle pl-4">{s}</li>)}
+          </ul>
+        </div>
+        <div>
+          <p class="font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">Failure modes</p>
+          <ul class="mt-4 space-y-3 text-sm leading-relaxed text-fg-muted">
+            {copy.failureModes.map((s) => <li class="border-l border-line-subtle pl-4">{s}</li>)}
+          </ul>
+        </div>
+      </div>
+    </Section>
+
+    <Section id="limitations" eyebrow={attributionValues ? "Section 6" : "Section 5"} title="Limitations and ethical considerations" ruled>
+      <p class="max-w-measure text-sm leading-relaxed text-fg-muted">
+        <span class="text-fg">Ethical considerations.</span> {copy.ethical}
+      </p>
+
+      <p class="mt-8 font-mono text-2xs tracking-[0.16em] text-fg-subtle uppercase">
+        Governing limitation clauses
+      </p>
+      {
+        copy.limitations.length > 0 ? (
+          <ul class="mt-4 flex flex-wrap gap-2">
+            {copy.limitations.map((id) => (
+              <li>
+                <a href={`/data/card/#limitations`} class="chip chip-key">{id}</a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="mt-4 text-sm leading-relaxed text-fg-muted">
+            None recorded. This model is a reference point rather than a candidate, so the
+            dataset's constraints on modelling do not bind it.
+          </p>
+        )
+      }
+      <p class="mt-4 max-w-measure text-sm leading-relaxed text-fg-muted">
+        Clause text is not restated here. It is published in full on the
+        <a href="/data/card/#limitations" class="link"> dataset card</a>, from the frozen
+        <span class="font-mono text-2xs"> DATASET_LIMITATIONS_FOR_ML.md</span> report, so there
+        is exactly one copy of every caveat.
+      </p>
+    </Section>
+
+    <Section id="next" ruled>
+      <div class="flex flex-wrap gap-3">
+        <LearnMore href="/models/" label="All eight cards" note="Back to the index" />
+        <LearnMore href="/validation/" label="See the proof" note="Curves, calibration, error analysis" />
+        <LearnMore href="/evidence/" label="Trace a claim" note="Claim → artifact → commit" />
+      </div>
+    </Section>
+  </main>
+</BaseLayout>
