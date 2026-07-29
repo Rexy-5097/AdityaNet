@@ -6,18 +6,22 @@ How the frozen dataset constrains **model choice**, **evaluation**, **loss funct
 
 Clauses are cited by ID and never restated ([ADR-0013](../../adr/ADR-0013.md)).
 
-| ID | Title |
-| --- | --- |
-| [L-01](L-01.md) | The effective sample size is 581, not 564,160 |
-| [L-02](L-02.md) | Forecast skill is horizon-flat: it is activity-state persistence, not precursor detection |
-| [L-03](L-03.md) | No instrument response: physical severity targets are unconstructible |
-| [L-04](L-04.md) | The combined-instrument arm is 171 days |
-| [L-05](L-05.md) | Spectral features carry little marginal information; hardness ratios carry none for prediction |
-| [L-06](L-06.md) | Class imbalance and its interaction with event scarcity |
-| [L-07](L-07.md) | Missingness must be masked, never imputed |
-| [L-08](L-08.md) | GTI semantics are not fully characterised |
-| [L-09](L-09.md) | Labels are exogenous and instrument-mismatched |
-| [L-10](L-10.md) | Single detector, single solar-cycle phase |
+| ID | Title | Origin |
+| --- | --- | --- |
+| [L-01](L-01.md) | The effective sample size is 581, not 564,160 | migrated |
+| [L-02](L-02.md) | Forecast skill is horizon-flat: it is activity-state persistence, not precursor detection | migrated |
+| [L-03](L-03.md) | No instrument response: physical severity targets are unconstructible | migrated |
+| [L-04](L-04.md) | The combined-instrument arm is 171 days | migrated |
+| [L-05](L-05.md) | Spectral features carry little marginal information; hardness ratios carry none for prediction | migrated |
+| [L-06](L-06.md) | Class imbalance and its interaction with event scarcity | migrated |
+| [L-07](L-07.md) | Missingness must be masked, never imputed | migrated |
+| [L-08](L-08.md) | GTI semantics are not fully characterised | migrated |
+| [L-09](L-09.md) | Labels are exogenous and instrument-mismatched | migrated |
+| [L-10](L-10.md) | Single detector, single solar-cycle phase | migrated |
+| [L-11](L-11.md) | Pre-bitemporal observations carry no ingest time | authored |
+
+Clauses marked `migrated` are carried verbatim from `artifacts/v2/ml/DATASET_LIMITATIONS_FOR_ML.md`. Clauses marked `authored` state the
+consequence of a decision that postdates that report and cite the governing ADR instead.
 
 ## Summary — what can and cannot be claimed
 
