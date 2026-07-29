@@ -28,13 +28,24 @@ name: web
 # GitHub truncates the file list it evaluates for `paths:` on very large diffs. A
 # 3,231-file restructure changed two files under web/ and this workflow did not run:
 # the gate was skipped silently, which is the one failure mode a gate must not have.
-# Pull requests keep the filter (their diffs are small and fast feedback is worth it);
-# pushes to main always run. The job takes well under a minute.
+# Pull requests carry no filter either, for a second and independent reason recorded
+# at the `pull_request` trigger below. The job takes well under a minute.
 on:
   push:
     branches: [main]
+  # NO `paths:` FILTER ON PULL REQUESTS — a required check that never runs is a
+  # permanent block, not a skipped one.
+  #
+  # `main` requires all four checks (verify, test, budget, lint-and-test) before a merge.
+  # GitHub reports a required check that was never triggered as "Expected — waiting for
+  # status to be reported", and the pull request can never be merged. With a path filter,
+  # a PR touching only web/ would deadlock on lint-and-test, and a PR touching only docs/
+  # would deadlock on all four.
+  #
+  # Both jobs finish in well under a minute. Running them on every pull request costs
+  # less than one afternoon spent working out why a green branch will not merge.
   pull_request:
-    paths: ["web/**", "artifacts/**", ".github/workflows/web.yml"]
+    branches: [main]
   workflow_dispatch:
 
 defaults:
