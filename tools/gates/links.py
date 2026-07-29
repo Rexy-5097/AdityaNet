@@ -45,6 +45,15 @@ CITATION = re.compile(r"\b(ADR-\d{4}|STD-\d{2}|L-\d{2}|CONTRA-\d{3})\b")
 FRONT_MATTER = re.compile(r"\A---\n(.*?)\n---\n", re.S)
 KEY = re.compile(r"^([a-z_]+):\s*(.*)$", re.M)
 
+# Navigational documents carry no citable ID and therefore no front matter: an index lists
+# what exists, a README states what may enter a directory. Neither is citable, so neither is
+# indexed.
+#
+# They are NOT exempt from checking. Their citations and relative links are verified exactly
+# as a citable document's are — a README pointing at a decision that does not exist is the
+# same defect wherever it appears. Only the ID requirement is lifted.
+NAVIGATIONAL = frozenset({"index.md", "README.md"})
+
 
 class GateFailure(Exception):
     """A PolicyRejection in the TIS §0.2 taxonomy, raised by this gate alone."""
@@ -134,19 +143,23 @@ def load(path: Path) -> Document:
     )
 
 
-def collect(report: Report) -> dict[str, Document]:
+def collect(report: Report) -> tuple[dict[str, Document], list[Path]]:
     """Index every constitution document by ID, rejecting duplicates.
 
     TIS E1 §11 invariant (i): exactly one file per citable ID. A duplicate makes every
     citation of that ID ambiguous, so it is a failure rather than a warning.
     """
     index: dict[str, Document] = {}
+    navigational: list[Path] = []
 
     for root in (ADR_DIR, STANDARDS_DIR, SPECS_DIR):
         if not root.exists():
             continue
         for path in sorted(root.rglob("*.md")):
-            if path.name.startswith("._") or path.name == "index.md":
+            if path.name.startswith("._"):
+                continue
+            if path.name in NAVIGATIONAL:
+                navigational.append(path)
                 continue
             document = load(path)
             report.documents += 1
@@ -158,20 +171,25 @@ def collect(report: Report) -> dict[str, Document]:
                 continue
             index[document.doc_id] = document
 
-    return index
+    return index, navigational
 
 
-def check_citations(index: dict[str, Document], report: Report) -> None:
-    """Every citation in the corpus must resolve to a known document."""
-    for document in index.values():
-        for cited in CITATION.findall(document.path.read_text()):
+def check_citations(
+    index: dict[str, Document], navigational: list[Path], report: Report
+) -> None:
+    """Every citation in the corpus must resolve to a known document.
+
+    Navigational documents are checked alongside citable ones. Only the ID requirement is
+    lifted for them, never the citation requirement.
+    """
+    for path in [d.path for d in index.values()] + navigational:
+        own_id = next((d.doc_id for d in index.values() if d.path == path), None)
+        for cited in CITATION.findall(path.read_text()):
             report.citations += 1
-            if cited == document.doc_id:
-                continue
-            if cited in index:
+            if cited == own_id or cited in index:
                 continue
             if namespace_materialised(cited):
-                report.fail(f"{document.path.name}: cites {cited}, which does not resolve")
+                report.fail(f"{path.name}: cites {cited}, which does not resolve")
             else:
                 report.defer(cited)
 
@@ -211,12 +229,14 @@ def check_supersession(index: dict[str, Document], report: Report) -> None:
             report.fail(f"{document.doc_id}: status is superseded but superseded_by is null")
 
 
-def check_relative_links(index: dict[str, Document], report: Report) -> None:
+def check_relative_links(
+    index: dict[str, Document], navigational: list[Path], report: Report
+) -> None:
     """Markdown links between constitution documents must point at real files."""
     link = re.compile(r"\[[^\]]+\]\((?!https?://)([^)#]+)(?:#[^)]*)?\)")
-    for document in index.values():
-        for target in link.findall(document.path.read_text()):
-            resolved = (document.path.parent / target).resolve()
+    for path in [d.path for d in index.values()] + navigational:
+        for target in link.findall(path.read_text()):
+            resolved = (path.parent / target).resolve()
             if resolved.exists():
                 continue
             # A link into a namespace that has not been materialised is deferred on the
@@ -224,9 +244,9 @@ def check_relative_links(index: dict[str, Document], report: Report) -> None:
             if any(root.exists() or str(root) not in str(resolved)
                    for ns, root in NAMESPACE_ROOTS.items()
                    if str(root) in str(resolved)):
-                report.fail(f"{document.path.name}: broken link -> {target}")
+                report.fail(f"{path.name}: broken link -> {target}")
             elif not any(str(root) in str(resolved) for root in NAMESPACE_ROOTS.values()):
-                report.fail(f"{document.path.name}: broken link -> {target}")
+                report.fail(f"{path.name}: broken link -> {target}")
 
 
 def main() -> int:
@@ -236,15 +256,15 @@ def main() -> int:
         if not ADR_DIR.exists():
             raise GateFailure(f"constitution root missing: {ADR_DIR}")
 
-        index = collect(report)
+        index, navigational = collect(report)
 
         # Fail closed: an empty corpus is not a passing corpus (ADR-0020).
         if report.documents == 0:
             raise GateFailure("no constitution documents found; refusing to pass vacuously")
 
-        check_citations(index, report)
+        check_citations(index, navigational, report)
         check_supersession(index, report)
-        check_relative_links(index, report)
+        check_relative_links(index, navigational, report)
 
     except GateFailure as exc:
         print(f"links: GATE FAILURE — {exc}", file=sys.stderr)
@@ -252,7 +272,8 @@ def main() -> int:
 
     print(
         f"links: checked {report.documents} document(s), "
-        f"{report.citations} citation(s), {len(index)} unique ID(s)"
+        f"{report.citations} citation(s), {len(index)} unique ID(s), "
+        f"{len(navigational)} navigational"
     )
 
     if report.deferred:
