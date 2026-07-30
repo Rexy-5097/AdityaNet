@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:adityanet:contract:supersession:1",
+  "title": "Supersession",
+  "description": "Bytes are immutable; standing is not. A release found to be wrong is marked, never rewritten — deleting or editing it would destroy the audit trail that justifies the finding (ADR-0024).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["superseded", "superseding", "severity", "reason", "effective_date", "discovered_by"],
+  "properties": {
+    "superseded": { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+    "superseding": {
+      "oneOf": [
+        { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+        { "type": "null" }
+      ],
+      "description": "The replacement, or null for outright withdrawal with nothing to replace it."
+    },
+    "severity": {
+      "enum": ["CORRECTION", "RETRACTION", "DEPRECATION"],
+      "description": "CORRECTION: wrong but recoverable. RETRACTION: scientifically invalid — a retraction anywhere in a claim's provenance DAG fails the build. DEPRECATION: superseded, not wrong."
+    },
+    "reason": { "type": "string", "minLength": 1 },
+    "effective_date": { "$ref": "urn:adityanet:contract:common:1#/$defs/timestamp" },
+    "discovered_by": { "$ref": "urn:adityanet:contract:common:1#/$defs/run_id" }
+  }
+}

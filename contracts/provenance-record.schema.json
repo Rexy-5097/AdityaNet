@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:adityanet:contract:provenance-record:1",
+  "title": "ProvenanceRecord",
+  "description": "One derivation: this run consumed these input digests and produced these output digests. Chained by digest, records form the DAG that answers where a published number came from (ADR-0005, ADR-0026).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "inputs", "outputs"],
+  "properties": {
+    "run_id": { "$ref": "urn:adityanet:contract:common:1#/$defs/run_id" },
+    "inputs": {
+      "type": "array",
+      "items": { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+      "uniqueItems": true,
+      "description": "Digests consumed. May be empty: an acquisition has no upstream input."
+    },
+    "outputs": {
+      "type": "array",
+      "items": { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+      "uniqueItems": true,
+      "minItems": 1,
+      "description": "Digests produced. A record with no outputs records nothing."
+    }
+  }
+}

@@ -66,7 +66,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install pytest
+      # jsonschema validates the contracts against the JSON Schema specification rather
+      # than against a second, hand-rolled implementation of it. Added by M2/E4/#11, whose
+      # tests cannot run without a validator.
+      - run: pip install pytest jsonschema
 
       # Includes the deliberate-violation tests for every gate. This is what makes the
       # fail-closed property continuously verified rather than demonstrated once: if a gate

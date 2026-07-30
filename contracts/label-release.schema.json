@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:adityanet:contract:label-release:1",
+  "title": "LabelRelease",
+  "description": "An immutable snapshot of an external authority's ground truth at a recorded ingest time. Separate from DatasetRelease because labels are exogenous and revisable (ADR-0007).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label_source_id", "authority", "digest", "ingest_time", "n_events"],
+  "properties": {
+    "label_source_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+    "authority": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Who published these labels. Recorded because labels come from a different mission than the observations they label (L-09)."
+    },
+    "digest": { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+    "ingest_time": {
+      "$ref": "urn:adityanet:contract:common:1#/$defs/timestamp",
+      "description": "Not nullable, unlike an Observation's: a label release is created by this system, so the moment it was taken is always known."
+    },
+    "n_events": { "type": "integer", "minimum": 0 },
+    "supersedes_digest": {
+      "oneOf": [
+        { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+        { "type": "null" }
+      ],
+      "description": "The prior release this revises, or null for the first. A revision produces a new release; the prior one is retained and remains addressable."
+    }
+  }
+}

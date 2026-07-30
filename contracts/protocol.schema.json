@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:adityanet:contract:protocol:1",
+  "title": "Protocol",
+  "description": "An immutable, pre-registered evaluation specification. Pre-registration is meaningless if the protocol is editable prose (ADR-0008).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_id", "digest", "task", "splits", "metrics", "uncertainty_estimator", "exchangeable_unit", "permitted_instruments", "label_source_id", "requires_bitemporal", "tolerance"],
+  "properties": {
+    "protocol_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+    "digest": { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+    "task": { "type": "string", "minLength": 1 },
+    "splits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy", "test_start"],
+      "properties": {
+        "strategy": { "enum": ["chronological"] },
+        "test_start": { "$ref": "urn:adityanet:contract:common:1#/$defs/timestamp" },
+        "val_fraction": { "type": "number", "minimum": 0, "exclusiveMaximum": 1 }
+      },
+      "description": "Only chronological splitting is permitted. A shuffled split would let a future minute inform a past one."
+    },
+    "metrics": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "uncertainty_estimator": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Named, because an interval without its estimator is uninterpretable."
+    },
+    "exchangeable_unit": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The unit the uncertainty estimator resamples. Recorded because the row count is not the sample size — flares span many minutes, so minutes are not independent (L-01)."
+    },
+    "operating_points": {
+      "type": "array",
+      "items": { "type": "number" },
+      "default": []
+    },
+    "permitted_instruments": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "urn:adityanet:contract:common:1#/$defs/instrument_id" },
+      "description": "The set a MethodRelease's declared_instruments must be a subset of. This half of ADR-0011 is what the v1 framework lacked."
+    },
+    "label_source_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+    "requires_bitemporal": {
+      "type": "boolean",
+      "description": "true: observations with ingest_time = null are excluded and the leakage gate is enforceable by construction. false: they are permitted and the Evaluation records leakage_gate_applied = false (ADR-0022, L-11)."
+    },
+    "tolerance": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Absolute agreement required for reproduction class EQUIVALENT — same five inputs, different platform. Zero demands bit-identity and so admits only EXACT (ADR-0021)."
+    }
+  }
+}
