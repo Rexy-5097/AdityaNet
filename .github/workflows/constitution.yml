@@ -97,13 +97,17 @@ jobs:
 
       - run: pip install pytest
 
-      # `domain` added by M2/E4/#12, which places the pure domain model's unit tests beside
-      # the code they test. Without it those 244 tests would exist and never run — the exact
-      # defect recorded as EPD-004 when the kernel landed, repeating one issue later.
-      # Reported as EPD-006: the Engineering Plan assigns unit tests to #12 and no issue owns
-      # extending the runner that executes them.
+      # `domain` added by M2/E4/#12 and `contexts` by M3/E5/#15, each placing its unit tests
+      # beside the code they test. Without the path here those tests would exist and never
+      # run — the exact defect recorded as EPD-004 when the kernel landed. Reported as
+      # EPD-006 (domain) and EPD-007 (contexts): the Engineering Plan assigns unit tests to
+      # these issues and no issue owns extending the runner that executes them.
+      #
+      # `contexts` will keep gaining packages through E5–E11. It is named as a root rather
+      # than per-context so that a new context's tests run the day they are written, instead
+      # of on the day someone remembers this file.
       - name: Unit tests beside their code
-        run: pytest kernel domain -q -rs
+        run: pytest kernel domain contexts -q -rs
 
   # Integration tests cross a real boundary, and some of them assert on repository refs
   # rather than on files. Without this job they would never execute — the same gap that left
