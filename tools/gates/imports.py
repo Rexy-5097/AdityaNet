@@ -133,6 +133,46 @@ def imported_roots(path: Path) -> set[str]:
     return roots
 
 
+def imported_paths(path: Path) -> set[str]:
+    """The FULL dotted path of every import in a file.
+
+    WHY THIS EXISTS ALONGSIDE `imported_roots` (added by M2/E4/#13)
+    ---------------------------------------------------------------
+    `imported_roots` collapses `contexts.curation.freeze` to `contexts`. That is the right
+    granularity for deciding whether an import is stdlib, third party, or internal, and it is
+    what the stdlib classification below still uses.
+
+    It is the wrong granularity for ADR-0026's fifth dependency rule — *no context imports
+    another context's internals*. Every bounded context lives under one root, so at root
+    granularity `contexts.evaluation` importing `contexts.method` is indistinguishable from it
+    importing itself, and the rule is not merely unenforced but **inexpressible**. Issue #6
+    shipped the mechanism and deferred these rules to the issue that encodes them; encoding
+    them requires seeing the whole path.
+
+    Relative imports resolve against the importing module's own package, because `from .
+    import x` inside `contexts.ingest` is an import of `contexts.ingest` however it is spelled.
+    A rule evadable by changing import syntax would not be a rule.
+    """
+    tree = ast.parse(path.read_text(), filename=str(path))
+    own_package = ".".join(path.relative_to(REPO_ROOT).parent.parts)
+    found: set[str] = set()
+
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            found.update(alias.name for alias in node.names)
+        elif isinstance(node, ast.ImportFrom):
+            if node.level:
+                parts = own_package.split(".")
+                # level 1 is the current package, level 2 its parent, and so on.
+                climbed = parts[: len(parts) - (node.level - 1)] if node.level > 1 else parts
+                base = ".".join(climbed)
+                found.add(f"{base}.{node.module}" if node.module else base)
+            elif node.module:
+                found.add(node.module)
+
+    return found
+
+
 def check(policy: Policy, report: Report) -> None:
     """Apply one policy, recording every violation it finds."""
     modules = modules_of(policy)
@@ -152,12 +192,22 @@ def check(policy: Policy, report: Report) -> None:
         )
         return
 
-    permitted = set(policy.allow) | {policy.root}
+    permitted = set(policy.allow)
 
     for module in modules:
         report.modules += 1
-        for root in sorted(imported_roots(module)):
+        for dotted in sorted(imported_paths(module)):
             report.imports += 1
+
+            # A package may always import itself. Matched against the policy's OWN dotted
+            # package rather than its top-level root — tightened by M2/E4/#13. Under the
+            # previous root-granularity rule, `policy.root` for `contexts.evaluation` was
+            # `contexts`, so importing `contexts.method` counted as importing itself and
+            # ADR-0026's fifth dependency rule could not be stated at all.
+            if dotted == policy.package or dotted.startswith(f"{policy.package}."):
+                continue
+
+            root = dotted.split(".")[0]
             if root in permitted:
                 continue
             if root in STDLIB:
@@ -169,7 +219,7 @@ def check(policy: Policy, report: Report) -> None:
                 )
                 continue
             report.violation(
-                f"{module.relative_to(REPO_ROOT)}: imports '{root}', "
+                f"{module.relative_to(REPO_ROOT)}: imports '{dotted}', "
                 f"not permitted by the policy for {policy.package} "
                 f"(allowed: {sorted(permitted) or 'itself only'})"
             )
@@ -223,13 +273,31 @@ def run(policies: list[Policy]) -> tuple[Report, int]:
 
 # ── The policy set in force today ───────────────────────────────────────────────
 #
-# Only rules that are determinable now. The six bounded-context rules of ADR-0026 belong to
-# the issue that encodes them, and the context packages contain no code yet, so writing them
-# here would produce rules that check nothing.
-#
 # kernel.provenance: TIS E3 §11 — no internal package, no third party. The standard library
 # is permitted; ADR-0026's shorthand "imports nothing" would forbid hashlib and so make
 # ADR-0005 unimplementable (DR-006).
+#
+# THE SIX BOUNDED-CONTEXT RULES (M2/E4/#13)
+# -----------------------------------------
+# Issue #6 deferred these, on the grounds that the context packages contained no code and a
+# rule over nothing checks nothing. That reasoning was right about *today* and wrong about
+# *tomorrow*, and the difference is what these entries close.
+#
+# Every context declares `populated=False`. That is not a placeholder — it is a live
+# assertion, and `check` above rejects a policy declaring False while modules exist. So the
+# first `.py` file added to any context turns the gate red until that issue states what its
+# context may import. Without these entries a new module under `contexts/` would be governed
+# by nothing at all: `undeclared` finds packages by `__init__.py`, and none of these
+# directories has one, so a context module would be neither policed nor reported missing.
+#
+# `allow` lists only what ADR-0026 grants. Third-party roots are NOT pre-granted: the ADR
+# does not grant them, and a context that later needs `astropy` should add one reviewable
+# line rather than inherit a blanket permission nobody voted for (STD-11).
+#
+# No context may import another context. That is enforced by the dotted self-match in
+# `check`, not by anything listed here — `contexts` is deliberately absent from every
+# `allow` below, and six deliberate-violation tests in
+# `tests/architecture/test_context_imports.py` prove each one rejects.
 
 POLICIES = [
     Policy(package="kernel.provenance", allow=frozenset(), allow_stdlib=True),
@@ -247,6 +315,44 @@ POLICIES = [
     # package present in the tree with no policy as a failure, so this entry is not optional
     # bookkeeping: without it the `architecture` job goes red.
     Policy(package="domain", allow=frozenset(), allow_stdlib=True),
+
+    # R1 — Ingest. Acquires and canonicalises. Needs the vocabulary, the domain model and
+    # the kernel to register raw artifacts as it acquires them (TIS E5 §19).
+    Policy(package="contexts.ingest", populated=False,
+           allow=frozenset({"contracts", "domain", "kernel"})),
+
+    # R2 — Curation. Freezes observations into digest-addressed releases; the kernel is what
+    # mints those digests (ADR-0005, ADR-0006).
+    Policy(package="contexts.curation", populated=False,
+           allow=frozenset({"contracts", "domain", "kernel"})),
+
+    # R3 — Ground Truth. Must not import contexts.curation: its README forbids the merge, and
+    # labels revise on a different cadence from the data they label (ADR-0007).
+    Policy(package="contexts.groundtruth", populated=False,
+           allow=frozenset({"contracts", "domain", "kernel"})),
+
+    # R4 — Method. Must not reach test labels, and must not be imported BY evaluation — the
+    # engine executes a released artifact rather than calling a method (ADR-0010, ADR-0016).
+    Policy(package="contexts.method", populated=False,
+           allow=frozenset({"contracts", "domain", "kernel"})),
+
+    # R5 — Evaluation. ADR-0026 states this one narrowly and literally: "Evaluation imports
+    # contracts and domain only". `kernel` is therefore absent, and that is encoded as
+    # written rather than widened to what the engine will plausibly need. See AC-001 in the
+    # Issue #13 report: TIS E10 §7 requires an Evaluation to carry its own digest, ADR-0005
+    # reserves minting to the kernel, and those cannot both hold under this rule. The
+    # contradiction is reported for resolution by ADR before M7/#30, not resolved here by
+    # quietly loosening a frozen rule.
+    Policy(package="contexts.evaluation", populated=False,
+           allow=frozenset({"contracts", "domain"})),
+
+    # R6 — Evidence. Reads from every context and writes to none (ADR-0026). "Reads from"
+    # means reads their *artifacts*, not imports their modules, so no context root is
+    # granted. The kernel is: TIS E11 §10 evaluates supersession transitively via
+    # `kernel.provenance.ancestors()`. The write prohibition is not an import rule and is
+    # enforced separately, by a static scan in test_context_imports.py.
+    Policy(package="contexts.evidence", populated=False,
+           allow=frozenset({"contracts", "domain", "kernel"})),
 ]
 
 
