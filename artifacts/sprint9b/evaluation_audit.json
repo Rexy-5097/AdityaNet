@@ -1,8 +1,0 @@
-{
-  "production_window_count": 30106,
-  "sprint9b_window_count": 1806313,
-  "dataset_match": false,
-  "threshold_match": false,
-  "evaluation_valid": false,
-  "recommended_action": "Align the Sprint 9B evaluation scripts with the production backtest protocol by incorporating a stride of 60, adjusting the label alignment index to global_idx - 1, and loading the operational policy / thresholds from operator_thresholds_validation_only.json."
-}

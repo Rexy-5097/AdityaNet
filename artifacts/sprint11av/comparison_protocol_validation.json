@@ -1,8 +1,0 @@
-{
-  "no_test_leakage": "Passed (Threshold tuning and calibration fitting are isolated to validation split)",
-  "validation_isolation": "Passed (Validation split 2020-2022 is separate from train 2010-2019 and test 2023-2026)",
-  "reproducibility": "Passed (Fixed seed 42 and dataset sequence parameters are locked)",
-  "rollback_capability": "Passed (Explicit performance, overfitting, and latency rollback triggers defined)",
-  "metric_comparability": "Passed (Comparison evaluates Version 2 directly against frozen Version 1 test metrics)",
-  "fairness_of_comparison": "Failed (Aditya-L1 was launched in late 2023; processed SoLEXS/HEL1OS files are only available for the test split. Since train and validation splits are frozen at 2010-2022, they contain zero Aditya-L1 observations, making it impossible to train or validate a model using SoLEXS/HEL1OS features under the proposed protocol.)"
-}

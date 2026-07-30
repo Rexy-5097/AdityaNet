@@ -1,8 +1,0 @@
-{
- "cut": "2022-07-01",
- "e1_train_rows": 6468471,
- "e1_val_rows": 261600,
- "e1_train_pos_rate": 0.010215551712298007,
- "e1_val_pos_rate": 0.11377293577981651,
- "note": "regime-inclusive: train=2010-2019+2020..2022-06-30; val=2022-07-01..2022-12-31; test unchanged (no leakage, test is 2023+)"
-}

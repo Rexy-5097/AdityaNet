@@ -1,9 +1,0 @@
-{
-  "verification_status": "PASSED",
-  "dataset_alignment": "OK",
-  "trainer_dry_run": "OK",
-  "selective_freezing": "OK",
-  "calibration_pipeline": "OK",
-  "ece_calculation": "OK",
-  "parameter_budget": 4353217
-}
