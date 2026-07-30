@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:adityanet:contract:evaluation:1",
+  "title": "Evaluation",
+  "description": "One execution of the central invariant: a function of FIVE pinned inputs (ADR-0021). Identity is the sha256 of all five, so a changed environment yields a distinct evaluation rather than a silently different score.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["digest", "method_release", "dataset_release", "label_release", "protocol", "environment_release", "reproduction_class", "leakage_gate_applied", "scores"],
+  "properties": {
+    "digest": {
+      "$ref": "urn:adityanet:contract:common:1#/$defs/digest",
+      "description": "sha256 over the five input digests below."
+    },
+    "method_release":      { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+    "dataset_release":     { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+    "label_release":       { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+    "protocol":            { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+    "environment_release": { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+    "reproduction_class": {
+      "enum": ["EXACT", "EQUIVALENT", "UNREPRODUCIBLE"],
+      "description": "EXACT: five inputs and platform match, bit-identical scores guaranteed. EQUIVALENT: platform differs, scores agree within the Protocol's tolerance. UNREPRODUCIBLE: any input unpinned — such an evaluation may not be published or persisted (ADR-0021, STD-21)."
+    },
+    "leakage_gate_applied": {
+      "type": "boolean",
+      "description": "Whether the gate was enforceable. false where the Protocol sets requires_bitemporal = false, so a reader can see which guarantee was in force rather than assuming (ADR-0022)."
+    },
+    "scores": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["metric", "value", "interval", "denominator"],
+        "properties": {
+          "metric": { "type": "string", "minLength": 1 },
+          "value": { "type": "number" },
+          "interval": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["lower", "upper", "level", "estimator", "exchangeable_unit"],
+            "properties": {
+              "lower": { "type": "number" },
+              "upper": { "type": "number" },
+              "level": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1 },
+              "estimator": { "type": "string", "minLength": 1 },
+              "exchangeable_unit": { "type": "string", "minLength": 1 }
+            },
+            "description": "Required, not optional. A bare number without its uncertainty is the figure this platform exists to refuse (STD-05)."
+          },
+          "denominator": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "What the metric was computed over. A rate without its denominator cannot be weighed against another."
+          }
+        }
+      }
+    }
+  }
+}

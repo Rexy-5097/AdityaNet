@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:adityanet:contract:evidence-binding:1",
+  "title": "EvidenceBinding",
+  "description": "The link from a published value to the bytes it came from. What makes 'our figures are traceable' an enforced property rather than a convention (ADR-0012).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["claim_id", "measurement_key", "artifact", "pointer", "artifact_digest", "run_id"],
+  "properties": {
+    "claim_id": { "type": "string", "minLength": 1 },
+    "measurement_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What a rendering component accepts. There is deliberately no `value` field: a component cannot be passed a number, so a number cannot reach a page without existing in an artifact first."
+    },
+    "artifact": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Repository-relative path of the artifact the value was read from."
+    },
+    "pointer": {
+      "type": "string",
+      "pattern": "^(/([^/~]|~[01])*)*$",
+      "description": "RFC 6901 JSON Pointer into that artifact. Empty string is the whole document."
+    },
+    "artifact_digest": {
+      "$ref": "urn:adityanet:contract:common:1#/$defs/digest",
+      "description": "Digest of the exact bytes read. The gate re-reads the artifact and compares; drift fails the build."
+    },
+    "run_id": { "$ref": "urn:adityanet:contract:common:1#/$defs/run_id" }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:adityanet:contract:method-release:1",
+  "title": "MethodRelease",
+  "description": "An immutable, retrievable detector. Method, not Model: the winning method in this domain is a threshold on a count rate, and a Model-centric vocabulary would structurally privilege machine learning (ADR-0002, ADR-0010).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["method_id", "digest", "artifact_digest", "declared_instruments", "parameters", "training_provenance"],
+  "properties": {
+    "method_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+    "digest": { "$ref": "urn:adityanet:contract:common:1#/$defs/digest" },
+    "artifact_digest": {
+      "$ref": "urn:adityanet:contract:common:1#/$defs/digest",
+      "description": "The serialised method itself. A benchmark whose methods cannot be retrieved is a report."
+    },
+    "declared_instruments": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "urn:adityanet:contract:common:1#/$defs/instrument_id" },
+      "description": "Every instrument this method consumes. The engine asserts this is a subset of the Protocol's permitted_instruments and refuses to score on mismatch. v1 declared exactly this metadata correctly and never compared it against anything (ADR-0011, SALVAGE-002)."
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Fitted or chosen parameters. Open by necessity — a method's parameter set is its own, and enumerating them here would make the contract method-specific."
+    },
+    "training_provenance": {
+      "oneOf": [
+        { "$ref": "urn:adityanet:contract:common:1#/$defs/run_id" },
+        { "type": "null" }
+      ],
+      "description": "The run that produced this release, or null for a method with no fitting step. A threshold detector legitimately has none."
+    }
+  }
+}

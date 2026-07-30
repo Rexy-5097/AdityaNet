@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:adityanet:contract:observation:1",
+  "title": "Observation",
+  "description": "One measured quantity, at one valid time, from one Instrument, via one Source. Bitemporal by construction (ADR-0004).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["source_id", "instrument_id", "quantity", "unit", "valid_time", "ingest_time", "value", "source_digest"],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "description": "Channel of acquisition. Distinct from instrument_id: a Source is how data was obtained, an Instrument is what measured it (ADR-0003)."
+    },
+    "instrument_id": { "$ref": "urn:adityanet:contract:common:1#/$defs/instrument_id" },
+    "quantity": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What was measured, in the instrument's own terms. Deliberately not an enumeration: the kernel and contracts carry no domain vocabulary (ADR-0026)."
+    },
+    "unit": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unit of `value`. Required even when dimensionless, so a reader never infers it."
+    },
+    "valid_time": {
+      "$ref": "urn:adityanet:contract:common:1#/$defs/timestamp",
+      "description": "When the phenomenon occurred. Always known (ADR-0004)."
+    },
+    "ingest_time": {
+      "oneOf": [
+        { "$ref": "urn:adityanet:contract:common:1#/$defs/timestamp" },
+        { "type": "null" }
+      ],
+      "description": "When this system learned it. null means exactly one thing: unknown, predates bitemporal capture (ADR-0022, L-11). Never fabricated, never defaulted, never inferred. Required as a field so that absence cannot be confused with unknown."
+    },
+    "value": {
+      "type": ["number", "null"],
+      "description": "null means observed to be absent. Never imputed, never zero-filled: zero is a valid measurement (ADR-0017, L-07)."
+    },
+    "quality_flags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true,
+      "default": [],
+      "description": "Instrument-declared quality conditions. Present flags are problems."
+    },
+    "source_digest": {
+      "$ref": "urn:adityanet:contract:common:1#/$defs/digest",
+      "description": "Digest of the raw artifact this row was parsed from. Provenance is a column, not a document."
+    }
+  }
+}
