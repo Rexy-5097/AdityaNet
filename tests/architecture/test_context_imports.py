@@ -64,6 +64,12 @@ CONTEXT_RULES = [
 
 CONTEXT_NAMES = [name for name, _, _ in CONTEXT_RULES]
 
+#: This repository's own package roots. An `allow` entry outside this set is a third-party
+#: library, which ADR-0026 does not govern and does not grant by default.
+INTERNAL_ROOTS = frozenset(
+    {"kernel", "domain", "contexts", "contracts", "apps", "tools", "tests", "registry"}
+)
+
 
 def load_gate(root: Path):
     """Load the analyser with its repository root re-pointed at a fixture tree.
@@ -124,9 +130,39 @@ def test_the_real_policy_set_covers_all_six_contexts():
     for name, allow, citation in CONTEXT_RULES:
         policy = declared.get(f"contexts.{name}")
         assert policy is not None, f"contexts.{name} has no import policy ({citation})"
-        assert policy.allow == allow, (
-            f"contexts.{name} permits {sorted(policy.allow)}, ADR-0026 grants {sorted(allow)}"
+        internal = policy.allow & INTERNAL_ROOTS
+        assert internal == allow, (
+            f"contexts.{name} permits internal {sorted(internal)}, "
+            f"ADR-0026 grants {sorted(allow)}"
         )
+
+
+def test_every_third_party_grant_is_named_and_is_not_a_context():
+    """A context may be granted a library. It may never be granted another context.
+
+    Comparing only the internal roots above would let a third-party grant appear unnoticed,
+    so every non-internal grant is enumerated here as well. Adding one is then two deliberate
+    edits — POLICIES and this list — rather than one silent widening. M3/E5/#17 granted
+    `astropy` to Ingest because the SoLEXS products are FITS; ADR-0026 grants none by default
+    (STD-11), which is what #13 recorded when it declined to pre-grant any.
+    """
+    from tools.gates.imports import GOVERNED_ROOTS, POLICIES
+
+    granted: dict[str, set[str]] = {}
+    for policy in POLICIES:
+        if not policy.package.startswith("contexts."):
+            continue
+        third_party = policy.allow - INTERNAL_ROOTS
+        assert not (third_party & set(GOVERNED_ROOTS)), (
+            f"{policy.package} grants {sorted(third_party & set(GOVERNED_ROOTS))}, which is "
+            f"a governed root of this repository, not a third-party library"
+        )
+        if third_party:
+            granted[policy.package] = third_party
+
+    assert granted == {"contexts.ingest": {"astropy"}}, (
+        f"third-party grants changed: {granted}"
+    )
 
 
 def test_no_context_policy_grants_the_contexts_root():

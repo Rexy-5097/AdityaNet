@@ -323,8 +323,15 @@ POLICIES = [
     # staleness check did its job on the way: with the modules added and the flag still False
     # the gate went red — "declared unpopulated but contains 7 module(s)" — which is exactly
     # what M2/E4/#13 built it for. The rule now binds against real code rather than a fixture.
+    #
+    # `astropy` granted by M3/E5/#17. The SoLEXS products are FITS, and reading FITS needs a
+    # FITS reader — hand-rolling one to avoid a dependency would be a far larger risk to
+    # scientific fidelity than the dependency is to the architecture. This is the path #13
+    # described when it declined to pre-grant third-party roots: "a context that later needs
+    # `astropy` should add one reviewable line rather than inherit a blanket permission
+    # nobody voted for (STD-11)." This is that line, and it grants astropy to Ingest only.
     Policy(package="contexts.ingest", populated=True,
-           allow=frozenset({"contracts", "domain", "kernel"})),
+           allow=frozenset({"contracts", "domain", "kernel", "astropy"})),
 
     # R2 — Curation. Freezes observations into digest-addressed releases; the kernel is what
     # mints those digests (ADR-0005, ADR-0006).
