@@ -318,7 +318,12 @@ POLICIES = [
 
     # R1 — Ingest. Acquires and canonicalises. Needs the vocabulary, the domain model and
     # the kernel to register raw artifacts as it acquires them (TIS E5 §19).
-    Policy(package="contexts.ingest", populated=False,
+    #
+    # `populated` flipped to True by M3/E5/#15, the first issue to put code in a context. The
+    # staleness check did its job on the way: with the modules added and the flag still False
+    # the gate went red — "declared unpopulated but contains 7 module(s)" — which is exactly
+    # what M2/E4/#13 built it for. The rule now binds against real code rather than a fixture.
+    Policy(package="contexts.ingest", populated=True,
            allow=frozenset({"contracts", "domain", "kernel"})),
 
     # R2 — Curation. Freezes observations into digest-addressed releases; the kernel is what
