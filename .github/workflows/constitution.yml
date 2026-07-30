@@ -97,8 +97,13 @@ jobs:
 
       - run: pip install pytest
 
+      # `domain` added by M2/E4/#12, which places the pure domain model's unit tests beside
+      # the code they test. Without it those 244 tests would exist and never run — the exact
+      # defect recorded as EPD-004 when the kernel landed, repeating one issue later.
+      # Reported as EPD-006: the Engineering Plan assigns unit tests to #12 and no issue owns
+      # extending the runner that executes them.
       - name: Unit tests beside their code
-        run: pytest kernel -q -rs
+        run: pytest kernel domain -q -rs
 
   # Integration tests cross a real boundary, and some of them assert on repository refs
   # rather than on files. Without this job they would never execute — the same gap that left
@@ -121,7 +126,11 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install pytest
+      # jsonschema added by M2/E4/#12: its conformance test validates the hand-written
+      # domain types against the normative contracts (ADR-0019), which cannot be done
+      # without a validator. The test skips rather than fails if the library is absent, so
+      # omitting this would have turned a cross-component check into a silent skip.
+      - run: pip install pytest jsonschema
 
       - name: Integration tests
         run: pytest tests/integration -q -rs

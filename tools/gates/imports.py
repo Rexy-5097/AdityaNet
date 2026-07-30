@@ -237,6 +237,16 @@ POLICIES = [
     # the gate rejected an earlier declaration of False, which is the `stale` check working.
     Policy(package="kernel", allow=frozenset(), allow_stdlib=True,
            exclude=("tests", "provenance")),
+    # ADR-0026 and TIS E4 §11(i): `domain/` imports the standard library only. `allow` is
+    # empty, so the package may import stdlib and itself and nothing else — notably not
+    # `kernel`, even though `kernel.provenance.Digest` would otherwise be the obvious thing
+    # to reach for. That edge is the one ADR-0026 forbids, and the gate is where the
+    # temptation is answered rather than resisted.
+    #
+    # Declared by M2/E4/#12, which is what put modules under `domain/`. The gate treats a
+    # package present in the tree with no policy as a failure, so this entry is not optional
+    # bookkeeping: without it the `architecture` job goes red.
+    Policy(package="domain", allow=frozenset(), allow_stdlib=True),
 ]
 
 
