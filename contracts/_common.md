@@ -27,6 +27,22 @@ extension; if one ever must, it will say so explicitly and say why.
 content. The `digest` definition is `^[0-9a-f]{64}$` — lower-case hex, fixed length —
 reused everywhere rather than restated, so the constraint cannot drift between contracts.
 
+## Conditional requirements
+
+`manifest.schema.json` is the first contract whose required fields depend on one of its own
+values, and it uses `if`/`then` rather than a looser schema plus a documented rule.
+
+The reason is [ADR-0023](../adr/ADR-0023.md). Tier 0 bytes are referenced and **never**
+redistributed; Tier 1 bytes are deposited externally; Tier 2 bytes live in git. Each tier
+therefore requires a different locator and must forbid the others. Expressed as a convention,
+"a Tier 0 manifest must not carry a deposition" is a sentence someone has to read. Expressed
+as `if tier = 0 then not deposition`, a manifest that would redistribute another
+organisation's raw archive **cannot be written**, and no reviewer has to notice.
+
+The same applies to retention ([STD-24](../standards/STD-24.md)): a `prunable` entry with a
+non-empty `referenced_by` is the one combination that would let a published claim lose the
+bytes underneath it, so the contract makes it unrepresentable rather than merely discouraged.
+
 ## Missing versus absent
 
 `null` and "field not present" are different, and the difference is load-bearing.

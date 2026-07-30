@@ -36,8 +36,8 @@ WHEN = "2026-07-30T12:00:00Z"
 
 EXPECTED_CONTRACTS = (
     "common", "dataset-release", "environment-release", "evaluation",
-    "evidence-binding", "label-release", "method-release", "observation",
-    "protocol", "provenance-record", "supersession",
+    "evidence-binding", "label-release", "manifest", "method-release",
+    "observation", "protocol", "provenance-record", "supersession",
 )
 
 
@@ -130,6 +130,15 @@ def valid(name: str) -> dict:
             "reason": "superseded by bitemporal schema", "effective_date": WHEN,
             "discovered_by": RUN_ID,
         },
+        # Tier 1 is the manifest's central case: a canonical release deposited externally
+        # and referenced from git by digest, DOI and URL (ADR-0023, E6 §7).
+        "manifest": {
+            "kind": "dataset", "digest": DIGEST, "tier": 1, "recorded_at": WHEN,
+            "retention": {"class": "permanent"},
+            "deposition": {"provider": "Zenodo",
+                           "url": "https://zenodo.org/records/1",
+                           "doi": "10.5281/zenodo.1"},
+        },
     }[name]
 
 
@@ -143,9 +152,15 @@ def test_exactly_the_expected_contracts_exist():
     assert found == EXPECTED_CONTRACTS
 
 
-def test_ten_object_contracts_plus_shared_definitions():
-    """TIS Part 1 specifies ten. `common` is definitions, not an object contract."""
-    assert len(CONTRACT_NAMES) == 10
+def test_the_object_contracts_are_the_ten_of_part_1_plus_the_tier_2_manifest():
+    """TIS Part 1 specifies ten; `common` is definitions, not an object contract.
+
+    The eleventh is `manifest`, added by M2/E4/#14 — E4 §2 lists the Tier 2 manifest format
+    in this epic's scope alongside the ten, and §15 row 14 assigns it its own issue.
+    """
+    assert len(CONTRACT_NAMES) == 11
+    assert "manifest" in CONTRACT_NAMES
+    assert "common" not in CONTRACT_NAMES
 
 
 @pytest.mark.parametrize("path", schema_paths(), ids=lambda p: p.stem)

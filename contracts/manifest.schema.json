@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:adityanet:contract:manifest:1",
+  "title": "Tier 2 manifest",
+  "description": "One entry in registry/. Git is the system of record for Tier 2, and a manifest is what git carries in place of the bytes (ADR-0023). It names an object by content digest and says where the bytes actually live, so that a release can be cited, re-acquired and verified without this repository ever holding it.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "digest", "tier", "recorded_at", "retention"],
+  "properties": {
+    "kind": {
+      "enum": [
+        "dataset",
+        "label",
+        "method",
+        "protocol",
+        "environment",
+        "evaluation",
+        "supersession"
+      ],
+      "description": "Which registry namespace this entry belongs to; the seven directories under registry/. Closed, because a manifest filed under a namespace nobody reads is indistinguishable from one that was never written."
+    },
+    "digest": {
+      "$ref": "urn:adityanet:contract:common:1#/$defs/digest",
+      "description": "The content address of the manifested object (ADR-0005). This is the identity — the filename, the namespace and the deposition URL are all conveniences that could be wrong; this cannot."
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "maxLength": 64,
+      "description": "The mutable name the object is published under — dataset_id, method_id and so on (ADR-0005). Optional, and never an identity: an Evaluation pins the digest above, never this."
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The version label under `name`. Human-facing; the digest is what is pinned."
+    },
+    "tier": {
+      "enum": [0, 1, 2],
+      "description": "ADR-0023. Tier 0: raw source archives, referenced by descriptor and NEVER stored or redistributed. Tier 1: canonical releases, deposited externally with a DOI. Tier 2: derived artifacts small enough that git is the system of record. The tier decides which of `retrieval`, `deposition` and `path` this manifest must carry, so it cannot be omitted or inferred."
+    },
+    "recorded_at": {
+      "$ref": "urn:adityanet:contract:common:1#/$defs/timestamp",
+      "description": "When this manifest entry was written. A recorded fact, not an identifier: ADR-0005 forbids timestamp identifiers for immutables, and the digest above is the identity."
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["class"],
+      "properties": {
+        "class": {
+          "enum": ["permanent", "prunable"],
+          "description": "ADR-0023 lifecycle and STD-24. `permanent`: a Tier 1 release, or a Tier 2 artifact referenced by an Evidence Binding. `prunable`: an unreferenced run artifact, eligible for pruning after 90 days. Declared rather than derived, so a retention run reads a decision instead of re-deriving one it could get wrong."
+        },
+        "referenced_by": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Claim identifiers whose Evidence Bindings depend on these bytes. A non-empty list is why `class` is permanent; E6 §11(iv) makes such an artifact never prunable."
+        },
+        "prune_after": {
+          "$ref": "urn:adityanet:contract:common:1#/$defs/timestamp",
+          "description": "The earliest instant this artifact may be pruned. Present only on a prunable entry, and absent rather than null on a permanent one — a permanent artifact has no such instant, and writing one would invite a reader to believe it does."
+        }
+      },
+      "description": "What may happen to these bytes, and when."
+    },
+    "retrieval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "locator"],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The archive holding the bytes, e.g. the ISSDC science archive."
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What a future reader needs in order to re-acquire this artifact from `provider`. ADR-0023 requires that any stage be able to re-acquire from the descriptor, so this is required rather than advisory."
+        },
+        "requires_credentials": {
+          "type": "boolean",
+          "description": "Whether re-acquisition needs an authenticated session. Recorded because a reader who cannot obtain one needs to know that before trying, not after. The credentials themselves never appear here or anywhere outside Ingest (STD-19)."
+        }
+      },
+      "description": "How to re-acquire Tier 0 bytes this repository deliberately does not hold (ADR-0023, STD-23)."
+    },
+    "deposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "url", "doi"],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Where the release was deposited — Zenodo, or the repository-release fallback."
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://",
+          "minLength": 1,
+          "description": "Where the deposited bytes can be fetched. https only: a plaintext locator for an artifact whose whole purpose is verifiable integrity would undermine the claim in transit."
+        },
+        "doi": {
+          "oneOf": [
+            { "type": "string", "pattern": "^10\\.[0-9]{4,9}/[^\\s]+$" },
+            { "type": "null" }
+          ],
+          "description": "The citable identifier, or null where the fallback path was used. Required as a field and nullable in value: ADR-0023 says the fallback degrades citability and that the degradation is published rather than hidden, so absence must be visible rather than expressed by omitting the field."
+        }
+      },
+      "description": "Where Tier 1 bytes were deposited (ADR-0023)."
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(^|/)\\.\\.(/|$)).+$",
+      "description": "Repository-relative path of a Tier 2 payload carried in git. Constrained to reject absolute paths and any `..` segment: a manifest is read by tooling that will open what it names, and a path escaping the repository root is the difference between reading an artifact and reading anything on the machine."
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "tier": { "const": 0 } }, "required": ["tier"] },
+      "then": {
+        "required": ["retrieval"],
+        "not": { "anyOf": [{ "required": ["deposition"] }, { "required": ["path"] }] }
+      },
+      "$comment": "Tier 0 is never deposited and never stored (ADR-0023, E6 §11(iii), STD-23). Making `deposition` and `path` structurally impossible here is stronger than a rule someone must remember: a manifest that would redistribute raw source bytes cannot be written."
+    },
+    {
+      "if": { "properties": { "tier": { "const": 1 } }, "required": ["tier"] },
+      "then": {
+        "required": ["deposition"],
+        "not": { "anyOf": [{ "required": ["retrieval"] }, { "required": ["path"] }] }
+      },
+      "$comment": "A Tier 1 release lives at its deposition. It has no retrieval descriptor — that form is for bytes this project does not hold — and it is not in git."
+    },
+    {
+      "if": { "properties": { "tier": { "const": 2 } }, "required": ["tier"] },
+      "then": {
+        "required": ["path"],
+        "not": { "anyOf": [{ "required": ["retrieval"] }, { "required": ["deposition"] }] }
+      },
+      "$comment": "Git is the system of record for Tier 2, so the payload is at a path and nowhere else."
+    },
+    {
+      "if": {
+        "properties": { "retention": { "properties": { "class": { "const": "permanent" } }, "required": ["class"] } },
+        "required": ["retention"]
+      },
+      "then": {
+        "properties": { "retention": { "not": { "required": ["prune_after"] } } }
+      },
+      "$comment": "A permanent artifact has no instant after which it may be pruned. Permitting a `prune_after` alongside `permanent` would let a manifest state a contradiction that a retention run would then have to arbitrate (STD-24, E6 §11(iv))."
+    },
+    {
+      "if": {
+        "properties": { "retention": { "properties": { "class": { "const": "prunable" } }, "required": ["class"] } },
+        "required": ["retention"]
+      },
+      "then": {
+        "properties": {
+          "retention": {
+            "required": ["prune_after"],
+            "properties": { "referenced_by": { "maxItems": 0 } }
+          }
+        }
+      },
+      "$comment": "A prunable artifact must say when, and must be referenced by nothing. E6 §11(iv): an artifact referenced by an Evidence Binding is NEVER pruned, so `prunable` with a non-empty `referenced_by` is the one combination that would let a published claim lose the bytes underneath it."
+    },
+    {
+      "if": { "properties": { "tier": { "const": 1 } }, "required": ["tier"] },
+      "then": { "properties": { "retention": { "properties": { "class": { "const": "permanent" } } } } },
+      "$comment": "ADR-0023 lifecycle: Tier 1 is permanent. A prunable Tier 1 release would make a DOI resolve to nothing."
+    }
+  ]
+}

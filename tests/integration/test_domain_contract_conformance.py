@@ -98,9 +98,14 @@ def validator_for(name: str):
 
 
 def test_the_contract_set_is_present():
-    """Fail closed: an empty scan would report success while checking nothing (STD-07)."""
+    """Fail closed: an empty scan would report success while checking nothing (STD-07).
+
+    Twelve since M2/E4/#14 added `manifest.schema.json`. The count is pinned rather than
+    derived so that a contract deleted or added without anyone updating its consumers is a
+    failure here rather than a silently smaller scan.
+    """
     schemas = [p for p in CONTRACTS.glob("*.schema.json") if not p.name.startswith("._")]
-    assert len(schemas) == 11, f"expected 11 contracts, found {len(schemas)}"
+    assert len(schemas) == 12, f"expected 12 contracts, found {len(schemas)}"
 
 
 # ═══════════════════════════════════════════════ 1. every entity conforms to its contract
@@ -134,8 +139,17 @@ def test_a_valid_contract_document_reconstructs_the_same_entity(cls, make, contr
 def test_every_contract_with_a_domain_entity_is_covered():
     """No contract may quietly lack a domain type.
 
-    The two exclusions are named rather than inferred, so adding a twelfth contract without a
-    corresponding entity fails here instead of passing unnoticed.
+    The exclusions are named rather than inferred, so a contract added without a
+    corresponding entity fails here instead of passing unnoticed. Three are excluded, each
+    for a stated reason:
+
+      common             a definitions file; nothing validates against it directly
+      provenance-record  the kernel's, and the domain may not import the kernel (ADR-0026)
+      manifest           M2/E4/#14 delivers the schema only. The issue's Unit column reads
+                         "manifest validity" — a schema test, not entity round-trip — and it
+                         explicitly ships no producer. A domain entity would be one, and
+                         E4 §5's internal modules do not list it. The producing code belongs
+                         to E6/#20-#21 (`contexts/curation/manifest`).
     """
     on_disk = {
         p.name.removesuffix(".schema.json")
@@ -143,7 +157,7 @@ def test_every_contract_with_a_domain_entity_is_covered():
         if not p.name.startswith("._")
     }
     covered = {contract for _, _, contract in ENTITY_CONTRACTS}
-    assert on_disk - covered == {"common", "provenance-record"}
+    assert on_disk - covered == {"common", "provenance-record", "manifest"}
 
 
 # ═══════════════════════════════════════════════ 2. the two agree on rejection
