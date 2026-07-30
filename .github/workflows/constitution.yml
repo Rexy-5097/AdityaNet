@@ -96,3 +96,29 @@ jobs:
 
       - name: Unit tests beside their code
         run: pytest kernel -q -rs
+
+  # Integration tests cross a real boundary, and some of them assert on repository refs
+  # rather than on files. Without this job they would never execute — the same gap that left
+  # the unit tests unrun until the kernel landed. Reported as EPD-005; no issue in the
+  # Engineering Plan assigns an integration job, while nine issues declare integration tests.
+  integration:
+    name: integration
+    runs-on: ubuntu-latest
+    steps:
+      # fetch-depth 0 and fetch-tags: the v1 recovery tag is a repository ref, and the
+      # default shallow checkout fetches neither history nor tags. A suite that skipped when
+      # the tag was missing would report green in exactly the situation the tag exists to
+      # prevent, so it must be present rather than optional.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pytest
+
+      - name: Integration tests
+        run: pytest tests/integration -q -rs
