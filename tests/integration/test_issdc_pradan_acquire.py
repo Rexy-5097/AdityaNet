@@ -338,7 +338,10 @@ def test_the_adapter_lives_within_the_ingest_import_rule():
     assert code == 0, report.violations
 
     ingest = next(p for p in POLICIES if p.package == "contexts.ingest")
-    assert ingest.allow == frozenset({"contracts", "domain", "kernel"})
+    internal = ingest.allow & {"contracts", "domain", "kernel", "contexts", "apps",
+                               "tools", "registry", "tests"}
+    assert internal == {"contracts", "domain", "kernel"}
+    assert "contexts" not in ingest.allow, "Ingest must reach no other context"
     assert ingest.populated is True
 
 

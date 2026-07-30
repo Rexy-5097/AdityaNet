@@ -95,7 +95,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install pytest
+      # numpy + astropy added by M3/E5/#17: the SoLEXS products are FITS, and the parsers'
+      # unit tests build real FITS fixtures to fire each fail-loud rule against. Without
+      # these the whole parser suite would error at import rather than run.
+      - run: pip install pytest numpy astropy
 
       # `domain` added by M2/E4/#12 and `contexts` by M3/E5/#15, each placing its unit tests
       # beside the code they test. Without the path here those tests would exist and never
@@ -134,7 +137,9 @@ jobs:
       # domain types against the normative contracts (ADR-0019), which cannot be done
       # without a validator. The test skips rather than fails if the library is absent, so
       # omitting this would have turned a cross-component check into a silent skip.
-      - run: pip install pytest jsonschema
+      # astropy + numpy added by M3/E5/#17 for the same reason as the unit job; jsonschema
+      # was added by #12 to validate the domain against the normative contracts.
+      - run: pip install pytest jsonschema numpy astropy
 
       - name: Integration tests
         run: pytest tests/integration -q -rs

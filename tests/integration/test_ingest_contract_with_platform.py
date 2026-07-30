@@ -332,7 +332,13 @@ def test_the_ingest_context_imports_only_what_adr_0026_grants():
 
     ingest = next(p for p in POLICIES if p.package == "contexts.ingest")
     assert ingest.populated is True, "the ingest policy still declares itself unpopulated"
-    assert ingest.allow == frozenset({"contracts", "domain", "kernel"})
+
+    # Internal grants are exactly ADR-0026's. `astropy` was added by M3/E5/#17 because the
+    # SoLEXS products are FITS; it is a library, not a context, which is the part that matters.
+    internal = ingest.allow & {"contracts", "domain", "kernel", "contexts", "apps",
+                               "tools", "registry", "tests"}
+    assert internal == {"contracts", "domain", "kernel"}
+    assert "contexts" not in ingest.allow
 
     report, code = run(POLICIES)
     assert code == 0, report.violations
