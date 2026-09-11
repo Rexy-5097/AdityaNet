@@ -12,5 +12,7 @@ a record showing only accepted outcomes hides its most informative part.
 | [CONTRA-004](CONTRA-004.md) | CLOSED | `r4` | two HEL1OS parser-level rules are falsified |
 | [CONTRA-005](CONTRA-005.md) | CLOSED | `r5` | the archive-wide build falsifies three frozen rules |
 | [CONTRA-006](CONTRA-006.md) | CLOSED | `—` | two §2.8 HK checks falsified by the archive-wide rebuild |
+| [CONTRA-007](CONTRA-007.md) | CLOSED | `r7` | HEL1OS time comparisons are undecidable at float64 resolution |
+| [CONTRA-008](CONTRA-008.md) | OPEN | `—` | §2.5's non-decreasing event rule is falsified by every event HDU in the archive |
 
 Governing specification: [SPEC-parsers](../parsers/SPEC-parsers.md).

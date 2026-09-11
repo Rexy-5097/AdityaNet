@@ -2,8 +2,8 @@
 id: SPEC-parsers
 title: Real FITS parser specification (contract)
 status: active
-revision: r6
-revisions: [r0, r1, r2, r3, r4, r5, r6]
+revision: r7
+revisions: [r0, r1, r2, r3, r4, r5, r6, r7]
 supersedes: []
 superseded_by: null
 source: artifacts/v2/phase05/PARSER_SPECIFICATION.md
@@ -13,7 +13,9 @@ source_date: 2026-07-17
 > Carried verbatim from `artifacts/v2/phase05/PARSER_SPECIFICATION.md`. This is a **contract**: the parsers
 > implement it, and a deviation requires a logged amendment, not a code change.
 > Amendments are adjudicated in [contradiction records](../contradictions/index.md).
-> Current revision **r6**; history in the Revision History section below.
+> Current revision **r7**; history in the Revision History section below.
+> r0–r6 are carried from the source artifact. **r7 is authored in-tree** and has no counterpart there;
+> every r7 change is marked *AMENDED r7* at the point of use, and the text it replaces is quoted, not deleted.
 
 # Phase 0.5.2 — Real FITS Parser Specification (CONTRACT)
 
@@ -132,7 +134,8 @@ The implication is the strong half: it forbids the dangerous direction while ass
 **Columns:** `mjd` (D), `hlsobt` (D, `s`), `currtemp` (D, `degC`), `chn` (I), `ener` (D, **`keV`**), `recnum` (J), `utc-isot` (23A); **CZT additionally** `pix` (B), `offsetchn` (I).
 **Timestamps:** header `TSTART/TSTOP` in **MJD** (61017.0000988685 = 2025-12-08); columns provide `mjd`, spacecraft `hlsobt`, and an ISO string — **three redundant representations**. Canonical = `mjd`; `utc-isot` is a cross-check (V-EVT-2).
 **Units:** `ener` is **already energy-calibrated in keV** (unlike SoLEXS). `currtemp` is a per-event detector temperature.
-**Validation:** all 4 HDUs present (F-03); `DETNAM` matches EXTNAME; `mjd` non-decreasing; `ener>0`; `mjd` within `[TSTART,TSTOP]`.
+**Validation (AMENDED r7 — see §10 / CONTRA-007 Defect C):** all 4 HDUs present (F-03); `DETNAM` matches EXTNAME; `mjd` non-decreasing *(retained exactly as written — its archive-wide falsification is recorded OPEN in CONTRA-008 and is not amended here)*; `ener>0`; **`mjd` within `[TSTART − ε_t, TSTOP + ε_t]`** (§5.1; a violation → F-06); **V-EVT-2:** `|instant(mjd) − instant(utc-isot)| ≤ ½·r_isot + ε_t`, where `r_isot` is the resolution the `utc-isot` string itself carries (10⁻³ s for the observed 23-character form `YYYY-MM-DDTHH:MM:SS.sss`); an unparseable string or a violation → F-06.
+*r6 text, superseded by r7:* "`mjd` within `[TSTART,TSTOP]`" — no comparison precision and no rule id; and V-EVT-2 named as a cross-check without a comparison rule.
 **Volume:** 85.7 GB total. **Not required for the canonical tables** — retained for Phase 1a pile-up/gain work. The 0.5.2 parser MUST expose an event reader but MUST NOT ingest events into the canonical minute tables.
 
 ### 2.6 HEL1OS `lightcurve_{czt,cdte}{1,2}.fits` — band light curves
@@ -167,11 +170,13 @@ An unlisted `(family, DETCHANS)` pair **terminates via F-07** — exactly as an 
 >
 > | # | Hypothesis | Accept iff |
 > |---|---|---|
-> | **H3** | **relative seconds from header `TSTART`** *(the observed convention)* | `col[0] == 0` exactly **and** `abs(col_span − header_span)` ≤ one `EXPOSURE` bin |
+> | **H3** | **relative seconds from header `TSTART`** *(the observed convention)* | `col[0] == 0` exactly **and** `abs(col_span − header_span)` ≤ one `EXPOSURE` bin **+ ε_t** *(amended r7; r4 text: "≤ one `EXPOSURE` bin")* |
 > | H1 | MJD days | `abs(col[0] − header TSTART) × 86400` ≤ 1 s |
 > | H2 | Unix seconds | `abs(col[0] − unix(header TSTART))` ≤ 1 s |
 >
 > **H3 is tested first** because `unit='s'` literally declares seconds. **H1 and H2 are retained for future compatibility** — a reprocessed product could legitimately switch to an absolute epoch, and silently mis-reading it would be worse than an extra branch. The resolved hypothesis and its residual are recorded in T7 provenance.
+>
+> **Definitions (AMENDED r7 — see §10 / CONTRA-007 Defect A).** `col_span = column TSTOP[last] − column TSTART[0]` — the covered interval, from the first bin's start to the last bin's end. `header_span = (header TSTOP − header TSTART) × 86400 s`. `EXPOSURE` is the declared bin width. `ε_t` is the §5.1 time-representation allowance: it is added to the one-bin bound and never widens it to a second bin. The r4 text left `col_span` undefined and stated the bound exactly; on valid archive products the float64 MJD subtraction alone exceeds an exact one-bin bound (CONTRA-007). H1's and H2's 1 s bounds are unchanged.
 >
 > `OBSERVED` (`hel1os_czt_spectra_czt1.fits`, orbit `HLS_20251208_000008`): col `TSTART` = `[0.0, 20.0, 40.0, …, 43120.0]`, uniform `EXPOSURE` = 20.0 s, header span 43,160.0 s → **H3**.
 
@@ -193,7 +198,7 @@ An unlisted `(family, DETCHANS)` pair **terminates via F-07** — exactly as an 
 **Validation (AMENDED r4 — see §10 / CONTRADICTION-004 Defect B).** The strict **non-decreasing** requirement is **REMOVED**: it is falsified by the archive. `mjd` is a *measurement* written in telemetry-arrival order, not a sorted index. Validation is now:
 - `mjd` **finite**;
 - `mjd` **unique** (duplicates remain F-16 — a repeated timestamp is a genuine defect);
-- **header-span consistency**: the global `mjd` range lies within the header `TSTART`/`TSTOP`;
+- **header-span consistency** *(AMENDED r7 — see §10 / CONTRA-007 Defect B)*: `TSTART − ε_t ≤ min(mjd)` and `max(mjd) ≤ TSTOP + ε_t` (§5.1); a violation → F-06. *r4 text, superseded by r7:* "the global `mjd` range lies within the header `TSTART`/`TSTOP`" — no comparison precision and no rule id;
 - **inversion statistics recorded** (not thresholded): `n_out_of_order` and `max_backward_step_s` in T7 provenance;
 - `czt1temp`/`czt2temp` finite; `suninfov ∈ {0,1}`.
 
@@ -317,6 +322,17 @@ One row per parsed source file: `src_file`, `src_sha256` (must equal 0.5.1 manif
 | F-20 | Output row count ≠ expected minutes for the day | Silent loss |
 
 **F-12 is the single deliberate non-terminating rule** and is enumerated here so the exception is explicit rather than discovered.
+
+### 5.1 Time-representation allowance `ε_t` *(added r7 — see §10 / CONTRA-007)*
+
+**`ε_t = 1 ms`** (1.157407407×10⁻⁸ MJD day).
+
+Where this contract compares a HEL1OS time derived from an MJD value — or a column offset composed onto one — against a bound or against another representation of the same instant, the comparison is made with `ε_t`: **§2.5** span and V-EVT-2, **§2.7** R-1 H3, **§2.8** header-span consistency. **Nowhere else.**
+
+- **What it absorbs:** numerical representation only. Header MJD keywords and time columns are IEEE-754 float64. One representable step of an MJD value is ≈ 6.3×10⁻⁷ s between MJD 32,768 and 65,535 (≈ 1.3×10⁻⁶ s from MJD 65,536), and time-offset columns are written at 10⁻⁶ s. Such values cannot be compared below the microsecond scale; a strict inequality there tests float representation, not data validity (CONTRADICTION-006 Defect A).
+- **What it is not:** a physical tolerance, a jitter allowance, or a timing-accuracy claim. It never applies to physical time differences — §2.8 inversion statistics, GTI durations, §2.6's strictly increasing `MJD`, or F-09's exact SoLEXS identity — and it does not alter H1's or H2's 1 s bounds.
+- **Why 1 ms:** it is the value the owner approved as the representation slack in CONTRADICTION-006 Defect A — applied there in code only, with this text left unchanged — and the value the Milestone V–VII parsers applied to R-1. r7 moves it from code into the contract. It lies about three orders of magnitude above the representation scale and at least three below the physical scales the checks protect: the 1 s light-curve cadence, the 20 s spectral bin, and the seconds-or-more of a wrong epoch, day or origin. A disagreement of 1 ms or more is reported, never absorbed.
+- **No archive statistic is encoded here.** The measurements that motivated r7 are recorded in CONTRA-007.
 
 ---
 
@@ -484,3 +500,15 @@ Original contract, grounded in structure-only schema discovery of the real archi
 **Unchanged.** All rules, all other schemas, every measurement. r6 changes contract prose to match an owner-accepted table shape; it alters no value and adds no rule id.
 
 **Disposition.** T3 deviation **RATIFIED**. Milestone VII **CLOSED**; dataset version **FROZEN**. **Milestone VIII is now the final validation milestone: it shall discharge A-8, A-11, A-12, A-13, A-14 and resolve CONTRADICTION-003 through archive-wide scientific validation.**
+
+### r7 — 2026-09-12 (maintainer-approved direction D1/D1b for M3/E5 Issue #18; authored in-tree; raised by CONTRA-007)
+
+**Trigger.** The governed re-implementation of the HEL1OS parsers (M3/E5 Issue #18) was verified against all 391 orbits. Implemented from the r6 text alone, R-1 H3 rejected **647 of 1,564** spectra products and §2.8 header-span consistency rejected **94 of 391** housekeeping products — every rejection within about two representable float64 steps of its bound, and none by as much as 2×10⁻⁶ s. CONTRADICTION-006 Defect A had approved a 1 ms representation slack for §2.8 as an implementation-only fix and left this text unchanged, and the Milestone V parsers carried the same slack in R-1; a faithful implementation of the contract text therefore reproduced the rejections. The defect is the contract's silence about comparison precision, not the data.
+
+**Changes.** §5.1 added: the time-representation allowance `ε_t = 1 ms`, its scope (§2.5, §2.7 R-1 H3, §2.8 header span only) and what it is not. §2.7 R-1 H3's bound becomes one `EXPOSURE` bin + `ε_t`, with `col_span` and `header_span` defined. §2.8 header-span consistency is stated as inequalities with `ε_t` and assigned F-06. §2.5 `mjd` within `[TSTART, TSTOP]` gains `ε_t` and F-06, and V-EVT-2 receives a comparison rule (`≤ ½·r_isot + ε_t`, F-06). Every replaced clause is quoted beside its amendment.
+
+**Unchanged.** Every other rule, schema and policy. §2.5 `mjd` non-decreasing is **not** amended: its archive-wide falsification is recorded OPEN in CONTRA-008 and awaits a ruling. No archive statistic enters the contract. The 20 fail-loud rule ids are untouched; r7 assigns F-06 to §2.5 and §2.8 time checks that carried no id.
+
+**Bound value.** The direction — make these comparisons numerically well defined through a recorded amendment rather than a silent tolerance — was approved by the maintainer. The value `ε_t = 1 ms` is carried from CONTRADICTION-006 Defect A and is submitted for maintainer review with the Issue #18 pull request.
+
+**Disposition.** **CONTRA-007: CLOSED** by this revision. **CONTRA-008: OPEN.**

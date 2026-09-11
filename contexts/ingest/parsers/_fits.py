@@ -13,8 +13,16 @@ So there is no `get` here. `keyword()` raises. `column()` raises. A caller who w
 tolerated absence must say so at the call site, in one place, with a reason — as `.hk`
 absence is tolerated for v1.0 archives (§2.4) and an empty GTI is tolerated for SDD1 (F-12).
 
-Three parsers use this (`lc`, `pi`, `gti`), which satisfies STD-11's two-instance rule; it
-exists to centralise the ban rather than to anticipate a fourth.
+RELOCATED BY M3/E5/#18. It was written for the three SoLEXS parsers and lived beside them;
+the six HEL1OS parsers need the same ban, and importing it out of a sibling instrument's
+package would make one instrument's internals another's dependency. Nine call sites now,
+across two instruments — STD-11's two-instance rule satisfied twice over.
+
+The move changes no behaviour and no boundary: this module still imports only `domain.errors`,
+it knows no instrument's conventions, SoLEXS's `lc`, `pi` and `gti` call it exactly as before,
+and neither instrument package imports the other (asserted by the HEL1OS unit tests). #18 adds
+one accessor, `declared_unit`, so that a declared unit is read with the same no-default
+discipline as a keyword or a column.
 """
 
 from __future__ import annotations
@@ -93,4 +101,22 @@ def column(table: Any, name: str, *, source: str, hdu_name: str) -> Any:
     )
 
 
-__all__ = ["column", "expect", "fail", "hdu", "keyword"]
+def declared_unit(table: Any, name: str, *, source: str, hdu_name: str) -> str | None:
+    """The unit a column declares (`TUNITn`), or `None` when the product declares none.
+
+    `None` is returned as data, not replaced: an undeclared unit is a fact about the product
+    that a caller must handle at the call site, as §2.8 does for `czt2enth` (§8 A-4). The column
+    itself must exist — absence is F-04, exactly as in `column`.
+    """
+    wanted = name.upper()
+    for candidate in table.columns:
+        if candidate.name.upper() == wanted:
+            return None if candidate.unit is None else str(candidate.unit)
+    fail(
+        "F-04",
+        f"/{source}#{hdu_name}/{name}",
+        f"column {name!r} absent; present: {list(table.columns.names)}",
+    )
+
+
+__all__ = ["column", "declared_unit", "expect", "fail", "hdu", "keyword"]
