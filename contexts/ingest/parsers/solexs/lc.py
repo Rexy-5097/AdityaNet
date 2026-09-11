@@ -41,7 +41,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
-from contexts.ingest.parsers.solexs import _fits
+from contexts.ingest.parsers import _fits
 from domain.entities import Observation
 from domain.values import Digest, Identifier, Timestamp
 

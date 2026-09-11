@@ -48,7 +48,7 @@ from collections.abc import Iterator
 from dataclasses import dataclass
 from pathlib import Path
 
-from contexts.ingest.parsers.solexs import _fits
+from contexts.ingest.parsers import _fits
 from contexts.ingest.parsers.solexs.lc import LightCurve, unix_to_timestamp
 from domain.values import Digest, Identifier, Timestamp
 
